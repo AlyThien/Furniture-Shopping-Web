@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -7,28 +8,46 @@
 }
 
 body {
-    font-family: 'Roboto Serif', serif;
+    font-family: 'Roboto Serif', sans-serif;
 }
 
+/*Phần Header---------------------------------*/
 header {
     width: full;
-    color: white;
+    color: #E8F3DE;
     height: 60px;
     display: flex;
     background: linear-gradient(to right, #779F8B, #3B6D54, #1D3227);
     opacity: 70%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center; 
 }
 
 .Logo {
+    position: absolute;
+    left: 20px;
     font-family: 'Nunito', sans-serif;
     margin-left: 20px;
     font-size: 15px;
     display: flex;
     text-align: center;
     align-items: center;
+    line-height: 1.2;
 }
 
-.Main-Menu {
-    
+.Logo em {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 25px;
 }
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    padding-top: 0;
+}
+
+
+
 
