@@ -77,6 +77,7 @@ nav.Main-Menu a:hover {
 }
 
 /*Phần nội dung Main---------------------------------*/
+/*Phần video nền và slogan-----*/
 video {
     width: 100%;
     height: 100%;
@@ -129,7 +130,7 @@ video {
 
 .Slogan button {
     padding: 12px 24px;
-    font-size: 2opx;
+    font-size: 20px;
     color: #1D3227;
     border: none;
     border-radius: 25px;
@@ -142,8 +143,112 @@ video {
     color: #E8F3DE
 }
 
+ /*Phần sản phẩm mới-----*/
+#New-Product {
+    height: 920px;
+    background-color: #1D382C;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
 
+#New-Product .content-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 
+#New-Product .text-content {
+    width: 50%;
+    padding-left: 50px;
+}
 
+#New-Product h1 {
+    font-size: 55px;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: 200;
+    color: #E8F3DE;
+    line-height: 1.2;
+}
 
+#New-Product p {
+    font-size: 22px;
+    margin-bottom: 3rem;
+    font-style: italic;
+    font-weight: 100;
+    color: #E8F3DE; 
+}
 
+#New-Product button {
+    padding: 12px 24px;
+    background-color: #1D382C;
+    font-size: 20px;
+    color: #E8F3DE;
+    border: 12px 24px;
+    border-color: #E8F3DE;
+    border-style: solid;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#New-Product button:hover {
+    background-color: #E8F3DE;
+    color: #1D3227;
+}
+
+.New-Product-Image {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.New-Product-Image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.New-Product-Image::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1;
+}
+
+.New-Product-Image::after {
+    content: 'Luxury Furniture Collection';
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #E8F3DE;
+    font-size: 32px;
+    font-weight: 300;
+    font-style: italic;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.New-Product-Image {
+    position: relative;
+}
+
+.New-Product-Image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(29, 56, 44, 0.2),
+        rgba(29, 56, 44, 0.8)
+    );
+    z-index: 1;
+}
