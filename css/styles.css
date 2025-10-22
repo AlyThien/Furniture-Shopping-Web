@@ -17,7 +17,7 @@ header {
     color: #E8F3DE;
     height: 55px;
     display: flex;
-    background: linear-gradient(to right, #779F8B, #3B6D54, #1D3227);
+    background: linear-gradient(to right, #3B6D54, #1D3227);
     opacity: 90%;
     margin: 0 auto;
     justify-content: center;
@@ -101,7 +101,7 @@ video {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(125deg, rgba(61, 109, 84, 0.7), rgba(29, 50, 39, 0.7));
+    background-color: rgba(29, 50, 39, 0.8);
     z-index: 1; /* Lớp phủ sẽ nằm trên video nhưng dưới slogan */
 }
 
@@ -145,7 +145,7 @@ video {
 
  /*Phần sản phẩm mới-----*/
 #New-Product {
-    height: 920px;
+    height: 900px;
     background-color: #1D382C;
     display: flex;
     flex-direction: column;
@@ -251,4 +251,39 @@ video {
         rgba(29, 56, 44, 0.8)
     );
     z-index: 1;
+}
+
+/*Phần giới thiệu về chúng tôi-----*/
+#Why-Choose-Us {
+    height: 1024px;
+    background: linear-gradient(to bottom, #1D382C, #587959);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Why-Choose-Us .abtus-header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+#Why-Choose-Us h1 {
+    color: #E9FEF0;
+    font-size: 80px;
+    font-style: italic;
+}
+
+#Why-Choose-Us .abtus-header p {
+    color: #E9FEF0;
+    font-size: 27px;
+    line-height: 25px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+#Why-Choose-Us .Reasons {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
 }
