@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/Product.css">
+  </head>
+   <body>
+      <!--Phần Header-->
+    <header>
+        <div class="Logo">
+            <p>
+                <a href="product_index.html"><em>Haguchi</em><br>
+                葉具家</a>
+            </p>
+        </div>
+        <nav class="Main-Menu">
+            <ul>
+                <li><a href="">Products</a></li>
+                <li><a href="">About us</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Policies</a></li>
+            </ul>
+        </nav>
+        <nav class="Sub-Menu">
+            <ul>
+                <li>Hi</li>
+                <li><a href="">Cart</a></li>
+            </ul>
+    </header>
+<!-- ===================== PRODUCT SHOWCASE ===================== -->
+<section class="product-display">
+  <h1>L-shaped sofa</h1>
+  <div class="slider">
+    <button class="product-nav" id="prevBtn">‹</button>
+    <img src="Product/Ảnh/11.jpg" id="productImage" alt="Sofa" />
+    <button class="product-nav" id="nextBtn">›</button>
+ 
+      <div class="product-info">
+  <div class="product-price" id="productPrice">9.500.000 đ</div>
+  <button class="add-btn">Add to wishlist</button>
+   </div>
+      </div>
+</section>
+
+<!-- Popup Wishlist -->
+<div class="wishlist-popup" id="wishlistPopup">
+  <div class="wishlist-content">
+    <h2>Your wishlist</h2>
+    
+    <button class="view-btn">View wishlist</button>
+    <button class="keep-btn">Keep shopping</button>
+  </div>
+</div>
+
+<script>
+  const addBtn = document.querySelector('.add-btn');
+const popup = document.getElementById('wishlistPopup');
+const keepBtn = document.querySelector('.keep-btn');
+
+addBtn.addEventListener('click', () => {
+  popup.style.display = 'flex';
+});
+
+keepBtn.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+</script>
+
+<!-- ===================== JAVASCRIPT ===================== -->
+<script> 
+  const products = [
+  {
+    title: "L-shaped sofa",
+    img: "Product/Ảnh/9.png",
+    price: "9.500.000 đ",
+    desc: "The L-shaped sofa is designed to embrace your living space with versatility and comfort...",
+  },
+  {
+    title: "Corner Sofa Deluxe",
+    img: "Product/Ảnh/10.png",
+    price: "11.000.000 đ",
+    desc: "A premium corner sofa designed for elegance and space efficiency...",
+  },
+  {
+    title: "Modern Armchair",
+    img: "Product/Ảnh/12.png",
+    price: "4.200.000 đ",
+    desc: "This modern armchair offers a perfect mix of style and comfort...",
+  },
+  {
+    title: "Modern Armchair",
+    img: "Product/Ảnh/13.png",
+    price: "4.200.000 đ",
+    desc: "This modern armchair offers a perfect mix of style and comfort...",
+  },
+];
+
+let index = 0;
+
+const img = document.getElementById("productImage");
+const price = document.getElementById("productPrice");
+const desc = document.getElementById("productDesc");
+const prev = document.getElementById("prevBtn");
+const next = document.getElementById("nextBtn");
+
+function updateProduct() {
+  img.src = products[index].img;
+  price.textContent = products[index].price;
+  desc.textContent = products[index].desc;
+}
+
+prev.addEventListener("click", () => {
+  index = (index - 1 + products.length) % products.length;
+  updateProduct();
+});
+
+next.addEventListener("click", () => {
+  index = (index + 1) % products.length;
+  updateProduct();
+});
+
+updateProduct();
+</script>
+  </section>
+  <section class="product-description">
+  <p>
+    <em>
+      The L-shaped sofa is designed to embrace your living space with versatility and comfort. 
+      Perfect for families who love spending time together or anyone who enjoys stretching out after a long day, 
+      it creates a natural gathering spot for conversations, movies, or quiet moments alone. 
+      Its smart, space-efficient design fits beautifully in corners or open layouts alike — 
+      offering both style and function.<br><br>
+      With modular sections that adapt to your needs, you can easily reconfigure or expand your seating as your life evolves. 
+      Upholstered in soft, durable fabric, the sofa offers generous cushioning for deep relaxation, 
+      while its sleek silhouette keeps the room feeling open and modern.
+    </em>
+  </p>
+</section>
+
+   <!-- Gallery Section -->
+    <h2 class="gallery-title">Gallery</h2>
+<section class="hero-slider">
+  <div class="slide active" style="background-image: url('Product/Ảnh/1.png');">
+    <div class="text-overlay">
+      <h1>TROPICAL CALM</h1>
+      <p>Botanical Whisper</p>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('Product/Ảnh/2.png');">
+    <div class="text-overlay">
+      <h1>SCANDINAVIAN BRIGHT</h1>
+<p>Minimalist Warmth</p>
+  </div>
+  </div>
+  <div class="slide" style="background-image: url('Product/Ảnh/3.png');">
+    <div class="text-overlay">
+<h1>MODERN ZEN</h1>
+<p>Airy Elegance</p>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('Product/Ảnh/4.png');">
+    <div class="text-overlay">
+<h1>URBAN NEUTRAL</h1>
+<p>Sleek Storage Solution</p>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('Product/Ảnh/5.png');">
+    <div class="text-overlay">
+<h1>SYMMETRY LUXE</h1>
+<p>Balanced Grandeur</p>
+    </div>
+  </div>
+
+  <!-- Nút điều hướng -->
+  <button class="nav prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="nav next" onclick="changeSlide(1)">&#10095;</button>
+
+  <!-- Dấu chấm -->
+  <div class="dots" id="dots"></div>
+</section>
+
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('dots');
+let ind = 0;
+
+// Tạo dấu chấm tương ứng
+slides.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.addEventListener('click', () => showSlide(i));
+  dotsContainer.appendChild(dot);
+});
+const dots = dotsContainer.querySelectorAll('span');
+
+function showSlide(i) {
+  slides.forEach(s => s.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+  slides[i].classList.add('active');
+  dots[i].classList.add('active');
+  ind = i;
+}
+
+function changeSlide(n) {
+  ind = (ind + n + slides.length) % slides.length;
+  showSlide(ind);
+  
+}
+// Tự động chạy
+setInterval(() => changeSlide(1), 4000);
+
+// Hiển thị slide đầu tiên
+showSlide(ind);
+</script>
+
+<div style="height: 400px;"></div>
+
+  </body>
+</html>
