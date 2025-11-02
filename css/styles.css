@@ -136,6 +136,7 @@ video {
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: 'Nunito', sans-serif;
 }
 
 .Slogan button:hover {
@@ -145,112 +146,135 @@ video {
 
  /*Phần sản phẩm mới-----*/
 #New-Product {
-    height: 900px;
+    height: 1000px;
     background-color: #1D382C;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-}
-
-#New-Product .content-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-#New-Product .text-content {
-    width: 50%;
-    padding-left: 50px;
+    overflow: hidden;
 }
 
 #New-Product h1 {
-    font-size: 55px;
-    margin-bottom: 2rem;
-    font-style: italic;
-    font-weight: 200;
     color: #E8F3DE;
-    line-height: 1.2;
-}
-
-#New-Product p {
-    font-size: 22px;
-    margin-bottom: 3rem;
+    font-size: 60px;
+    text-align: left;
+    padding-top: 50px;
+    padding-left: 100px;
     font-style: italic;
-    font-weight: 100;
-    color: #E8F3DE; 
+    font-weight: 500;
 }
 
-#New-Product button {
-    padding: 12px 24px;
-    background-color: #1D382C;
-    font-size: 20px;
-    color: #E8F3DE;
-    border: 12px 24px;
-    border-color: #E8F3DE;
-    border-style: solid;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#New-Product button:hover {
-    background-color: #E8F3DE;
-    color: #1D3227;
-}
-
-.New-Product-Image {
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
+.content-wrapper {
     position: relative;
-}
-
-.New-Product-Image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.New-Product-Image::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    z-index: 1;
-}
-
-.New-Product-Image::after {
-    content: 'Luxury Furniture Collection';
-    position: absolute;
-    bottom: 40px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 800px;
+    padding: 50px;
+    background-color: #204533;
+    box-shadow: 0 30px 50px #3a6d44;
+}
+
+#slide {
+    width: max-content;
+}
+
+.item {
+    width: 400px;
+    height: 600px;
+    background-position: 50% 50%;
+    display: inline-block;
+    transition: 1s;
+    position: absolute;
+    z-index: 1;
+    background-size: 100%;
+}
+
+.item:nth-child(1) {
+    transform: translate(-130%);
+    opacity: 0;
+}
+
+.item:nth-child(2) {
+    transform: translate(-20%);
+}
+
+.item:nth-child(3) {
+    transform: translate(90%);
+}
+
+.item:nth-child(4) {
+    transform: translate(200%);
+}
+
+.item:nth-child(n+5) {
+    transform: translate(310%);
+    opacity: 0;
+}
+
+.item .overview-content {
+    position: relative;
+    top: 100%;
+    background-color: #3B6D54;
     color: #E8F3DE;
-    font-size: 32px;
-    font-weight: 300;
-    font-style: italic;
-    white-space: nowrap;
+    width: 100%;
+    padding: 0 10%;
+    text-align: center;
+    box-shadow: 0 30px 50px #0a1c14;
+    transition: 0.5s;
+    overflow: hidden;
+    max-height: 0;
+}
+
+.item:hover .overview-content {
+    max-height: 100px;
+}
+
+.item:hover {
+    background-size: 150%;
+}
+
+.controls {
+    position: absolute;
+    bottom: 40px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    display: flex;
+    gap: 20px; 
     z-index: 2;
 }
 
-.New-Product-Image {
+.controls button {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #E8F3DE;
+    border-radius: 50%;
+    background: transparent;
     position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.New-Product-Image::before {
+.controls button::before {
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(29, 56, 44, 0.2),
-        rgba(29, 56, 44, 0.8)
-    );
-    z-index: 1;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #E8F3DE;
+    border-right: 2px solid #E8F3DE;
+    top: 50%;
+    left: 50%;
+}
+
+.controls #overview-prev::before {
+    transform: translate(-25%, -50%) rotate(-135deg);
+}
+
+.controls #overview-next::before {
+    transform: translate(-75%, -50%) rotate(45deg);
+}
+
+.controls button:hover {
+    background: rgba(232, 243, 222, 0.2);
+    transform: scale(1.1);
 }
 
 /*Phần giới thiệu về chúng tôi-----*/
@@ -269,16 +293,16 @@ video {
 }
 
 #Why-Choose-Us h1 {
-    color: #E9FEF0;
-    font-size: 80px;
+    color: #C8E1CD;
+    font-size: 70px;
     font-style: italic;
 }
 
 #Why-Choose-Us .abtus-header p {
-    color: #E9FEF0;
-    font-size: 27px;
+    color: #C8E1CD;
+    font-size: 27px;    
     line-height: 25px;
-    font-weight: 700;
+    font-weight: 600;
     font-style: italic;
 }
 
@@ -286,4 +310,32 @@ video {
     display: flex;
     justify-content: space-around;
     width: 90%;
+}
+
+#Why-Choose-Us .Reason {
+    background: linear-gradient(to right, #B3C7B1, #90AD8C);
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0 30px 50px #3a6d44;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #1D3227;
+    font-weight: 600;
+    line-height: 25px;
+}
+
+#Why-Choose-Us .Reason h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    line-height: 35px;
+}
+
+#Why-Choose-Us .Reason:hover {
+    background: #FFF4DE;
+    color: #99B495;
+    transition: 1s;
 }
