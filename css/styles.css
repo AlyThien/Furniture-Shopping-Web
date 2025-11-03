@@ -61,7 +61,7 @@ nav.Sub-Menu {
     margin-right: 20px;
 }
 
-nav a:link, nav a:visited, li {
+nav a:link, a:visited, li {
     color: #E8F3DE;
     text-decoration: none;
     font-size: 19px;
@@ -75,6 +75,172 @@ nav.Main-Menu a:hover {
     color: #3B6D54;
     transition: 0.3s;
 }
+
+.fluent--search-12-filled {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M5 1a4 4 0 1 0 2.248 7.31l2.472 2.47a.75.75 0 1 0 1.06-1.06L8.31 7.248A4 4 0 0 0 5 1M2.5 5a2.5 2.5 0 1 1 5 0a2.5 2.5 0 0 1-5 0'/%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+#search-box {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#search-text {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(232, 243, 222, 0.1);
+    color: #E8F3DE;
+    font-size: 14px;
+    width: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#search-btn {
+    background: transparent;
+    border: none;
+    color: #E8F3DE;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+#search-box:hover #search-text {
+    width: 150px;
+    opacity: 1;
+}
+
+#search-text::placeholder {
+    color: rgba(232, 243, 222, 0.5);
+}
+
+#search-text:focus {
+    outline: none;
+    background: rgba(232, 243, 222, 0.15);
+}
+
+nav.Sub-Menu ul {
+    display: flex;
+    align-items: center;
+}
+
+.solar--heart-bold {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M2 9.137C2 14 6.02 16.591 8.962 18.911C10 19.729 11 20.5 12 20.5s2-.77 3.038-1.59C17.981 16.592 22 14 22 9.138S16.5.825 12 5.501C7.5.825 2 4.274 2 9.137'/%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+}
+
+nav.Sub-Menu li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang-toggle input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.solar--user-bold {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='6' r='4' fill='%23000'/%3E%3Cpath fill='%23000' d='M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+/* track */
+.lang-track {
+    position: relative;
+    width: 86px; /* adjust width */
+    height: 36px; /* adjust height */
+    background: rgba(232,243,222,0.06);
+    border: 1px solid rgba(232,243,222,0.12);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+/* option labels */
+.lang-opt {
+    width: 50%;
+    text-align: center;
+    z-index: 2;
+    font-size: 0.9rem;
+    color: rgba(232,243,222,0.7);
+    user-select: none;
+    transition: color 200ms ease;
+}
+
+/* sliding knob */
+.lang-knob {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    width: calc(50% - 8px);
+    height: calc(100% - 8px);
+    background: linear-gradient(180deg, #E8F3DE, #dbe6cd);
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    transition: transform 280ms cubic-bezier(.2,.9,.2,1), box-shadow 200ms;
+    z-index: 1;
+}
+
+/* when VI checked, move knob to right */
+#lang-vi:checked ~ .lang-track .lang-knob {
+    transform: translateX(113%);
+}
+
+/* color highlighting for selected label */
+#lang-en:checked ~ .lang-track .lang-en { color: #1D382C; font-weight:700; }
+#lang-vi:checked ~ .lang-track .lang-vi { color: #1D382C; font-weight:700; }
+
+/* hover effects */
+.lang-track:hover .lang-knob { box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+
+/* keep layout inside nav */
+.lang-switcher { display: flex; align-items: center; }
 
 /*Phần nội dung Main---------------------------------*/
 /*Phần video nền và slogan-----*/

@@ -1,0 +1,15 @@
+{
+    "en": {
+        "nav-products": "Products",
+        "nav-about": "About us",
+        "nav-blog": "Blog",
+        "nav-policies": "Policies"
+    },
+
+    "vi": {
+        "nav-products": "Sản phẩm",
+        "nav-about": "Về chúng tôi",
+        "nav-blog": "Blog",
+        "nav-policies": "Chính sách"
+    }
+}

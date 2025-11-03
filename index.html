@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haguchi-Homepage</title>
     <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+    <script src="js/common.js"></script>
 
-<body>
     <!--Phần Header-->
     <header>
         <div class="Logo">
@@ -17,16 +19,33 @@
         </div>
         <nav class="Main-Menu">
             <ul>
-                <li><a href="">Products</a></li>
-                <li><a href="">About us</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="">Policies</a></li>
+                <li><a href="" data-i18n="nav-products">Products</a></li>
+                <li><a href="" data-i18n="nav-about">About us</a></li>
+                <li><a href="" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="" data-i18n="nav-policies">Policies</a></li>
             </ul>
         </nav>
         <nav class="Sub-Menu">
             <ul>
-                <li>Hi</li>
-                <li><a href="">Cart</a></li>
+                <li>
+                    <form id="search-box" action="">
+                        <input type="text" id="search-text" placeholder="Search...">
+                        <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
+                    </form>
+                </li>
+                <li id="Wishlist"><a href=""><span class="solar--heart-bold"></span></a></li>
+                <li><span class="solar--user-bold"></span></li>
+                <li class="lang-switcher">
+                    <div class="lang-toggle" aria-label="Language switcher">
+                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')">
+                        <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
+                        <div class="lang-track">
+                            <label for="lang-en" class="lang-opt lang-en">EN</label>
+                            <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                            <div class="lang-knob" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                </li>
             </ul>
     </header>
 
@@ -41,7 +60,7 @@
             </video>
 
             <div class="Slogan">
-                <h1>Transfer Your Space with Timeless Furniture</h1>
+                <h1 data-i18n="welcome_message">Transfer Your Space with Timeless Furniture</h1>
                 <p>Designed to fit your life, not just your space</p>
                 <button>Explore now</button>
             </div>
