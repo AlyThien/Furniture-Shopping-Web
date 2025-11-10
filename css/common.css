@@ -1,3 +1,7 @@
+/* =========================================================
+COMMON.CSS - RESPONSIVE VERSION
+========================================================= */
+
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
 
@@ -11,7 +15,10 @@ body {
   font-family: "Roboto Serif", sans-serif;
 }
 
-/*Phần Header---------------------------------*/
+/* =========================================================
+HEADER - MOBILE FIRST
+========================================================= */
+
 header {
   width: 100%;
   color: #e8f3de;
@@ -20,25 +27,26 @@ header {
   background: linear-gradient(to right, #3b6d54, #1d3227);
   opacity: 90%;
   margin: 0 auto;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  padding: 0 15px;
 }
 
+/* --- Logo --- */
 .Logo {
-  position: absolute;
-  left: 20px;
   font-family: "Nunito", sans-serif;
-  margin-left: 20px;
-  font-size: 15px;
+  font-size: 13px;
   display: flex;
   text-align: center;
   align-items: center;
   line-height: 1.2;
+  flex-shrink: 0;
 }
+
 .Logo a:link,
 .Logo a:visited {
   color: #e8f3de;
@@ -47,30 +55,31 @@ header {
 
 .Logo em {
   font-weight: 500;
-  font-size: 25px;
+  font-size: 20px;
 }
 
+/* --- Navigation Base --- */
 nav ul {
   list-style-type: none;
   display: flex;
   padding-top: 0;
-}
-
-nav.Sub-Menu {
-  position: absolute;
-  right: 20px;
-  margin-right: 20px;
+  margin: 0;
 }
 
 nav a:link,
-a:visited,
-li {
+nav a:visited,
+nav li {
   color: #e8f3de;
   text-decoration: none;
-  font-size: 19px;
+  font-size: 16px;
   font-family: "Nunito", sans-serif;
-  padding: 8px 12px;
+  padding: 6px 8px;
   border-radius: 15px;
+}
+
+/* --- Main Menu - Ẩn trên mobile --- */
+nav.Main-Menu {
+  display: none;
 }
 
 nav.Main-Menu a:hover {
@@ -79,6 +88,25 @@ nav.Main-Menu a:hover {
   transition: 0.3s;
 }
 
+/* --- Sub Menu --- */
+nav.Sub-Menu {
+  display: flex;
+  align-items: center;
+}
+
+nav.Sub-Menu ul {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+nav.Sub-Menu li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Search Box --- */
 .fluent--search-12-filled {
   display: inline-block;
   width: 20px;
@@ -100,12 +128,12 @@ nav.Main-Menu a:hover {
 }
 
 #search-text {
-  padding: 8px 12px;
+  padding: 6px 10px;
   border: none;
   border-radius: 20px;
   background: rgba(232, 243, 222, 0.1);
   color: #e8f3de;
-  font-size: 14px;
+  font-size: 13px;
   width: 0;
   opacity: 0;
   transition: all 0.3s ease;
@@ -120,15 +148,16 @@ nav.Main-Menu a:hover {
   border: none;
   color: #e8f3de;
   cursor: pointer;
-  padding: 8px;
+  padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
 }
 
-#search-box:hover #search-text {
-  width: 150px;
+#search-box:hover #search-text,
+#search-box:focus-within #search-text {
+  width: 120px;
   opacity: 1;
 }
 
@@ -139,20 +168,15 @@ nav.Main-Menu a:hover {
 #search-text:focus {
   outline: none;
   background: rgba(232, 243, 222, 0.15);
-  opacity: 0.1;
 }
 
-nav.Sub-Menu ul {
-  display: flex;
-  align-items: center;
-}
-
+/* --- Icons --- */
 .solar--heart-bold {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   padding: 0;
   --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M2 9.137C2 14 6.02 16.591 8.962 18.911C10 19.729 11 20.5 12 20.5s2-.77 3.038-1.59C17.981 16.592 22 14 22 9.138S16.5.825 12 5.501C7.5.825 2 4.274 2 9.137'/%3E%3C/svg%3E");
   background-color: currentColor;
@@ -164,22 +188,10 @@ nav.Sub-Menu ul {
   mask-size: 100% 100%;
 }
 
-nav.Sub-Menu li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lang-toggle input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .solar--user-bold {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='6' r='4' fill='%23000'/%3E%3Cpath fill='%23000' d='M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5'/%3E%3C/svg%3E");
   background-color: currentColor;
   -webkit-mask-image: var(--svg);
@@ -190,73 +202,7 @@ nav.Sub-Menu li {
   mask-size: 100% 100%;
 }
 
-/* track */
-.lang-track {
-  position: relative;
-  width: 86px; /* adjust width */
-  height: 36px; /* adjust height */
-  background: rgba(232, 243, 222, 0.06);
-  border: 1px solid rgba(232, 243, 222, 0.12);
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4px;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
-/* option labels */
-.lang-opt {
-  width: 50%;
-  text-align: center;
-  z-index: 2;
-  font-size: 0.9rem;
-  color: rgba(232, 243, 222, 0.7);
-  user-select: none;
-  transition: color 200ms ease;
-}
-
-/* sliding knob */
-.lang-knob {
-  position: absolute;
-  top: 4px;
-  left: 6px;
-  width: calc(50% - 8px);
-  height: calc(100% - 8px);
-  background: linear-gradient(180deg, #e8f3de, #dbe6cd);
-  border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  transition: transform 280ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 200ms;
-  z-index: 1;
-}
-
-/* when VI checked, move knob to right */
-#lang-vi:checked ~ .lang-track .lang-knob {
-  transform: translateX(113%);
-}
-
-/* color highlighting for selected label */
-#lang-en:checked ~ .lang-track .lang-en {
-  color: #1d382c;
-  font-weight: 700;
-}
-#lang-vi:checked ~ .lang-track .lang-vi {
-  color: #1d382c;
-  font-weight: 700;
-}
-
-/* hover effects */
-.lang-track:hover .lang-knob {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-}
-
-/* keep layout inside nav */
-.lang-switcher {
-  display: flex;
-  align-items: center;
-}
-
+/* --- Wishlist Badge --- */
 #Wishlist {
   position: relative;
 }
@@ -267,15 +213,15 @@ nav.Sub-Menu li {
   right: -2px;
   background: #e8f3de;
   color: #1d382c;
-  font-size: 10px;
-  min-width: 15px;
-  height: 15px;
+  font-size: 9px;
+  min-width: 14px;
+  height: 14px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  padding: 0 4px;
+  padding: 0 3px;
 }
 
 #Wishlist a {
@@ -283,11 +229,82 @@ nav.Sub-Menu li {
   display: inline-block;
 }
 
-/*Phần Footer---------------------------------*/
+/* --- Language Switcher --- */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+}
+
+.lang-toggle input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lang-track {
+  position: relative;
+  width: 70px;
+  height: 30px;
+  background: rgba(232, 243, 222, 0.06);
+  border: 1px solid rgba(232, 243, 222, 0.12);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.lang-opt {
+  width: 50%;
+  text-align: center;
+  z-index: 2;
+  font-size: 0.75rem;
+  color: rgba(232, 243, 222, 0.7);
+  user-select: none;
+  transition: color 200ms ease;
+}
+
+.lang-knob {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: calc(50% - 6px);
+  height: calc(100% - 6px);
+  background: linear-gradient(180deg, #e8f3de, #dbe6cd);
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 280ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 200ms;
+  z-index: 1;
+}
+
+#lang-vi:checked ~ .lang-track .lang-knob {
+  transform: translateX(113%);
+}
+
+#lang-en:checked ~ .lang-track .lang-en {
+  color: #1d382c;
+  font-weight: 700;
+}
+
+#lang-vi:checked ~ .lang-track .lang-vi {
+  color: #1d382c;
+  font-weight: 700;
+}
+
+.lang-track:hover .lang-knob {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+FOOTER - MOBILE FIRST
+========================================================= */
+
 footer {
   background: #0b2d21;
   color: #fff;
-  padding: 0px 20px 20px;
+  padding: 0px 15px 20px;
   margin-top: 0;
   position: relative;
 }
@@ -295,30 +312,29 @@ footer {
 footer::before {
   content: "";
   position: absolute;
-  top: -20px;
+  top: -15px;
   left: 0;
   right: 0;
-  height: 20px;
+  height: 15px;
   background: #0b2d21;
   clip-path: ellipse(50% 100% at 50% 100%);
 }
 
 .footer-logo {
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 20px;
   font-family: "Nunito", sans-serif;
+  padding-top: 10px;
 }
 
 .footer-content {
-  width: calc(100% - 260px);
-  margin: 0 130px; /* cách 130px từ hai cạnh màn hình */
+  width: 100%;
+  margin: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cột đều nhau */
-  column-gap: 220px; /* khoảng cách giữa 3 cột ~220px */
-  row-gap: 30px;
-  margin-bottom: 30px;
-  align-items: start; /* căn top để các tiêu đề hàng đầu cùng hàng */
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
   box-sizing: border-box;
 }
 
@@ -329,8 +345,8 @@ footer::before {
 }
 
 .footer-section h3 {
-  margin-bottom: 15px;
-  font-size: 18px;
+  margin-bottom: 12px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -341,18 +357,21 @@ footer::before {
 }
 
 .footer-section li {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   line-height: 1.6;
+  font-size: 14px;
 }
 
 .footer-bottom {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 15px;
   border-top: 1px solid rgba(168, 196, 181, 0.2);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
+  font-size: 13px;
 }
 
 .footer-content a:link,
@@ -368,12 +387,12 @@ footer::before {
 
 .social-icons {
   display: flex;
-  gap: 15px;
+  gap: 12px;
 }
 
 .social-icon {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: rgba(168, 196, 181, 0.15);
   display: flex;
@@ -381,7 +400,284 @@ footer::before {
   justify-content: center;
   cursor: pointer;
   transition: background 0.3s;
+  font-size: 14px;
 }
+
 .social-icon:hover {
   background: rgba(168, 196, 181, 0.3);
+}
+
+/* =========================================================
+TABLET BREAKPOINT (768px+)
+========================================================= */
+
+@media (min-width: 768px) {
+  /* --- Header --- */
+  header {
+    padding: 0 30px;
+    justify-content: center;
+  }
+
+  .Logo {
+    position: absolute;
+    left: 30px;
+    font-size: 15px;
+  }
+
+  .Logo em {
+    font-size: 25px;
+  }
+
+  /* Hiện Main Menu */
+  nav.Main-Menu {
+    display: block;
+  }
+
+  nav.Main-Menu a:link,
+  nav.Main-Menu a:visited {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+
+  nav.Sub-Menu {
+    position: absolute;
+    right: 30px;
+  }
+
+  nav.Sub-Menu ul {
+    gap: 6px;
+  }
+
+  nav.Sub-Menu li {
+    font-size: 18px;
+  }
+
+  .solar--heart-bold,
+  .solar--user-bold {
+    width: 24px;
+    height: 24px;
+  }
+
+  #search-text {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  #search-box:hover #search-text,
+  #search-box:focus-within #search-text {
+    width: 150px;
+  }
+
+  #Wishlist .wishlist-count {
+    font-size: 10px;
+    min-width: 15px;
+    height: 15px;
+  }
+
+  .lang-track {
+    width: 86px;
+    height: 36px;
+    padding: 4px;
+  }
+
+  .lang-opt {
+    font-size: 0.9rem;
+  }
+
+  .lang-knob {
+    top: 4px;
+    left: 6px;
+    width: calc(50% - 8px);
+    height: calc(100% - 8px);
+  }
+
+  /* --- Footer --- */
+  footer {
+    padding: 0px 30px 20px;
+  }
+
+  footer::before {
+    top: -20px;
+    height: 20px;
+  }
+
+  .footer-logo {
+    font-size: 24px;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 40px;
+  }
+
+  .footer-section h3 {
+    font-size: 17px;
+  }
+
+  .footer-section li {
+    font-size: 15px;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    gap: 20px;
+    font-size: 14px;
+  }
+
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* =========================================================
+ DESKTOP BREAKPOINT (1024px+)
+========================================================= */
+
+@media (min-width: 1024px) {
+  header {
+    padding: 0 40px;
+  }
+
+  .Logo {
+    left: 40px;
+  }
+
+  nav.Main-Menu a:link,
+  nav.Main-Menu a:visited {
+    font-size: 19px;
+  }
+
+  nav.Sub-Menu {
+    right: 40px;
+  }
+
+  /* --- Footer --- */
+  footer {
+    padding: 0px 60px 20px;
+  }
+
+  .footer-content {
+    width: calc(100% - 260px);
+    margin: 0 130px;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 80px;
+    row-gap: 30px;
+  }
+
+  .footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .footer-section li {
+    margin-bottom: 10px;
+  }
+
+  .footer-bottom {
+    padding-top: 20px;
+  }
+}
+
+/* =========================================================
+ DESKTOP 1440px+
+========================================================= */
+
+@media (min-width: 1440px) {
+  .footer-content {
+    column-gap: 220px;
+  }
+}
+
+/* =========================================================
+Mobile < 480px
+========================================================= */
+
+@media (max-width: 479px) {
+  header {
+    height: 50px;
+    padding: 0 10px;
+  }
+
+  .Logo {
+    font-size: 11px;
+  }
+
+  .Logo em {
+    font-size: 18px;
+  }
+
+  nav a:link,
+  nav a:visited,
+  nav li {
+    font-size: 14px;
+    padding: 4px 6px;
+  }
+
+  nav.Sub-Menu ul {
+    gap: 2px;
+  }
+
+  .solar--heart-bold,
+  .solar--user-bold {
+    width: 20px;
+    height: 20px;
+  }
+
+  #search-box:hover #search-text,
+  #search-box:focus-within #search-text {
+    width: 100px;
+  }
+
+  .lang-track {
+    width: 64px;
+    height: 28px;
+  }
+
+  .lang-opt {
+    font-size: 0.7rem;
+  }
+
+  #Wishlist .wishlist-count {
+    font-size: 8px;
+    min-width: 12px;
+    height: 12px;
+  }
+
+  /* --- Footer --- */
+  footer {
+    padding: 0px 10px 15px;
+  }
+
+  .footer-logo {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .footer-content {
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .footer-section li {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .footer-bottom {
+    padding-top: 12px;
+    gap: 10px;
+    font-size: 12px;
+  }
+
+  .social-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
 }
