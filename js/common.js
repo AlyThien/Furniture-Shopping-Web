@@ -29,3 +29,42 @@
         }
     });
 })();
+
+//Phần thanh menu hamburger cho mobile
+(function(){
+    const menuToggle = document.querySelector('.icomoon-free--leaf');
+    const mainMenu = document.querySelector('nav.Main-Menu');
+    
+    if (!menuToggle || !mainMenu) return;
+
+    menuToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle class cho menu và icon
+        mainMenu.classList.toggle('active');
+        this.classList.toggle('active');
+        
+        // Ngăn scroll khi menu mở
+        document.body.classList.toggle('menu-open');
+    });
+
+    // Đóng menu khi click vào link
+    const menuLinks = mainMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mainMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+
+    // Đóng menu khi click bên ngoài
+    document.addEventListener('click', (e) => {
+        if (!mainMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+            mainMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+})();
