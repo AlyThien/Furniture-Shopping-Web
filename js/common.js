@@ -1,55 +1,31 @@
-let currentLang = 'en';
-let translations = {};
+// Phần quay lại đầu trang
+(function(){
+    const btn = document.getElementById('btn-top');
+    if (!btn) return;
 
-async function loadTranslation(page, lang) {
-    try {
-        // Tải đồng thời common + trang hiện tại
-        const [commonRes, pageRes] = await Promise.all([
-            fetch(`json-lang/common.json`),
-            fetch(`json-lang/${page}.json`)
-        ]);
+    const SHOW_AFTER = 300; // px scrolled before showing
 
-        if (!commonRes.ok || !pageRes.ok) throw new Error("File not found");
-
-        const [commonData, pageData] = await Promise.all([
-            commonRes.json(),
-            pageRes.json()
-        ]);
-
-        // Gộp: trang hiện tại ghi đè lên common nếu trùng key
-        translations = {
-            ...commonData[lang],
-            ...pageData[lang]
-        };
-
-        applyTranslations();
-        currentLang = lang;
-
-    } catch (err) {
-        console.error("Lỗi tải ngôn ngữ:", err);
-        alert("Không thể tải ngôn ngữ. Vui lòng kiểm tra kết nối hoặc file JSON.");
+    function update() {
+        if (window.scrollY > SHOW_AFTER) btn.classList.add('show');
+        else btn.classList.remove('show');
     }
-}
 
-function applyTranslations() {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[key] !== undefined) {
-            el.textContent = translations[key];
+    // show/hide on scroll
+    window.addEventListener('scroll', update, { passive: true });
+    // initial state
+    update();
+
+    // smooth scroll to top
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        btn.blur();
+    });
+
+    // keyboard accessibility (Enter / Space)
+    btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            btn.click();
         }
     });
-}
-
-function changeLanguage(lang) {
-    const page = document.body.dataset.page || 'home';
-    loadTranslation(page, lang);
-}
-
-// Khởi động khi trang tải xong
-document.addEventListener('DOMContentLoaded', () => {
-    const page = document.body.dataset.page || 'home';
-
-    // Tải tiếng Anh mặc định
-    loadTranslation(page, 'en');
-    
-});
+})();

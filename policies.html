@@ -4,28 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haguchi - Policies</title>
-    <link rel="stylesheet" href="policies.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/policies.css">
 </head>
 <body>
     <!--Phần Header-->
     <header>
         <div class="Logo">
             <p>
-                <a href="index.html"><em>Haguchi</em><br>葉具家</a>
+                <a href="index.html"><em>Haguchi</em><br>
+                葉具家</a>
             </p>
         </div>
         <nav class="Main-Menu">
             <ul>
-                <li><a href="">Products</a></li>
-                <li><a href="">About us</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="policy_index.html">Policies</a></li>
+                <li><a href="" data-i18n="nav-products">Products</a></li>
+                <li><a href="" data-i18n="nav-about">About us</a></li>
+                <li><a href="" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
             </ul>
         </nav>
         <nav class="Sub-Menu">
             <ul>
-                <li><span class="fluent--search-12-filled"></span></li>
-                <li><a href="Wishlist_index.html"><span class="solar--heart-bold"></span></a></li>
+                <li>
+                    <form id="search-box" action="">
+                        <input type="text" id="search-text" placeholder="Search...">
+                        <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
+                    </form>
+                </li>
+                <li id="Wishlist">
+                    <a href="">
+                        <span class="solar--heart-bold"></span>
+                        <span class="wishlist-count">0</span>
+                    </a>
+                </li>
+                <li><span class="solar--user-bold"></span></li>
+                <li class="lang-switcher">
+                    <div class="lang-toggle" aria-label="Language switcher">
+                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')">
+                        <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
+                        <div class="lang-track">
+                            <label for="lang-en" class="lang-opt lang-en">EN</label>
+                            <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                            <div class="lang-knob" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                </li>
             </ul>
     </header>
     <!--Phần Policies-->
@@ -38,7 +62,7 @@
                 <p>Your satisfaction is our priority—if you have any questions or concerns, our support team is always here to assist you.</p>
             </div>
             <div class="policies-image">
-                <img src="images/homepage/policy/flowerpoli.png" alt="White Calla Lilies">
+                <img src="images/policy/flowerpoli.png" alt="White Calla Lilies">
             </div>
         </div>
     </section>

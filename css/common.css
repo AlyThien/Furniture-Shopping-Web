@@ -9,6 +9,7 @@
 
 body {
     font-family: 'Roboto Serif', sans-serif;
+    scroll-behavior: smooth;
 }
 
 /*Phần Header---------------------------------*/
@@ -369,4 +370,33 @@ footer::before {
 }
 .social-icon:hover {
     background: rgba(168, 196, 181, 0.3);
+}
+
+/*Phần button quay lại đầu trang*/
+#btn-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 100px;
+    height: 100px;
+    background-image: url(/images/return_to_top.png);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    transform: translateY(12px);
+    opacity: 0;
+    transition: transform 260ms cubic-bezier(.2, .9, .2, 1), opacity 260ms;
+    pointer-events: none;
+    filter: drop-shadow(0 10px 24px rgba(0,0,0,0.45));
+}
+
+#btn-top.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#btn-top:hover, #btn-top:focus {
+    filter: contrast(200%);
+    transform: translateY(-2px);
 }
