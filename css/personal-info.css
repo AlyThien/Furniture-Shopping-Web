@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
+body { 
+    background-image: linear-gradient(135deg, #E0F2F1 0%, #C8E6C9 50%, #A5D6A7 100%); 
+    font-family: 'Ibarra Real Nova', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333; 
+}
+
+.container { 
+    background-color: #fff; 
+    padding: 40px; 
+    border-radius: 12px; 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); 
+    width: 100%; 
+    max-width: 420px; 
+    border: 1px solid #e0e0e0;
+}
+
+h1 { 
+    color: #1A5240; 
+    text-align: center; 
+    margin-bottom: 30px; 
+    font-size: 2em;
+    font-weight: 600;
+    font-family: 'Ibarra Real Nova', serif;
+}
+
+.user-email-display { 
+    text-align: center; 
+    margin-bottom: 25px; 
+    color: #555; 
+    font-weight: 500; 
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.form-group { 
+    margin-bottom: 20px; 
+}
+
+label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: 600; 
+    color: #333; 
+    text-align: left;
+    font-size: 15px;
+}
+
+input[type="text"] { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #B0C4B1; 
+    border-radius: 8px; 
+    box-sizing: border-box; 
+    font-size: 16px; 
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus { 
+    border-color: #1A5240; 
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(26, 82, 64, 0.2); 
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #B0C4B1; 
+    border-radius: 8px; 
+    box-sizing: border-box; 
+    font-size: 16px; 
+    transition: border-color 0.3s ease;
+    height: 48px; 
+}
+
+input[type="date"]:focus,
+select:focus { 
+    border-color: #1A5240; 
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(26, 82, 64, 0.2); 
+}
+
+button[type="submit"] { 
+    background-color: #1A5240; 
+    color: white; 
+    padding: 14px 25px; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-size: 17px; 
+    width: 100%; 
+    transition: background-color 0.3s, transform 0.2s; 
+    font-weight: 600; 
+    margin-top: 20px; 
+}
+
+button[type="submit"]:hover { 
+    background-color: #123C2F; 
+    transform: translateY(-2px);
+}
