@@ -262,4 +262,224 @@ video {
     transition: 1s;
 }
 
+.Product-Categories {
+    background: linear-gradient(to bottom, #587959, #D4E3CC, #EFF7E9);
+    padding: 0; 
+    margin: 0;
+}
+
+.Product-Categories h1 {
+    background: linear-gradient(to right, #b9dab9, #8beb90, #c3f0a8); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    font-size: 55px;
+    text-align: center;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.Product-Categories > p {
+    background: linear-gradient(to right, #b9dab9, #8beb90, #c3f0a8); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 70px;
+    font-weight: 400;
+}
+
+.Categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 80px;
+}
+
+.Categories > div {
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    height: 280px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.Categories > div:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.Categories img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.Categories > div:hover img {
+    transform: scale(1.08);
+}
+
+.Categories h2 {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    color: #f4fcf9;
+    font-size: 30px;
+    font-weight: 600;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    background: rgba(93, 162, 101, 0.75);
+    padding: 8px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(1px);
+}
+
+/*Phần nhận xét khách hàng-----*/
+.review-section {
+    background: linear-gradient(to bottom, E4F0DD, #EFF7E9);
+    padding: 0; 
+    margin-top: 0;
+}
+
+.section-title {
+    text-align: center;
+    padding-top: 100px; 
+    padding-bottom: 70px;
+    margin-bottom: 0;
+}
+
+.section-title h2 {
+    background: linear-gradient(to right, #8fd88a, #56b65a, #41b476); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: lowercase;
+}
+
+.section-title p {
+    background: linear-gradient(to right, #8fd88a, #56b65a, #41b476); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding-bottom: 120px;
+}
+
+.review-card {
+    background: linear-gradient(to bottom, #508952, #6cc372, #b9f198);
+    border-radius: 18px;
+    padding: 35px 30px;
+    width: 370px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.reviewer-details h3 {
+    color: #2C4030;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.reviewer-details p {
+    color: #3D5A42;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.review-text {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 15px;
+    line-height: 1.7;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.rating {
+    color: #e2c105;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    footer::before {
+        height: 50px;
+        top: -30px;
+    }
+    
+    .footer-content {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 30px;
+        text-align: center;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px 5px;
+    }
+}
+
 
