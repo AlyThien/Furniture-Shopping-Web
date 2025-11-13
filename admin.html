@@ -4,10 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ admin</title>
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/admin.css">
 </head>
 
 <body>
+    <script src="js/common.js"></script>
+    <header>
+        <div class="Logo">
+            <p>
+                <a href="index.html"><em>Haguchi</em><br>
+                葉具家</a>
+            </p>
+        </div>
+        <nav class="Main-Menu">
+            <ul>
+                <li><a href="" data-i18n="nav-products">Products</a></li>
+                <li><a href="" data-i18n="nav-about">About us</a></li>
+                <li><a href="" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="" data-i18n="nav-policies">Policies</a></li>
+            </ul>
+        </nav>
+        <nav class="Sub-Menu">
+            <ul>
+                <li>
+                    <form id="search-box" action="">
+                        <input type="text" id="search-text" placeholder="Search...">
+                        <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
+                    </form>
+                </li>
+                <li id="Wishlist">
+                    <a href="">
+                        <span class="solar--heart-bold"></span>
+                        <span class="wishlist-count">0</span>
+                    </a>
+                </li>
+                <li><span class="solar--user-bold"></span></li>
+                <li class="lang-switcher">
+                    <div class="lang-toggle" aria-label="Language switcher">
+                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')">
+                        <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
+                        <div class="lang-track">
+                            <label for="lang-en" class="lang-opt lang-en">EN</label>
+                            <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                            <div class="lang-knob" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </header>
+    
     <aside class="admin-sidebar">
             <h2>Haguchi</h2>
             <nav>
@@ -28,23 +74,231 @@
             </div>
         </header>
 
-        <section id="view-orders" class="admin-view">
+        <section id="view-orders" class="admin-view active-view">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>ĐH #</th>
+                        <th>Đơn hàng #</th>
                         <th>Khách hàng</th>
                         <th>Ngày</th>
                         <th>Trị giá</th>
-                        <th>TT</th>
+                        <th>Trạng thái</th>
                         <th>Hành động</th>
                     </tr>
                 </thead>
-                <tbody id="orders-body"></tbody>
+                <tbody id="orders-body">
+                    <tr>
+                        <td>1001</td>
+                        <td>Nguyễn Trọng An</td>
+                        <td>2025-11-13</td>
+                        <td>5,400,000đ</td>
+                        <td><span class="badge status-pending">Đang xử lý</span></td>
+                        <td><button class="action-btn view-detail" data-order-id="1001">Chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>1002</td>
+                        <td>Lê Thị Mỹ Hạnh</td>
+                        <td>2025-11-12</td>
+                        <td>12,990,000đ</td>
+                        <td><span class="badge status-shipped">Đã giao</span></td>
+                        <td><button class="action-btn view-detail" data-order-id="1002">Chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>Trần Văn Quang</td>
+                        <td>2025-11-12</td>
+                        <td>7,500,000đ</td>
+                        <td><span class="badge status-shipped">Đã giao</span></td>
+                        <td><button class="action-btn view-detail" data-order-id="1003">Chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>1004</td>
+                        <td>Jessica M. Chen</td>
+                        <td>2025-11-09</td>
+                        <td>15,800,000đ</td>
+                        <td><span class="badge status-pending">Đang xử lý</span></td>
+                        <td><button class="action-btn view-detail" data-order-id="1004">Chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>1005</td>
+                        <td>Phạm Hồng Nhung</td>
+                        <td>2025-11-09</td>
+                        <td>3,900,000đ</td>
+                        <td><span class="badge status-cancelled">Đã hủy</span></td>
+                        <td><button class="action-btn view-detail" data-order-id="1005">Chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>1006</td>
+                        <td>David K. Johnson</td>
+                        <td>2025-11-04</td>
+                        <td>28,500,000đ</td>
+                        <td><span class="badge status-shipped">Đã giao</span></td>
+                        <td><button class="action-btn view-detail" data-order-id="1006">Chi tiết</button></td>
+                    </tr>
+                    <tr>
+                        <td>1007</td>
+                        <td>Hoàng Đình Phú</td>
+                        <td>2025-11-01</td>
+                        <td>9,700,000đ</td>
+                        <td><span class="badge status-pending">Đang xử lý</span></td>
+                        <td><button class="action-btn view-detail" data-order-id="1007">Chi tiết</button></td>
+                    </tr>
+                </tbody>
             </table>
         </section>
             
+    <section id="view-inventory" class="admin-view hidden-view">
+            <div class="inventory-controls">
+                <input type="text" id="prod-filter" placeholder="Tìm kiếm sản phẩm...">
+                <button id="addProdBtn" class="add-btn">Thêm sản phẩm mới</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng tồn</th>
+                        <th>Giá (đ)</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-body">
+                    <tr>
+                        <td>SP001</td>
+                        <td>Ghế Sofa Đơn 'Elegance'</td>
+                        <td>50</td>
+                        <td>5,400,000</td>
+                        <td><button class="action-btn edit-prod">Sửa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP002</td>
+                        <td>Bàn Ăn 'Zenith' 6 ghế</td>
+                        <td>15</td>
+                        <td>12,990,000</td>
+                        <td><button class="action-btn edit-prod">Sửa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP003</td>
+                        <td>Tủ quần áo 'Wardrobe X'</td>
+                        <td>30</td>
+                        <td>9,200,000</td>
+                        <td><button class="action-btn edit-prod">Sửa</button></td>
+                    </tr>
+                    <tr>
+                        <td>SP004</td>
+                        <td>Bàn trà mặt đá 'Coffee table'</td>
+                        <td>85</td>
+                        <td>2,800,000</td>
+                        <td><button class="action-btn edit-prod">Sửa</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="view-reports" class="admin-view hidden-view">
+            <div class="report-controls">
+                <select id="report-type-select">
+                    <option value="daily">Doanh thu ngày</option>
+                    <option value="monthly">Doanh thu tháng</option>
+                    <option value="best-sellers">Sản phẩm bán chạy</option>
+                </select>
+                <button id="btn-run-report">Xem báo cáo</button>
+            </div>
+
+            <div class="report-summary">
+                <div class="summary-card">
+                    <h3>Tổng Doanh Thu (T11)</h3>
+                    <p class="value">150,000,000đ</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Số Đơn Hàng (T11)</h3>
+                    <p class="value">45</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Sản Phẩm Bán Chạy Nhất</h3>
+                    <p class="value">Ghế Sofa Đơn 'Elegance'</p>
+                </div>
+            </div>
+
+            <div class="report-list">
+                <h3 class="list-title">Chi tiết Doanh thu tháng 11</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ngày</th>
+                            <th>Đơn hàng</th>
+                            <th>Doanh thu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2025-11-13</td><td>3</td><td>15,800,000đ</td></tr>
+                        <tr><td>2025-11-12</td><td>5</td><td>22,500,000đ</td></tr>
+                        <tr><td>2025-11-11</td><td>4</td><td>18,900,000đ</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
     </main>
+
+    <div id="order-detail-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Chi tiết Đơn hàng <span id="modal-order-id">#1001</span></h2>
+            <div class="modal-body">
+                <h3 class="modal-sub-title">Thông tin Khách hàng</h3>
+                <div class="detail-row">
+                    <strong>Tên:</strong> <span id="detail-customer">Nguyễn Trọng An</span>
+                </div>
+                <div class="detail-row">
+                    <strong>SĐT:</strong> <span id="detail-phone">0901 234 567</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Địa chỉ:</strong> <span id="detail-address">25 Lô A, Đường Số 10, Quận 7, TP.HCM</span>
+                </div>
+                
+                <h3 class="modal-sub-title">Thông tin Đơn hàng</h3>
+                <div class="detail-row">
+                    <strong>Ngày đặt:</strong> <span id="detail-date">2025-11-13</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Trạng thái:</strong> <span id="detail-status" class="badge status-pending">Đang xử lý</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Phương thức TT:</strong> <span id="detail-payment">Chuyển khoản Ngân hàng</span>
+                </div>
+                
+                <h3 class="modal-sub-title">Sản phẩm</h3>
+                <table class="table modal-table">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>SL</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody id="detail-items-body">
+                        <tr>
+                            <td>Sofa Đơn 'Cloud'</td>
+                            <td>1</td>
+                            <td>5,400,000đ</td>
+                            <td>5,400,000đ</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="detail-total">
+                    <strong>Tổng cộng:</strong> <span id="detail-total-value">5,400,000đ</span>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button id="btn-cancel-order" style="background: var(--error); margin-right: 10px;">Hủy Đơn</button>
+                <button id="btn-update-status">Cập nhật Trạng thái</button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/admin.js"></script>
 </body>
