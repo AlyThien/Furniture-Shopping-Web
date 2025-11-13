@@ -10,6 +10,7 @@
 body {
     font-family: 'Roboto Serif', sans-serif;
     scroll-behavior: smooth;
+    background: #1D382C;
 }
 
 /*Phần Header---------------------------------*/
@@ -128,6 +129,15 @@ nav.Main-Menu a:hover {
 #search-box:hover #search-text {
     width: 150px;
     opacity: 1;
+}
+
+#search-box:focus-within #search-text {
+    width: 120px;
+    opacity: 1;
+}
+
+#search-btn {
+    padding: 6px;
 }
 
 #search-text::placeholder {
@@ -453,10 +463,33 @@ footer::before {
         padding: 6px 8px;
     }
 
-    /* Search box - ẩn trên mobile */
+    /* Search box - điều chỉnh cho mobile thay vì ẩn */
     #search-box {
-        display: none;
+        display: flex; /* Thay vì display: none */
     }
+
+    #search-text {
+        width: 0;
+        opacity: 0;
+    }
+
+    #search-box:hover #search-text,
+    #search-box:focus-within #search-text {
+        width: 120px; /* Thu nhỏ hơn trên mobile */
+        opacity: 1;
+    }
+
+    #search-btn {
+        padding: 6px;
+    }
+
+    /* Hoặc nếu muốn search luôn hiện input trên mobile */
+    /* #search-text {
+        width: 100px;
+        opacity: 1;
+        position: static;
+        transform: none;
+    } */
 
     /* Icons smaller */
     .solar--heart-bold,
