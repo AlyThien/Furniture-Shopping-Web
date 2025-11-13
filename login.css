@@ -99,3 +99,41 @@ a {
 a:hover {
     color: #1A5240; 
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    footer::before {
+        height: 50px;
+        top: -30px;
+    }
+    
+    .footer-content {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 30px;
+        text-align: center;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px 5px;
+    }
+}
