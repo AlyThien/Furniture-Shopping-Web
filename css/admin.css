@@ -280,6 +280,7 @@ html, body {
 #btn-cancel-order {
     background: #d9534f !important; 
     border-color: #d9534f !important;
+    margin-right: 10px;
 }
 #btn-cancel-order:hover {
     background: #c9302c !important; 
