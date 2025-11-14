@@ -1,5 +1,6 @@
 let correctOTP = ''; 
 let userEmail = ''; 
+const ADMIN_EMAIL = 'admin@gmail.com';
 
 const emailStep = document.getElementById('email-step');
 const otpStep = document.getElementById('otp-step');
@@ -61,8 +62,17 @@ function verifyCode() {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('userEmail', userEmail);
 
-        console.log(`[SIMULATION]: Successful login. Redirecting to personal-info.html...`);
-        window.location.href = 'personal-info.html'; 
+        let redirectURL;
+
+        if (userEmail.toLowerCase() === ADMIN_EMAIL) {
+            console.log(`[SIMULATION]: Admin login successful. Redirecting to admin.html...`);
+            redirectURL = 'admin.html'; 
+        } else {
+            console.log(`[SIMULATION]: User login successful. Redirecting to personal-info.html...`);
+            redirectURL = 'personal-info.html'; 
+        }
+
+        window.location.href = redirectURL;
 
     } else {
         displayError('Invalid code. Please try again.');
