@@ -426,8 +426,8 @@ footer::before {
     transform: translateY(-2px);
 }
 
-/* Responsive Mobile */
-@media only screen and (max-width: 768px) {
+/* Responsive cho Mobile và Tablet */
+@media only screen and (max-width: 1024px) {
     /* Header */
     header {
         height: 50px;
@@ -445,7 +445,6 @@ footer::before {
         font-size: 20px;
     }
 
-    /* Hide main menu on mobile */
     nav.Main-Menu {
         display: none;
     }
@@ -463,33 +462,29 @@ footer::before {
         padding: 6px 8px;
     }
 
-    /* Search box - điều chỉnh cho mobile thay vì ẩn */
     #search-box {
-        display: flex; /* Thay vì display: none */
+        display: flex;
     }
 
     #search-text {
-        width: 0;
-        opacity: 0;
+        width: 120px; /* Hiện luôn với chiều rộng cố định */
+        opacity: 1;
+        position: static; /* Không dùng absolute */
+        transform: none;
+        margin-right: 0;
     }
 
+    /* Ẩn nút search icon trên mobile */
+    #search-btn {
+        display: none;
+    }
+
+    /* Hover không cần thiết nữa */
     #search-box:hover #search-text,
     #search-box:focus-within #search-text {
-        width: 120px; /* Thu nhỏ hơn trên mobile */
+        width: 120px;
         opacity: 1;
     }
-
-    #search-btn {
-        padding: 6px;
-    }
-
-    /* Hoặc nếu muốn search luôn hiện input trên mobile */
-    /* #search-text {
-        width: 100px;
-        opacity: 1;
-        position: static;
-        transform: none;
-    } */
 
     /* Icons smaller */
     .solar--heart-bold,
@@ -738,6 +733,13 @@ footer::before {
     nav.Main-Menu a:visited {
         font-size: 14px;
         padding: 12px 15px;
+    }
+
+    /* Thu nhỏ search box hơn trên màn hình nhỏ */
+    #search-text {
+        width: 100px;
+        font-size: 12px;
+        padding: 6px 10px;
     }
 }
 
