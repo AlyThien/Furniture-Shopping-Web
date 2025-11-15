@@ -441,42 +441,189 @@ video {
     text-align: center;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-    header {
-        padding: 15px 20px;
+    .Hero {
+        height: 70vh;
     }
 
-    nav {
-        gap: 15px;
+    .Slogan h1 {
+        font-size: 30px;
     }
 
-    h1 {
-        font-size: 48px;
+    .Slogan p {
+        font-size: 1.1rem;
     }
 
-    footer::before {
-        height: 50px;
-        top: -30px;
+    .Slogan button {
+        padding: 10px 20px;
+        font-size: 16px;
     }
-    
-    .footer-content {
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 20px;
-        grid-template-columns: 1fr;
-        column-gap: 0;
-        row-gap: 30px;
+
+    #New-Product {
+        height: auto;
+        padding-bottom: 80px; 
+    }
+
+    #New-Product h1 {
+        font-size: 35px;
+        padding: 50px 20px 0;
         text-align: center;
     }
 
-    table {
+    .content-wrapper {
+        width: 95%;
+        height: 400px; 
+        padding: 10px;
+        position: relative;
+        top: 50px;
+        transform: translate(-50%, 0);
+        overflow: hidden;
+    }
+    
+    .item {
+        width: 85%; 
+        height: 380px;
+        left: 50%; 
+        transition: 0.5s; 
+    }
+    
+    .item:nth-child(2) {
+        transform: translateX(-50%) !important;
+        opacity: 1;
+        z-index: 5; 
+    }
+    
+    .item:nth-child(1) { 
+        transform: translateX(-150%) !important; 
+        opacity: 0;
+    }
+    .item:nth-child(3) {
+        transform: translateX(50%) !important; 
+        opacity: 0;
+    }
+    .item:nth-child(4), .item:nth-child(n+5) { 
+        transform: translateX(150%) !important; 
+        opacity: 0;
+    }
+
+    .item .overview-content {
+        position: absolute;
+        bottom: 0;
+        top: unset;
+        max-height: 100px; 
+        opacity: 1; 
+        padding: 10px 15px;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    .item:hover .overview-content {
+        max-height: 100px; 
+    }
+ 
+    .controls {
+        bottom: 30px;
+        gap: 15px;
+    }
+    
+    .controls button {
+        width: 35px;
+        height: 35px;
+    }
+    
+    #Why-Choose-Us {
+        padding: 60px 0; 
+    }
+    #Why-Choose-Us h1 {
+        font-size: 40px;
+    }
+    #Why-Choose-Us .abtus-header p {
+        font-size: 18px;
+        padding: 0 15px;
+    }
+    .Reasons {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .Reason {
+        width: 85%;
+        min-height: 200px;
+        padding: 25px;
+    }
+    .Reason h2 {
+        font-size: 24px;
+        line-height: 30px;
+    }
+    
+    .Product-Categories {
+        padding-top: 50px; 
+        margin-top: 0;
+    }
+
+    .Product-Categories h1 {
+        font-size: 40px;
+    }
+
+    .Product-Categories > p {
+        font-size: 16px;
+        margin-bottom: 40px;
+        padding: 0 15px; 
+    }
+
+    .Categories {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 15px;
+        gap: 25px;
+    }
+
+    .Categories > div {
+        height: 200px;
+    }
+
+    .Categories h2 {
+        font-size: 22px;
+        bottom: 15px;
+        left: 15px;
+        padding: 6px 12px;
+    }
+
+    .review-section {
+        padding-top: 50px;
+    }
+
+    .section-title {
+        padding-top: 0; 
+        padding-bottom: 30px;
+    }
+
+    .section-title h2 {
+        font-size: 35px;
+    }
+
+    .reviews-container {
+        padding: 0 15px 50px;
+    }
+
+    .review-card {
+        width: 100%;
+        padding: 25px 20px; 
+        gap: 15px;
+    }
+
+    .reviewer-details h3 {
+        font-size: 18px;
+    }
+
+    .reviewer-details p {
         font-size: 14px;
     }
 
-    th, td {
-        padding: 10px 5px;
+    .review-text {
+        font-size: 14px;
+    }
+
+    .rating {
+        font-size: 20px;
     }
 }
-
-
