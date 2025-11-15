@@ -100,7 +100,7 @@ a:hover {
     color: #1A5240; 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     /* Thay đổi Body */
     body {
         padding: 0; 
@@ -114,7 +114,7 @@ a:hover {
         border: none;
         box-shadow: none;
     }
-    
+
     h2 {
         font-size: 1.8em;
     }
