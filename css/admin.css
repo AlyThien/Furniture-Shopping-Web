@@ -87,22 +87,6 @@ html, body {
     border-color: #E8F3DE;
 }
 
-.table{width:100%;border-collapse:collapse;background:transparent;margin-top:16px}
-.table thead th{
-    background:rgba(232,243,222,0.1);
-    padding:12px 10px;
-    text-align:left;
-    color:#E8F3DE; 
-    border-bottom:2px solid #E8F3DE; 
-    font-weight: 700;
-}
-.table tbody td{
-    padding:12px 10px;
-    border-bottom:1px solid rgba(232,243,222,0.3);
-    color:#E8F3DE;
-}
-.table tbody tr:hover td{background:rgba(232,243,222,0.05)}
-
 .badge{
     display:inline-block;
     padding:5px 10px;
