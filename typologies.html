@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Typologies</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/typologies.css" />
+    
+    <link href="Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf" rel="stylesheet">
+</head>
+<script src="js/common.js"></script>
+
+<body>
+    <!--Phần Header-->
+    <header>
+        <div class="Logo">
+            <p>
+                <a href="index.html"><em>Haguchi</em><br>
+                葉具家</a>
+            </p>
+        </div>
+        <nav class="Main-Menu">
+            <ul>
+                <li><a href="typologies.html" data-i18n="nav-products">Products</a></li>
+                <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
+                <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="policy_index.html" data-i18n="nav-policies">Policies</a></li>
+            </ul>
+        </nav>
+        <nav class="Sub-Menu">
+            <ul>
+                <li>
+                    <form id="search-box" action="">
+                        <input type="text" id="search-text" placeholder="Search...">
+                        <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
+                    </form>
+                </li>
+                <li id="Wishlist">
+                    <a href="">
+                        <span class="solar--heart-bold"></span>
+                        <span class="wishlist-count">0</span>
+                    </a>
+                </li>
+                <li><span class="solar--user-bold"></span></li>
+                <li class="lang-switcher">
+                    <div class="lang-toggle" aria-label="Language switcher">
+                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')">
+                        <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
+                        <div class="lang-track">
+                            <label for="lang-en" class="lang-opt lang-en">EN</label>
+                            <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                            <div class="lang-knob" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+    </header>
+
+    <main class="typologies-page">
+        
+        <main class="page-title">
+            <h1>TYPOLOGIES</h1>
+        </main>
+
+        <nav class="typology-grid">
+            
+            <a href="#" class="typology-item">
+                <img src="images/hình typologies/bed.png" alt="Bed" />
+                <span class="item-label">Bed</span>
+            </a>
+            
+            <a href="#" class="typology-item">
+                <img src="images/hình typologies/armchair.png" alt="Armchair" />
+                <span class="item-label">Armchair</span>
+            </a>
+            
+            <a href="couch.html" class="typology-item">
+                <img src="images/hình typologies/couch.png" alt="Couch" />
+                <span class="item-label">Couch</span>
+            </a>
+            
+            <a href="#" class="typology-item">
+                <img src="images/hình typologies/wardrobe.png" alt="Wardrobe" />
+                <span class="item-label">Wardrobe</span>
+            </a>
+            
+            <a href="#" class="typology-item">
+                <img src="images/hình typologies/chair.png" alt="Chair" />
+                <span class="item-label">Chair</span>
+            </a>
+            
+            <a href="#" class="typology-item">
+                <img src="images/hình typologies/storage & shelving.png" alt="Storage & shelving" />
+                <span class="item-label">Storage & shelving</span>
+            </a>
+            
+            <a href="#" class="typology-item">
+                <img src="images/hình typologies/dining table.png" alt="Dining table" />
+                <span class="item-label">Dining table</span>
+            </a>
+            
+            <a href="#" class="typology-item">
+                <img src="images/hình typologies/side(coffee) table.png" alt="Side - coffee table" />
+                <span class="item-label">Side - coffee table</span>
+            </a>
+
+        </nav>
+
+        <footer>
+        <div class="footer-logo">
+            <div><em>Haguchi</em></div>
+            <div>葉具家</div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-i18n="nav-about">About Us</h3>
+                <ul>
+                    <li data-i18n="footer-aboutus"> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
+                    <li data-i18n="footer-aboutus-add">📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
+                    <li>📞 (+84) 123 456 789</li>
+                    <li>📧 support@noithatmaistudio.com</li>
+                    <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+                </ul>
+            </div>
+        <div class="footer-section">
+            <h3 data-i18n="footer-categories">Shop by Category</h3>
+            <ul>
+                <li><a href="" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
+                <li><a href="" data-i18n="footer-categories-dining">Dining Tables</a></li>
+                <li><a href="" data-i18n="footer-categories-bed">Beds</a></li>
+                <li><a href="" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
+                <li><a href="" data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+                <li><a href="" data-i18n="footer-categories-new">New Arrivals / Promotions</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3 data-i18n="footer-policies">Policies & Support</h3>
+            <ul>
+                <li><a href="" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
+                <li><a href="" data-i18n="footer-policies-return">Return & Exchange</a></li>
+                <li><a href="" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
+                <li><a href="" data-i18n="footer-policies-order">How to Order</a></li>
+                <li><a href="" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+        <div class="footer-bottom">
+            <span>© 2025 HAGUCHI – All rights reserved.</span>
+            <div class="social-icons">
+                <div class="social-icon">f</div>
+                <div class="social-icon">in</div>
+                <div class="social-icon">t</div>
+            </div>
+        </div>
+    </footer>
+
+    </main>
+</body>
+</html>

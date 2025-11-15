@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haguchi-Homepage</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/index.css">
-</head>
+    <link rel="stylesheet" href="css/styles.css">
 
-<body data-page="home">
+<body>
     <!--Phần Header-->
     <header>
         <div class="Logo">
@@ -19,39 +17,16 @@
         </div>
         <nav class="Main-Menu">
             <ul>
-                <li><a href="" data-i18n="nav-products">Products</a></li>
-                <li><a href="" data-i18n="nav-about">About us</a></li>
-                <li><a href="" data-i18n="nav-blog">Blog</a></li>
-                <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
+                <li><a href="">Products</a></li>
+                <li><a href="">About us</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Policies</a></li>
             </ul>
         </nav>
         <nav class="Sub-Menu">
             <ul>
-                <li>
-                    <form id="search-box" action="">
-                        <input type="text" id="search-text" placeholder="Search...">
-                        <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
-                    </form>
-                </li>
-                <li id="Wishlist">
-                    <a href="">
-                        <span class="solar--heart-bold"></span>
-                        <span class="wishlist-count">0</span>
-                    </a>
-                </li>
-                <li><span class="solar--user-bold"></span></li>
-                <li class="lang-switcher">
-                    <div class="lang-toggle" aria-label="Language switcher">
-                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')">
-                        <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
-                        <div class="lang-track">
-                            <label for="lang-en" class="lang-opt lang-en">EN</label>
-                            <label for="lang-vi" class="lang-opt lang-vi">VI</label>
-                            <div class="lang-knob" aria-hidden="true"></div>
-                        </div>
-                    </div>
-                </li>
-                <li><span class="icomoon-free--leaf"></span></li>
+                <li>Hi</li>
+                <li><a href="">Cart</a></li>
             </ul>
     </header>
 
@@ -66,210 +41,164 @@
             </video>
 
             <div class="Slogan">
-                <h1 data-i18n="hero-title">Transform Your Space with Timeless Furniture</h1>
-                <p data-i18n="hero-subtitle">Designed to fit your life, not just your space</p>
-                <button data-i18n="hero-button">Explore now</button>
+                <h1>Transfer Your Space with Timeless Furniture</h1>
+                <p>Designed to fit your life, not just your space</p>
+                <button>Explore now</button>
+            </div>
+        </section>
+        
+        <!--Phần sản phẩm mới-->
+        <section id="New-Product">
+            <h1>Premium furniture</h1>
+
+            <div class="content-wrapper">
+                <div id="slide">
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview1.jpg)">
+                        <div class="overview-content">
+                            <p>A new living furniture set bring the air and nature from a far to your home</p>
+                        </div>
+                    </div>
+
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview2.jpg)">
+                        <div class="overview-content">
+                            <p>A cozy lifestyle waiting for you at home in the cold winter</p>
+                        </div>
+                    </div>
+
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview3.jpg)">
+                        <div class="overview-content">
+                            <p>A focus space where plants bath in your "knowledge"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview4.jpg)">
+                        <div class="overview-content">
+                            <p>Diner? Yes, it is the time for gathering and eat delicous fresh food</p>
+                        </div>
+                    </div>
+
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview5.jpg)">
+                        <div class="overview-content">
+                            <p>Surrounded by the color of nature, make you feel nothing much than a jungle in your home</p>
+                        </div>
+                    </div>
+
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview6.jpg)">
+                        <div class="overview-content">
+                            <p>A simple reading table with comfort chair for you to explore the world of advanture</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="overview-prev"></button>
+                    <button id="overview-next"></button>
+                </div>
             </div>
         </section>
 
-        <div class="scroll-content">
-            <!--Phần sản phẩm mới-->
-            <section id="New-Product">
-                <h1>Premium furniture</h1>
+        <!--Phần tại sao lại chọn chúng tôi-->
+        <section id="Why-Choose-Us">
+            <div class="abtus-header">
+                <h1>Why choose us</h1>
+                <p>Discover timeless furniture crafted with care and designed to last</p>
+            </div>
+                
+            <section class="Reasons">
+                <div class="Reason">
+                    <h2>Premium Quality Materials</h2>
+                    <p>We use only the finest, sustainably sourced materials to create furniture that stands the test of time — durable, safe, and full of character.</p>
+                </div>
+                <div class="Reason">
+                    <h2>Styles for Every Space</h2>
+                    <p>From cozy apartments to spacious villas, our versatile designs fit perfectly into any home — blending modern comfort with timeless aesthetics.</p>
+                </div>
+                <div class="Reason">
+                    <h2>Designed for Daily Life</h2>
+                    <p>Our pieces aren’t just for show — they’re made for real life. Enjoy durable, comfortable furniture that complements your everyday routine.</p>
+                </div>
+                <div class="Reason">
+                    <h2>Thoughtful Craftsmanship</h2>
+                    <p>Every detail matters. From smooth finishes to seamless joints, each piece is carefully crafted to bring both function and beauty to your home.</p>
+                </div>
+            </section>
+        </section>
 
-                <div class="content-wrapper">
-                    <div id="slide">
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview1.jpg)">
-                            <div class="overview-content">
-                                <p>A new living furniture set bring the air and nature from a far to your home</p>
-                            </div>
-                        </div>
-
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview2.jpg)">
-                            <div class="overview-content">
-                                <p>A cozy lifestyle waiting for you at home in the cold winter</p>
-                            </div>
-                        </div>
-
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview3.jpg)">
-                            <div class="overview-content">
-                                <p>A focus space where plants bath in your "knowledge"</p>
-                            </div>
-                        </div>
-                        
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview4.jpg)">
-                            <div class="overview-content">
-                                <p>Diner? Yes, it is the time for gathering and eat delicous fresh food</p>
-                            </div>
-                        </div>
-
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview5.jpg)">
-                            <div class="overview-content">
-                                <p>Surrounded by the color of nature, make you feel nothing much than a jungle in your home</p>
-                            </div>
-                        </div>
-
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview6.jpg)">
-                            <div class="overview-content">
-                                <p>A simple reading table with comfort chair for you to explore the world of advanture</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="controls">
-                        <button id="overview-prev"></button>
-                        <button id="overview-next"></button>
-                    </div>
+        <!--Phần danh mục sản phẩm-->
+        <section class="Product-Categories">
+            <h1>Explore Our Collections</h1>
+            <p>that reflects your personal style with our exclusive furniture collections</p>
+            <section class="Categories">
+                <div class="Table">
+                    <h2>Table</h2>
+                </div>
+                <div class="Bed">
+                    <h2>Bed</h2>
+                </div>
+                <div class="Chair">
+                    <h2>Chair</h2>
+                </div>
+                <div class="Wardrobe">
+                    <h2>Wardrobe</h2>
                 </div>
             </section>
 
-            <!--Phần tại sao lại chọn chúng tôi-->
-            <section id="Why-Choose-Us">
-                <div class="abtus-header">
-                    <h1>Why choose us</h1>
-                    <p>Discover timeless furniture crafted with care and designed to last</p>
-                </div>
-                    
-                <section class="Reasons">
-                    <div class="Reason">
-                        <h2>Premium Quality Materials</h2>
-                        <p>We use only the finest, sustainably sourced materials to create furniture that stands the test of time — durable, safe, and full of character.</p>
-                    </div>
-                    <div class="Reason">
-                        <h2>Styles for Every Space</h2>
-                        <p>From cozy apartments to spacious villas, our versatile designs fit perfectly into any home — blending modern comfort with timeless aesthetics.</p>
-                    </div>
-                    <div class="Reason">
-                        <h2>Designed for Daily Life</h2>
-                        <p>Our pieces aren’t just for show — they’re made for real life. Enjoy durable, comfortable furniture that complements your everyday routine.</p>
-                    </div>
-                    <div class="Reason">
-                        <h2>Thoughtful Craftsmanship</h2>
-                        <p>Every detail matters. From smooth finishes to seamless joints, each piece is carefully crafted to bring both function and beauty to your home.</p>
-                    </div>
-                </section>
-            </section>
-
-            <section class="Product-Categories">
-                <h1>Explore Our Collections</h1>
-                <p>that reflects your personal style with our exclusive furniture collections</p>
-                <section class="Categories">
-                    <div class="Table">
-                        <img src="images/homepage/product-categories/coffee-table.jpeg" alt="Coffee Table">
-                        <h2>Table</h2>
-                    </div>
-                    <div class="Bed">
-                        <img src="images/homepage/product-categories/bed.jpeg" alt="Bed">
-                        <h2>Bed</h2>
-                    </div>
-                    <div class="Couch">
-                        <img src="images/homepage/product-categories/couch.jpeg" alt="Couch">
-                        <h2>Couch</h2>
-                    </div>
-                    <div class="Wardrobe">
-                        <img src="images/homepage/product-categories/wardrobe.jpeg" alt="Wardrobe">
-                        <h2>Wardrobe</h2>
-                    </div>
-                </section>
-
-                 <!--Phần nhận xét khách hàng-->
+             <!--Phần nhận xét khách hàng-->
+            <section class="review-section">
                 <section class="review-section">
-                    <section class="review-section">
-                        <div class="section-title">
-                            <h2>our Customer Reviews</h2>
-                            <p>It's such an honour of us to bring our customers well-qualified experiences</p>
-                        </div>
-                        <div class="reviews-container">
-                        <div class="review-card">
-                        <div class="reviewer-info">
-                            <div class="reviewer-details">
-                                <h3>Ariana Butera Grande</h3>
-                                <p>Music Composer, 32</p>
-                            </div>
-                        </div>
-                            <p class="review-text">I was truly impressed with the wide range of furniture available here. The designs are elegant, and the quality feels premium. The staff was attentive. I'll definitely come back again.</p>
-                        <div class="rating">★★★★★</div>
-                        </div>
-                        <div class="review-card">
-                        <div class="reviewer-info">
-                            <div class="reviewer-details">
-                                <h3>Taylor Alison Smith</h3>
-                                <p>Nurse, 39</p>
-                            </div>
-                        </div>
-                            <p class="review-text">This store offers outstanding furniture at reasonable prices. The materials are durable, and the finishing is excellent. Delivery was on time. My home now feels warmer and more stylish thanks to their products.</p>
-                        <div class="rating">★★★★★</div>
-                        </div>
-                        <div class="review-card">
-                        <div class="reviewer-info">
-                            <div class="reviewer-details">
-                                <h3>Kevin John Calmente</h3>
-                                <p>Architecture, 45</p>
-                            </div>
-                        </div>
-                            <p class="review-text">Shopping here was a wonderful experience. The showroom is beautifully arranged. I appreciate the honest advice from the staff and the flawless delivery process.</p>
-                        <div class="rating">★★★★★</div>
+                    <div class="section-title">
+                        <h2>our Customer Reviews</h2>
+                        <p>It's such an honour of us to bring our customers well-qualified experiences</p>
+                    </div>
+                    <div class="reviews-container">
+                    <div class="review-card">
+                    <div class="reviewer-info">
+                        <div class="reviewer-details">
+                            <h3>Ariana Butera Grande</h3>
+                            <p>Music Composer, 32</p>
                         </div>
                     </div>
-                </section>
+                        <p class="review-text">I was truly impressed with the wide range of furniture available here. The designs are elegant, and the quality feels premium. The staff was attentive. I'll definitely come back again.</p>
+                    <div class="rating">★★★★★</div>
+                    </div>
+                    <div class="review-card">
+                    <div class="reviewer-info">
+                        <div class="reviewer-details">
+                            <h3>Taylor Alison Smith</h3>
+                            <p>Nurse, 39</p>
+                        </div>
+                    </div>
+                        <p class="review-text">This store offers outstanding furniture at reasonable prices. The materials are durable, and the finishing is excellent. Delivery was on time. My home now feels warmer and more stylish thanks to their products.</p>
+                    <div class="rating">★★★★★</div>
+                    </div>
+                    <div class="review-card">
+                    <div class="reviewer-info">
+                        <div class="reviewer-details">
+                            <h3>Kevin John Calmente</h3>
+                            <p>Architecture, 45</p>
+                        </div>
+                    </div>
+                        <p class="review-text">Shopping here was a wonderful experience. The showroom is beautifully arranged. I appreciate the honest advice from the staff and the flawless delivery process.</p>
+                    <div class="rating">★★★★★</div>
+                    </div>
+                </div>
+            </section>
+                
+            <!--Phần về chúng tôi-->
+            <section class="about-us">
+                <div class="about-us-content">
+                <div class="about-image">
+                </div>
+                <div class="about-text">
+                    <h2>about us</h2>
+                    <h3>A project of us - a group of students from University of Information Technology</h3>
+                    <p>At our core, we believe furniture is more than just objects in a room — it's the essence of how a home feels. Every piece we create is designed to combine functionality with beauty, transforming ordinary spaces into places of warmth, comfort, and inspiration. We understand that your home is a reflection of your lifestyle and your story. That is why we carefully select materials, colors, and textures that not only elevate interiors but also stand the test of time. From living rooms to bedrooms, from statement pieces to subtle accents, our collections are thoughtfully curated to harmonize with the rhythm of everyday life.</p>
+                </div>
+                </div>
+            </section>
 
-        </div>
     </main>
-
-    <!--Phần quay lại đầu trang-->
-    <img id="btn-top" src="/images/return_to_top.png" alt="Return to top">
-
-    <!--Phần footer-->
-    <footer>
-        <div class="footer-logo">
-            <div><em>Haguchi</em></div>
-            <div>葉具家</div>
-        </div>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 data-i18n="nav-about">About Us</h3>
-                <ul>
-                    <li data-i18n="footer-aboutus"> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
-                    <li data-i18n="footer-aboutus-add">📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
-                    <li>📞 (+84) 123 456 789</li>
-                    <li>📧 support@noithatmaistudio.com</li>
-                    <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
-                </ul>
-            </div>
-        <div class="footer-section">
-            <h3 data-i18n="footer-categories">Shop by Category</h3>
-            <ul>
-                <li><a href="" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
-                <li><a href="" data-i18n="footer-categories-dining">Dining Tables</a></li>
-                <li><a href="" data-i18n="footer-categories-bed">Beds</a></li>
-                <li><a href="" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
-                <li><a href="" data-i18n="footer-categories-decor">Lighting & Decor</a></li>
-                <li><a href="" data-i18n="footer-categories-new">New Arrivals / Promotions</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3 data-i18n="footer-policies">Policies & Support</h3>
-            <ul>
-                <li><a href="" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
-                <li><a href="" data-i18n="footer-policies-return">Return & Exchange</a></li>
-                <li><a href="" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
-                <li><a href="" data-i18n="footer-policies-order">How to Order</a></li>
-                <li><a href="" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
-            </ul>
-        </div>
-    </div>
-        <div class="footer-bottom">
-            <span>© 2025 HAGUCHI – All rights reserved.</span>
-            <div class="social-icons">
-                <div class="social-icon">f</div>
-                <div class="social-icon">in</div>
-                <div class="social-icon">t</div>
-            </div>
-        </div>
-    </footer>
     
-    <script src="js/lang-change.js"></script>
-    <script src="js/common.js"></script>
     <script src="js/index.js"></script>
 
 </body>    

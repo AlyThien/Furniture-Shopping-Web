@@ -1,0 +1,329 @@
+/* === 1. @import font === */
+/* (Không có) */
+
+
+/* === 2. @font-face === */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
+}
+
+
+/* === 3. :root (Biến toàn cục) === */
+/* (Không có) */
+
+
+/* === 4. Reset / Global styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Serif', serif;
+  background: linear-gradient(
+      180deg,
+      rgba(238, 249, 229, 1) 0%,
+      rgba(97, 163, 140, 1) 100%
+    );
+    width: 100%;
+    min-height: auto;
+    min-width: 1440px;
+    padding-top: 90px;
+}
+
+
+/* === 5. Layout === */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 50px;
+}
+
+.blog-grid {
+  font-size: inherit;
+  display: grid;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+
+/* === 6. Components === */
+h1 {
+  font-size: 150px;
+  font-weight: 400;
+  color: #1a4831;
+  text-align: center;
+  margin-bottom: 80px;
+  letter-spacing: 2px;
+}
+
+/* --- Blog Card --- */
+.blog-card {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 30px;
+  display: grid;
+  gap: 25px;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card.featured {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.blog-card.two-column {
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.date {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.blog-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.3;
+  margin: 5px 0;
+}
+
+.blog-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.brand-icon {
+  width: 20px;
+  height: 20px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.blog-excerpt {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.read-more,
+.read-more:link,
+.read-more:visited {
+  color: #000;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.read-more::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: width 0.3s ease;
+}
+
+.read-more:hover::after {
+  width: 20%;
+}
+
+.blog-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.featured .blog-image {
+  height: 250px;
+}
+
+/* --- Pagination --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 60px;
+}
+
+.pagination button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #2d5f4a;
+  background: transparent;
+  color: #2d5f4a;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination button:hover {
+  background: #2d5f4a;
+  color: white;
+}
+
+.pagination .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6b9080;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination .dot.active {
+  background: #2d5f4a;
+  transform: scale(1.3);
+}
+
+
+/* === 7. Utilities === */
+/* (Không có) */
+
+
+/* === 8. Responsive === */
+/*
+========================================
+Phần Responsive (Theo style common.css)
+========================================
+*/
+
+/* == Tablet (Giống 768px của common.css) == */
+@media (max-width: 768px) {
+    body {
+        /* QUAN TRỌNG: Hủy bỏ ép buộc 1440px */
+        min-width: auto;
+        
+        /* Điều chỉnh padding-top cho vừa với header mobile (45px) */
+        padding-top: 60px; /* Thêm 15px đệm so với header */
+    }
+
+    .container {
+        /* Giảm padding lề */
+        padding: 40px 2rem;
+    }
+
+    /* Sửa lỗi gõ nhầm (nếu có) và đặt lại grid 1 cột */
+    .blog-grid {
+        font-size: inherit; /* Reset lại font-size */
+        grid-template-columns: 1fr; /* Chỉ 1 cột */
+    }
+
+    /* Ghi đè lại grid-column của desktop */
+    .main-content,
+    .sidebar {
+        grid-column: auto;
+    }
+
+    /* Đẩy sidebar xuống dưới */
+    .sidebar {
+        margin-top: 40px;
+    }
+
+    /* Header của Blog (Tiêu đề + Filter) */
+    .blog-header {
+        /* Xếp dọc trên mobile */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    /* Bài viết nổi bật (Featured) */
+    .featured {
+        /* Xếp dọc (ảnh trên, chữ dưới) */
+        flex-direction: column;
+    }
+
+    .featured .blog-image {
+        width: 100%;
+        height: 300px; /* Cho ảnh đầy đủ chiều rộng */
+    }
+
+    /* Danh sách bài viết (Post-list) */
+    .post-list {
+        /* Chuyển từ 2 cột xuống 1 cột */
+        grid-template-columns: 1fr;
+    }
+
+    /* Tiêu đề */
+    .blog-header h1 {
+        font-size: 38px;
+    }
+
+    .featured .blog-title {
+        font-size: 28px;
+    }
+
+    .post-card .blog-title {
+        font-size: 22px;
+    }
+}
+
+
+/* == Mobile (Giống 480px của common.css) == */
+@media (max-width: 480px) {
+    .container {
+        /* Giảm padding lề cho mobile */
+        padding: 30px 1rem;
+    }
+
+    /* Giảm kích thước ảnh */
+    .blog-image {
+        height: 220px;
+    }
+
+    .featured .blog-image {
+        height: 250px;
+    }
+
+    /* Giảm font chữ */
+    .blog-header h1 {
+        font-size: 32px;
+    }
+
+    .featured .blog-title {
+        font-size: 24px;
+    }
+
+    .post-card .blog-title {
+        font-size: 20px;
+    }
+
+    /* Thu nhỏ nút phân trang */
+    .pagination {
+        gap: 10px;
+    }
+    .pagination button {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}

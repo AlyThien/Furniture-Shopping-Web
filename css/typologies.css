@@ -1,0 +1,231 @@
+/* === 1. @import font === */
+/* (Không có) */
+
+
+/* === 2. @font-face === */
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
+}
+
+
+/* === 3. :root (Biến toàn cục) === */
+/* (Không có) */
+
+
+/* === 4. Reset / Global styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Serif', serif;
+}
+
+
+/* === 5. Layout === */
+.typologies-page {
+  background: linear-gradient(
+    180deg,
+    rgba(238, 249, 229, 1) 0%,
+    rgba(97, 163, 140, 1) 100%
+  );
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.typology-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 80px;
+  column-gap: 120px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 100px;
+}
+
+
+/* === 6. Components === */
+
+/* --- Tiêu đề trang --- */
+.page-title {
+  margin-bottom: 150px;
+}
+
+.page-title h1 {
+  font-family: "Roboto Serif", serif;
+  font-weight: 600;
+  color: #1c3227;
+  font-size: 64px;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* --- Mục sản phẩm (Item) --- */
+.typology-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #000000;
+}
+
+.typology-item img {
+  height: 120px;
+  width: 120px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease;
+}
+
+.typology-item .item-label {
+  font-family: "Roboto Serif", serif;
+  font-weight: 400;
+  color: #000000;
+  font-size: 26px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+
+  position: relative;
+  padding-bottom: 5px;
+  display: inline-block;
+
+  /* Ép chữ không bị xuống dòng */
+  white-space: nowrap;
+}
+
+/* --- Điều chỉnh kích thước icon cụ thể --- */
+.typology-item img[alt="Couch"] {
+  transform: scale(1.25);
+}
+
+.typology-item img[alt="Chair"] {
+  transform: scale(0.8);
+}
+
+.typology-item img[alt="Side - coffee table"] {
+  transform: scale(0.8);
+}
+
+.typology-item img[alt="Dining table"] {
+  transform: scale(0.85);
+}
+
+.typology-item img[alt="Storage & shelving"] {
+  transform: scale(0.9);
+}
+
+/* --- Hiệu ứng hover (Gạch chân) --- */
+.typology-item .item-label::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000000;
+  transition: width 0.3s ease-out;
+}
+
+.typology-item:hover .item-label::after {
+  width: 100%;
+}
+
+
+/* === 7. Utilities === */
+/* (Không có) */
+
+
+/* === 8. Responsive === */
+/*
+========================================
+Phần Responsive (Theo style common.css)
+========================================
+*/
+
+/* == Tablet (Giống 768px của common.css) == */
+@media (max-width: 768px) {
+    .typologies-page {
+        /* Giảm padding trên, vì header đã nhỏ lại */
+        padding-top: 120px;
+        /* Thêm padding lề cho trang */
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .typology-grid {
+        /* Chuyển từ 4 cột xuống 3 cột */
+        grid-template-columns: repeat(3, 1fr);
+        
+        /* Giảm khoảng cách */
+        row-gap: 60px;
+        column-gap: 60px;
+    }
+
+    /* Giảm kích thước font tiêu đề (Nếu có) */
+    .page-title {
+        font-size: 48px;
+    }
+
+    /* Giảm kích thước icon và chữ */
+    .typology-item img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .typology-item .item-label {
+        font-size: 22px;
+        /* Cho phép chữ xuống dòng nếu cần */
+        white-space: normal;
+    }
+}
+
+
+/* == Mobile (Giống 480px của common.css) == */
+@media (max-width: 480px) {
+    .typologies-page {
+        /* Giảm padding trên nữa, phù hợp header 45px */
+        padding-top: 80px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .typology-grid {
+        /* Chuyển xuống 2 cột cho vừa màn hình mobile */
+        grid-template-columns: repeat(2, 1fr);
+
+        /* Giảm khoảng cách */
+        row-gap: 40px;
+        column-gap: 30px;
+    }
+
+    /* Giảm kích thước font tiêu đề (Nếu có) */
+    .page-title {
+        font-size: 32px;
+    }
+
+    /* Giảm kích thước icon và chữ */
+    .typology-item img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .typology-item .item-label {
+        font-size: 16px;
+    }
+
+    /* Tắt các hiệu ứng scale đặc biệt trên mobile 
+       để bố cục đồng đều hơn */
+    .typology-item img[alt="Couch"],
+    .typology-item img[alt="Chair"],
+    .typology-item img[alt="Side - Table"] {
+        transform: none;
+    }
+}
