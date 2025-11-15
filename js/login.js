@@ -36,7 +36,9 @@ function showEmailStep() {
 function sendCode() {
     userEmail = emailInput.value.trim();
 
-    if (!userEmail || !userEmail.includes('@') || !userEmail.includes('.')) {
+    // Robust email validation using regex
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!userEmail || !emailPattern.test(userEmail)) {
         displayError('Please enter a valid email address.');
         return;
     }
