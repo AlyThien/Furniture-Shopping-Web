@@ -273,7 +273,6 @@ video {
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     background-clip: text; 
-    -webkit-text-fill-color: transparent;
     font-size: 55px;
     text-align: center;
     font-style: italic;
