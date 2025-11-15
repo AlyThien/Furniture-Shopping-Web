@@ -292,4 +292,35 @@ html, body {
     .admin-sidebar{position:relative;width:100%;display:flex;flex-direction:row;gap:12px;align-items:center}
     .admin-main{margin-left:0;padding:12px}
     .admin-sidebar nav ul{flex-direction:row}
+    .table {
+        display: block; 
+        overflow-x: auto; 
+        white-space: nowrap;
+    }
+    
+    /* Giảm kích thước chữ và padding trong bảng */
+    .table thead th, .table tbody td {
+        font-size: 13px;
+        padding: 8px 6px;
+    }
+
+    /* Giảm kích thước nút điều khiển */
+    .header-controls button, 
+    .inventory-controls button,
+    .action-btn {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+    
+    /* Xử lý khu vực điều khiển và báo cáo */
+    .inventory-controls {
+        flex-direction: column; /* Xếp các bộ lọc và nút xuống dòng */
+        align-items: stretch;
+    }
+    
+    /* Làm cho các thẻ tóm tắt (Summary Cards) hiển thị theo cột */
+    .report-summary {
+        flex-direction: column;
+        gap: 12px;
+    }
 }
