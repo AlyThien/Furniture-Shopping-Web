@@ -361,7 +361,6 @@ video {
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     background-clip: text; 
-    -webkit-text-fill-color: transparent;
     font-size: 50px;
     font-style: italic;
     font-weight: 500;
