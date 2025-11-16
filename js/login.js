@@ -81,9 +81,10 @@ function verifyCode() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-        window.location.href = 'index.html'; 
-    } else {
-        showStep(emailStep);
+    const storedEmail = localStorage.getItem('userEmailForLogin');
+    if (storedEmail) {
+        emailInput.value = storedEmail;
+        userEmail = storedEmail;
     }
+    showStep(emailStep);
 });
