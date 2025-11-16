@@ -428,6 +428,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Xử lý nút "Đăng xuất"
     document.getElementById('logoutBtn').addEventListener('click', () => {
         alert("Đăng xuất thành công!");
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userEmail');
+        window.location.href = 'login.html';
     });
 
     const navButtons = document.querySelectorAll('.admin-sidebar nav button');
@@ -475,3 +478,4 @@ document.addEventListener('DOMContentLoaded', () => {
     updateReportSummary(initialReportData); // Cập nhật Summary Report ban đầu
 
 });
+
