@@ -3,291 +3,1459 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/Product.css">
-    <link rel="stylesheet" href="css/common.css">
+    <title>L-shaped Sofa - Haguchi Furniture</title>
+    <link rel="stylesheet" href="css/Product.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+      rel="stylesheet"
+    />
   </head>
-   <body>
-    <!--Phần Header-->
-   <!--Phần Header-->
+
+  <body>
+    <!-- ===================== HEADER ===================== -->
     <header>
-        <div class="Logo">
-            <p>
-                <a href="index.html"><em>Haguchi</em><br>
-                葉具家</a>
-            </p>
-        </div>
-        <nav class="Main-Menu">
-            <ul>
-                <li><a href="" data-i18n="nav-products">Products</a></li>
-                <li><a href="" data-i18n="nav-about">About us</a></li>
-                <li><a href="" data-i18n="nav-blog">Blog</a></li>
-                <li><a href="" data-i18n="nav-policies">Policies</a></li>
-            </ul>
-        </nav>
-        <nav class="Sub-Menu">
-            <ul>
-                <li>
-                    <form id="search-box" action="">
-                        <input type="text" id="search-text" placeholder="Search...">
-                        <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
-                    </form>
-                </li>
-                <li id="Wishlist">
-                    <a href="">
-                        <span class="solar--heart-bold"></span>
-                        <span class="wishlist-count">0</span>
-                    </a>
-                </li>
-                <li><span class="solar--user-bold"></span></li>
-                <li class="lang-switcher">
-                    <div class="lang-toggle" aria-label="Language switcher">
-                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')">
-                        <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
-                        <div class="lang-track">
-                            <label for="lang-en" class="lang-opt lang-en">EN</label>
-                            <label for="lang-vi" class="lang-opt lang-vi">VI</label>
-                            <div class="lang-knob" aria-hidden="true"></div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
-<!-- ===================== PRODUCT SHOWCASE ===================== -->
-<section class="product-display">
-  <h1>L-shaped sofa</h1>
-  <div class="slider">
-    <button class="product-nav" id="prevBtn">‹</button>
-    <img src="Product/Ảnh/11.jpg" id="productImage" alt="Sofa" />
-    <button class="product-nav" id="nextBtn">›</button>
- 
-      <div class="product-info">
-  <div class="product-price" id="productPrice">9.500.000 đ</div>
-  <button class="add-btn">Add to wishlist</button>
-   </div>
+      <div class="Logo">
+        <p>
+          <a href="index.html"><em>Haguchi</em><br />葉具家</a>
+        </p>
       </div>
-</section>
-
-<!-- Popup Wishlist -->
-<div class="wishlist-popup" id="wishlistPopup">
-  <div class="wishlist-content">
-    <h2>Your wishlist</h2>
-    
-    <button class="view-btn">View wishlist</button>
-    <button class="keep-btn">Keep shopping</button>
-  </div>
-</div>
-
-<script>
-  const addBtn = document.querySelector('.add-btn');
-const popup = document.getElementById('wishlistPopup');
-const keepBtn = document.querySelector('.keep-btn');
-
-addBtn.addEventListener('click', () => {
-  popup.style.display = 'flex';
-});
-
-keepBtn.addEventListener('click', () => {
-  popup.style.display = 'none';
-});
-</script>
-
-<!-- ===================== JAVASCRIPT ===================== -->
-<script> 
-  const products = [
-  {
-    title: "L-shaped sofa",
-    img: "Product/Ảnh/9.png",
-    price: "9.500.000 đ",
-    desc: "The L-shaped sofa is designed to embrace your living space with versatility and comfort...",
-  },
-  {
-    title: "Corner Sofa Deluxe",
-    img: "Product/Ảnh/10.png",
-    price: "11.000.000 đ",
-    desc: "A premium corner sofa designed for elegance and space efficiency...",
-  },
-  {
-    title: "Modern Armchair",
-    img: "Product/Ảnh/12.png",
-    price: "4.200.000 đ",
-    desc: "This modern armchair offers a perfect mix of style and comfort...",
-  },
-  {
-    title: "Modern Armchair",
-    img: "Product/Ảnh/13.png",
-    price: "4.200.000 đ",
-    desc: "This modern armchair offers a perfect mix of style and comfort...",
-  },
-];
-
-let index = 0;
-
-const img = document.getElementById("productImage");
-const price = document.getElementById("productPrice");
-const desc = document.getElementById("productDesc");
-const prev = document.getElementById("prevBtn");
-const next = document.getElementById("nextBtn");
-
-function updateProduct() {
-  img.src = products[index].img;
-  price.textContent = products[index].price;
-  desc.textContent = products[index].desc;
-}
-
-prev.addEventListener("click", () => {
-  index = (index - 1 + products.length) % products.length;
-  updateProduct();
-});
-
-next.addEventListener("click", () => {
-  index = (index + 1) % products.length;
-  updateProduct();
-});
-
-updateProduct();
-</script>
-  </section>
-  <section class="product-description">
-  <p>
-    <em>
-      The L-shaped sofa is designed to embrace your living space with versatility and comfort. 
-      Perfect for families who love spending time together or anyone who enjoys stretching out after a long day, 
-      it creates a natural gathering spot for conversations, movies, or quiet moments alone. 
-      Its smart, space-efficient design fits beautifully in corners or open layouts alike — 
-      offering both style and function.<br><br>
-      With modular sections that adapt to your needs, you can easily reconfigure or expand your seating as your life evolves. 
-      Upholstered in soft, durable fabric, the sofa offers generous cushioning for deep relaxation, 
-      while its sleek silhouette keeps the room feeling open and modern.
-    </em>
-  </p>
-</section>
-
-   <!-- Gallery Section -->
-    <h2 class="gallery-title">Gallery</h2>
-<section class="hero-slider">
-  <div class="slide active" style="background-image: url('Product/Ảnh/1.png');">
-    <div class="text-overlay">
-      <h1>TROPICAL CALM</h1>
-      <p>Botanical Whisper</p>
-    </div>
-  </div>
-  <div class="slide" style="background-image: url('Product/Ảnh/2.png');">
-    <div class="text-overlay">
-      <h1>SCANDINAVIAN BRIGHT</h1>
-<p>Minimalist Warmth</p>
-  </div>
-  </div>
-  <div class="slide" style="background-image: url('Product/Ảnh/3.png');">
-    <div class="text-overlay">
-<h1>MODERN ZEN</h1>
-<p>Airy Elegance</p>
-    </div>
-  </div>
-  <div class="slide" style="background-image: url('Product/Ảnh/4.png');">
-    <div class="text-overlay">
-<h1>URBAN NEUTRAL</h1>
-<p>Sleek Storage Solution</p>
-    </div>
-  </div>
-  <div class="slide" style="background-image: url('Product/Ảnh/5.png');">
-    <div class="text-overlay">
-<h1>SYMMETRY LUXE</h1>
-<p>Balanced Grandeur</p>
-    </div>
-  </div>
-
-  <!-- Nút điều hướng -->
-  <button class="nav prev" onclick="changeSlide(-1)">&#10094;</button>
-  <button class="nav next" onclick="changeSlide(1)">&#10095;</button>
-
-  <!-- Dấu chấm -->
-  <div class="dots" id="dots"></div>
-</section>
-
-
-<script>
-const slides = document.querySelectorAll('.slide');
-const dotsContainer = document.getElementById('dots');
-let ind = 0;
-
-// Tạo dấu chấm tương ứng
-slides.forEach((_, i) => {
-  const dot = document.createElement('span');
-  dot.addEventListener('click', () => showSlide(i));
-  dotsContainer.appendChild(dot);
-});
-const dots = dotsContainer.querySelectorAll('span');
-
-function showSlide(i) {
-  slides.forEach(s => s.classList.remove('active'));
-  dots.forEach(d => d.classList.remove('active'));
-  slides[i].classList.add('active');
-  dots[i].classList.add('active');
-  ind = i;
-}
-
-function changeSlide(n) {
-  ind = (ind + n + slides.length) % slides.length;
-  showSlide(ind);
-  
-}
-// Tự động chạy
-setInterval(() => changeSlide(1), 4000);
-
-// Hiển thị slide đầu tiên
-showSlide(ind);
-</script>
-
-<script src="js/common.js"></script>
-<footer>
-        <div class="footer-logo">
-            <div><em>Haguchi</em></div>
-            <div>葉具家</div>
-        </div>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 data-i18n="nav-about">About Us</h3>
-                <ul>
-                    <li data-i18n="footer-aboutus"> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
-                    <li data-i18n="footer-aboutus-add">📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
-                    <li>📞 (+84) 123 456 789</li>
-                    <li>📧 support@noithatmaistudio.com</li>
-                    <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
-                </ul>
+      <nav class="Main-Menu">
+        <ul>
+          <li><a href="" data-i18n="nav-products">Products</a></li>
+          <li><a href="" data-i18n="nav-about">About us</a></li>
+          <li><a href="" data-i18n="nav-blog">Blog</a></li>
+          <li><a href="" data-i18n="nav-policies">Policies</a></li>
+        </ul>
+      </nav>
+      <nav class="Sub-Menu">
+        <ul>
+          <li>
+            <form id="search-box" action="">
+              <input type="text" id="search-text" placeholder="Search..." />
+              <button id="search-btn">
+                <span class="fluent--search-12-filled"></span>
+              </button>
+            </form>
+          </li>
+          <li id="Wishlist">
+            <a href="">
+              <span class="solar--heart-bold"></span>
+              <span class="wishlist-count">0</span>
+            </a>
+          </li>
+          <li><span class="solar--user-bold"></span></li>
+          <li class="lang-switcher">
+            <div class="lang-toggle" aria-label="Language switcher">
+              <input
+                type="radio"
+                id="lang-en"
+                name="site-lang"
+                checked
+                onchange="changeLanguage('en')"
+              />
+              <input
+                type="radio"
+                id="lang-vi"
+                name="site-lang"
+                onchange="changeLanguage('vi')"
+              />
+              <div class="lang-track">
+                <label for="lang-en" class="lang-opt lang-en">EN</label>
+                <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                <div class="lang-knob" aria-hidden="true"></div>
+              </div>
             </div>
-        <div class="footer-section">
-            <h3 data-i18n="footer-categories">Shop by Category</h3>
-            <ul>
-                <li><a href="" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
-                <li><a href="" data-i18n="footer-categories-dining">Dining Tables</a></li>
-                <li><a href="" data-i18n="footer-categories-bed">Beds</a></li>
-                <li><a href="" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
-                <li><a href="" data-i18n="footer-categories-decor">Lighting & Decor</a></li>
-                <li><a href="" data-i18n="footer-categories-new">New Arrivals / Promotions</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3 data-i18n="footer-policies">Policies & Support</h3>
-            <ul>
-                <li><a href="" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
-                <li><a href="" data-i18n="footer-policies-return">Return & Exchange</a></li>
-                <li><a href="" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
-                <li><a href="" data-i18n="footer-policies-order">How to Order</a></li>
-                <li><a href="" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
-            </ul>
-        </div>
-    </div>
-        <div class="footer-bottom">
-            <span>© 2025 HAGUCHI – All rights reserved.</span>
-            <div class="social-icons">
-                <div class="social-icon">f</div>
-                <div class="social-icon">in</div>
-                <div class="social-icon">t</div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ===================== PRODUCT SHOWCASE ===================== -->
+    <section class="product-display-modern" data-scroll="fade-up">
+      <div class="product-container">
+        <div class="product-images-section">
+          <!-- Main Image -->
+          <div class="main-image-container">
+            <button class="image-nav-btn prev-img-btn">❮</button>
+            <img
+              src="Product/Ảnh/11.png"
+              id="mainProductImage"
+              alt="L-shaped Sofa"
+              class="main-product-image"
+            />
+            <button class="image-nav-btn next-img-btn">❯</button>
+
+            <!-- Zoom Button -->
+            <button class="zoom-btn" title="Click to zoom">
+              <span>+</span>
+            </button>
+
+            <!-- Badges -->
+            <div class="product-badges">
+              <span class="badge badge-new">New Arrival</span>
+              <span class="badge badge-sale">Free Shipping</span>
             </div>
+          </div>
+
+          <!-- Thumbnail Gallery -->
+          <div class="thumbnail-gallery-grid">
+            <div
+              class="thumbnail-item active"
+              data-image="Product/Ảnh/11.png"
+              data-color="Desaturated Teal"
+            >
+              <img src="Product/Ảnh/11.png" alt="Desaturated Teal" />
+            </div>
+            <div
+              class="thumbnail-item"
+              data-image="Product/Ảnh/9.png"
+              data-color="Dusty Plum"
+            >
+              <img src="Product/Ảnh/9.png" alt="Dusty Plum" />
+            </div>
+            <div
+              class="thumbnail-item"
+              data-image="Product/Ảnh/10.png"
+              data-color="Muted Rosewood"
+            >
+              <img src="Product/Ảnh/10.png" alt="Muted Rosewood" />
+            </div>
+            <div
+              class="thumbnail-item"
+              data-image="Product/Ảnh/12.png"
+              data-color="Deep Steel Blue"
+            >
+              <img src="Product/Ảnh/12.png" alt="Deep Steel Blue" />
+            </div>
+          </div>
         </div>
+
+        <!-- RIGHT: Product Details -->
+        <div class="product-details-section" data-scroll="fade-up">
+          <!-- Product Title & Rating -->
+          <div class="product-title-section">
+            <h1 class="product-title">L-shaped Sofa</h1>
+            <div class="product-rating-line">
+              <div class="stars-inline">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star half">★</span>
+                <span class="rating-text">4.8</span>
+              </div>
+              <span class="divider">|</span>
+              <a href="#reviews" class="reviews-link">127 Reviews</a>
+              <span class="divider">|</span>
+              <span class="stock-status in-stock">✓ In Stock</span>
+            </div>
+          </div>
+
+          <!-- Price Section -->
+          <div class="price-section-modern">
+            <div class="price-main">4.200.000 đ</div>
+            <div class="price-old">5.500.000 đ</div>
+            <div class="price-save">Save 24%</div>
+          </div>
+          <p class="shipping-note">
+            <span class="icon">🚚</span>
+            Free shipping for orders over 5M VND • Ships within 3-5 business
+            days
+          </p>
+
+          <!-- Quick Features -->
+          <div class="quick-features">
+            <div class="feature-badge">
+              <span class="feature-icon">✓</span>
+              <span>2-Year Warranty</span>
+            </div>
+            <div class="feature-badge">
+              <span class="feature-icon">✓</span>
+              <span>30-Day Return</span>
+            </div>
+            <div class="feature-badge">
+              <span class="feature-icon">✓</span>
+              <span>Free Assembly</span>
+            </div>
+          </div>
+
+          <!-- Variants Section -->
+          <div class="variants-section-modern" data-scroll="fade-up">
+            <!-- Color Selection -->
+            <div class="variant-group-modern">
+              <label class="variant-label">
+                Color:
+                <span class="selected-value" id="selectedColor">Grey</span>
+              </label>
+              <div class="color-swatches">
+                <button
+                  class="color-swatch active"
+                  data-color="Desaturated Teal"
+                  data-thumbnail-index="0"
+                  style="background: #669188"
+                  title="Desaturated Teal"
+                ></button>
+                <button
+                  class="color-swatch"
+                  data-color="Dusty Plum"
+                  data-thumbnail-index="1"
+                  style="background: #77596b"
+                  title="Dusty Plum"
+                ></button>
+                <button
+                  class="color-swatch"
+                  data-color="Muted Rosewood"
+                  data-thumbnail-index="2"
+                  style="background: #7d5957"
+                  title="Muted Rosewood"
+                ></button>
+                <button
+                  class="color-swatch"
+                  data-color="Deep Steel Blue"
+                  data-thumbnail-index="3"
+                  style="background: #243f51"
+                  title="Deep Steel Blue"
+                ></button>
+              </div>
+            </div>
+
+            <!-- Size Selection -->
+            <div class="variant-group-modern">
+              <label class="variant-label">
+                Size:
+                <span class="selected-value" id="selectedSize"
+                  >Medium (250cm)</span
+                >
+              </label>
+              <div class="size-buttons">
+                <button class="size-btn" data-size="Small (220cm)">
+                  <span class="size-name">Small</span>
+                  <span class="size-detail">220cm</span>
+                </button>
+                <button class="size-btn active" data-size="Medium (250cm)">
+                  <span class="size-name">Medium</span>
+                  <span class="size-detail">250cm</span>
+                  <span class="recommended">Popular</span>
+                </button>
+                <button class="size-btn" data-size="Large (290cm)">
+                  <span class="size-name">Large</span>
+                  <span class="size-detail">290cm</span>
+                </button>
+              </div>
+            </div>
+            <!-- Material Selection -->
+            <div class="variant-group-modern">
+              <label class="variant-label">
+                Material:
+                <span class="selected-value" id="selectedMaterial"
+                  >Polyester</span
+                >
+              </label>
+              <div class="material-cards">
+                <label class="material-card active">
+                  <input
+                    type="radio"
+                    name="material"
+                    value="Polyester"
+                    checked
+                  />
+                  <div class="material-content">
+                    <div class="material-name">Polyester</div>
+                    <div class="material-desc">Durable & Easy Care</div>
+                    <div class="material-price">Standard</div>
+                  </div>
+                </label>
+                <label class="material-card">
+                  <input type="radio" name="material" value="Leather" />
+                  <div class="material-content">
+                    <div class="material-name">Leather</div>
+                    <div class="material-desc">Premium Luxury</div>
+                    <div class="material-price">+2.000.000 đ</div>
+                  </div>
+                </label>
+                <label class="material-card">
+                  <input type="radio" name="material" value="Linen" />
+                  <div class="material-content">
+                    <div class="material-name">Linen</div>
+                    <div class="material-desc">Natural & Breathable</div>
+                    <div class="material-price">+800.000 đ</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quantity & Actions -->
+          <div class="purchase-actions">
+            <div class="quantity-selector-modern">
+              <label>Quantity:</label>
+              <div class="quantity-control">
+                <button class="qty-btn minus">−</button>
+                <input
+                  type="number"
+                  id="quantityInput"
+                  value="1"
+                  min="1"
+                  max="10"
+                  readonly
+                />
+                <button class="qty-btn plus">+</button>
+              </div>
+            </div>
+
+            <div class="action-buttons-grid">
+              <button class="btn-add-wishlist" id="addToWishlistBtn">
+                <span class="btn-icon"></span>
+                <span>Add to wishlist</span>
+              </button>
+            </div>
+          </div>
+          <!-- ===================== WISHLIST POPUP ===================== -->
+          <div class="wishlist-popup" id="wishlistPopup">
+            <div class="wishlist-content">
+              <span class="popup-close" id="closePopup">&times;</span>
+              <h2>✓ Added to Wishlist!</h2>
+              <p>Your item has been saved to your wishlist.</p>
+
+              <button class="view-btn">View Wishlist</button>
+              <button class="keep-btn">Keep Shopping</button>
+            </div>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="trust-badges">
+            <div class="trust-item">
+              <span class="trust-icon">🔒</span>
+              <div>
+                <strong>Secure Payment</strong>
+                <p>SSL Encrypted</p>
+              </div>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">📦</span>
+              <div>
+                <strong>Free Shipping</strong>
+                <p>Orders over 5M</p>
+              </div>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">↩️</span>
+              <div>
+                <strong>Easy Returns</strong>
+                <p>30-day policy</p>
+              </div>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">💬</span>
+              <div>
+                <strong>24/7 Support</strong>
+                <p>Always here</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Share & More -->
+          <div class="product-footer-actions">
+            <div class="share-section">
+              <span class="share-label">Share:</span>
+              <div class="share-buttons">
+                <button class="share-btn" title="Facebook">f</button>
+                <button class="share-btn" title="Twitter">𝕏</button>
+                <button class="share-btn" title="Pinterest">P</button>
+                <button class="share-btn" title="Copy Link">🔗</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRODUCT DETAILS TABS ===================== -->
+    <section class="product-details-tabs" data-scroll="fade-left">
+      <div class="tabs-container">
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="description">
+            Description
+          </button>
+          <button class="tab-btn" data-tab="specifications">
+            Specifications
+          </button>
+          <button class="tab-btn" data-tab="care">Care Instructions</button>
+          <button class="tab-btn" data-tab="shipping">
+            Shipping & Returns
+          </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content-wrapper" data-scroll="fade-up">
+          <!-- Description Tab -->
+          <div id="description" class="tab-content active">
+            <h3>About This Product</h3>
+            <p>
+              The L-shaped sofa is designed to embrace your living space with
+              versatility and comfort. Perfect for families who love spending
+              time together or anyone who enjoys stretching out after a long
+              day, it creates a natural gathering spot for conversations,
+              movies, or quiet moments alone.
+            </p>
+            <div class="features-grid" data-scroll="fade-up">
+              <div class="feature-item">
+                <span class="feature-icon">🛋️</span>
+                <h4>Modular Design</h4>
+                <p>
+                  Easily reconfigure sections to fit your space and lifestyle
+                  needs.
+                </p>
+              </div>
+              <div class="feature-item" data-scroll="fade-up">
+                <span class="feature-icon">✨</span>
+                <h4>Premium Comfort</h4>
+                <p>
+                  Generous cushioning with high-density foam for deep
+                  relaxation.
+                </p>
+              </div>
+              <div class="feature-item" data-scroll="fade-up">
+                <span class="feature-icon">🎨</span>
+                <h4>Elegant Style</h4>
+                <p>
+                  Sleek silhouette that keeps any room feeling open and modern.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specifications Tab -->
+          <div id="specifications" class="tab-content" data-scroll="fade-up">
+            <h3>Technical Specifications</h3>
+            <table class="specs-table">
+              <tr>
+                <td class="spec-label">Dimensions (L × W × H)</td>
+                <td class="spec-value">250cm × 180cm × 85cm</td>
+              </tr>
+              <tr>
+                <td class="spec-label">Seat Depth</td>
+                <td class="spec-value">95cm</td>
+              </tr>
+              <tr>
+                <td class="spec-label">Frame Material</td>
+                <td class="spec-value">Solid oak wood</td>
+              </tr>
+              <tr>
+                <td class="spec-label">Upholstery</td>
+                <td class="spec-value">Premium polyester fabric</td>
+              </tr>
+              <tr>
+                <td class="spec-label">Cushion Fill</td>
+                <td class="spec-value">High-density foam padding</td>
+              </tr>
+              <tr>
+                <td class="spec-label">Weight</td>
+                <td class="spec-value">85kg</td>
+              </tr>
+              <tr>
+                <td class="spec-label">Weight Capacity</td>
+                <td class="spec-value">300kg (total)</td>
+              </tr>
+              <tr>
+                <td class="spec-label">Assembly Required</td>
+                <td class="spec-value">Yes (tools included)</td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Care Instructions Tab -->
+          <div id="care" class="tab-content" data-scroll="fade-up">
+            <h3>Care & Maintenance</h3>
+            <div class="care-instructions">
+              <div class="care-item">
+                <span class="care-icon">🧹</span>
+                <div>
+                  <h4>Regular Cleaning</h4>
+                  <p>
+                    Vacuum weekly with soft brush attachment. Rotate cushions
+                    regularly for even wear.
+                  </p>
+                </div>
+              </div>
+              <div class="care-item">
+                <span class="care-icon">💧</span>
+                <div>
+                  <h4>Stain Removal</h4>
+                  <p>
+                    Blot spills immediately. Use mild soap with water. Avoid
+                    harsh chemicals.
+                  </p>
+                </div>
+              </div>
+              <div class="care-item">
+                <span class="care-icon">☀️</span>
+                <div>
+                  <h4>Sunlight Protection</h4>
+                  <p>
+                    Avoid direct sunlight to prevent fading. Use curtains or
+                    blinds during peak hours.
+                  </p>
+                </div>
+              </div>
+              <div class="care-item">
+                <span class="care-icon">🔧</span>
+                <div>
+                  <h4>Professional Care</h4>
+                  <p>
+                    Deep clean professionally every 12-18 months for best
+                    results.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping & Returns Tab -->
+          <div id="shipping" class="tab-content" data-scroll="fade-up">
+            <h3>Shipping & Returns Policy</h3>
+            <div class="policy-section">
+              <h4>📦 Shipping Information</h4>
+              <ul>
+                <li>Free shipping on orders over 5,000,000 VND</li>
+                <li>Delivery within 3-5 business days in Ho Chi Minh City</li>
+                <li>7-10 business days for other provinces</li>
+                <li>Free assembly service included (HCM area)</li>
+                <li>Tracking number provided via email</li>
+              </ul>
+            </div>
+            <div class="policy-section">
+              <h4>↩️ Return Policy</h4>
+              <ul>
+                <li>30-day return period from delivery date</li>
+                <li>Item must be in original condition</li>
+                <li>Free return shipping for manufacturing defects</li>
+                <li>Customer pays return shipping for change of mind</li>
+                <li>Refund processed within 7-10 business days</li>
+              </ul>
+            </div>
+            <div class="policy-section">
+              <h4>🛡️ Warranty</h4>
+              <ul>
+                <li>2-year warranty on frame and structure</li>
+                <li>1-year warranty on fabric and cushioning</li>
+                <li>Free repair service during warranty period</li>
+                <li>Lifetime customer support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GALLERY SECTION ===================== -->
+    <section class="gallery-section" data-scroll="fade-up">
+      <div class="gallery-header">
+        <h2>Lifestyle Gallery</h2>
+        <p>Discover how our L-shaped sofa transforms living spaces</p>
+      </div>
+
+      <!-- Main Gallery Slider -->
+      <div class="gallery-slider-modern" data-scroll="fade-up">
+        <!-- Slide 1 -->
+        <div
+          class="gallery-slide active"
+          style="background-image: url('Product/Ảnh/1.png')"
+        >
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-label">Style Inspiration</span>
+            <h3 class="slide-title">TROPICAL CALM</h3>
+            <p class="slide-subtitle">Botanical Whisper</p>
+            <button class="slide-cta">View Details</button>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div
+          class="gallery-slide" 
+          style="background-image: url('Product/Ảnh/2.png')"
+        >
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-label">Style Inspiration</span>
+            <h3 class="slide-title">SCANDINAVIAN BRIGHT</h3>
+            <p class="slide-subtitle">Minimalist Warmth</p>
+            <button class="slide-cta">View Details</button>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div
+          class="gallery-slide"
+          style="background-image: url('Product/Ảnh/3.png')"
+        >
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-label">Style Inspiration</span>
+            <h3 class="slide-title">MODERN ZEN</h3>
+            <p class="slide-subtitle">Airy Elegance</p>
+            <button class="slide-cta">View Details</button>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div
+          class="gallery-slide"
+          style="background-image: url('Product/Ảnh/4.png')"
+        >
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-label">Style Inspiration</span>
+            <h3 class="slide-title">URBAN NEUTRAL</h3>
+            <p class="slide-subtitle">Sleek Storage Solution</p>
+            <button class="slide-cta">View Details</button>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div
+          class="gallery-slide"
+          style="background-image: url('Product/Ảnh/5.png')"
+        >
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-label">Style Inspiration</span>
+            <h3 class="slide-title">SYMMETRY LUXE</h3>
+            <p class="slide-subtitle">Balanced Grandeur</p>
+            <button class="slide-cta">View Details</button>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button
+          class="gallery-nav gallery-prev" data-scroll="fade-up"
+          onclick="galleryChangeSlide(-1)"
+        >
+          <span>❮</span>
+        </button>
+        <button
+          class="gallery-nav gallery-next"
+          onclick="galleryChangeSlide(1)"
+        >
+          <span>❯</span>
+        </button>
+      </div>
+
+      <!-- Thumbnail Navigation -->
+      <div class="gallery-thumbnails" data-scroll="fade-up">
+        <div class="thumbnail-item active" onclick="galleryGoToSlide(0)">
+          <img src="Product/Ảnh/1.png" alt="Tropical Calm" />
+          <span class="thumbnail-label">Tropical</span>
+        </div>
+        <div class="thumbnail-item" onclick="galleryGoToSlide(1)">
+          <img src="Product/Ảnh/2.png" alt="Scandinavian Bright" />
+          <span class="thumbnail-label">Scandinavian</span>
+        </div>
+        <div class="thumbnail-item" onclick="galleryGoToSlide(2)">
+          <img src="Product/Ảnh/3.png" alt="Modern Zen" />
+          <span class="thumbnail-label">Modern Zen</span>
+        </div>
+        <div class="thumbnail-item" onclick="galleryGoToSlide(3)">
+          <img src="Product/Ảnh/4.png" alt="Urban Neutral" />
+          <span class="thumbnail-label">Urban</span>
+        </div>
+        <div class="thumbnail-item" onclick="galleryGoToSlide(4)">
+          <img src="Product/Ảnh/5.png" alt="Symmetry Luxe" />
+          <span class="thumbnail-label">Luxury</span>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="gallery-progress" data-scroll="fade-up">
+        <div class="progress-bar"></div>
+      </div>
+    </section>
+
+    <!-- ===================== CUSTOMER REVIEWS SECTION ===================== -->
+    <section class="reviews-section-modern" data-scroll="fade-left>
+      <div class="reviews-container">
+        <!-- Section Header -->
+        <div class="reviews-header" data-scroll="fade-up">
+          <h2>What Our Customers Say</h2>
+          <p>Trusted by thousands of satisfied furniture lovers</p>
+        </div>
+
+        <!-- Rating Summary Card -->
+        <div class="rating-summary-card" data-scroll="fade-up">
+          <div class="overall-rating">
+            <div class="rating-number">4.8</div>
+            <div class="rating-stars">
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star filled">★</span>
+              <span class="star half">★</span>
+            </div>
+            <div class="rating-count">Based on 127 reviews</div>
+          </div>
+
+          <!-- Rating Breakdown -->
+          <div class="rating-breakdown" data-scroll="fade-up">
+            <div class="rating-row">
+              <span class="rating-label">5 stars</span>
+              <div class="rating-bar-container">
+                <div class="rating-bar" style="width: 85%"></div>
+              </div>
+              <span class="rating-percentage">85%</span>
+            </div>
+            <div class="rating-row" data-scroll="fade-up">
+              <span class="rating-label">4 stars</span>
+              <div class="rating-bar-container">
+                <div class="rating-bar" style="width: 12%"></div>
+              </div>
+              <span class="rating-percentage">12%</span>
+            </div>
+            <div class="rating-row" data-scroll="fade-up">
+              <span class="rating-label">3 stars</span>
+              <div class="rating-bar-container">
+                <div class="rating-bar" style="width: 2%"></div>
+              </div>
+              <span class="rating-percentage">2%</span>
+            </div>
+            <div class="rating-row" data-scroll="fade-up">
+              <span class="rating-label">2 stars</span>
+              <div class="rating-bar-container">
+                <div class="rating-bar" style="width: 1%"></div>
+              </div>
+              <span class="rating-percentage">1%</span>
+            </div>
+            <div class="rating-row" data-scroll="fade-up">
+              <span class="rating-label">1 star</span>
+              <div class="rating-bar-container">
+                <div class="rating-bar" style="width: 0%"></div>
+              </div>
+              <span class="rating-percentage">0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter & Sort -->
+        <div class="reviews-controls" data-scroll="fade-up">
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">
+              All Reviews
+            </button>
+            <button class="filter-btn" data-filter="5">5 Stars</button>
+            <button class="filter-btn" data-filter="4">4 Stars</button>
+            <button class="filter-btn" data-filter="verified">
+              Verified Purchase
+            </button>
+          </div>
+          <select class="sort-select" data-scroll="fade-up">
+            <option value="recent">Most Recent</option>
+            <option value="helpful">Most Helpful</option>
+            <option value="highest">Highest Rating</option>
+            <option value="lowest">Lowest Rating</option>
+          </select>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div class="reviews-grid" data-scroll="fade-up">
+          <!-- ========== Review Card 1 - 5 Stars ========== -->
+          <div class="review-card" data-scroll="scale-up" data-rating="5">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">MP</div>
+                <div class="reviewer-details">
+                  <h4 class="reviewer-name">Mai Peterson</h4>
+                  <div class="review-meta">
+                    <span class="verified-badge">✓ Verified Purchase</span>
+                    <span class="review-date">2 weeks ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+              </div>
+            </div>
+
+            <div class="review-content">
+              <h5 class="review-title">Absolutely Love It!</h5>
+              <p class="review-text">
+                Very comfortable and modern design. The fabric is high quality
+                and the color looks exactly like the photos. Delivery was super
+                fast and the assembly team was professional. Highly recommend
+                this sofa!
+              </p>
+            </div>
+
+            <div class="review-images">
+              <img
+                src="Product/Ảnh/10.png"
+                alt="Customer photo"
+                class="review-img"
+              />
+              <img
+                src="Product/Ảnh/11.png"
+                alt="Customer photo"
+                class="review-img"
+              />
+            </div>
+
+            <div class="review-footer">
+              <button class="helpful-btn">
+                <span class="icon">👍</span>
+                Helpful (24)
+              </button>
+              <button class="report-btn">Report</button>
+            </div>
+          </div>
+
+          <!-- ========== Review Card 2 - 4 Stars ========== -->
+          <div class="review-card" data-scroll="fade-up" data-rating="4">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">TN</div>
+                <div class="reviewer-details">
+                  <h4 class="reviewer-name">Tuan Nguyen</h4>
+                  <div class="review-meta">
+                    <span class="verified-badge">✓ Verified Purchase</span>
+                    <span class="review-date">1 month ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating" data-scroll="fade-up">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star">★</span>
+              </div>
+            </div>
+
+            <div class="review-content" data-scroll="fade-up">
+              <h5 class="review-title">
+                Great Quality, Minor Color Difference
+              </h5>
+              <p class="review-text" data-scroll="fade-up">
+                Solid frame and beautiful fabric quality. Very comfortable for
+                long sitting sessions. The color is slightly different from the
+                photos (a bit lighter), but overall I'm very satisfied with this
+                purchase. Assembly took about 2 hours with 2 people.
+              </p>
+            </div>
+
+            <div class="review-footer" data-scroll="fade-up">
+              <button class="helpful-btn">
+                <span class="icon">👍</span>
+                Helpful (18)
+              </button>
+              <button class="report-btn">Report</button>
+            </div>
+          </div>
+
+          <!-- ========== Review Card 3 - 5 Stars ========== -->
+          <div class="review-card" data-rating="5" data-scroll="fade-up">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">SL</div>
+                <div class="reviewer-details">
+                  <h4 class="reviewer-name">Sarah Lee</h4>
+                  <div class="review-meta">
+                    <span class="verified-badge">✓ Verified Purchase</span>
+                    <span class="review-date">3 weeks ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating" data-scroll="fade-up">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+              </div>
+            </div>
+
+            <div class="review-content" data-scroll="fade-up">
+              <h5 class="review-title">Perfect for Small Living Rooms</h5>
+              <p class="review-text" data-scroll="fade-up">
+                This L-shaped sofa fits perfectly in my compact living room. The
+                modular design makes it easy to rearrange. My family loves
+                lounging on it during movie nights. The cushions are firm yet
+                comfortable. Worth every penny!
+              </p>
+            </div>
+
+            <div class="review-footer" data-scroll="fade-up">
+              <button class="helpful-btn">
+                <span class="icon">👍</span>
+                Helpful (31)
+              </button>
+              <button class="report-btn">Report</button>
+            </div>
+          </div>
+
+          <!-- ========== Review Card 4 - 5 Stars ========== -->
+          <div class="review-card" data-rating="5" data-scroll="fade-up">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">DK</div>
+                <div class="reviewer-details">
+                  <h4 class="reviewer-name">David Kim</h4>
+                  <div class="review-meta">
+                    <span class="verified-badge">✓ Verified Purchase</span>
+                    <span class="review-date">2 months ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating" data-scroll="fade-up">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+              </div>
+            </div>
+
+            <div class="review-content" data-scroll="fade-up">
+              <h5 class="review-title">Best Purchase of the Year!</h5>
+              <p class="review-text" data-scroll="fade-up">
+                Amazing sofa! The grey color is elegant and matches our interior
+                perfectly. Customer service was excellent, they helped us choose
+                the right size. Delivery was on time and the delivery team was
+                careful with our floors.
+              </p>
+            </div>
+
+            <div class="review-images" data-scroll="fade-up">
+              <img
+                src="Product/Ảnh/9.png"
+                alt="Customer photo"
+                class="review-img"
+              />
+            </div>
+
+            <div class="review-footer" data-scroll="fade-up">
+              <button class="helpful-btn">
+                <span class="icon">👍</span>
+                Helpful (45)
+              </button>
+              <button class="report-btn">Report</button>
+            </div>
+          </div>
+
+          <!-- ========== Review Card 5 - 4 Stars ========== -->
+          <div class="review-card" data-scroll="fade-up" data-rating="4">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">LH</div>
+                <div class="reviewer-details">
+                  <h4 class="reviewer-name">Linda Hernandez</h4>
+                  <div class="review-meta">
+                    <span class="verified-badge">✓ Verified Purchase</span>
+                    <span class="review-date">5 weeks ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating" data-scroll="fade-up">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star">★</span>
+              </div>
+            </div>
+
+            <div class="review-content" data-scroll="fade-up">
+              <h5 class="review-title">
+                Comfortable but Assembly Was Challenging
+              </h5>
+              <p class="review-text">
+                The sofa is very comfortable and looks great in our living room.
+                However, assembly took longer than expected (about 3 hours).
+                Instructions could be clearer. Despite that, we're happy with
+                the quality and design.
+              </p>
+            </div>
+
+            <div class="review-footer" data-scroll="fade-up">
+              <button class="helpful-btn">
+                <span class="icon">👍</span>
+                Helpful (12)
+              </button>
+              <button class="report-btn">Report</button>
+            </div>
+          </div>
+
+          <!-- ========== Review Card 6 - 5 Stars ========== -->
+          <div class="review-card" data-scroll="fade-up" data-rating="5" >
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">AC</div>
+                <div class="reviewer-details">
+                  <h4 class="reviewer-name">Anna Chen</h4>
+                  <div class="review-meta">
+                    <span class="verified-badge">✓ Verified Purchase</span>
+                    <span class="review-date">1 week ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating" data-scroll="fade-up">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+              </div>
+            </div>
+
+            <div class="review-content" data-scroll="fade-up">
+              <h5 class="review-title">Exceeded Expectations!</h5>
+              <p class="review-text">
+                I was skeptical about buying furniture online, but this sofa
+                exceeded all my expectations. The fabric feels premium, cushions
+                are supportive, and the design is modern yet timeless. My cat
+                loves it too! Highly recommend getting the stain protection
+                option.
+              </p>
+            </div>
+
+            <div class="review-images" data-scroll="fade-up">
+              <img
+                src="Product/Ảnh/12.png"
+                alt="Customer photo"
+                class="review-img"
+              />
+              <img
+                src="Product/Ảnh/13.png"
+                alt="Customer photo"
+                class="review-img"
+              />
+            </div>
+
+            <div class="review-footer" data-scroll="fade-up">
+              <button class="helpful-btn">
+                <span class="icon">👍</span>
+                Helpful (8)
+              </button>
+              <button class="report-btn">Report</button>
+            </div>
+          </div>
+
+          <!-- ========== Review Card 7 - 3 Stars ========== -->
+          <div class="review-card" data-rating="3" data-scroll="fade-up">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">MJ</div>
+                <div class="reviewer-details">
+                  <h4 class="reviewer-name">Michael Johnson</h4>
+                  <div class="review-meta">
+                    <span class="verified-badge">✓ Verified Purchase</span>
+                    <span class="review-date">6 weeks ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating" data-scroll="fade-up">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+              </div>
+            </div>
+
+            <div class="review-content" data-scroll="fade-up">
+              <h5 class="review-title">Good but Not Great</h5>
+              <p class="review-text">
+                The sofa looks nice and is fairly comfortable. However, I
+                expected better quality for the price. The fabric pills a bit
+                after a few weeks. Customer service was responsive when I
+                reached out about concerns. It's decent, but not exceptional.
+              </p>
+            </div>
+
+            <div class="review-footer" data-scroll="fade-up">
+              <button class="helpful-btn">
+                <span class="icon">👍</span>
+                Helpful (15)
+              </button>
+              <button class="report-btn">Report</button>
+            </div>
+          </div>
+
+          <!-- ========== Review Card 8 - 5 Stars ========== -->
+          <div class="review-card" data-rating="5" data-scroll="fade-up">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">JR</div>
+                <div class="reviewer-details">
+                  <h4 class="reviewer-name">Jessica Rodriguez</h4>
+                  <div class="review-meta">
+                    <span class="verified-badge">✓ Verified Purchase</span>
+                    <span class="review-date">4 weeks ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating" data-scroll="fade-up">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+              </div>
+            </div>
+
+            <div class="review-content" data-scroll="fade-up">
+              <h5 class="review-title">Family-Friendly and Stylish</h5>
+              <p class="review-text">
+                Perfect for our family of 4! The kids love jumping on it (though
+                we try to stop them), and it's held up well. Easy to clean
+                spills with a damp cloth. The chaise lounge section is my
+                favorite spot to read. Great value for money!
+              </p>
+            </div>
+
+            <div class="review-footer" data-scroll="fade-up">
+              <button class="helpful-btn">
+                <span class="icon">👍</span>
+                Helpful (22)
+              </button>
+              <button class="report-btn">Report</button>
+            </div>
+          </div>
+
+          <!-- ========== Review Card 9 - 4 Stars ========== -->
+          <div class="review-card" data-rating="4" data-scroll="fade-up">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">PW</div>
+                <div class="reviewer-details">
+                  <h4 class="reviewer-name">Peter Wilson</h4>
+                  <div class="review-meta">
+                    <span class="verified-badge">✓ Verified Purchase</span>
+                    <span class="review-date">3 months ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating" data-scroll="fade-up">
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star filled">★</span>
+                <span class="star">★</span>
+              </div>
+            </div>
+
+            <div class="review-content" data-scroll="fade-up">
+              <h5 class="review-title">Solid Purchase, Minor Issues</h5>
+              <p class="review-text">
+                Overall satisfied with the sofa. It's comfortable and well-made.
+                One cushion arrived with a small defect, but customer service
+                sent a replacement quickly. The medium size is perfect for our
+                apartment. Would buy from this company again.
+              </p>
+            </div>
+
+            <div class="review-footer" data-scroll="fade-up">
+              <button class="helpful-btn">
+                <span class="icon">👍</span>
+                Helpful (10)
+              </button>
+              <button class="report-btn">Report</button>
+            </div>
+          </div>
+        </div>
+        <!-- End reviews-grid -->
+      </div>
+      <!-- ===================== WRITE REVIEW SECTION ===================== -->
+      <div class="write-review-section" data-scroll="fade-up">
+        <button class="write-review-btn" data-scroll="slide-up" id="openReviewFormBtn">
+          <span class="btn-icon">✍️</span>
+          Write a Review
+        </button>
+      </div>
+
+      <!-- ===================== REVIEW FORM MODAL ===================== -->
+      <div class="review-modal" id="reviewModal" data-scroll="fade-up">
+        <div class="review-modal-content">
+          <span class="review-modal-close" id="closeReviewModal">&times;</span>
+
+          <div class="review-modal-header" data-scroll="fade-up">
+            <h2>Share Your Experience</h2>
+            <p>Help others make informed decisions</p>
+          </div>
+
+          <form id="reviewForm" class="review-form">
+            <!-- Rating Section -->
+            <div class="form-group rating-group" data-scroll="fade-up">
+              <label class="form-label required">Overall Rating</label>
+              <div class="star-rating-input" id="starRatingInput">
+                <input
+                  type="radio"
+                  id="star5"
+                  name="rating"
+                  value="5"
+                  required
+                />
+                <label for="star5" class="star-input" title="Excellent"
+                  >★</label
+                >
+
+                <input type="radio" id="star4" name="rating" value="4" />
+                <label for="star4" class="star-input" title="Good">★</label>
+
+                <input type="radio" id="star3" name="rating" value="3" />
+                <label for="star3" class="star-input" title="Average">★</label>
+
+                <input type="radio" id="star2" name="rating" value="2" />
+                <label for="star2" class="star-input" title="Poor">★</label>
+
+                <input type="radio" id="star1" name="rating" value="1" />
+                <label for="star1" class="star-input" title="Terrible">★</label>
+              </div>
+              <span class="rating-message" data-scroll="fade-up" id="ratingMessage"
+                >Select a rating</span
+              >
+            </div>
+
+            <!-- Name -->
+            <div class="form-group" data-scroll="fade-up">
+              <label class="form-label required">Your Name</label>
+              <input
+                type="text"
+                id="reviewerName"
+                name="name"
+                class="form-input"
+                placeholder="Enter your name"
+                required
+                minlength="2"
+                maxlength="50"
+              />
+              <span class="form-hint">This will be displayed publicly</span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group" data-scroll="fade-up">
+              <label class="form-label required">Email Address</label>
+              <input
+                type="email"
+                id="reviewerEmail"
+                name="email"
+                class="form-input"
+                placeholder="your.email@example.com"
+                required
+              />
+              <span class="form-hint">We'll never share your email</span>
+            </div>
+
+            <!-- Review Title -->
+            <div class="form-group" data-scroll="fade-up">
+              <label class="form-label required">Review Title</label>
+              <input
+                type="text"
+                id="reviewTitle"
+                name="title"
+                class="form-input"
+                placeholder="Sum up your experience in a few words"
+                required
+                minlength="5"
+                maxlength="100"
+              />
+              <span class="char-count" id="titleCharCount">0/100</span>
+            </div>
+
+            <!-- Review Text -->
+            <div class="form-group" data-scroll="fade-up">
+              <label class="form-label required">Your Review</label>
+              <textarea
+                id="reviewText"
+                name="review"
+                class="form-textarea"
+                placeholder="Share your thoughts about this product. What did you like or dislike? How does it compare to your expectations?"
+                required
+                minlength="20"
+                maxlength="1000"
+                rows="6"
+              ></textarea>
+              <span class="char-count" id="reviewCharCount">0/1000</span>
+            </div>
+
+            <!-- Photo Upload -->
+            <div class="form-group" data-scroll="fade-up">
+              <label class="form-label">Add Photos (Optional)</label>
+              <div class="photo-upload-area" id="photoUploadArea">
+                <input
+                  type="file"
+                  id="reviewPhotos"
+                  name="photos"
+                  accept="image/*"
+                  multiple
+                  hidden
+                />
+                <label for="reviewPhotos" class="upload-label">
+                  <span class="upload-icon">📷</span>
+                  <span class="upload-text"
+                    >Click to upload or drag and drop</span
+                  >
+                  <span class="upload-hint"
+                    >PNG, JPG up to 5MB (Max 3 photos)</span
+                  >
+                </label>
+                <div class="photo-preview-grid" id="photoPreviewGrid"></div>
+              </div>
+            </div>
+
+            <!-- Verified Purchase -->
+            <div class="form-group checkbox-group" data-scroll="fade-up">
+              <label class="checkbox-label">
+                <input type="checkbox" id="verifiedPurchase" name="verified" />
+                <span class="checkmark"></span>
+                <span>I purchased this product from Haguchi</span>
+              </label>
+            </div>
+
+            <!-- Recommend -->
+            <div class="form-group" data-scroll="fade-up">
+              <label class="form-label"
+                >Would you recommend this product?</label
+              >
+              <div class="recommend-buttons">
+                <label class="recommend-btn">
+                  <input type="radio" name="recommend" value="yes" required />
+                  <span class="btn-content">
+                    <span class="icon">👍</span>
+                    <span>Yes</span>
+                  </span>
+                </label>
+                <label class="recommend-btn">
+                  <input type="radio" name="recommend" value="no" />
+                  <span class="btn-content">
+                    <span class="icon">👎</span>
+                    <span>No</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Terms -->
+            <div class="form-group checkbox-group" data-scroll="fade-up">
+              <label class="checkbox-label">
+                <input type="checkbox" id="agreeTerms" name="terms" required />
+                <span class="checkmark"></span>
+                <span
+                  >I agree to the
+                  <a href="#" class="link">review guidelines</a></span
+                >
+              </label>
+              
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-actions" data-scroll="fade-up">
+              <button type="button" class="btn-cancel" id="cancelReviewBtn">
+                Cancel
+              </button>
+              <button type="submit" class="btn-submit">
+                <span class="btn-text">Submit Review</span>
+                <span class="btn-loader" style="display: none">⏳</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer data-scroll="fade-up">
+      <div class="footer-logo">
+        <div><em>Haguchi</em></div>
+        <div>葉具家</div>
+      </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 data-i18n="nav-about">About Us</h3>
+          <ul>
+            <li data-i18n="footer-aboutus">
+              Bringing elegance and comfort to your home with high-quality
+              furniture designed for modern living
+            </li>
+            <li data-i18n="footer-aboutus-add">
+              📍 123 Harmony Street, District 1, Ho Chi Minh City
+            </li>
+            <li>📞 (+84) 123 456 789</li>
+            <li>📧 support@noithatmaistudio.com</li>
+            <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-categories">Shop by Category</h3>
+          <ul>
+            <li>
+              <a href="" data-i18n="footer-categories-sofa"
+                >Sofas & Armchairs</a
+              >
+            </li>
+            <li>
+              <a href="" data-i18n="footer-categories-dining">Dining Tables</a>
+            </li>
+            <li><a href="" data-i18n="footer-categories-bed">Beds</a></li>
+            <li>
+              <a href="" data-i18n="footer-categories-cabinet"
+                >Cabinets & Shelves</a
+              >
+            </li>
+            <li>
+              <a href="" data-i18n="footer-categories-decor"
+                >Lighting & Decor</a
+              >
+            </li>
+            <li>
+              <a href="" data-i18n="footer-categories-new"
+                >New Arrivals / Promotions</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-policies">Policies & Support</h3>
+          <ul>
+            <li>
+              <a href="" data-i18n="footer-policies-warranty"
+                >Warranty Policy</a
+              >
+            </li>
+            <li>
+              <a href="" data-i18n="footer-policies-return"
+                >Return & Exchange</a
+              >
+            </li>
+            <li>
+              <a href="" data-i18n="footer-policies-shipping"
+                >Shipping Policy</a
+              >
+            </li>
+            <li>
+              <a href="" data-i18n="footer-policies-order">How to Order</a>
+            </li>
+            <li>
+              <a href="" data-i18n="footer-policies-privacy">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 HAGUCHI – All rights reserved.</span>
+        <div class="social-icons">
+          <div class="social-icon">f</div>
+          <div class="social-icon">in</div>
+          <div class="social-icon">t</div>
+        </div>
+      </div>
     </footer>
-
+    <br /><br /><br /><br />
+    <script src="js/animations.js"></script>
+    <script src="js/product.js"></script>
   </body>
 </html>
