@@ -28,23 +28,138 @@
             </div>
         </header>
 
-        <section id="view-orders" class="admin-view">
+        <section id="view-orders" class="admin-view active-view">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>ĐH #</th>
+                        <th>Đơn hàng #</th>
                         <th>Khách hàng</th>
                         <th>Ngày</th>
                         <th>Trị giá</th>
-                        <th>TT</th>
+                        <th>Trạng thái</th>
                         <th>Hành động</th>
                     </tr>
                 </thead>
-                <tbody id="orders-body"></tbody>
+                <tbody id="orders-body">
+                </tbody>
             </table>
         </section>
             
+        <section id="view-inventory" class="admin-view hidden">
+            <div class="inventory-controls">
+                <input type="text" id="prod-filter" placeholder="Tìm kiếm sản phẩm...">
+                <button id="addProdBtn" class="add-btn">Thêm sản phẩm mới</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng tồn</th>
+                        <th>Giá (đ)</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-body">
+                </tbody>
+            </table>
+        </section>
+
+        <section id="view-reports" class="admin-view hidden">
+            <div class="report-controls">
+                <select id="report-type-select">
+                    <option value="daily">Doanh thu ngày</option>
+                    <option value="monthly">Doanh thu tháng</option>
+                    <option value="best-sellers">Sản phẩm bán chạy</option>
+                </select>
+                <button id="btn-run-report">Xem báo cáo</button>
+            </div>
+
+            <div class="report-summary">
+                <div class="summary-card">
+                    <h3>Tổng Doanh Thu (T11)</h3>
+                    <p class="value" id="summary-revenue">0đ</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Số Đơn Hàng (T11)</h3>
+                    <p class="value" id="summary-orders">0</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Sản Phẩm Bán Chạy Nhất</h3>
+                    <p class="value" id="summary-best-seller">...</p>
+                </div>
+            </div>
+
+            <div class="report-list">
+                <h3 class="list-title">Chi tiết Doanh thu tháng 11</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ngày</th>
+                            <th>Đơn hàng</th>
+                            <th>Doanh thu</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reports-body">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
     </main>
+
+    <div id="order-detail-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Chi tiết Đơn hàng <span id="modal-order-id"></span></h2>
+            <div class="modal-body">
+                <h3 class="modal-sub-title">Thông tin Khách hàng</h3>
+                <div class="detail-row">
+                    <strong>Tên:</strong> <span id="detail-customer"></span>
+                </div>
+                <div class="detail-row">
+                    <strong>SĐT:</strong> <span id="detail-phone"></span>
+                </div>
+                <div class="detail-row">
+                    <strong>Địa chỉ:</strong> <span id="detail-address"></span>
+                </div>
+                
+                <h3 class="modal-sub-title">Thông tin Đơn hàng</h3>
+                <div class="detail-row">
+                    <strong>Ngày đặt:</strong> <span id="detail-date"></span>
+                </div>
+                <div class="detail-row">
+                    <strong>Trạng thái:</strong> <span id="detail-status"></span>
+                </div>
+                <div class="detail-row">
+                    <strong>Phương thức TT:</strong> <span id="detail-payment"></span>
+                </div>
+                
+                <h3 class="modal-sub-title">Sản phẩm</h3>
+                <table class="table modal-table">
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>SL</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody id="detail-items-body">
+                    </tbody>
+                </table>
+                
+                <div class="detail-total">
+                    <strong>Tổng cộng:</strong> <span id="detail-total-value"></span>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button id="btn-cancel-order">Hủy Đơn</button>
+                <button id="btn-update-status">Cập nhật Trạng thái</button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/admin.js"></script>
 </body>
