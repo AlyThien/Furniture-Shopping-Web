@@ -40,7 +40,7 @@
 .sofa-gallery .sofa-container {
     width: 1325px;
     height: 2169px;
-    margin-top: 100px; 
+    margin-top: 40px; 
     margin-bottom: 150px; 
 
     left: 60px;
@@ -55,8 +55,76 @@
 
 /* === 6. Components === */
 
+/* --- Product Category Navigation --- */
+.product-category-nav {
+    width: 100%;
+    /* Đẩy thanh nav xuống dưới header (55px) + 15px đệm */
+    padding-top: 70px; 
+    background-color: transparent; /* Nằm trên nền gradient của body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-category-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 10px; /* Khoảng cách giữa các mục */
+}
+
+/* Ghi đè padding từ common.css */
+.product-category-nav li {
+    padding: 0; 
+}
+
+.product-category-nav a:link,
+.product-category-nav a:visited {
+    font-family: "Roboto Serif",  serif; 
+    font-size: 16px;
+    font-weight: 600;
+    color: #A8C4B5; 
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 15px; /* Bo góc giống header */
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi hover - giống với nav chính */
+.product-category-nav a:hover {
+    background-color: #3B6D54; /* Màu xanh vừa */
+    color: #A8C4B5; /* Màu chữ sáng */
+}
+
+/* Định dạng cho mục đang được chọn (active) */
+.product-category-nav a.active {
+    font-weight: 700;
+    background-color: #044b2b; /* Màu xanh đậm nhất */
+    color: #E8F3DE; /* Màu chữ sáng */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- Product Category Navigation (Tablet) --- */
+/* Lưu ý: Các quy tắc này không nằm trong @media query, 
+   chúng sẽ bị ghi đè bởi các quy tắc ở trên. 
+   Để chúng hoạt động, chúng cần nằm trong @media (max-width: 768px) */
+.product-category-nav {
+    padding-top: 60px; /* Điều chỉnh cho header mobile (50px) */
+}
+.product-category-nav ul {
+    gap: 8px; /* Giảm khoảng cách */
+}
+.product-category-nav a:link,
+.product-category-nav a:visited {
+    font-size: 14px;
+    padding: 6px 10px;
+}
+
 /* --- Style chung cho Sofa Card --- */
-/* Code đã sửa đúng */
 .sofa-gallery .sofa-card__name {
     width: auto; 
     font-family: "Roboto Serif",  serif;
@@ -79,7 +147,6 @@
     transition: width 0.3s ease; /* Thêm transition */
 }
 
-/* Thêm pointer để biết được vùng hover */
 .sofa-gallery .sofa-card__caption-box {
     cursor: pointer;
     position: relative;
@@ -557,4 +624,17 @@
         grid-template-columns: 1fr;
         gap: 2.5rem; /* Tăng khoảng cách dọc */
     }
+
+    .product-category-nav {
+        padding-top: 55px; /* Điều chỉnh cho header mobile (45px) */
+    }
+    .product-category-nav ul {
+        gap: 5px; /* Giảm khoảng cách */
+    }
+    .product-category-nav a:link,
+    .product-category-nav a:visited {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
 }
