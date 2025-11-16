@@ -1,95 +1,440 @@
+:root {
+    /* Màu nền chính và màu chữ mặc định */
+    --primary-bg: #0c4431;
+    --secondary-bg: #25a784;
+    
+    /* Màu giao diện */
+    --panel: #05503C; /* Màu nền cho modal, summary card */
+    --sidebar-bg: #17483b; /* Màu nền sidebar, nút hover */
+    --accent: #E8F3DE; /* Màu chữ chính*/
+    --muted: #b8d4c9; /* Màu chữ phụ*/
+    --light-border: rgba(255, 255, 255, 0.08);
+}
+
 * {
-    box-sizing:border-box;
+    box-sizing: border-box;
     font-family: Roboto, sans-serif;
 }
 
 html, body {
-    height:100%;
-    margin:0;
-    background:linear-gradient(to right,#165e4b 0%, #0c4431 100%);
-    color: #E8F3DE;
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(to bottom, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+    color: var(--accent);
 }
 
 .admin-sidebar {
-    background-image: url('/images/admin/87479d86a87483230abb98832c30b30a.jpg');
-    position:fixed;
-    left:0;
-    top:0;
-    bottom:0;
-    width:220px;
-    padding:24px 16px;
-    border-right:1px solid rgba(232,243,222,0.04);
+    background: var(--sidebar-bg); 
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+    padding: 24px 16px;
+    border-right: 1px solid rgba(232, 243, 222, 0.04);
+    z-index: 500;
 }
 
 .admin-sidebar h2 {
-    margin:0 0 18px;
-    font-size:18px;
-    color: #2c6b4f;
+    margin: 0 0 18px;
+    font-size: 18px;
+    color: #FFFFFF;
 }
 
 .admin-sidebar nav ul {
-    list-style:none;
+    list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    color: #E8F3DE;
 }
 
 .admin-sidebar nav button {
     background: transparent;
-    color: #17483b;
-    border:none;
-    text-align:left;
-    padding:10px 12px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:14px;
+    color: var(--accent);
+    border: none;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    width: 100%;
+    transition: background 0.3s, font-weight 0.3s;
 }
 
 .admin-sidebar nav button.active, .admin-sidebar nav button:hover {
-    background:#17483b; 
-    color:var(--panel); 
-    font-weight:600;
+    background: var(--panel);
+    color: var(--accent); 
+    font-weight: 600;
 }
 
 .admin-main {
-    margin-left:220px;padding:24px;min-height:100vh;
+    margin-left: 220px;
+    padding: 24px;
+    min-height: 100vh;
 }
 
 .admin-header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
 }
 
 .admin-header h1 {
-    margin:0;
-    font-size:20px;
-    color:var(--muted);
+    margin: 0;
+    font-size: 20px;
+    color: var(--muted);
 }
 
-.header-controls button, .inventory-controls button, #btn-run-report, #refreshBtn{
-    background:var(--panel);color:var(--accent);border:1px solid rgba(232,243,222,0.08);padding:8px 12px;border-radius:8px;cursor:pointer;
+/* Quy tắc chung cho các nút hành động*/
+.header-controls button, 
+.inventory-controls button, 
+#btn-run-report, 
+#refreshBtn, 
+.add-btn, 
+.modal-footer button {
+    background: var(--panel);
+    color: var(--accent);
+    border: 1px solid var(--light-border);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+    font-size: 15px;
+    font-weight: normal;
 }
 
-.table{width:100%;border-collapse:collapse;background:transparent;margin-top:8px}
-.table thead th{background:rgba(232,243,222,0.03);padding:10px;text-align:left;color:var(--muted);border-bottom:1px solid rgba(232,243,222,0.04)}
-.table tbody td{padding:10px;border-bottom:1px dashed rgba(232,243,222,0.03);color:var(--accent)}
-.table tbody tr:hover td{background:rgba(232,243,222,0.02)}
-.badge{display:inline-block;padding:4px 8px;border-radius:14px;background:#2c6b4f;color:var(--accent);font-weight:600}
-.action-btn{background:transparent;border:1px solid rgba(232,243,222,0.08);color:var(--accent);padding:6px 8px;border-radius:6px;cursor:pointer}
-.inventory-controls{display:flex;gap:8px;align-items:center;margin-bottom:8px}
-#prod-filter{padding:8px;border-radius:6px;border:1px solid rgba(232,243,222,0.06);background:transparent;color:var(--accent)}
+.header-controls button:hover, 
+.inventory-controls button:hover, 
+#btn-run-report:hover, 
+#refreshBtn:hover, 
+.add-btn:hover, 
+.modal-footer button:hover {
+    background: #0A664E;
+    border-color: var(--accent);
+}
 
-.report-summary{display:flex;gap:24px;margin:16px 0;color:var(--muted)}
-.report-list{margin-top:12px}
+/* Nút "Chi tiết", "Sửa", "Xóa" */
+.action-btn { 
+    background: transparent;
+    border: 1px solid rgba(232, 243, 222, 0.08);
+    color: var(--accent);
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-right: 4px;
+}
+
+.action-btn:hover {
+    background: rgba(232, 243, 222, 0.1);
+}
+
+/* Nút Hủy Đơn trong Modal */
+#btn-cancel-order { 
+    background: #d9534f !important; 
+    border-color: #d9534f !important;
+    margin-right: 10px;
+}
+
+#btn-cancel-order:hover {
+    background: #c9302c !important; 
+    border-color: var(--accent) !important;
+}
+
+.inventory-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+#prod-filter,
+#report-type-select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(232, 243, 222, 0.06);
+    background: transparent;
+    color: var(--accent);
+}
+
+#prod-filter {
+    flex-grow: 1; 
+    background: transparent;
+}
+
+#report-type-select {
+    background: var(--panel);
+    cursor: pointer;
+}
+
+.report-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+/* Form inputs trong Modal Sản phẩm */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 5px; 
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%; 
+    padding: 8px; 
+    border-radius: 6px; 
+    border: 1px solid rgba(232,243,222,0.1); 
+    background: transparent; 
+    color: var(--accent);
+}
+
+.table-responsive-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent;
+    margin-top: 8px; 
+    border: 1px solid rgba(232, 243, 222, 0.1);
+}
+
+.table thead th {
+    background: rgba(232, 243, 222, 0.05); 
+    padding: 10px;
+    text-align: center;
+    color: var(--muted);
+    border-bottom: 1px solid var(--light-border);
+    border: 1px solid rgba(232, 243, 222, 0.1);
+    font-weight: 700;
+}
+
+.table tbody td {
+    padding: 10px;
+    border-bottom: 1px dashed rgba(232, 243, 222, 0.05);
+    color: var(--accent);
+    text-align: center;
+    border: 1px solid rgba(232, 243, 222, 0.1);
+}
+
+.table tbody tr:hover td {
+    background: rgba(232, 243, 222, 0.02);
+}
+
+.modal-table th, .modal-table td {
+    text-align: left; 
+}
 
 
-@media (max-width:800px){
-    .admin-sidebar{position:relative;width:100%;display:flex;flex-direction:row;gap:12px;align-items:center}
-    .admin-main{margin-left:0;padding:12px}
-    .admin-sidebar nav ul{flex-direction:row}
+/* Badges và Trạng thái */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 13px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.status-pending { background: #ffc107; color: #343a40; } /* Vàng */
+.status-shipped { background: #6cc372; color: white; } /* Xanh lá nhạt/Đã giao */
+.status-success { background: #17a2b8; color: white; } /* Xanh dương/Hoàn thành */
+.status-cancelled { background: #d9534f; color: white; } /* Đỏ */
+
+.report-summary {
+    display: flex;
+    gap: 24px;
+    margin: 16px 0;
+    color: var(--muted);
+}
+
+.summary-card {
+    background: var(--panel); 
+    padding: 16px;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.summary-card h3 {
+    margin-top: 0;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.summary-card .value {
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.list-title {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.admin-view {
+    /* Mặc định không hiển thị khi chưa có active-view */
+    display: none;
+}
+
+.admin-view.active-view {
+    display: block;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--panel); 
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    color: var(--accent);
+}
+
+.close-btn {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--muted); 
+    cursor: pointer;
+}
+
+.modal-body {
+    padding-top: 10px;
+}
+
+.detail-row {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.modal-sub-title {
+    font-size: 16px;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(232, 243, 222, 0.1);
+    padding-bottom: 5px;
+    margin: 15px 0 10px;
+}
+
+.detail-total {
+    text-align: right;
+    font-size: 18px;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(232, 243, 222, 0.1);
+}
+
+.modal-footer {
+    text-align: right;
+    margin-top: 20px;
+}
+
+#product-modal-overlay .modal-footer .btn-close-modal {
+    background: var(--panel) !important; 
+    border-color: var(--light-border) !important;
+}
+#product-modal-overlay .modal-footer .btn-close-modal:hover {
+    background: #0A664E !important; 
+    border-color: var(--accent) !important;
+}
+
+#product-modal-overlay .modal-footer #save-prod-btn {
+    background: var(--secondary-bg) !important; 
+    border-color: var(--secondary-bg) !important;
+}
+
+#product-modal-overlay .modal-footer #save-prod-btn:hover {
+    background: #1e876a !important; 
+}
+
+@media (max-width: 800px) {
+    .admin-sidebar {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+        border-right: none;
+        padding: 12px;
+    }
+    .admin-sidebar h2 {
+        flex-shrink: 0;
+        margin-right: 12px;
+    }
+    .admin-sidebar nav {
+        flex-grow: 1;
+    }
+    .admin-sidebar nav ul {
+        flex-direction: row;
+        overflow-x: auto; 
+        gap: 6px;
+        padding-bottom: 5px;
+    }
+    .admin-sidebar nav button {
+        flex-shrink: 0;
+        padding: 8px 10px;
+    }
+    
+    .admin-main {
+        margin-left: 0;
+        padding: 12px;
+    }
+    
+    /* Điều chỉnh bảng cuộn ngang trên mobile */
+    .table-responsive-container table {
+        width: max-content; 
+        min-width: 100%;
+    }
+    
+    .table thead th, .table tbody td {
+        font-size: 13px;
+        padding: 8px 6px;
+    }
+
+    .header-controls button, 
+    .inventory-controls button,
+    .action-btn {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+    
+    .inventory-controls {
+        flex-direction: column; 
+        align-items: stretch;
+    }
+    
+    .report-summary {
+        flex-direction: column;
+        gap: 12px;
+    }
 }
