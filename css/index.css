@@ -368,7 +368,7 @@ video {
 
 /*Phần nhận xét khách hàng-----*/
 .review-section {
-    background: linear-gradient(to bottom, #E4F0DD, #EFF7E9);
+    background: linear-gradient(to bottom, #D4E3CC, #EFF7E9);
     padding: 0; 
     margin-top: 0;
 }
@@ -389,7 +389,6 @@ video {
     font-style: italic;
     font-weight: 500;
     margin-bottom: 8px;
-    text-transform: lowercase;
 }
 
 .section-title p {
@@ -397,7 +396,6 @@ video {
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     background-clip: text; 
-    -webkit-text-fill-color: transparent;
     font-size: 18px;
     font-style: italic;
     font-weight: 400;
@@ -651,4 +649,5 @@ video {
         font-size: 20px;
     }
 }
+
 
