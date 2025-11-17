@@ -379,7 +379,7 @@ video {
 
 /*Phần nhận xét khách hàng-----*/
 .review-section {
-    background: linear-gradient(to bottom, #E4F0DD, #EFF7E9);
+    background: linear-gradient(to bottom, #D4E3CC, #EFF7E9);
     padding: 0; 
     margin-top: 0;
 }
@@ -661,3 +661,4 @@ video {
     }
 
 }
+
