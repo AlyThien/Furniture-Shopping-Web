@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Information</title>
-    <link rel="stylesheet" href="css/common.css">
+    <title>Personal Info</title>
+    <link rel="stylesheet" href="css/common.css"> 
     <link rel="stylesheet" href="css/personal-info.css"> 
 </head>
-<body data-page="home">
-    <script src="js/common.js"></script>
+<body>
     <header>
         <div class="Logo">
             <p>
@@ -51,48 +50,245 @@
                     </div>
                 </li>
             </ul>
+        </nav>
     </header>
 
     <main>
-        <div class="container">
-            <h1>Personal Information</h1>
+        
+        <div id="setup-mode-container" class="container setup-card" style="display: none;">
+            <h1>Personal Information Setup</h1>
             <div class="user-email-display">
                 Your Email: <strong id="current-user-email"></strong>
             </div>
 
-            <form id="info-form">
+            <form id="setup-info-form">
                 <div class="form-group">
-                    <label for="full-name">Full Name</label>
-                    <input type="text" id="full-name" placeholder="Enter your full name" required>
+                    <label for="setup-full-name">Full Name *</label>
+                    <input type="text" id="setup-full-name" placeholder="Enter your full name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="text" id="phone" placeholder="Enter your phone number" required>
+                    <label for="setup-phone">Phone Number *</label>
+                    <input type="text" id="setup-phone" placeholder="Enter phone number" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="dob">Date of Birth</label>
-                    <input type="text" id="dob" placeholder="dd/mm/yyyy" required maxlength="10">
+                    <label for="setup-dob">Date of Birth *</label>
+                    <input type="text" id="setup-dob" placeholder="dd/mm/yyyy" required maxlength="10">
                 </div>
 
                 <div class="form-group">
-                    <label for="gender">Gender</label>
-                    <select id="gender" required>
+                    <label for="setup-gender">Gender *</label>
+                    <select id="setup-gender" required>
                         <option value="" disabled selected>Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="address">Address (Optional)</label>
-                    <input type="text" id="address" placeholder="Enter your address">
+                    <label for="setup-address">City/Province</label>
+                    <input type="text" id="setup-address" placeholder="E.g: Ho Chi Minh City">
                 </div>
 
-                <button type="submit">Save Information</button>
+                <button type="submit" class="action-btn">Save Information</button>
             </form>
+        </div>
+        
+        <div id="view-mode-container" class="profile-main-view container" style="display: none;">
+            
+            <div class="profile-container-wrapper"> 
+                
+                <h1 class="page-header-title">My Account</h1>
+                
+                <div class="profile-layout-grid">
+                    <div class="sidebar">
+                        <div class="user-profile-summary">
+                            <img id="view-avatar-preview" src="https://via.placeholder.com/100" alt="Avatar" class="view-avatar">
+                            <p class="user-name" id="display-view-user-name">User</p>
+                            <p class="user-email" id="display-view-user-email">user@example.com</p>
+                            <button type="button" class="edit-profile-link" id="edit-profile-btn">✏️ Edit Profile</button>
+                        </div>
+                        
+                        <ul class="nav-menu">
+                            <li><a href="#" class="nav-tab active" data-target="profile"><span class="nav-icon">👤</span> My Profile</a></li>
+                            <li><a href="#" class="nav-tab" data-target="orders"><span class="nav-icon">📦</span> My Orders</a></li>
+                            <li><a href="#" id="logout-sidebar-btn"><span class="nav-icon">🚪</span> Logout</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="content-area">
+                        
+                        <div class="tab-content active" id="profile-content">
+                            <div class="section-box">
+                                <h2 class="section-title">Personal Details</h2>
+                                <div class="info-display-grid">
+                                    <div class="info-group">
+                                        <label>Full Name:</label>
+                                        <span id="view-full-name">N/A</span>
+                                    </div>
+                                    <div class="info-group">
+                                        <label>Phone Number:</label>
+                                        <span id="view-phone">N/A</span>
+                                    </div>
+                                    <div class="info-group">
+                                        <label>Gender:</label>
+                                        <span id="view-gender">N/A</span>
+                                    </div>
+                                    <div class="info-group">
+                                        <label>Date of Birth:</label>
+                                        <span id="view-dob">N/A</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="section-box">
+                                <h2 class="section-title">My Address</h2>
+                                <div class="info-group">
+                                    <label>City/Province:</label>
+                                    <span id="view-city-province">Not updated</span>
+                                </div>
+                                <div class="info-group">
+                                    <label>Detailed Address:</label>
+                                    <span id="view-address-detail">Not updated</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="orders-content">
+                            <div class="section-box">
+                                <h2 class="section-title">My Purchases</h2>
+                                <div id="order-list-view" class="order-list">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> 
+            </div>
+
+        <div id="edit-profile-modal" class="modal">
+            <div class="modal-content edit-mode-modal-content">
+                <span class="close-btn edit-close-btn">&times;</span> 
+                <h2 class="modal-edit-title">Edit Profile</h2>
+
+                <form id="info-form">
+                    <div class="form-group avatar-upload-group">
+                        <label>Profile Picture</label>
+                        <div class="avatar-area">
+                            <img id="edit-avatar-preview" src="https://via.placeholder.com/100" alt="Avatar">
+                            <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+                            <button type="button" class="choose-avatar-btn" id="choose-avatar-btn">Choose Image</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-full-name">Full Name</label>
+                        <input type="text" id="edit-full-name" placeholder="Enter full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-phone">Phone Number</label>
+                        <input type="text" id="edit-phone" placeholder="Enter phone number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-dob">Date of Birth</label>
+                        <input type="text" id="edit-dob" placeholder="dd/mm/yyyy" required maxlength="10">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-gender">Gender</label>
+                        <select id="edit-gender" required>
+                            <option value="" disabled>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <h3 class="address-section-title">Address</h3>
+                    
+                    <div class="form-group">
+                        <label for="edit-city-province">City/Province</label>
+                        <input type="text" id="edit-city-province" placeholder="E.g: Ho Chi Minh City" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-address-detail">Detailed Address</label>
+                        <input type="text" id="edit-address-detail" placeholder="E.g: 123 Main Street, Ben Thanh Ward">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="cancel-btn edit-close-btn">Cancel</button> 
+                        <button type="submit" class="action-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="order-details-modal" class="modal">
+            <div class="modal-content order-details-modal-content">
+                <span class="close-btn order-details-close-btn">&times;</span> 
+                <h2 class="modal-order-title">Order Details #<span id="detail-order-id"></span></h2>
+
+                <div class="order-detail-container">
+                    
+                    <div class="detail-section">
+                        <h3><span class="nav-icon">👤</span> Customer Information</h3>
+                        <div class="info-group">
+                            <label>Recipient:</label>
+                            <span id="detail-recipient"></span>
+                        </div>
+                        <div class="info-group">
+                            <label>Phone:</label>
+                            <span id="detail-phone"></span>
+                        </div>
+                        <div class="info-group">
+                            <label>Email:</label>
+                            <span id="detail-email"></span>
+                        </div>
+                        <div class="info-group">
+                            <label>Shipping Address:</label>
+                            <span id="detail-address"></span>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3><span class="nav-icon">📦</span> Order Information</h3>
+                        <div class="info-group info-group-grid">
+                            <label>Date:</label>
+                            <span id="detail-date"></span>
+                            <label>Status:</label>
+                            <span id="detail-status" class="status-success"></span>
+                            <label>Payment Method:</label>
+                            <span id="detail-payment-method"></span>
+                        </div>
+                    </div>
+
+                    <div class="detail-section product-section">
+                        <h3><span class="nav-icon">🛒</span> Products</h3>
+                        <div class="product-item-details">
+                            <p class="product-name" id="detail-product-name"></p>
+                            <div class="product-details-row">
+                                <span class="product-qty">Qty: <span id="detail-quantity"></span></span>
+                                <span class="product-price">Unit Price: <span id="detail-price"></span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-total-bar">
+                        <label>Total Payment:</label>
+                        <span id="detail-total-amount"></span>
+                    </div>
+
+                    <div class="order-detail-action-container" id="order-detail-action-container">
+                    </div>
+
+                </div>
+            </div>
         </div>
     </main>
 
@@ -144,6 +340,7 @@
         </div>
     </footer>
 
+    <script src="js/common.js"></script> 
     <script src="js/personal-info.js"></script> 
 </body>
 </html>
