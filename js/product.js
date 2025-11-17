@@ -386,7 +386,6 @@
   // =========================================================
   // 7. WISHLIST MANAGER
   // =========================================================
-
   const WishlistManager = {
     init() {
       const wishlistBtn = document.getElementById("addToWishlistBtn");
@@ -397,67 +396,69 @@
 
       if (!wishlistBtn || !wishlistPopup) return;
 
-      // Add to wishlist
+      this.loadState();
+
       wishlistBtn.addEventListener("click", () => {
         const heartIcon = wishlistBtn.querySelector(".btn-icon");
+        const isAdded = wishlistBtn.classList.contains("added");
 
-        if (heartIcon.textContent === "♡") {
-          const productData = this.getProductData();
-
-          let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-
-          if (!wishlist.some((item) => item.id === CONFIG.PRODUCT_ID)) {
-            wishlist.push(productData);
-            localStorage.setItem("wishlist", JSON.stringify(wishlist));
-
-            heartIcon.textContent = "♥";
-            wishlistBtn.classList.add("added");
-
-            this.updateCount(wishlist.length);
-            wishlistPopup.style.display = "flex";
-          } else {
-            Utils.showNotification("Item already in wishlist!", "warning");
-          }
-        } else {
+        if (isAdded) {
           heartIcon.textContent = "♡";
           wishlistBtn.classList.remove("added");
           this.removeFromWishlist();
+        } else {
+          const productData = this.getProductData();
+          let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+          if (!wishlist.some((item) => item.id === CONFIG.PRODUCTID)) {
+            wishlist.push(productData);
+            localStorage.setItem("wishlist", JSON.stringify(wishlist));
+            heartIcon.textContent = "❤️";
+            wishlistBtn.classList.add("added");
+            this.updateCount(wishlist.length);
+
+            // ✅ THÊM CLASS .show THAY VÌ style.display
+            wishlistPopup.classList.add("show");
+          }
         }
       });
 
-      // Close handlers
-      if (closePopup)
+      if (closePopup) {
         closePopup.addEventListener("click", () => {
-          wishlistPopup.style.display = "none";
+          wishlistPopup.classList.remove("show");
         });
-      if (keepBtn)
+      }
+
+      if (keepBtn) {
         keepBtn.addEventListener("click", () => {
-          wishlistPopup.style.display = "none";
+          wishlistPopup.classList.remove("show");
         });
-      if (viewBtn)
+      }
+
+      if (viewBtn) {
         viewBtn.addEventListener("click", () => {
           window.location.href = "wishlist.html";
         });
+      }
 
-      // Close on outside click
       window.addEventListener("click", (e) => {
-        if (e.target === wishlistPopup) wishlistPopup.style.display = "none";
-      });
-
-      // Close on ESC
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && wishlistPopup.style.display === "flex") {
-          wishlistPopup.style.display = "none";
+        if (e.target === wishlistPopup) {
+          wishlistPopup.classList.remove("show");
         }
       });
 
-      this.loadState();
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && wishlistPopup.classList.contains("show")) {
+          wishlistPopup.classList.remove("show");
+        }
+      });
+
       console.log("✅ Wishlist Manager initialized");
     },
 
     getProductData() {
       return {
-        id: CONFIG.PRODUCT_ID,
+        id: CONFIG.PRODUCTID,
         name: "L-shaped Sofa",
         image: document.getElementById("mainProductImage")?.src || "",
         price: 4200000,
@@ -473,7 +474,7 @@
 
     removeFromWishlist() {
       let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-      wishlist = wishlist.filter((item) => item.id !== CONFIG.PRODUCT_ID);
+      wishlist = wishlist.filter((item) => item.id !== CONFIG.PRODUCTID);
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
       this.updateCount(wishlist.length);
       Utils.showNotification("Removed from wishlist", "info");
@@ -481,7 +482,9 @@
 
     updateCount(count) {
       const wishlistCount = document.querySelector(".wishlist-count");
-      if (wishlistCount) wishlistCount.textContent = count;
+      if (wishlistCount) {
+        wishlistCount.textContent = count;
+      }
     },
 
     loadState() {
@@ -489,10 +492,11 @@
       this.updateCount(wishlist.length);
 
       const wishlistBtn = document.getElementById("addToWishlistBtn");
-      if (wishlist.some((item) => item.id === CONFIG.PRODUCT_ID)) {
+
+      if (wishlist.some((item) => item.id === CONFIG.PRODUCTID)) {
         const heartIcon = wishlistBtn?.querySelector(".btn-icon");
         if (heartIcon) {
-          heartIcon.textContent = "♥";
+          heartIcon.textContent = "❤️";
           wishlistBtn.classList.add("added");
         }
       }
@@ -1642,33 +1646,60 @@ document.addEventListener("DOMContentLoaded", () => {
   ReviewFormManager.init();
 });
 // =========================================================
-// REVIEW FORM - SUBMIT & DISPLAY
-// =========================================================
-
+// ✅ REVIEW FORM - SUBMIT & DISPLAY
 const ReviewFormSubmit = {
   init() {
     const form = document.getElementById("reviewForm");
     const modal = document.getElementById("reviewModal");
     const closeBtn = document.getElementById("closeReviewModal");
-    const openBtn = document.getElementById("openReviewFormBtn");
+    const cancelBtn = document.getElementById("cancelReviewBtn");
 
-    if (!form) return;
+    if (!form || !modal) {
+      console.error("❌ Review form or modal not found!");
+      return;
+    }
 
-    // Open modal
-    openBtn?.addEventListener("click", () => {
-      modal.classList.add("active");
-      document.body.style.overflow = "hidden";
-    });
-
-    // Close modal
-    closeBtn?.addEventListener("click", () => {
+    // Close modal function
+    const closeModal = () => {
       modal.classList.remove("active");
       document.body.style.overflow = "";
+    };
+
+    // Close button click
+    closeBtn?.addEventListener("click", closeModal);
+    cancelBtn?.addEventListener("click", closeModal);
+
+    // Close on outside click
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
     });
 
-    // Form submit
+    // Close on ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+
+    // ✅ FORM SUBMIT
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+
+      // Check if checkbox is checked
+      const agreeTerms = document.getElementById("agreeTerms");
+      if (!agreeTerms.checked) {
+        Utils.showNotification(
+          "❌ Please agree to the review guidelines",
+          "warning"
+        );
+        return;
+      }
+
+      // Validate form
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
 
       // Get form data
       const formData = {
@@ -1689,18 +1720,25 @@ const ReviewFormSubmit = {
         }),
       };
 
-      // ✅ ADD REVIEW TO PAGE
-      ReviewFormSubmit.addReviewToPage(formData);
+      // ✅ ADD REVIEW TO PAGE NGAY LẬP TỨC
+      this.addReviewToPage(formData);
 
-      // ✅ SHOW SUCCESS MESSAGE
-      alert("✅ Bình luận của bạn đã được gửi! Cảm ơn bạn!");
+      // Show success notification
+      Utils.showNotification("✅ Review submitted successfully!", "success");
 
-      // ✅ RESET FORM
+      // Reset form
       form.reset();
 
-      // ✅ CLOSE MODAL
-      modal.classList.remove("active");
-      document.body.style.overflow = "";
+      // Close modal
+      closeModal();
+
+      // Scroll to reviews section
+      const reviewsSection = document.querySelector(".reviews-grid");
+      if (reviewsSection) {
+        setTimeout(() => {
+          reviewsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 500);
+      }
 
       console.log("✅ Review submitted:", formData);
     });
@@ -1710,19 +1748,22 @@ const ReviewFormSubmit = {
 
   addReviewToPage(reviewData) {
     const reviewsGrid = document.querySelector(".reviews-grid");
-    if (!reviewsGrid) return;
 
-    // Create star rating HTML
-    const starsHtml =
-      "★".repeat(parseInt(reviewData.rating)) +
-      "☆".repeat(5 - parseInt(reviewData.rating));
+    if (!reviewsGrid) {
+      console.error("❌ Reviews grid not found!");
+      return;
+    }
 
-    const starsHTML = starsHtml
-      .split("")
-      .map((star) => `<span class="star">${star}</span>`)
+    // Create stars
+    const starsHTML = Array(5)
+      .fill(0)
+      .map((_, i) => {
+        const isFilled = i < parseInt(reviewData.rating);
+        return `<span class="star${isFilled ? " filled" : ""}">★</span>`;
+      })
       .join("");
 
-    // Get initials for avatar
+    // Get initials
     const initials = reviewData.name
       .split(" ")
       .map((n) => n[0])
@@ -1730,55 +1771,79 @@ const ReviewFormSubmit = {
       .toUpperCase()
       .slice(0, 2);
 
-    // Create review card HTML
+    // Create review card
     const reviewCard = document.createElement("div");
     reviewCard.className = "review-card";
     reviewCard.setAttribute("data-rating", reviewData.rating);
 
     reviewCard.innerHTML = `
-      <div class="review-header">
-        <div class="reviewer-info">
-          <div class="reviewer-avatar">${initials}</div>
-          <div>
-            <div class="reviewer-name">${reviewData.name}</div>
-            <div style="font-size: 12px; color: #9ca3af;">
-              ${
-                reviewData.verified
-                  ? '<span class="verified-badge">✓ Verified Purchase</span>'
-                  : ""
-              }
-              <span>${reviewData.date}</span>
+            <div class="review-header">
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">${initials}</div>
+                    <div>
+                        <h4 class="reviewer-name">${reviewData.name}</h4>
+                        <div style="font-size: 12px; color: #9ca3af;">
+                            ${
+                              reviewData.verified
+                                ? "<span>✓ Verified Purchase</span>"
+                                : ""
+                            }
+                            <span>${reviewData.date}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-rating">
+                    ${starsHTML}
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="review-rating">
-          ${starsHTML}
-        </div>
-      </div>
+            <h5 class="review-title">${reviewData.title}</h5>
+            <p class="review-text">${reviewData.review}</p>
+            <div style="margin-top: 15px; font-size: 14px; color: #3b6d54; font-weight: 600;">
+                ✓ Recommend: ${reviewData.recommend === "yes" ? "Yes" : "No"}
+            </div>
+        `;
 
-      <h5 class="review-title">${reviewData.title}</h5>
-      <p class="review-text">${reviewData.review}</p>
-
-      <div style="margin-top: 15px; font-size: 14px; color: #3b6d54; font-weight: 600;">
-        Recommend: ${reviewData.recommend === "yes" ? "👍 Yes" : "👎 No"}
-      </div>
-
-      <div style="margin-top: 12px;">
-        <button class="helpful-btn" style="background: #f3f4f6; color: #374151; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-size: 13px;">
-          👍 Helpful (0)
-        </button>
-      </div>
-    `;
-
-    // ✅ ADD TO TOP OF REVIEWS
+    // Add to top
     reviewsGrid.insertBefore(reviewCard, reviewsGrid.firstChild);
 
-    // Animate
-    reviewCard.style.animation = "slideInReview 0.5s ease";
+    // Animate entrance
+    reviewCard.style.opacity = "0";
+    reviewCard.style.transform = "translateY(-20px)";
+
+    setTimeout(() => {
+      reviewCard.style.transition = "all 0.5s ease";
+      reviewCard.style.opacity = "1";
+      reviewCard.style.transform = "translateY(0)";
+    }, 10);
+
+    console.log("✅ Review added to page:", reviewData);
   },
 };
 
-// Initialize
+// ✅ Initialize
 document.addEventListener("DOMContentLoaded", () => {
   ReviewFormSubmit.init();
+});
+
+// Form submit
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // Check if checkbox is checked
+  const agreeTerms = document.getElementById("agreeTerms");
+  if (!agreeTerms.checked) {
+    Utils.showNotification(
+      "❌ Please agree to the review guidelines",
+      "warning"
+    );
+    return;
+  }
+
+  // Validate form
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  // ... rest of submit code
 });

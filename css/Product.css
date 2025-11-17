@@ -2550,20 +2550,30 @@ input:focus {
 }
 
 /* ================== WISHLIST POPUP - RESPONSIVE ================== */
+/* ===================== WISHLIST POPUP ===================== */
+
+/* ===================== WISHLIST POPUP ===================== */
+
+/* Overlay - Che toàn màn hình */
 .wishlist-popup {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-  display: none;
+  z-index: 99999;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
-  animation: fadeIn 0.3s ease;
 }
 
+/* Khi display flex */
+.wishlist-popup.show {
+  display: flex;
+}
+
+/* Popup content */
 .wishlist-content {
   background: white;
   padding: 40px 30px;
@@ -2576,6 +2586,7 @@ input:focus {
   animation: slideUp 0.3s ease;
 }
 
+/* Close button */
 .popup-close {
   position: absolute;
   top: 15px;
@@ -2584,7 +2595,10 @@ input:focus {
   color: #666;
   cursor: pointer;
   line-height: 1;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .popup-close:hover {
@@ -2592,6 +2606,7 @@ input:focus {
   transform: rotate(90deg);
 }
 
+/* Heading */
 .wishlist-content h2 {
   font-family: "Roboto Serif", serif;
   font-size: clamp(22px, 4vw, 26px);
@@ -2599,12 +2614,14 @@ input:focus {
   color: #1d3227;
 }
 
+/* Description */
 .wishlist-content p {
   font-size: 16px;
   color: #666;
   margin-bottom: 25px;
 }
 
+/* Buttons */
 .view-btn,
 .keep-btn {
   background: white;
@@ -2638,6 +2655,43 @@ input:focus {
 .view-btn:hover {
   background: linear-gradient(135deg, #2a5240 0%, #1d3227 100%);
 }
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wishlist-content {
+    padding: 30px 20px;
+    width: 95%;
+  }
+
+  .view-btn,
+  .keep-btn {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+  }
+}
+
 /* =========================================================
 ✍️ WRITE REVIEW BUTTON
 ========================================================= */
@@ -2934,51 +2988,96 @@ input:focus {
   background: #dc2626;
   transform: scale(1.1);
 }
-
-/* =========================================================
-✅ CHECKBOX & RECOMMEND
-========================================================= */
-
-.checkbox-group {
-  margin: 20px 0;
-}
+/* ===================== CHECKBOX STYLING ===================== */
 
 .checkbox-label {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   cursor: pointer;
   font-size: 14px;
   color: #374151;
+  user-select: none;
 }
 
-.checkbox-label input {
+/* Hide native checkbox */
+.checkbox-label input[type="checkbox"] {
   display: none;
 }
 
-.checkmark {
+/* Custom checkmark */
+.checkbox-label .checkmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
+  min-width: 20px;
+  min-height: 20px;
   border: 2px solid #d1d5db;
   border-radius: 4px;
-  flex-shrink: 0;
+  background: white;
   transition: all 0.3s ease;
-  position: relative;
+  flex-shrink: 0;
 }
 
-.checkbox-label input:checked ~ .checkmark {
-  background: #3b6d54;
+/* Hover state */
+.checkbox-label:hover .checkmark {
   border-color: #3b6d54;
+  background: #f0f9f7;
 }
 
-.checkbox-label input:checked ~ .checkmark::after {
+/* Checked state */
+.checkbox-label input[type="checkbox"]:checked + .checkmark {
+  background: linear-gradient(135deg, #3b6d54 0%, #2a5240 100%);
+  border-color: #3b6d54;
+  color: white;
+  font-weight: bold;
+}
+
+/* Checked state - show checkmark */
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
   content: "✓";
-  position: absolute;
   color: white;
   font-size: 14px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+/* Focus state */
+.checkbox-label input[type="checkbox"]:focus + .checkmark {
+  box-shadow: 0 0 0 3px rgba(59, 109, 84, 0.1);
+}
+
+/* Disabled state */
+.checkbox-label input[type="checkbox"]:disabled + .checkmark {
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+/* Link styling inside checkbox label */
+.checkbox-label .link {
+  color: #3b6d54;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.checkbox-label .link:hover {
+  color: #2a5240;
+}
+
+/* Required indicator styling */
+.form-label .required {
+  color: #ef4444;
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+/* Form group */
+.checkbox-group {
+  margin-top: 12px;
+  margin-bottom: 20px;
 }
 
 .recommend-buttons {
@@ -3490,13 +3589,7 @@ body {
   box-shadow: 0 0 0 3px rgba(59, 109, 84, 0.1);
 }
 
-/* =========================================================
-✅ CHECKBOX STYLING - QUAN TRỌNG
-========================================================= */
-
-.checkbox-group {
-  margin: 20px 0;
-}
+/* ===================== CHECKBOX STYLING ===================== */
 
 .checkbox-label {
   display: flex;
@@ -3506,59 +3599,78 @@ body {
   font-size: 14px;
   color: #374151;
   user-select: none;
+  padding: 8px 0;
 }
 
-/* Hide actual checkbox input */
+/* Hide native checkbox */
 .checkbox-label input[type="checkbox"] {
   display: none;
 }
 
-/* Custom checkbox box */
-.checkmark {
+/* Custom checkmark box */
+.checkbox-label .checkmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
   min-width: 20px;
+  min-height: 20px;
   border: 2px solid #d1d5db;
   border-radius: 4px;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-  position: relative;
   background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 /* Hover state */
 .checkbox-label:hover .checkmark {
   border-color: #3b6d54;
-  background: #f0fdf4;
+  background: #f0f9f7;
 }
 
-/* Checked state */
-.checkbox-label input[type="checkbox"]:checked ~ .checkmark {
-  background: #3b6d54;
+/* CHECKED - show ✓ */
+.checkbox-label input[type="checkbox"]:checked + .checkmark {
+  background: linear-gradient(135deg, #3b6d54 0%, #2a5240 100%);
   border-color: #3b6d54;
 }
 
-/* Checkmark symbol */
-.checkbox-label input[type="checkbox"]:checked ~ .checkmark::after {
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
   content: "✓";
   color: white;
   font-size: 14px;
   font-weight: bold;
-  position: absolute;
 }
 
-/* Link inside checkbox */
-.checkbox-label a {
+/* Focus state */
+.checkbox-label input[type="checkbox"]:focus + .checkmark {
+  outline: 2px solid #3b6d54;
+  outline-offset: 2px;
+}
+
+/* Link styling */
+.checkbox-label .link {
   color: #3b6d54;
   text-decoration: underline;
-  font-weight: 500;
+  cursor: pointer;
+  font-weight: 600;
 }
 
-.checkbox-label a:hover {
+.checkbox-label .link:hover {
   color: #2a5240;
+}
+
+.checkbox-group {
+  margin: 16px 0;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.form-label.required::after {
+  content: " *";
+  color: #ef4444;
+  font-weight: bold;
 }
 
 /* =========================================================
