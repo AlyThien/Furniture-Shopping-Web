@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     function getStatusClass(statusEn) {
         switch (statusEn) {
             case 'success':
-                return 'status-success';
+                return 'status-success'; // Hoàn thành
             case 'shipped':
-                return 'status-shipped';
+                return 'status-shipped'; // Đã giao hàng
             case 'pending':
-                return 'status-pending';
+                return 'status-pending'; // Đang xử lý
             case 'cancelled':
-                return 'status-cancelled';
+                return 'status-cancelled'; // Đã hủy
             default:
                 return 'status-default';
         }
@@ -36,57 +35,72 @@ document.addEventListener('DOMContentLoaded', () => {
             const [year, month, day] = dateString.split('-');
             return `${day}/${month}/${year}`;
         } catch (error) {
-            return dateString; 
+            return dateString;
         }
     }
 
     function formatCurrency(number) {
-        if (typeof number !== 'number') return number;
+        if (typeof number !== 'number') return '0đ';
         return number.toLocaleString('vi-VN') + 'đ';
     }
-    
+
     // Hàm chuyển chuỗi tiền tệ về số
     function currencyToNumber(currencyString) {
         if (typeof currencyString !== 'string') return 0;
-        // 1. Loại bỏ ký tự 'đ' và khoảng trắng
-        let cleanedString = currencyString.replace(/đ/g, '').trim();  
-        // 2. Loại bỏ dấu phân cách hàng nghìn (dấu chấm hoặc dấu phẩy)
+        let cleanedString = currencyString.replace(/đ/g, '').trim();
         cleanedString = cleanedString.replace(/\./g, '');
-        cleanedString = cleanedString.replace(/,/g, '');      
-        // 3. Chuyển thành số nguyên
+        cleanedString = cleanedString.replace(/,/g, '');
         return parseInt(cleanedString) || 0;
     }
 
-    // --- MÔ PHỎNG DỮ LIỆU KHO HÀNG ---
+    // Hàm tính tổng tiền
+    function calculateOrderTotal(items) {
+        let total = 0;
+        items.forEach(item => {
+            const product = mockInventory.find(p => p.name === item.name);
+            const price = product ? product.price : currencyToNumber(item.price); // Dùng giá mới nhất nếu tìm thấy
+            const qty = parseInt(item.qty) || 0;
+            total += price * qty;
+        });
+        return total;
+    }
+
+    // --- DỮ LIỆU KHO HÀNG (Dùng làm cơ sở tính giá) ---
     let mockInventory = [
         { id: 'SP001', name: 'Cloud Couch', stock: 15, price: 5400000 },
-        { id: 'SP002', name: 'Wave Couch', stock: 8, price: 5400000 },
-        { id: 'SP003', name: 'Cotton Candy Couch', stock: 20, price: 3900000 },
-        { id: 'SP004', name: 'Bàn Ăn Zenith', stock: 5, price: 12990000 },
-        { id: 'SP005', name: 'Bàn Trà Mặt Đá', stock: 25, price: 2800000 },
-        { id: 'SP006', name: 'Tủ Quần Áo HDF', stock: 12, price: 9200000 },
-        { id: 'SP007', name: 'Ghế Thư Giãn', stock: 35, price: 1800000 },
-        { id: 'SP008', name: 'Kệ TV Gỗ Sồi', stock: 10, price: 4500000 },
+        { id: 'SP002', name: 'Wave Couch', stock: 8, price: 3400000 },
+        { id: 'SP003', name: 'Cotton Candi Couch', stock: 14, price: 3900000 },
+        { id: 'SP004', name: 'Saphire Couch', stock: 15, price: 6200000 },
+        { id: 'SP005', name: 'Haven Couch', stock: 8, price: 4700000 },
+        { id: 'SP006', name: 'Bàn Ăn Zenith', stock: 5, price: 12990000 },
+        { id: 'SP007', name: 'Bàn Trà Mặt Đá', stock: 7, price: 2800000 },
+        { id: 'SP008', name: 'Tủ Quần Áo HDF', stock: 12, price: 9200000 },
+        { id: 'SP009', name: 'Ghế Thư Giãn', stock: 15, price: 1800000 },
+        { id: 'SP010', name: 'Kệ TV Gỗ Sồi', stock: 10, price: 5700000 },
+        { id: 'SP011', name: 'Giường ngủ cao cấp ODGN28', stock: 2, price: 29800000 },
+    ];
+    
+    // --- DỮ LIỆU ĐƠN HÀNG ---
+    let mockOrders = [
+        { id: '1007', customer: 'Nguyễn Trọng An', date: '2025-11-26', status: 'pending', phone: '0901 234 567', address: '25 Lô A, Đường Số 10, Quận 7, TP.HCM', payment: 'Chuyển khoản Ngân hàng', items: [{ name: 'Cloud Couch', qty: 1 }] },
+        { id: '1006', customer: 'Lê Thị Mỹ Hạnh', date: '2025-11-21', status: 'shipped', phone: '0902 987 654', address: '123/45 Đường Quang Trung, Gò Vấp, TP.HCM', payment: 'Thanh toán khi nhận hàng (COD)', items: [{ name: 'Bàn Ăn Zenith', qty: 1 }] },
+        { id: '1005', customer: 'Trần Văn Quang', date: '2025-11-17', status: 'success', phone: '0903 111 222', address: 'Lầu 5, Tòa nhà Central Park, Hà Nội', payment: 'Thẻ tín dụng', items: [{ name: 'Tủ Quần Áo HDF', qty: 1 }, { name: 'Ghế Thư Giãn', qty: 1 }] }, 
+        { id: '1004', customer: 'Jessica M. Chen', date: '2025-11-12', status: 'success', phone: '+84 908 555 333', address: 'Apartment 102, 12 Sương Nguyệt Ánh, Q.1', payment: 'PayPal', items: [{ name: 'Wave Couch', qty: 2 }, { name: 'Bàn Trà Mặt Đá', qty: 1 }] }, 
+        { id: '1003', customer: 'Phạm Hồng Nhung', date: '2025-11-10', status: 'cancelled', phone: '0987 654 321', address: 'Khu đô thị Sala, Quận 2, TP.HCM', payment: 'Chuyển khoản', items: [{ name: 'Cotton Candi Couch', qty: 1 }] },
+        { id: '1002', customer: 'David K. Johnson', date: '2025-11-09', status: 'success', phone: '+84 919 444 000', address: '100 Bà Triệu, Hà Nội', payment: 'Chuyển khoản', items: [{ name: 'Saphire Couch', qty: 2 }, { name: 'Kệ TV Gỗ Sồi', qty: 1 }] },
+        { id: '1001', customer: 'Hoàng Đình Phú', date: '2025-11-08', status: 'success', phone: '0978 999 888', address: '456 Trường Chinh, Q.Tân Bình, TP.HCM', payment: 'COD', items: [{ name: 'Haven Couch', qty: 1 }, { name: 'Wave Couch', qty: 2 }] }, 
     ];
 
-    // --- MÔ PHỎNG DỮ LIỆU ĐƠN HÀNG ---
-    const mockOrders = [
-        { id: '1001', customer: 'Nguyễn Trọng An', date: '2025-11-13', total: formatCurrency(5400000), status: 'pending', phone: '0901 234 567', address: '25 Lô A, Đường Số 10, Quận 7, TP.HCM', payment: 'Chuyển khoản Ngân hàng', items: [{ name: 'Cloud Couch', qty: 1, price: formatCurrency(5400000), subtotal: formatCurrency(5400000) }] },
-        { id: '1002', customer: 'Lê Thị Mỹ Hạnh', date: '2025-11-12', total: formatCurrency(12990000), status: 'shipped', phone: '0902 987 654', address: '123/45 Đường Quang Trung, Gò Vấp, TP.HCM', payment: 'Thanh toán khi nhận hàng (COD)', items: [{ name: 'Bàn Ăn Phong Cách Ý', qty: 1, price: formatCurrency(12990000), subtotal: formatCurrency(12990000) }] },
-        { id: '1003', customer: 'Trần Văn Quang', date: '2025-11-12', total: formatCurrency(7500000), status: 'success', phone: '0903 111 222', address: 'Lầu 5, Tòa nhà Central Park, Hà Nội', payment: 'Thẻ tín dụng', items: [{ name: 'Tủ Quần Áo HDF', qty: 1, price: formatCurrency(7500000), subtotal: formatCurrency(7500000) }] },
-        { id: '1004', customer: 'Jessica M. Chen', date: '2025-11-11', total: formatCurrency(15800000), status: 'success', phone: '+84 908 555 333', address: 'Apartment 102, 12 Sương Nguyệt Ánh, Q.1', payment: 'PayPal', items: [{ name: 'Wave Couch', qty: 2, price: formatCurrency(5400000), subtotal: formatCurrency(10800000) }, { name: 'Bàn Trà Mặt Đá', qty: 1, price: formatCurrency(5000000), subtotal: formatCurrency(5000000) }] },
-        { id: '1005', customer: 'Phạm Hồng Nhung', date: '2025-11-10', total: formatCurrency(3900000), status: 'cancelled', phone: '0987 654 321', address: 'Khu đô thị Sala, Quận 2, TP.HCM', payment: 'Chuyển khoản', items: [{ name: 'Cotton Candy Couch', qty: 1, price: formatCurrency(3900000), subtotal: formatCurrency(3900000) }] },
-        { id: '1006', customer: 'David K. Johnson', date: '2025-11-09', total: formatCurrency(28500000), status: 'success', phone: '+84 919 444 000', address: '100 Bà Triệu, Hà Nội', payment: 'Chuyển khoản', items: [{ name: 'Bàn Ăn Zenith', qty: 2, price: formatCurrency(14250000), subtotal: formatCurrency(28500000) }] },
-        { id: '1007', customer: 'Hoàng Đình Phú', date: '2025-11-08', total: formatCurrency(9700000), status: 'success', phone: '0978 999 888', address: '456 Trường Chinh, Q.Tân Bình, TP.HCM', payment: 'COD', items: [{ name: 'Ghế Thư Giãn', qty: 1, price: formatCurrency(9700000), subtotal: formatCurrency(9700000) }] },
-    ];
-
-    // Render dữ liệu trong trang
+    // Hàm hiển thị dữ liệu
     function renderOrders(orders = mockOrders) {
         const ordersBody = document.getElementById('orders-body');
         if (!ordersBody) return;
         ordersBody.innerHTML = '';
 
         orders.forEach(order => {
+            // Tính tổng tiền dựa trên giá mới nhất
+            const calculatedTotal = calculateOrderTotal(order.items);
+
             const statusClass = getStatusClass(order.status);
             const statusVi = translateStatus(order.status);
             const formattedDate = formatDate(order.date);
@@ -96,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${order.id}</td>
                 <td>${order.customer}</td>
                 <td>${formattedDate}</td>
-                <td>${order.total}</td>
+                <td>${formatCurrency(calculatedTotal)}</td>
                 <td><span class="badge ${statusClass}">${statusVi}</span></td>
                 <td><button class="action-btn view-detail" data-order-id="${order.id}">Chi tiết</button></td>
             `;
@@ -125,13 +139,161 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Xử lý báo cáo
+    // Thêm, xóa, sửa sản phẩm
+    const addProdBtn = document.getElementById('addProdBtn');
+    const prodModalOverlay = document.getElementById('product-modal-overlay');
+    const prodModalCloseBtns = prodModalOverlay ? prodModalOverlay.querySelectorAll('.close-btn, .btn-close-modal') : [];
+    const prodForm = document.getElementById('product-form');
+    const saveProdBtn = document.getElementById('save-prod-btn');
+    const prodIdInput = document.getElementById('prod-id');
+
+
+    // Mở modal Thêm/Sửa
+    if (addProdBtn) {
+        addProdBtn.addEventListener('click', () => {
+            prodForm.reset();
+            document.getElementById('modal-prod-title').textContent = 'Thêm Sản phẩm mới';
+            prodIdInput.value = 'Tự động tạo';
+            prodIdInput.readOnly = true;
+            saveProdBtn.textContent = 'Thêm Sản phẩm';
+            saveProdBtn.dataset.mode = 'add'; // Thiết lập chế độ: THÊM MỚI
+            prodModalOverlay.classList.remove('hidden');
+        });
+    }
+
+    // Đóng modal 
+    prodModalCloseBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            prodModalOverlay.classList.add('hidden');
+        });
+    });
+
+    // Sự kiện cho sửa / xóa trong kho 
+    const inventoryBody = document.getElementById('inventory-body');
+    if (inventoryBody) {
+        inventoryBody.addEventListener('click', (e) => {
+            const target = e.target;
+            const prodId = target.dataset.prodId;
+
+            if (target.classList.contains('edit-prod')) {
+                handleEditProduct(prodId);
+            } else if (target.classList.contains('delete-prod')) {
+                handleDeleteProduct(prodId);
+            }
+        });
+    }
+
+    // Chỉnh sửa sản phẩm
+    function handleEditProduct(prodId) {
+        const product = mockInventory.find(p => p.id === prodId);
+        if (!product) {
+            alert('Không tìm thấy sản phẩm!');
+            return;
+        }
+
+        // 1. Điền dữ liệu vào Modal
+        document.getElementById('modal-prod-title').textContent = 'Chỉnh sửa Sản phẩm';
+        prodIdInput.value = product.id;
+        prodIdInput.readOnly = true;
+        document.getElementById('prod-name').value = product.name;
+        document.getElementById('prod-stock').value = product.stock;
+        document.getElementById('prod-price').value = product.price;
+
+        // 2. Cập nhật nút Lưu
+        saveProdBtn.textContent = 'Lưu thay đổi';
+        saveProdBtn.dataset.mode = 'edit'; // Thiết lập chế độ: SỬA
+        saveProdBtn.dataset.currentId = product.id; // Lưu ID sản phẩm đang sửa
+
+        // 3. Mở Modal
+        prodModalOverlay.classList.remove('hidden');
+    }
+
+    // Xoá sản phẩm
+    function handleDeleteProduct(prodId) {
+        if (confirm(`Bạn có chắc chắn muốn xóa sản phẩm ${prodId} này không?`)) {
+            const initialLength = mockInventory.length;
+            mockInventory = mockInventory.filter(p => p.id !== prodId);
+
+            if (mockInventory.length < initialLength) {
+                alert(`Đã xóa sản phẩm ${prodId} thành công.`);
+                renderInventory(); // Render lại bảng
+            } else {
+                alert('Không tìm thấy sản phẩm để xóa.');
+            }
+        }
+    }
+
+
+    // Xử lý lưu thêm / sửa sản phẩm
+    if (prodForm) {
+        prodForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('prod-name').value.trim();
+            const stockInput = document.getElementById('prod-stock').value;
+            const priceInput = document.getElementById('prod-price').value;
+            const mode = saveProdBtn.dataset.mode;
+            const currentId = saveProdBtn.dataset.currentId;
+
+            const stock = parseInt(stockInput);
+            const price = parseInt(priceInput);
+
+            if (!nameInput || isNaN(stock) || stock < 0 || isNaN(price) || price <= 0) {
+                alert('Vui lòng nhập đầy đủ và chính xác thông tin sản phẩm (Số lượng >= 0, Giá > 0).');
+                return;
+            }
+
+            if (mode === 'add') {
+                // Logic Thêm mới
+                const newProd = {
+                    id: 'SP' + (mockInventory.length + 1).toString().padStart(3, '0'),
+                    name: nameInput,
+                    stock: stock,
+                    price: price,
+                };
+                mockInventory.push(newProd);
+                alert(`Đã thêm sản phẩm "${newProd.name}" thành công!`);
+
+            } else if (mode === 'edit' && currentId) {
+                // Logic CHỈNH SỬA
+                const prodIndex = mockInventory.findIndex(p => p.id === currentId);
+                if (prodIndex !== -1) {
+                    mockInventory[prodIndex].name = nameInput;
+                    mockInventory[prodIndex].stock = stock;
+                    mockInventory[prodIndex].price = price;
+                    alert(`Đã cập nhật sản phẩm ${currentId} thành công!`);
+                } else {
+                    alert('Lỗi: Không tìm thấy sản phẩm để cập nhật.');
+                }
+            }
+
+            renderInventory(); // Cập nhật lại danh sách
+            prodModalOverlay.classList.add('hidden');
+        });
+    }
+
+    // Xử lý tìm kiếm kho hàng
+    const prodFilterInput = document.getElementById('prod-filter');
+    if (prodFilterInput) {
+        prodFilterInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            const filteredProducts = mockInventory.filter(product =>
+                product.name.toLowerCase().includes(searchTerm) ||
+                product.id.toLowerCase().includes(searchTerm)
+            );
+            renderInventory(filteredProducts);
+        });
+    }
+
+    // Báo cáo, thống kê
     function calculateReportData() {
+        // Chỉ tính toán trên các đơn hàng HOÀN THÀNH
         const completedOrders = mockOrders.filter(o => o.status === 'success');
-        
+
         // Tính tổng doanh thu
         let totalRevenue = completedOrders.reduce((sum, order) => {
-            const totalNum = currencyToNumber(order.total);
+            // TÍNH TOÁN LẠI TỔNG TIỀN DỰA TRÊN GIÁ MỚI NHẤT
+            const totalNum = calculateOrderTotal(order.items);
             return sum + totalNum;
         }, 0);
 
@@ -150,28 +312,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let bestSeller = 'N/A';
         let maxQty = 0;
         
-        const couchProducts = Object.keys(itemSales).filter(name => name.toLowerCase().includes('couch'));
-        if (couchProducts.length > 0) {
-            couchProducts.forEach(name => {
-                if (itemSales[name] > maxQty) {
-                    maxQty = itemSales[name];
-                    bestSeller = name;
-                }
-            });
-        }
-        
-        if (bestSeller === 'N/A') {
-             for (const name in itemSales) {
-                if (itemSales[name] > maxQty) {
-                    maxQty = itemSales[name];
-                    bestSeller = name;
-                }
+        for (const name in itemSales) {
+            if (itemSales[name] > maxQty) {
+                maxQty = itemSales[name];
+                bestSeller = name;
             }
         }
         
-        if (bestSeller === 'N/A' && couchProducts.length > 0) {
-             bestSeller = couchProducts[0];
-        } else if (bestSeller === 'N/A' && Object.keys(itemSales).length > 0) {
+        if (bestSeller === 'N/A' && Object.keys(itemSales).length > 0) {
             bestSeller = Object.keys(itemSales)[0];
         }
 
@@ -191,6 +339,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         reportsBody.innerHTML = completedOrders.map(order => {
             const itemNames = order.items.map(item => item.name).join(', ');
+            // Tính tổng tiền dựa trên giá mới nhất
+            const calculatedTotal = calculateOrderTotal(order.items);
             
             return `
                 <tr>
@@ -200,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <small>SP: ${itemNames}</small>
                     </td>
                     <td>${order.customer}</td>
-                    <td>${order.total}</td>
+                    <td>${formatCurrency(calculatedTotal)}</td>
                 </tr>
             `;
         }).join('');
@@ -210,79 +360,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn-run-report').addEventListener('click', () => {
         const reportData = calculateReportData();
         updateReportSummary(reportData);
-        renderReport(reportData.completedOrders); 
-    });
-    
-    const addProdBtn = document.getElementById('addProdBtn');
-    const prodModalOverlay = document.getElementById('product-modal-overlay');
-    const prodModalCloseBtns = prodModalOverlay ? prodModalOverlay.querySelectorAll('.close-btn, .btn-close-modal') : [];
-    const prodForm = document.getElementById('product-form');
-
-    // Mở modal Thêm/Sửa
-    if (addProdBtn) {
-        addProdBtn.addEventListener('click', () => {
-            prodForm.reset();
-            document.getElementById('modal-prod-title').textContent = 'Thêm Sản phẩm mới';
-            document.getElementById('prod-id').value = 'Tự động tạo';
-            document.getElementById('prod-id').readOnly = true;
-            document.getElementById('save-prod-btn').textContent = 'Thêm Sản phẩm';
-            document.getElementById('save-prod-btn').dataset.mode = 'add';
-            prodModalOverlay.classList.remove('hidden');
-        });
-    }
-
-
-    // Đóng modal (sử dụng close-btn và nút Hủy trong modal-footer)
-    prodModalCloseBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            prodModalOverlay.classList.add('hidden');
-        });
+        renderReport(reportData.completedOrders);
     });
 
-    // Xử lý lưu (Thêm mới)
-    if (prodForm) {
-        prodForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const nameInput = document.getElementById('prod-name').value.trim();
-            const stockInput = document.getElementById('prod-stock').value;
-            const priceInput = document.getElementById('prod-price').value;
-            
-            const newProd = {
-                id: 'SP' + (mockInventory.length + 1).toString().padStart(3, '0'),
-                name: nameInput,
-                stock: parseInt(stockInput),
-                price: parseInt(priceInput),
-            };
-
-            if (nameInput && !isNaN(newProd.stock) && newProd.stock >= 0 && !isNaN(newProd.price) && newProd.price > 0) {
-                mockInventory.push(newProd);
-                renderInventory();
-                prodModalOverlay.classList.add('hidden');
-                alert(`Đã thêm sản phẩm "${newProd.name}" thành công!`);
-            } else {
-                alert('Vui lòng nhập đầy đủ và chính xác thông tin sản phẩm (Số lượng >= 0, Giá > 0).');
-            }
-        });
-    }
-
-
-    // Xử lý tìm kiếm kho hàng
-    const prodFilterInput = document.getElementById('prod-filter');
-    if (prodFilterInput) {
-        prodFilterInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase().trim();
-            const filteredProducts = mockInventory.filter(product => 
-                product.name.toLowerCase().includes(searchTerm) || 
-                product.id.toLowerCase().includes(searchTerm)
-            );
-            renderInventory(filteredProducts);
-        });
-    }
 
     const modalOverlay = document.getElementById('order-detail-modal');
-    const closeModalBtn = modalOverlay ? modalOverlay.querySelector('.close-btn') : null; 
+    const closeModalBtn = modalOverlay ? modalOverlay.querySelector('.close-btn') : null;
     const ordersBody = document.getElementById('orders-body');
+
 
     function populateModal(orderId) {
         const order = mockOrders.find(o => o.id === orderId);
@@ -291,6 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        const calculatedTotal = calculateOrderTotal(order.items);
         const statusVi = translateStatus(order.status);
         const statusClass = getStatusClass(order.status);
         const formattedDate = formatDate(order.date);
@@ -302,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('detail-address').textContent = order.address;
         document.getElementById('detail-date').textContent = formattedDate;
         document.getElementById('detail-payment').textContent = order.payment;
-        document.getElementById('detail-total-value').textContent = order.total;
+        document.getElementById('detail-total-value').textContent = formatCurrency(calculatedTotal);
 
         // Cập nhật trạng thái
         const detailStatusSpan = document.getElementById('detail-status');
@@ -311,19 +397,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Điền danh sách sản phẩm (Chi tiết)
         const itemsBody = document.getElementById('detail-items-body');
-        itemsBody.innerHTML = order.items.map(item => `
-            <tr>
-                <td style="text-align:left;">${item.name}</td>
-                <td>${item.qty}</td>
-                <td>${item.price}</td>
-                <td>${item.subtotal}</td>
-            </tr>
-        `).join('');
+        itemsBody.innerHTML = order.items.map(item => {
+            const product = mockInventory.find(p => p.name === item.name);
+            const price = product ? product.price : 0;
+            const subtotal = price * (parseInt(item.qty) || 0);
+
+            return `
+                <tr>
+                    <td style="text-align:left;">${item.name}</td>
+                    <td>${item.qty}</td>
+                    <td>${formatCurrency(price)}</td>
+                    <td>${formatCurrency(subtotal)}</td>
+                </tr>
+            `;
+        }).join('');
 
         // Cập nhật nút hành động dựa trên trạng thái
         const btnUpdate = document.getElementById('btn-update-status');
         const btnCancel = document.getElementById('btn-cancel-order');
-        btnUpdate.dataset.orderId = order.id; 
+        btnUpdate.dataset.orderId = order.id;
         btnCancel.dataset.orderId = order.id;
 
         if (order.status === 'pending') {
@@ -343,7 +435,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.classList.remove('hidden');
     }
 
-    // Mở Modal
+    // Mở Modal Chi tiết Đơn hàng
     if (ordersBody) {
         ordersBody.addEventListener('click', (e) => {
             if (e.target.classList.contains('view-detail')) {
@@ -353,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Đóng Modal
+    // Đóng Modal (Nút X)
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', () => {
             modalOverlay.classList.add('hidden');
@@ -378,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (orderIndex !== -1) {
                 if (mockOrders[orderIndex].status === 'pending') {
-                    mockOrders[orderIndex].status = 'shipped'; 
+                    mockOrders[orderIndex].status = 'shipped';
                 } else if (mockOrders[orderIndex].status === 'shipped') {
                     mockOrders[orderIndex].status = 'success';
                 }
@@ -410,14 +502,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
     // Xử lý nút "Làm mới"
     document.getElementById('refreshBtn').addEventListener('click', () => {
         alert("Đang làm mới dữ liệu...");
         const activeView = document.querySelector('.admin-view.active-view');
         if (activeView && activeView.id === 'view-orders') {
-            renderOrders(); 
+            renderOrders();
         } else if (activeView && activeView.id === 'view-inventory') {
-            renderInventory(); 
+            renderInventory();
         } else if (activeView && activeView.id === 'view-reports') {
             const reportData = calculateReportData();
             updateReportSummary(reportData);
@@ -456,7 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
             switch (this.dataset.view) {
                 case 'orders':
                     newTitle = 'Đơn hàng hiện có';
-                    renderOrders(); 
+                    renderOrders();
                     break;
                 case 'inventory':
                     newTitle = 'Quản lý kho sản phẩm';
@@ -473,9 +566,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Khởi tạo ban đầu
     renderOrders(); // Tải Đơn hàng ban đầu
     const initialReportData = calculateReportData();
     updateReportSummary(initialReportData); // Cập nhật Summary Report ban đầu
-
+    
+    const currentView = document.querySelector('.admin-view.active-view');
+    if (currentView && currentView.id === 'view-inventory') {
+        renderInventory();
+    }
 });
-
