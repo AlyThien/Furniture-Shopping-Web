@@ -33,3 +33,24 @@ window.addEventListener('scroll', function() {
     hero.style.opacity = opacity;
 });
 
+// FAQ Accordion
+document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+            // Đóng tất cả các items khác
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Toggle item hiện tại
+            item.classList.toggle('active');
+        });
+    });
+});
+

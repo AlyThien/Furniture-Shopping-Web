@@ -31,7 +31,24 @@
         "reviews-content": "It's such an honour of us to bring our customers well-qualified experiences",
         "review1": "I was truly impressed with the wide range of furniture available here. The designs are elegant, and the quality feels premium. The staff was attentive. I'll definitely come back again.",
         "review2": "This store offers outstanding furniture at reasonable prices. The materials are durable, and the finishing is excellent. Delivery was on time. My home now feels warmer and more stylish thanks to their products.",
-        "review3": "Shopping here was a wonderful experience. The showroom is beautifully arranged. I appreciate the honest advice from the staff and the flawless delivery process."
+        "review3": "Shopping here was a wonderful experience. The showroom is beautifully arranged. I appreciate the honest advice from the staff and the flawless delivery process.",
+        "about-title": "The Meaning Behind Our Name",
+        "about-p1": "Symbolizing nature, growth, and renewal",
+        "about-p2": "Representing craftsmanship and functionality",
+        "about-p3": "The heart of comfort and belonging",
+        "about-tagline": "We bring nature's harmony into your home through thoughtfully crafted furniture that grows with your life.",
+        "faq-title": "Frequently Asked Questions",
+        "faq-subtitle": "Everything you need to know about our furniture and services",
+        "faq-q1": "How long does delivery take?",
+        "faq-a1": "Standard delivery takes 5-7 business days within the city. For remote areas, it may take up to 10-14 days. We also offer express delivery for urgent orders.",
+        "faq-q2": "What is your warranty policy?",
+        "faq-a2": "All our furniture comes with a 2-year warranty covering manufacturing defects. We also offer extended warranty options up to 5 years for selected products.",
+        "faq-q3": "Can I customize furniture designs?",
+        "faq-a3": "Yes! We offer customization services including fabric choices, dimensions, and finishes. Contact our design team to discuss your specific requirements.",
+        "faq-q4": "What payment methods do you accept?",
+        "faq-a4": "We accept cash, bank transfer, credit/debit cards (Visa, Mastercard), and installment payments through our partner banks. Online payment is also available.",
+        "faq-q5": "Do you offer assembly services?",
+        "faq-a5": "Yes, professional assembly service is included free for all orders. Our team will set up your furniture and remove all packaging materials."
     },
 
     "vi": {
@@ -66,6 +83,23 @@
         "reviews-content": "Thật vinh dự khi chúng tôi mang đến cho khách hàng những trải nghiệm chất lượng",
         "review1": "Tôi thực sự ấn tượng với sự đa dạng của nội thất ở đây. Các thiết kế thanh lịch và chất lượng cao cấp. Nhân viên chu đáo. Tôi chắc chắn sẽ quay lại.",
         "review2": "Cửa hàng này cung cấp nội thất xuất sắc với giá cả hợp lý. Vật liệu bền bỉ và hoàn thiện tuyệt vời. Giao hàng đúng giờ. Nhà tôi giờ cảm thấy ấm áp và phong cách hơn nhờ sản phẩm của họ.",
-        "review3": "Mua sắm ở đây là trải nghiệm tuyệt vời. Showroom được sắp xếp đẹp mắt. Tôi đánh giá cao lời khuyên chân thành từ nhân viên và quy trình giao hàng hoàn hảo."
-}
+        "review3": "Mua sắm ở đây là trải nghiệm tuyệt vời. Showroom được sắp xếp đẹp mắt. Tôi đánh giá cao lời khuyên chân thành từ nhân viên và quy trình giao hàng hoàn hảo.",
+        "about-title": "Ý Nghĩa Tên Của Chúng Tôi",
+        "about-p1": "Tượng trưng cho thiên nhiên, sự phát triển và đổi mới",
+        "about-p2": "Đại diện cho tay nghề thủ công và tính năng",
+        "about-p3": "Trái tim của sự thoải mái và thuộc về",
+        "about-tagline": "Chúng tôi mang sự hài hòa của thiên nhiên vào ngôi nhà của bạn thông qua nội thất được chế tác tỉ mỉ, phát triển cùng cuộc sống của bạn.",
+        "faq-title": "Câu Hỏi Thường Gặp",
+        "faq-subtitle": "Mọi thông tin bạn cần biết về nội thất và dịch vụ của chúng tôi",
+        "faq-q1": "Giao hàng mất bao lâu?",
+        "faq-a1": "Giao hàng tiêu chuẩn mất 5-7 ngày làm việc trong nội thành. Với khu vực xa, có thể mất đến 10-14 ngày. Chúng tôi cũng cung cấp dịch vụ giao hàng nhanh cho đơn hàng gấp.",
+        "faq-q2": "Chính sách bảo hành như thế nào?",
+        "faq-a2": "Tất cả nội thất của chúng tôi đều có bảo hành 2 năm cho lỗi sản xuất. Chúng tôi cũng cung cấp tùy chọn bảo hành mở rộng lên đến 5 năm cho các sản phẩm được chọn.",
+        "faq-q3": "Tôi có thể tùy chỉnh thiết kế nội thất không?",
+        "faq-a3": "Có! Chúng tôi cung cấp dịch vụ tùy chỉnh bao gồm lựa chọn vải, kích thước và hoàn thiện. Liên hệ với đội ngũ thiết kế của chúng tôi để thảo luận yêu cầu cụ thể của bạn.",
+        "faq-q4": "Bạn chấp nhận phương thức thanh toán nào?",
+        "faq-a4": "Chúng tôi chấp nhận tiền mặt, chuyển khoản, thẻ tín dụng/ghi nợ (Visa, Mastercard), và thanh toán trả góp qua các ngân hàng đối tác. Thanh toán trực tuyến cũng có sẵn.",
+        "faq-q5": "Bạn có cung cấp dịch vụ lắp ráp không?",
+        "faq-a5": "Có, dịch vụ lắp ráp chuyên nghiệp được bao gồm miễn phí cho tất cả đơn hàng. Đội ngũ của chúng tôi sẽ lắp đặt nội thất và dọn dẹp toàn bộ bao bì."
+    }
 }

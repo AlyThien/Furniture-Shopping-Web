@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haguchi-Homepage</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css"> <!--Nhóm 9: Liên kết file CSS chung-->
+    <link rel="stylesheet" href="css/index.css"> <!--Nhóm 9: Liên kết file CSS riêng cho trang index-->   
 </head>
 
 <body data-page="home">
-    <!--Phần Header-->
+    <!--Nhóm 9: Phần Header-->
     <header>
         <div class="Logo">
             <p>
@@ -17,7 +17,7 @@
                 葉具家</a>
             </p>
         </div>
-        <nav class="Main-Menu">
+        <nav class="Main-Menu"> <!--Nhóm 9: Thanh điều hướng chính-->
             <ul>
                 <li><a href="" data-i18n="nav-products">Products</a></li>
                 <li><a href="" data-i18n="nav-about">About us</a></li>
@@ -25,42 +25,44 @@
                 <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
             </ul>
         </nav>
-        <nav class="Sub-Menu">
+
+        <nav class="Sub-Menu"> <!--Nhóm 9: Thanh điều hướng phụ-->
             <ul>
                 <li>
-                    <form id="search-box" action="">
+                    <form id="search-box"> <!--Nhóm 9: Nút tìm kiếm-->
                         <input type="text" id="search-text" placeholder="Search...">
                         <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
                     </form>
                 </li>
-                <li id="Wishlist">
+                <li id="Wishlist"> <!--Nhóm 9: Giỏ yêu thích-->
                     <a href="">
                         <span class="solar--heart-bold"></span>
                         <span class="wishlist-count">0</span>
                     </a>
                 </li>
-                <li><span class="solar--user-bold"></span></li>
-                <li class="lang-switcher">
-                    <div class="lang-toggle" aria-label="Language switcher">
-                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')">
+                <li><span class="solar--user-bold"></span></li> <!--Nhóm 9: Tài khoản người dùng-->
+                <li class="lang-switcher"> <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
+                    <div class="lang-toggle">
+                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')"> <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
                         <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
-                        <div class="lang-track">
+                        <div class="lang-track"> <!--Nhóm 9: Thanh trượt ngôn ngữ-->
                             <label for="lang-en" class="lang-opt lang-en">EN</label>
                             <label for="lang-vi" class="lang-opt lang-vi">VI</label>
-                            <div class="lang-knob" aria-hidden="true"></div>
+                            <div class="lang-knob" aria-hidden="true"></div> <!--Nhóm 9: Nút trượt ngôn ngữ-->
                         </div>
                     </div>
                 </li>
-                <li><span class="icomoon-free--leaf"></span></li>
+                <li><span class="icomoon-free--leaf"></span></li> <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
             </ul>
+        </nav>
     </header>
 
-    <!--Phần nội dung-->
+    <!--Nhóm 9: Phần nội dung-->
     <main>
-        <!--Phần home: slogan-->
-        <section class="Hero">
-            <video autoplay muted loop>
-                <source src="images/homepage/video-opening-mp4.mp4" type="video/mp4">
+        <!--Nhóm 9: Phần home, slogan-->
+        <section class="Hero"> 
+            <video autoplay muted loop> <!--Nhóm 9: Video chạy nền trang chủ với các sources khác nhau dành cho các trình duyệt khác hoặc sử dụng hình ảnh nếu không load được video-->
+                <source src="images/homepage/video-opening-mp4.mp4" type="video/mp4"> 
                 <source src="images/homepage/video-opening-webm.webm" type="video/webm">
                 <img src="images/homepage/picture-opening.jpg" alt="Furniture Image">
             </video>
@@ -72,89 +74,121 @@
             </div>
         </section>
 
-        <div class="scroll-content">
-            <!--Phần sản phẩm mới-->
-            <section id="New-Product">
-                <h1 data-i18n="premium-title">Premium furniture - Elegant & Modern Living</h1>
-                <p data-i18n="premium-content" class="premium-content">Transform your home into a sanctuary of comfort and style with our premium designs and exquisite craftsmanship — a true reflection of your personal taste.</p>
-                <div class="content-wrapper">
-                    <div id="slide">
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview1.jpg)">
-                            <div class="overview-content">
-                                <p data-i18n="new1">A new living furniture set bring the air and nature from a far to your home</p>
-                            </div>
-                        </div>
+        <div class="scroll-content"> <!--Nhóm 9: Phần nội dung cuộn theo trang (tức các phần sau sẽ có hiệu ứng khi cuộn trang thì ẩn phần Hero đi)-->
 
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview2.jpg)">
-                            <div class="overview-content">
-                                <p data-i18n="new2">A cozy lifestyle waiting for you at home in the cold winter</p>
-                            </div>
+        <!--Nhóm 9: Phần sản phẩm mới-->
+        <section id="New-Product">
+            <h1 data-i18n="premium-title">Premium furniture - Elegant & Modern Living</h1>
+            <p data-i18n="premium-content" class="premium-content">Transform your home into a sanctuary of comfort and style with our premium designs and exquisite craftsmanship — a true reflection of your personal taste.</p>
+            <div class="content-wrapper"> <!--Nhóm 9: Khung chứa slide sản phẩm mới-->
+                <div id="slide">
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview1.jpg)"> <!--Nhóm 9: Hình ảnh nền cho từng slide: vì có nhiều sản phẩm nên không thể dồn qua CSS được nên các ảnh được chèn vào style ngay tại HTML-->
+                        <div class="overview-content">
+                            <p data-i18n="new1">A new living furniture set bring the air and nature from a far to your home</p> <!--Nhóm 9: Nội dung mô tả cho từng slide-->
                         </div>
+                    </div>
 
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview3.jpg)">
-                            <div class="overview-content">
-                                <p data-i18n="new3">A focus space where plants bath in your "knowledge"</p>
-                            </div>
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview2.jpg)">
+                        <div class="overview-content">
+                            <p data-i18n="new2">A cozy lifestyle waiting for you at home in the cold winter</p>
                         </div>
+                    </div>
+
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview3.jpg)">
+                        <div class="overview-content">
+                            <p data-i18n="new3">A focus space where plants bath in your "knowledge"</p>
+                        </div>
+                    </div>
                         
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview4.jpg)">
-                            <div class="overview-content">
-                                <p data-i18n="new4">Diner? Yes, it is the time for gathering and eat delicous fresh food</p>
-                            </div>
-                        </div>
-
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview5.jpg)">
-                            <div class="overview-content">
-                                <p data-i18n="new5">Surrounded by the color of nature, make you feel nothing much than a jungle in your home</p>
-                            </div>
-                        </div>
-
-                        <div class="item" style="background-image: url(images/homepage/new-collections/overview6.jpg)">
-                            <div class="overview-content">
-                                <p data-i18n="new6">A simple reading table with comfort chair for you to explore the world of advanture</p>
-                            </div>
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview4.jpg)">
+                        <div class="overview-content">
+                            <p data-i18n="new4">Diner? Yes, it is the time for gathering and eat delicous fresh food</p>
                         </div>
                     </div>
 
-                    <div class="controls">
-                        <button id="overview-prev"><span class="tabler--caret-left"></span></button>
-                        <button id="overview-next"><span class="tabler--caret-right"></span></button>
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview5.jpg)">
+                        <div class="overview-content">
+                            <p data-i18n="new5">Surrounded by the color of nature, make you feel nothing much than a jungle in your home</p>
+                        </div>
+                    </div>
+
+                    <div class="item" style="background-image: url(images/homepage/new-collections/overview6.jpg)">
+                        <div class="overview-content">
+                            <p data-i18n="new6">A simple reading table with comfort chair for you to explore the world of advanture</p>
+                        </div>
                     </div>
                 </div>
-            </section>
 
-            <!--Phần tại sao lại chọn chúng tôi-->
-            <section id="Why-Choose-Us">
-                <div class="abtus-header">
-                    <h1 data-i18n="Why-Choose-Us">Why choose us</h1>
-                    <p data-i18n="wcu-content">Discover timeless furniture crafted with care and designed to last</p>
+                <div class="controls"> <!--Nhóm 9: Nút điều khiển chuyển slide-->
+                    <button id="overview-prev"><span class="tabler--caret-left"></span></button>
+                    <button id="overview-next"><span class="tabler--caret-right"></span></button>
                 </div>
+            </div>
+        </section>
+
+        <!--Nhóm 9: Phần About Us - Ý nghĩa tên web-->
+        <section id="About-Us">
+            <div class="about-container"> <!--Nhóm 9: Khung chứa phần About Us-->
+                <div class="about-logo">
+                    <h1>Haguchi</h1>
+                    <p class="about-kanji">葉具家</p>
+                </div>
+
+                <div class="about-content"> <!--Nhóm 9: Nội dung phần About Us: giải thích các từng phần của tên-->
+                    <h2 data-i18n="about-title">The Meaning Behind Our Name</h2>
+                    <div class="about-text">
+                        <div class="about-name">
+                            <strong>葉</strong> (Ha/Yè) - <em>Leaf, Lá cây</em>
+                            <p data-i18n="about-p1">Symbolizing nature, growth, and renewal</p>
+                        </div>
+                        <div class="about-name">
+                            <strong>具</strong> (Gu/Jù) - <em>Tool/Furniture</em><br>
+                            <p data-i18n="about-p2">Representing craftsmanship and functionality</p>
+                        </div>
+                        <div class="about-name">
+                            <strong>家</strong> (Chi/Jiā) - <em>Home</em><br>
+                            <p data-i18n="about-p3">The heart of comfort and belonging</p>
+                        </div>
+                    </div>
+                    <p class="about-tagline" data-i18n="about-tagline">
+                    We bring nature's harmony into your home through thoughtfully crafted furniture that grows with your life.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--Nhóm 9: Phần tại sao lại chọn chúng tôi-->
+        <section id="Why-Choose-Us">
+            <div class="abtus-header">
+                <h1 data-i18n="Why-Choose-Us">Why choose us</h1>
+                <p data-i18n="wcu-content">Discover timeless furniture crafted with care and designed to last</p>
+            </div>
                     
-                <section class="Reasons">
-                    <div class="Reason">
-                        <h2 data-i18n="reason1">Premium Quality Materials</h2>
-                        <p data-i18n="reason1-content">We use only the finest, sustainably sourced materials to create furniture that stands the test of time — durable, safe, and full of character.</p>
-                    </div>
-                    <div class="Reason">
-                        <h2 data-i18n="reason2">Styles for Every Space</h2>
-                        <p data-i18n="reason2-content">From cozy apartments to spacious villas, our versatile designs fit perfectly into any home — blending modern comfort with timeless aesthetics.</p>
-                    </div>
-                    <div class="Reason">
-                        <h2 data-i18n="reason3">Designed for Daily Life</h2>
-                        <p data-i18n="reason3-content">Our pieces aren’t just for show — they’re made for real life. Enjoy durable, comfortable furniture that complements your everyday routine.</p>
-                    </div>
-                    <div class="Reason">
-                        <h2 data-i18n="reason4">Thoughtful Craftsmanship</h2>
-                        <p data-i18n="reason4-content">Every detail matters. From smooth finishes to seamless joints, each piece is carefully crafted to bring both function and beauty to your home.</p>
-                    </div>
-                </section>
-            </section>
+            <div class="Reasons">
+                <div class="Reason">
+                    <h2 data-i18n="reason1">Premium Quality Materials</h2>
+                    <p data-i18n="reason1-content">We use only the finest, sustainably sourced materials to create furniture that stands the test of time — durable, safe, and full of character.</p>
+                </div>
+                <div class="Reason">
+                    <h2 data-i18n="reason2">Styles for Every Space</h2>
+                    <p data-i18n="reason2-content">From cozy apartments to spacious villas, our versatile designs fit perfectly into any home — blending modern comfort with timeless aesthetics.</p>
+                </div>
+                <div class="Reason">
+                    <h2 data-i18n="reason3">Designed for Daily Life</h2>
+                    <p data-i18n="reason3-content">Our pieces aren’t just for show — they’re made for real life. Enjoy durable, comfortable furniture that complements your everyday routine.</p>
+                </div>
+                <div class="Reason">
+                    <h2 data-i18n="reason4">Thoughtful Craftsmanship</h2>
+                    <p data-i18n="reason4-content">Every detail matters. From smooth finishes to seamless joints, each piece is carefully crafted to bring both function and beauty to your home.</p>
+                </div>
+            </div>
+        </section>
 
-            <!--Phần Product Categories-->
+        <!--Nhóm 9: Phần Product Categories-->
         <section class="Product-Categories">
             <h1 data-i18n="product">Explore Our Collections</h1>
             <p data-i18n="product-content">that reflects your personal style with our exclusive furniture collections</p>
-            <section class="Categories">
+            <div class="Categories"> <!--Nhóm 9: Khung chứa các danh mục sản phẩm-->
                 <div class="Table">
                     <img src="images/homepage/product-categories/coffee-table.jpeg" alt="Coffee Table">
                     <h2 data-i18n="table">Table</h2>
@@ -171,27 +205,28 @@
                     <img src="images/homepage/product-categories/wardrobe.jpeg" alt="Wardrobe">
                     <h2 data-i18n="wardrobe">Wardrobe</h2>
                 </div>
-            </section>
+            </div>
+        </section>
 
-             <!--Phần nhận xét khách hàng-->
-                <section class="review-section">
-                    <div class="section-title">
-                        <h2 data-i18n="reviews">our Customer Reviews</h2>
-                        <p data-i18n="reviews-content">It's such an honour of us to bring our customers well-qualified experiences</p>
-                    </div>
-                    <div class="reviews-container">
-                    <div class="review-card">
+        <!--Nhóm 9: Phần nhận xét khách hàng-->
+        <section class="review-section">
+            <div class="section-title">
+                <h2 data-i18n="reviews">our Customer Reviews</h2>
+                <p data-i18n="reviews-content">It's such an honour of us to bring our customers well-qualified experiences</p>
+            </div>
+            <div class="reviews-container"> <!--Nhóm 9: Khung chứa các thẻ nhận xét-->
+                <div class="review-card"> <!--Nhóm 9: Thẻ nhận xét-->
                     <div class="reviewer-info">
-                         <img src="images/homepage/review/user1.jpeg" alt="Ariana Butera Grande" class="reviewer-avatar">
+                        <img src="images/homepage/review/user1.jpeg" alt="Ariana Butera Grande" class="reviewer-avatar">
                         <div class="reviewer-details">
                             <h3>Ariana Butera Grande</h3>
                             <p>Music Composer, 32</p>
                         </div>
                     </div>
-                        <p class="review-text" data-i18n="review1">I was truly impressed with the wide range of furniture available here. The designs are elegant, and the quality feels premium. The staff was attentive. I'll definitely come back again.</p>
+                    <p class="review-text" data-i18n="review1">I was truly impressed with the wide range of furniture available here. The designs are elegant, and the quality feels premium. The staff was attentive. I'll definitely come back again.</p>
                     <div class="rating">★★★★★</div>
-                    </div>
-                    <div class="review-card">
+                </div>
+                <div class="review-card">
                     <div class="reviewer-info">
                         <img src="images/homepage/review/user2.jpeg" alt="Taylor Alison Smith" class="reviewer-avatar">
                         <div class="reviewer-details">
@@ -201,8 +236,8 @@
                     </div>
                         <p class="review-text" data-i18n="review2">This store offers outstanding furniture at reasonable prices. The materials are durable, and the finishing is excellent. Delivery was on time. My home now feels warmer and more stylish thanks to their products.</p>
                     <div class="rating">★★★★★</div>
-                    </div>
-                    <div class="review-card">
+                </div>
+                <div class="review-card">
                     <div class="reviewer-info">
                         <img src="images/homepage/review/user3.jpg" alt="Kevin John Calmente" class="reviewer-avatar">
                         <div class="reviewer-details">
@@ -210,25 +245,89 @@
                             <p>Architecture, 45</p>
                         </div>
                     </div>
-                        <p class="review-text" data-i18n="review3">Shopping here was a wonderful experience. The showroom is beautifully arranged. I appreciate the honest advice from the staff and the flawless delivery process.</p>
+                    <p class="review-text" data-i18n="review3">Shopping here was a wonderful experience. The showroom is beautifully arranged. I appreciate the honest advice from the staff and the flawless delivery process.</p>
                     <div class="rating">★★★★★</div>
+                </div>
+                </div>
+        </section>
+
+        <!--Nhóm 9: Phần FAQ - Câu hỏi thường gặp-->
+        <section id="FAQ">
+            <div class="faq-container"> <!--Nhóm 9: Khung chứa phần FAQ-->
+                <div class="faq-header"> 
+                    <h2 data-i18n="faq-title">Frequently Asked Questions</h2>
+                    <p data-i18n="faq-subtitle">Everything you need to know about our furniture and services</p>
+                </div>
+
+                <div class="faq-list"> 
+                    <div class="faq-item"> <!--Nhóm 9: Mỗi mục câu hỏi-->
+                        <button class="faq-question">
+                            <span data-i18n="faq-q1">How long does delivery take?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq-a1">Standard delivery takes 5-7 business days within the city. For remote areas, it may take up to 10-14 days. We also offer express delivery for urgent orders.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-i18n="faq-q2">What is your warranty policy?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq-a2">All our furniture comes with a 2-year warranty covering manufacturing defects. We also offer extended warranty options up to 5 years for selected products.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-i18n="faq-q3">Can I customize furniture designs?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq-a3">Yes! We offer customization services including fabric choices, dimensions, and finishes. Contact our design team to discuss your specific requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-i18n="faq-q4">What payment methods do you accept?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq-a4">We accept cash, bank transfer, credit/debit cards (Visa, Mastercard), and installment payments through our partner banks. Online payment is also available.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-i18n="faq-q5">Do you offer assembly services?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-i18n="faq-a5">Yes, professional assembly service is included free for all orders. Our team will set up your furniture and remove all packaging materials.</p>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
+        </div> <!--Nhóm 9: Kết thúc phần nội dung cuộn theo trang-->
+
     </main>
 
-    <!--Phần quay lại đầu trang-->
+    <!--Nhóm 9: Phần quay lại đầu trang-->
     <img id="btn-top" src="/images/return_to_top.png" alt="Return to top">
 
-    <!--Phần footer-->
+    <!--Nhóm 9: Phần footer-->
     <footer>
         <div class="footer-logo">
             <div><em>Haguchi</em></div>
             <div>葉具家</div>
         </div>
-        <div class="footer-content">
+        <div class="footer-content"> <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
             <div class="footer-section">
-                <h3 data-i18n="nav-about">About Us</h3>
+                <h3 data-i18n="nav-about">About Us</h3> 
                 <ul>
                     <li data-i18n="footer-aboutus"> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
                     <li data-i18n="footer-aboutus-add">📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
@@ -269,9 +368,9 @@
         </div>
     </footer>
     
-    <script src="js/lang-change.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="js/index.js"></script> <!--Nhóm 9:  Liên kết file JS riêng cho trang index -->
 
 </body>    
 </html>
