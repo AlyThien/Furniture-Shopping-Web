@@ -410,8 +410,24 @@ video {
     gap: 15px;
 }
 
+.reviewer-avatar {
+    width: 60px; /* Kích thước ảnh */
+    height: 60px;
+    border-radius: 50%; /* Làm cho ảnh tròn */
+    object-fit: cover; /* Đảm bảo ảnh bao phủ khung mà không bị méo */
+    border: 3px solid #E8F3DE; /* Thêm viền nhẹ */
+    flex-shrink: 0; /* Ngăn ảnh bị co lại khi không gian hẹp */
+}
+
+.reviewer-info {
+    display: flex; /* Đảm bảo các phần tử nằm trên cùng một hàng */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: flex-start; /* Đảm bảo ảnh nằm bên trái tên */
+    gap: 15px; /* Khoảng cách giữa ảnh và chi tiết reviewer */
+}
+
 .reviewer-details h3 {
-    color: #2C4030;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 4px;
@@ -606,6 +622,12 @@ video {
         width: 100%;
         padding: 25px 20px; 
         gap: 15px;
+    }
+
+    .reviewer-avatar {
+        width: 50px;
+        height: 50px;
+        border-width: 2px;
     }
 
     .reviewer-details h3 {
