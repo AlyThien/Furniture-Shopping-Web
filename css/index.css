@@ -407,7 +407,6 @@ video {
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     background-clip: text; 
-    -webkit-text-fill-color: transparent;
     font-size: 18px;
     font-style: italic;
     font-weight: 400;
@@ -660,4 +659,5 @@ video {
     .rating {
         font-size: 20px;
     }
+
 }
