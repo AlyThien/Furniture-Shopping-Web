@@ -33,3 +33,34 @@ window.addEventListener('scroll', function() {
     hero.style.opacity = opacity;
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+
+    const logoutButton = document.getElementById('logout-btn');
+
+    // Logic xử lý Đăng xuất
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn liên kết chuyển hướng ngay lập tức
+
+            // 1. Xóa thông tin phiên làm việc và xác thực
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userToken'); 
+            sessionStorage.removeItem('sessionID'); 
+
+            // 2. Xóa tất cả thông tin cá nhân đã lưu trên trình duyệt
+            localStorage.removeItem('userFullName');
+            localStorage.removeItem('userPhone');
+            localStorage.removeItem('userDOB');
+            localStorage.removeItem('userGender');
+            localStorage.removeItem('userAddress');
+            localStorage.removeItem('userEmail'); // Xóa cả email
+
+            console.log('User logged out successfully and all local data cleared.');
+
+            // Chuyển hướng về trang đăng nhập
+            window.location.href = 'login.html';
+        });
+    }
+});
+
+
