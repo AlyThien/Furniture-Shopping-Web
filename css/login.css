@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 body {
     background-image: linear-gradient(to bottom, #A8C6AE 0%, #689F73 50%, #1D523C 100%);
     font-family: 'Roboto Serif', sans-serif;
@@ -50,14 +48,14 @@ h2 {
     margin-bottom: 25px;
     font-size: 2em;
     font-weight: 600;
-    font-family: 'Ibarra Real Nova', serif;
+    font-family: 'Roboto Serif', serif;
 }
 
 p {
     color: #555;
     margin-bottom: 35px;
     line-height: 1.6;
-    font-family: 'Ibarra Real Nova', serif;
+    font-family: 'Roboto Serif', serif;
 }
 
 input[type="email"],
