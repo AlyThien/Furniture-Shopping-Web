@@ -92,6 +92,7 @@ video {
 
  /*Phần sản phẩm mới-----*/
 #New-Product {
+    width: 100%;
     height: 1200px;
     background-color: #1D382C;
     overflow: hidden;
@@ -210,23 +211,32 @@ video {
     transition: all 0.3s ease;
 }
 
-.controls button::before {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid #E8F3DE;
-    border-right: 2px solid #E8F3DE;
-    top: 50%;
-    left: 50%;
+.tabler--caret-left {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m14 6l-6 6l6 6z'/%3E%3C/svg%3E");
+  background-color: #E8F3DE;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
-.controls #overview-prev::before {
-    transform: translate(-25%, -50%) rotate(-135deg);
-}
-
-.controls #overview-next::before {
-    transform: translate(-75%, -50%) rotate(45deg);
+.tabler--caret-right {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m10 18l6-6l-6-6z'/%3E%3C/svg%3E");
+  background-color: #E8F3DE;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
 .controls button:hover {
@@ -293,21 +303,19 @@ video {
 
 #Why-Choose-Us .Reason:hover {
     background: #FFF4DE;
-    color: #99B495;
+    color: #48843f;
     transition: 1s;
 }
 
+/*Phần product categories-----*/
 .Product-Categories {
-    background: linear-gradient(to bottom, #587959, #D4E3CC, #EFF7E9);
-    padding: 0; 
+    background: linear-gradient(to bottom, #567957, #DCEFCB);
+    padding: 80px 0; 
     margin: 0;
 }
 
 .Product-Categories h1 {
-    background: linear-gradient(to right, #b9dab9, #8beb90, #c3f0a8); 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-    background-clip: text; 
+    color: #E8F3DE; /* Đổi sang màu sáng */
     font-size: 55px;
     text-align: center;
     font-style: italic;
@@ -316,10 +324,7 @@ video {
 }
 
 .Product-Categories > p {
-    background: linear-gradient(to right, #b9dab9, #8beb90, #c3f0a8); 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-    background-clip: text; 
+    color: #C8E1CD; /* Đổi sang màu sáng */
     font-size: 20px;
     text-align: center;
     font-style: italic;
@@ -331,9 +336,9 @@ video {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 50px;
-    max-width: 1150px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 80px;
+    padding: 0 20px;
 }
 
 .Categories > div {
@@ -342,13 +347,13 @@ video {
     overflow: hidden;
     height: 280px;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Tăng shadow cho nền tối */
     transition: all 0.3s ease;
 }
 
 .Categories > div:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .Categories img {
@@ -366,22 +371,20 @@ video {
     position: absolute;
     bottom: 25px;
     left: 25px;
-    color: #f4fcf9;
+    color: #E8F3DE;
     font-size: 30px;
     font-weight: 600;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
     z-index: 1;
-    background: rgba(93, 162, 101, 0.75);
+    background: rgba(59, 109, 84, 0.85); /* Đổi sang màu theme */
     padding: 8px 20px;
     border-radius: 12px;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(4px);
 }
 
 /*Phần nhận xét khách hàng-----*/
 .review-section {
-    background: linear-gradient(to bottom, #E4F0DD, #EFF7E9);
     padding: 0; 
-    margin-top: 0;
 }
 
 .section-title {
@@ -392,10 +395,7 @@ video {
 }
 
 .section-title h2 {
-    background: linear-gradient(to right, #8fd88a, #56b65a, #41b476); 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-    background-clip: text; 
+    color: #498C66; 
     font-size: 50px;
     font-style: italic;
     font-weight: 500;
@@ -403,11 +403,7 @@ video {
 }
 
 .section-title p {
-    background: linear-gradient(to right, #8fd88a, #56b65a, #41b476); 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-    background-clip: text; 
-    -webkit-text-fill-color: transparent;
+    color: #498C66; /* Đổi sang màu sáng */
     font-size: 18px;
     font-style: italic;
     font-weight: 400;
@@ -424,11 +420,11 @@ video {
 }
 
 .review-card {
-    background: linear-gradient(to bottom, #508952, #6cc372, #b9f198);
+    background: linear-gradient(135deg, #3B6D54, #4a8c4f, #5ea364); /* Gradient xanh tối */
     border-radius: 18px;
     padding: 35px 30px;
     width: 370px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -437,7 +433,8 @@ video {
 
 .review-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #4a8c4f, #5ea364, #7cbd7f); /* Sáng hơn khi hover */
 }
 
 .reviewer-info {
@@ -447,21 +444,30 @@ video {
     gap: 15px;
 }
 
+.reviewer-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #E8F3DE;
+    flex-shrink: 0;
+}
+
 .reviewer-details h3 {
-    color: #2C4030;
+    color: #E8F3DE; /* Đổi sang màu sáng */
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 4px;
 }
 
 .reviewer-details p {
-    color: #3D5A42;
+    color: #C8E1CD; /* Đổi sang màu sáng nhạt */
     font-size: 15px;
     font-style: italic;
 }
 
 .review-text {
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(232, 243, 222, 0.95); /* Đổi sang màu sáng */
     font-size: 15px;
     line-height: 1.7;
     flex-grow: 1;
@@ -469,7 +475,7 @@ video {
 }
 
 .rating {
-    color: #e2c105;
+    color: #FFD700; /* Giữ màu vàng cho sao */
     font-size: 22px;
     letter-spacing: 2px;
     text-align: center;
@@ -513,20 +519,20 @@ video {
         transform: translate(-50%, 0);
         overflow: hidden;
     }
-
+    
     .item {
         width: 85%; 
         height: 380px;
         left: 50%; 
         transition: 0.5s; 
     }
-
+    
     .item:nth-child(2) {
         transform: translateX(-50%) !important;
         opacity: 1;
         z-index: 5; 
     }
-
+    
     .item:nth-child(1) { 
         transform: translateX(-150%) !important; 
         opacity: 0;
@@ -550,21 +556,21 @@ video {
         font-size: 14px;
         line-height: 1.4;
     }
-
+    
     .item:hover .overview-content {
         max-height: 100px; 
     }
-
+ 
     .controls {
         bottom: 30px;
         gap: 15px;
     }
-
+    
     .controls button {
         width: 35px;
         height: 35px;
     }
-
+    
     #Why-Choose-Us {
         padding: 60px 0; 
     }
@@ -589,7 +595,7 @@ video {
         font-size: 24px;
         line-height: 30px;
     }
-
+    
     .Product-Categories {
         padding-top: 50px; 
         margin-top: 0;
@@ -627,8 +633,8 @@ video {
     }
 
     .section-title {
-        padding-top: 0; 
-        padding-bottom: 30px;
+        padding-top: 0;
+padding-bottom: 30px;
     }
 
     .section-title h2 {
@@ -643,6 +649,12 @@ video {
         width: 100%;
         padding: 25px 20px; 
         gap: 15px;
+    }
+
+    .reviewer-avatar {
+        width: 50px;
+        height: 50px;
+        border-width: 2px;
     }
 
     .reviewer-details h3 {

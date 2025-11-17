@@ -10,7 +10,7 @@
 body {
     font-family: 'Roboto Serif', sans-serif;
     scroll-behavior: smooth;
-    background: #1D382C;
+    background: linear-gradient(#0B2D21,#fff);
 }
 
 /*Phần Header---------------------------------*/
@@ -302,6 +302,7 @@ footer {
     padding: 0px 20px 20px;
     margin-top: 0;
     position: relative;
+    z-index: 100;
 }
 
 footer::before {
