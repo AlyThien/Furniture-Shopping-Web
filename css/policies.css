@@ -84,9 +84,7 @@
      object-fit: cover;
      object-position: center bottom;
    }
-   /* ==============================================
-      RESPONSIVE - TABLET
-      ============================================== */
+/* ==========  RESPONSIVE - TABLET ========== */
    @media (max-width: 1024px) {
      #Policies {
        padding-top: 80px;
@@ -127,10 +125,7 @@
        max-width: 100%;
      }
    }
-   
-   /* ==============================================
-      RESPONSIVE - MOBILE
-      ============================================== */
+/* ==========  RESPONSIVE - MOBILE ========== */
    @media (max-width: 768px) {
      #Policies {
        padding-top: 70px;
