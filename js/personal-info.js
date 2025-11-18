@@ -1,4 +1,3 @@
-// Khai báo key dùng cho Local Storage
 const USER_DATA_KEY = 'Haguchi_UserData';
 const ORDER_DATA_KEY = 'Haguchi_MockOrders';
 
@@ -14,21 +13,22 @@ const defaultUserData = {
     avatarUrl: 'https://via.placeholder.com/100'
 };
 
+// Dữ liệu Đơn hàng giả lập
 const defaultMockOrders = [
     { 
-        id: '1000', 
+        id: '1011', 
         recipient: 'Tram Vu',
         phone: '09123456789',
         email: 'kzan@gmail.com',
         address: 'Dong Xoai City, Binh Phuoc Province',
-        productName: 'L-shaped Sofa NF201 (Navy)', 
+        productName: 'L-shaped Sofa NF201 (Navy)', // Tên sản phẩm đã bao gồm màu sắc
         paymentMethod: 'COD',
         price: '11,000,000 VND',
         quantity: 2,
         total: '22,000,000 VND', 
         date: '26/11/2025', 
-        status: 'pending', 
-        statusText: 'Pending Confirmation',
+        status: 'pending', // Trạng thái dùng cho logic (CSS class, Cancel)
+        statusText: 'Pending Confirmation', // Trạng thái hiển thị
     }
 ];
 
@@ -36,9 +36,20 @@ const defaultMockOrders = [
 let userData;
 let mockOrders;
 
+function formatCurrency(amount) {
+    if (typeof amount === 'string') {
+        // Nếu là chuỗi (ví dụ: "22,000,000 VND"), ta giữ nguyên
+        return amount;
+    }
+    if (isNaN(amount) || amount === null) return '0 VND';
+    // Chuyển số thành chuỗi định dạng tiền tệ VN
+    return amount.toLocaleString('vi-VN') + ' VND';
+}
+
 // VIEW MODE FUNCTIONS 
 function showViewMode() {
-    document.getElementById('view-mode-container').style.display = 'grid'; // Dùng grid cho layout chính
+    // Dùng 'block' nếu không có CSS cho 'grid' trên main container, nhưng tôi giữ lại 'grid' theo code bạn gửi
+    document.getElementById('view-mode-container').style.display = 'block'; 
 }
 
 function hideViewMode() {
@@ -50,11 +61,12 @@ function loadDataFromStorage() {
     const storedUser = localStorage.getItem(USER_DATA_KEY);
     const storedOrders = localStorage.getItem(ORDER_DATA_KEY);
     
+    // Nếu có dữ liệu trong localStorage, tải nó. Ngược lại, dùng default.
     userData = storedUser ? JSON.parse(storedUser) : { ...defaultUserData }; 
     mockOrders = storedOrders ? JSON.parse(storedOrders) : [...defaultMockOrders]; 
 
-    // Lưu email mặc định ngay lần đầu nếu chưa có dữ liệu gì
-    if (!storedUser) {
+    // Lần đầu tiên, lưu dữ liệu mặc định để khởi tạo localStorage
+    if (!storedUser || !storedOrders) {
         saveDataToStorage();
     }
 }
@@ -69,10 +81,12 @@ loadDataFromStorage();
 // === MODAL FUNCTIONS (Chỉ cho Edit và Order Details) ===
 function showModal(modalId) {
     document.getElementById(modalId).classList.add('active');
+    document.getElementById(modalId).style.display = 'block';
 }
 
 function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('active');
+    document.getElementById(modalId).style.display = 'none';
 }
 
 function openEditModal() {
@@ -116,27 +130,35 @@ function loadEditData() {
 }
 
 function renderOrders() {
+    // Ánh xạ trạng thái dùng cho CSS và hiển thị
     const statusMap = {
         'pending': { text: 'Pending Confirmation', class: 'status-pending' },
         'shipped': { text: 'Shipping', class: 'status-shipped' },
-        'success': { text: 'Completed', class: 'status-success' },
+        'delivered': { text: 'Delivered', class: 'status-delivered' }, // Thêm Delivered
         'cancelled': { text: 'Cancelled', class: 'status-cancelled' }
     };
     
     const orderListContainer = document.getElementById('order-list-view');
     if (!orderListContainer) return;
 
+    if (mockOrders.length === 0) {
+        orderListContainer.innerHTML = '<p style="text-align: center; color: #555;">You have no orders yet.</p>';
+        return;
+    }
+
     orderListContainer.innerHTML = mockOrders.map(order => {
-        const status = statusMap[order.status] || { text: 'Unknown', class: '' };
+        // Lấy status dựa trên khóa trạng thái (status)
+        const statusData = statusMap[order.status.toLowerCase()] || { text: order.statusText || 'Unknown', class: '' };
         
-        const cancelButton = (order.status === 'pending') ? 
+        // Chỉ hiện nút Cancel nếu trạng thái là 'pending'
+        const cancelButton = (order.status.toLowerCase() === 'pending') ? 
                              `<button class="action-btn cancel-btn" onclick="cancelOrder('${order.id}')">Cancel</button>` : '';
 
         return `
             <div class="order-item">
                 <div class="order-header">
                     <span class="order-id">Order #${order.id}</span>
-                    <span class="order-status ${status.class}">${status.text}</span>
+                    <span class="order-status ${statusData.class}">${order.statusText}</span>
                 </div>
                 <p class="order-detail">Product: ${order.productName} (Qty: ${order.quantity})</p>
                 <div class="order-footer">
@@ -163,8 +185,9 @@ function cancelOrder(orderId) {
 
     const order = mockOrders[orderIndex];
 
-    if (order.status === 'pending') {
+    if (order.status.toLowerCase() === 'pending') {
         if (confirm(`Are you sure you want to cancel order #${orderId}?`)) {
+            // Cập nhật trạng thái
             mockOrders[orderIndex].status = 'cancelled';
             mockOrders[orderIndex].statusText = 'Cancelled';
 
@@ -172,6 +195,7 @@ function cancelOrder(orderId) {
 
             alert(`Order #${orderId} has been cancelled.`);
             
+            // Đóng modal chi tiết (nếu đang mở) và render lại danh sách
             closeModal('order-details-modal'); 
             renderOrders(); 
         }
@@ -187,13 +211,15 @@ function viewOrderDetails(orderId) {
         return;
     }
     
+    // Ánh xạ trạng thái dùng cho CSS
     const statusMap = {
-        'pending': { text: 'Pending Confirmation', class: 'status-pending' },
-        'shipped': { text: 'Shipping', class: 'status-shipped' },
-        'success': { text: 'Completed', class: 'status-success' },
-        'cancelled': { text: 'Cancelled', class: 'status-cancelled' }
+        'pending': { class: 'status-pending' },
+        'shipped': { class: 'status-shipped' },
+        'delivered': { class: 'status-success' }, // Dùng status-success cho Delivered trong modal
+        'cancelled': { class: 'status-cancelled' }
     };
-    const status = statusMap[order.status] || { text: 'Unknown', class: '' };
+    const statusKey = order.status.toLowerCase();
+    const statusClass = statusMap[statusKey] ? statusMap[statusKey].class : '';
 
     document.getElementById('detail-order-id').textContent = order.id;
     document.getElementById('detail-recipient').textContent = order.recipient;
@@ -203,8 +229,8 @@ function viewOrderDetails(orderId) {
     document.getElementById('detail-date').textContent = order.date;
     
     const statusSpan = document.getElementById('detail-status');
-    statusSpan.textContent = status.text;
-    statusSpan.className = status.class; 
+    statusSpan.textContent = order.statusText; // Sử dụng statusText để hiển thị
+    statusSpan.className = statusClass; // Sử dụng class CSS tương ứng
     
     document.getElementById('detail-payment-method').textContent = order.paymentMethod;
     document.getElementById('detail-product-name').textContent = order.productName;
@@ -213,8 +239,9 @@ function viewOrderDetails(orderId) {
     document.getElementById('detail-total-amount').textContent = order.total;
 
     const cancelBtnContainer = document.getElementById('order-detail-action-container');
-    if (order.status === 'pending') {
-        cancelBtnContainer.innerHTML = `<button class="action-btn cancel-btn" onclick="cancelOrder('${order.id}')">Cancel Order</button>`;
+    if (order.status.toLowerCase() === 'pending') {
+        // Sử dụng hàm cancelOrder đã định nghĩa
+        cancelBtnContainer.innerHTML = `<button type="button" class="action-btn cancel-btn" onclick="cancelOrder('${order.id}')">Cancel Order</button>`;
     } else {
         cancelBtnContainer.innerHTML = ''; 
     }
@@ -238,6 +265,10 @@ function initTabNavigation() {
             const targetContent = document.getElementById(target + '-content');
             if (targetContent) {
                 targetContent.classList.add('active');
+                // Nếu chuyển sang tab Orders, đảm bảo render lại
+                if (target === 'orders') {
+                    renderOrders(); 
+                }
             }
         });
     });
@@ -276,6 +307,7 @@ function logout() {
         userData = { ...defaultUserData };
         userData.email = loggedInEmail; 
 
+        // RESET ĐƠN HÀNG VỀ MẶC ĐỊNH GIẢ LẬP
         mockOrders = [...defaultMockOrders]; 
 
         saveDataToStorage();
@@ -341,6 +373,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('setup-mode-container').style.display = 'none';
                 loadViewData();
                 showViewMode(); 
+                
+                // Chuyển sang tab Profile sau khi setup thành công
+                document.querySelector('.nav-tab[data-target="profile"]').click();
             } else {
                 alert('Please fill in all required fields (Full Name, Phone, DOB, Gender).');
             }
@@ -367,26 +402,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    const bankForm = document.getElementById('bank-form');
-    if (bankForm) {
-        bankForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Cập nhật userData từ Bank form
-            userData.bankName = document.getElementById('bank-name').value.trim();
-            userData.bankAccNumber = document.getElementById('bank-acc-number').value.trim();
-            userData.bankBranch = document.getElementById('bank-branch').value.trim();
-            
-            saveDataToStorage();
-
-            alert('Bank account information saved!');
-            loadViewData();
-        });
-    }
-    
     // === EVENT LISTENERS ===
-    document.querySelector('.edit-close-btn').addEventListener('click', closeEditModal);
-    document.querySelector('.order-details-close-btn').addEventListener('click', () => closeModal('order-details-modal'));
+    // Đảm bảo nút đóng modal hoạt động
+    document.querySelectorAll('.edit-close-btn').forEach(btn => btn.addEventListener('click', closeEditModal));
+    document.querySelectorAll('.order-details-close-btn').forEach(btn => btn.addEventListener('click', () => closeModal('order-details-modal')));
 
     const editProfileBtn = document.getElementById('edit-profile-btn');
     if (editProfileBtn) {
