@@ -2,6 +2,10 @@ let correctOTP = '';
 let userEmail = ''; 
 const ADMIN_EMAIL = 'admin@gmail.com';
 
+// Keys cần thiết phải khớp với personal-info.js
+const LOGIN_EMAIL_KEY = 'Haguchi_LoggedInUser'; 
+const STORED_EMAIL_KEY = 'userEmailForLogin'; // Key dùng để lưu email đã nhập lần trước
+
 const emailStep = document.getElementById('email-step');
 const otpStep = document.getElementById('otp-step');
 const emailInput = document.getElementById('email');
@@ -41,13 +45,17 @@ function sendCode() {
         return;
     }
 
+    // Lưu email vừa nhập để lần sau không cần nhập lại
+    localStorage.setItem(STORED_EMAIL_KEY, userEmail); 
+
     correctOTP = generateOTP();
     
     console.log(`[SIMULATION]: Code sent to ${userEmail} is: ${correctOTP}`); 
 
     displayEmail.textContent = userEmail;
     showStep(otpStep);
-    displayError('Success! Check your email for the login code.'); 
+    // Thay đổi thông báo lỗi thành thông báo thành công
+    displayError('Success! Check your email for the 6-digit login code.'); 
 }
 
 function verifyCode() {
@@ -59,9 +67,11 @@ function verifyCode() {
     }
 
     if (enteredOTP === correctOTP) {
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('userEmail', userEmail);
-
+        
+        // 1. LƯU EMAIL ĐÃ ĐĂNG NHẬP VỚI KEY MỚI (Đã đồng bộ)
+        localStorage.setItem(LOGIN_EMAIL_KEY, userEmail); // KEY: Haguchi_LoggedInUser
+        
+        // 2. CHUYỂN HƯỚNG
         let redirectURL;
 
         if (userEmail.toLowerCase() === ADMIN_EMAIL) {
@@ -80,8 +90,10 @@ function verifyCode() {
     }
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
-    const storedEmail = localStorage.getItem('userEmailForLogin');
+    // Sử dụng STORED_EMAIL_KEY
+    const storedEmail = localStorage.getItem(STORED_EMAIL_KEY); 
     if (storedEmail) {
         emailInput.value = storedEmail;
         userEmail = storedEmail;
