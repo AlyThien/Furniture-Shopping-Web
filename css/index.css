@@ -158,6 +158,10 @@ Nhóm 9: PHẦN SẢN PHẨM MỚI
     width: max-content;
 }
 
+#slide a {
+    text-decoration: none;
+}
+
 .item {
     width: 400px;
     height: 600px;
@@ -167,6 +171,7 @@ Nhóm 9: PHẦN SẢN PHẨM MỚI
     position: absolute;
     z-index: 1;
     background-size: 100%;
+    cursor: pointer;
 }
 
 .item:nth-child(1) {
@@ -461,7 +466,7 @@ Nhóm 9: PHẦN PRODUCT CATEGORIES
     padding: 0 20px;
 }
 
-.Categories > div {
+.Categories > a {
     position: relative;
     border-radius: 25px;
     overflow: hidden;
@@ -471,7 +476,7 @@ Nhóm 9: PHẦN PRODUCT CATEGORIES
     transition: all 0.3s ease;
 }
 
-.Categories > div:hover {
+.Categories > a:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }

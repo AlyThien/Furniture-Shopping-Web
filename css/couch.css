@@ -1,7 +1,3 @@
-/* === 1. @import font === */
-/* (Không có) */
-
-
 /* === 2. @font-face === */
 @font-face {
     font-family: 'Roboto Serif';
@@ -9,8 +5,7 @@
 }
 
 
-/* === 3. :root (Biến toàn cục) === */
-/* (Không có) */
+
 
 
 /* === 4. Reset / Global styles === */

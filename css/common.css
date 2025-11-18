@@ -79,6 +79,11 @@ nav.Main-Menu a:hover {
     transition: 0.3s;
 }
 
+nav.Main-Menu a.active {
+    background-color: #E8F3DE;
+    color: #3B6D54;
+}
+
 nav.Sub-Menu ul {
     display: flex;
     align-items: center;

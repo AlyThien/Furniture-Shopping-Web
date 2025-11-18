@@ -12,7 +12,7 @@
     <header>
         <div class="Logo">
             <p>
-                <a href="index.html"><em>Haguchi</em><br>
+                <a href=""><em>Haguchi</em><br>
                 葉具家</a>
             </p>
         </div>
@@ -39,7 +39,13 @@
                         <span class="wishlist-count">0</span>
                     </a>
                 </li>
-                <li id="User"><a href="login.html"><span class="solar--user-bold"></span></a></li> <!--Nhóm 9: Tài khoản người dùng-->
+                <li id="User">  <!--Nhóm 9: Tài khoản người dùng-->
+                    <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
+                    <a href="personal-info.html" id="user-avatar-link">
+                        <img id="header-user-avatar" class="header-avatar" src="" alt="User Avatar" style="display: none;">
+                        <span id="header-default-icon" class="solar--user-bold"></span>
+                    </a>
+                </li>
                 <li class="lang-switcher"> <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
                     <div class="lang-toggle">
                         <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')"> <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
@@ -94,14 +100,14 @@
                     <li data-i18n="footer-aboutus"> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
                     <li data-i18n="footer-aboutus-add">📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
                     <li>📞 (+84) 123 456 789</li>
-                    <li>📧 support@noithatmaistudio.com</li>
+                    <li>📧 support@haguchi.com</li>
                     <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
                 </ul>
             </div>
         <div class="footer-section">
             <h3 data-i18n="footer-categories">Shop by Category</h3>
             <ul>
-                <li><a href="" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
+                <li><a href="couch.html" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
                 <li><a href="" data-i18n="footer-categories-dining">Dining Tables</a></li>
                 <li><a href="" data-i18n="footer-categories-bed">Beds</a></li>
                 <li><a href="" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
@@ -112,11 +118,11 @@
         <div class="footer-section">
             <h3 data-i18n="footer-policies">Policies & Support</h3>
             <ul>
-                <li><a href="" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
-                <li><a href="" data-i18n="footer-policies-return">Return & Exchange</a></li>
-                <li><a href="" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
-                <li><a href="" data-i18n="footer-policies-order">How to Order</a></li>
-                <li><a href="" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
+                <li><a href="policies.html" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
+                <li><a href="policies.html" data-i18n="footer-policies-return">Return & Exchange</a></li>
+                <li><a href="policies.html" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
+                <li><a href="policies.html" data-i18n="footer-policies-order">How to Order</a></li>
+                <li><a href="policies.html" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
             </ul>
         </div>
         </div>

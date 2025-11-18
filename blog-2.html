@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/blog.css" />
     <link href="Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf" rel="stylesheet">
 </head> 
-<body>
-    <!--Phần Header-->
+<body data-page="blog-2">
+    <!--Nhóm 9: Phần Header-->
     <header>
         <div class="Logo">
             <p>
@@ -21,15 +21,16 @@
             <ul>
                 <li><a href="typologies.html" data-i18n="nav-products">Products</a></li>
                 <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
-                <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="blog.html" class="active" data-i18n="nav-blog">Blog</a></li>
                 <li><a href="policy_index.html" data-i18n="nav-policies">Policies</a></li>
             </ul>
         </nav>
+
         <nav class="Sub-Menu">
             <ul>
                 <li>
-                    <form id="search-box" action="">
-                        <input type="text" id="search-text" placeholder="Search...">
+                    <form id="search-box">
+                        <input type="text" id="search-text" placeholder="Search..." data-i18n="search-placeholder">
                         <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
                     </form>
                 </li>
@@ -39,9 +40,14 @@
                         <span class="wishlist-count">0</span>
                     </a>
                 </li>
-                <li><span class="solar--user-bold"></span></li>
+                <li id="User">
+                    <a href="personal-info.html" id="user-avatar-link">
+                        <img id="header-user-avatar" class="header-avatar" src="" alt="User Avatar" style="display: none;">
+                        <span id="header-default-icon" class="solar--user-bold"></span>
+                    </a>
+                </li>
                 <li class="lang-switcher">
-                    <div class="lang-toggle" aria-label="Language switcher">
+                    <div class="lang-toggle">
                         <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')">
                         <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
                         <div class="lang-track">
@@ -51,24 +57,26 @@
                         </div>
                     </div>
                 </li>
+                <li><span class="icomoon-free--leaf"></span></li>
             </ul>
+        </nav>
     </header>
 
     <div class="container">
-        <h1>FRESH POSTS</h1>
+        <h1 data-i18n="blog-title">FRESH POSTS</h1>
 
         <div class="blog-grid">
             <!-- Featured Post -->
             <div class="blog-card featured">
                 <div class="card-content">
                     <div class="date">May 21, 2025</div>
-                    <h2 class="blog-title">Behind the Design: The Making of Our Kumo Sofa</h2>
+                    <h2 class="blog-title" data-i18n="blog-post-1-title">Behind the Design: The Making of Our Kumo Sofa</h2>
                     <div class="blog-brand">
                         <span class="brand-icon"></span>
                         <span>awwwards.</span>
                     </div>
-                    <p class="blog-excerpt">Explore how minimalist principles can transform your bedroom into a sanctuary of peace...</p>
-                    <a href="#" class="read-more">→Read Article</a>
+                    <p class="blog-excerpt" data-i18n="blog-post-1-excerpt">Explore how minimalist principles can transform your bedroom into a sanctuary of peace...</p>
+                    <a href="#" class="read-more"><span data-i18n="read-article">→Read Article</span></a>
                 </div>
                 <img src="images/hình blog-2/bloom-thumb.jpg" alt="Impronta" class="blog-image">
             </div>
@@ -77,26 +85,26 @@
             <div class="blog-card two-column">
                 <div class="card-content">
                     <div class="date">May 8, 2025</div>
-                    <h2 class="blog-title">Biophilic Design: 5 Simple Ways to Bring the Outdoors In</h2>
+                    <h2 class="blog-title" data-i18n="blog-post-2-title">Biophilic Design: 5 Simple Ways to Bring the Outdoors In</h2>
                     <div class="blog-brand">
                         <span class="brand-icon"></span>
                         <span>Zajno</span>
                     </div>
                     <img src="images/hình blog-2/jury-2025-awwwards.jpg" alt="Cartier" class="blog-image">
-                    <p class="blog-excerpt">Introduction For the 2025 edition of Watches and Wonders in Geneva, Cartier entrusted us with reimagining their digital storytelling...</p>
-                    <a href="#" class="read-more">→Read Article</a>
+                    <p class="blog-excerpt" data-i18n="blog-post-2-excerpt">Introduction For the 2025 edition of Watches and Wonders in Geneva, Cartier entrusted us with reimagining their digital storytelling...</p>
+                    <a href="#" class="read-more"><span data-i18n="read-article">→Read Article</span></a>
                 </div>
 
                 <div class="card-content">
                     <div class="date">Apr 17, 2025</div>
-                    <h2 class="blog-title">How to Choose the Perfect Dining Table for Small Spaces</h2>
+                    <h2 class="blog-title" data-i18n="blog-post-3-title">How to Choose the Perfect Dining Table for Small Spaces</h2>
                     <div class="blog-brand">
                         <span class="brand-icon"></span>
                         <span>Zajno</span>
                     </div>
                     <img src="images/hình blog-2/Inkwell - Thumbnail.jpg" alt="Living Space" class="blog-image">
-                    <p class="blog-excerpt">Introduction Robot is a South African production agency with a talent for breaking rules and making it look effortless...</p>
-                    <a href="#" class="read-more">→Read Article</a>
+                    <p class="blog-excerpt" data-i18n="blog-post-3-excerpt">Introduction Robot is a South African production agency with a talent for breaking rules and making it look effortless...</p>
+                    <a href="#" class="read-more"><span data-i18n="read-article">→Read Article</span></a>
                 </div>
             </div>
 
@@ -104,13 +112,13 @@
             <div class="blog-card featured">
                 <div class="card-content">
                     <div class="date">Apr 3, 2025</div>
-                    <h2 class="blog-title">The Art of Wabi-Sabi: Embracing Imperfection in Decor</h2>
+                    <h2 class="blog-title" data-i18n="blog-post-4-title">The Art of Wabi-Sabi: Embracing Imperfection in Decor</h2>
                     <div class="blog-brand">
                         <span class="brand-icon"></span>
                         <span>awwwards.</span>
                     </div>
-                    <p class="blog-excerpt">Introduction Palmer Dinnerware creates ceramic pieces that bring life to dining tables around the world...</p>
-                    <a href="#" class="read-more">→Read Article</a>
+                    <p class="blog-excerpt" data-i18n="blog-post-4-excerpt">Introduction Palmer Dinnerware creates ceramic pieces that bring life to dining tables around the world...</p>
+                    <a href="#" class="read-more"><span data-i18n="read-article">→Read Article</span></a>
                 </div>
                 <img src="images/hình blog-2/Gregorylalle-thumbnail.jpg" alt="Palmer Dinnerware" class="blog-image">
             </div>
@@ -119,43 +127,45 @@
             <div class="blog-card two-column">
                 <div class="card-content">
                     <div class="date">Dec 12, 2024</div>
-                    <h2 class="blog-title">The Comeback of Velvet: Styling Sofas & Armchairs</h2>
+                    <h2 class="blog-title" data-i18n="blog-post-5-title">The Comeback of Velvet: Styling Sofas & Armchairs</h2>
                     <div class="blog-brand">
                         <span class="brand-icon"></span>
                         <span>Zajno</span>
                     </div>
                     <img src="images/hình blog-2/sb-thumb.jpg" alt="Haguchi" class="blog-image">
-                    <p class="blog-excerpt">"Please Call Us Haguchi" is a freelancer who created the IP of the same name under the identity of a studio...</p>
-                    <a href="#" class="read-more">→Read Article</a>
+                    <p class="blog-excerpt" data-i18n="blog-post-5-excerpt">"Please Call Us Haguchi" is a freelancer who created the IP of the same name under the identity of a studio...</p>
+                    <a href="#" class="read-more"><span data-i18n="read-article">→Read Article</span></a>
                 </div>
 
                 <div class="card-content">
                     <div class="date">Dec 8, 2024</div>
-                    <h2 class="blog-title">Lighting 101: Setting the Perfect Mood with Lamps</h2>
+                    <h2 class="blog-title" data-i18n="blog-post-6-title">Lighting 101: Setting the Perfect Mood with Lamps</h2>
                     <div class="blog-brand">
                         <span class="brand-icon"></span>
                         <span>Zajno</span>
                     </div>
                     <img src="images/hình blog-2/tubik-cs-thumb.jpg" alt="Living Space Balance" class="blog-image">
-                    <p class="blog-excerpt">Telling Their History Through Design Our long-standing partner, an organization challenging injustice through media,...</p>
-                    <a href="#" class="read-more">→Read Article</a>
+                    <p class="blog-excerpt" data-i18n="blog-post-6-excerpt">Telling Their History Through Design Our long-standing partner, an organization challenging injustice through media,...</p>
+                    <a href="#" class="read-more"><span data-i18n="read-article">→Read Article</span></a>
                 </div>
             </div>
         </div>
 
         <!-- Pagination -->
         <div class="pagination">
-        <a href="blog.html" class="arrow">←</a>
+            <a href="blog.html" class="arrow">←</a>
 
-        <span class="dot"></span>
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
 
-        <a href="blog-2.html" class="arrow">→</a>
+            <a href="blog-2.html" class="arrow">→</a>
         </div>
     </div>
+
+    <!--Nhóm 9: Phần footer-->
     <footer>
         <div class="footer-logo">
             <div><em>Haguchi</em></div>
@@ -163,37 +173,37 @@
         </div>
         <div class="footer-content">
             <div class="footer-section">
-                <h3 data-i18n="nav-about">About Us</h3>
+                <h3 data-i18n="nav-about">About Us</h3> 
                 <ul>
-                    <li data-i18n="footer-aboutus"> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
+                    <li data-i18n="footer-aboutus">Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
                     <li data-i18n="footer-aboutus-add">📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
                     <li>📞 (+84) 123 456 789</li>
-                    <li>📧 support@noithatmaistudio.com</li>
+                    <li>📧 support@haguchi.com</li>
                     <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
                 </ul>
             </div>
-        <div class="footer-section">
-            <h3 data-i18n="footer-categories">Shop by Category</h3>
-            <ul>
-                <li><a href="" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
-                <li><a href="" data-i18n="footer-categories-dining">Dining Tables</a></li>
-                <li><a href="" data-i18n="footer-categories-bed">Beds</a></li>
-                <li><a href="" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
-                <li><a href="" data-i18n="footer-categories-decor">Lighting & Decor</a></li>
-                <li><a href="" data-i18n="footer-categories-new">New Arrivals / Promotions</a></li>
-            </ul>
+            <div class="footer-section">
+                <h3 data-i18n="footer-categories">Shop by Category</h3>
+                <ul>
+                    <li><a href="couch.html" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
+                    <li><a href="" data-i18n="footer-categories-dining">Dining Tables</a></li>
+                    <li><a href="" data-i18n="footer-categories-bed">Beds</a></li>
+                    <li><a href="" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
+                    <li><a href="" data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+                    <li><a href="" data-i18n="footer-categories-new">New Arrivals / Promotions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-i18n="footer-policies">Policies & Support</h3>
+                <ul>
+                    <li><a href="policy_index.html" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
+                    <li><a href="policy_index.html" data-i18n="footer-policies-return">Return & Exchange</a></li>
+                    <li><a href="policy_index.html" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
+                    <li><a href="policy_index.html" data-i18n="footer-policies-order">How to Order</a></li>
+                    <li><a href="policy_index.html" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-section">
-            <h3 data-i18n="footer-policies">Policies & Support</h3>
-            <ul>
-                <li><a href="" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
-                <li><a href="" data-i18n="footer-policies-return">Return & Exchange</a></li>
-                <li><a href="" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
-                <li><a href="" data-i18n="footer-policies-order">How to Order</a></li>
-                <li><a href="" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
-            </ul>
-        </div>
-    </div>
         <div class="footer-bottom">
             <span>© 2025 HAGUCHI – All rights reserved.</span>
             <div class="social-icons">
@@ -203,6 +213,10 @@
             </div>
         </div>
     </footer>
-
+    
+    <script src="js/header-auth.js"></script>
+    <script src="js/lang-change.js"></script>
+    <script src="js/common.js"></script>
+   
 </body>
 </html>
