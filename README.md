@@ -22,4 +22,43 @@ Vì vậy, nhóm quyết định chọn đề tài "Thiết kế trang web bán 
 ## Tính năng
 | ID | Tên tác nhân | Mô tả tác nhân |
 |:---:|:-------------:|:-----:|
-| 01 | Unauthenticated User (Người dùng chưa xác thực) | Người dùng chưa có tài khoản hoặc có nhưng chưa đăng nhập. Nhóm người dùng này được phép sử dụng toàn quyền các tính năng (trừ việc thông tin liên lạc và địa chỉ không được lưu lại cho lần sau và tính năng bình luận) |
+| 01 | Unauthenticated User (Người dùng chưa xác thực) | Người dùng chưa có tài khoản hoặc có nhưng chưa đăng nhập. Nhóm người dùng này được phép sử dụng toàn quyền các tính năng như xem sản phẩm, mua hàng, ... (trừ việc thông tin liên lạc và địa chỉ không được lưu lại cho lần sau và tính năng bình luận, ...) |
+| 02 | Authenticated User (Người dùng đã xác thực) | Người dùng đã có tài khoản và đăng nhập. Nhóm người này cũng được toàn quyền tính năng trong trang web và các thông tin cá nhân được lưu lại cho lần mua hàng sau và review sản phẩm, ... |
+| 03 | Admin (Quản trị viên: chủ shop, nhân viên) | Là nhóm người dùng có quyền hạn cao nhất trong hệ thống. Quản trị viên có thể quản lý người dùng, quản lý thông tin sản phẩm, kho hàng, xem và cập nhật trạng thái đơn hàng, báo cáo kinh doanh. Quản trị viên đảm bảo hoạt động chung của hệ thống, bảo mật, và có quyền cấp phép và phân quyền cho các tài khoản khác trong hệ thống. |
+
+| ID | Tên chức năng | Tác nhân | Tiến độ hoàn thành |
+|:---:|:-------------:|:-----:|:--------------------:|
+| A1 | Đăng nhập tài khoản | 01 | 100% |
+| A2 | Tìm kiếm sản phẩm | 01, 02 | 50% |
+| A3 | Xem danh sách sản phẩm | 01, 02 | 100% |
+| A4 | Xem chi tiết sản phẩm | 01, 02 | 100% |
+| A5 | Sử dụng bộ lọc | 01, 02 | 0% |
+| A6 | Xem thông tin cá nhân | 02 | 100% |
+| A7 | Sửa thông tin cá nhân | 02 | 100% |
+| A8 | Đăng xuất | 02 | 100% |
+| A9 | Thêm vào giỏ hàng | 01, 02 | 100% |
+| A10 | Quản lý giỏ hàng | 01, o2 | 100% |
+| A11 | Đặt hàng | 01, 02 | 100% |
+| A12 | Thanh toán | 01, 02 | 100% |
+| A13 | Xem lịch sử mua hàng | 02 | 50% |
+| A14 | Đánh giá | 02 | 100% |
+| A15 | Quản lý đơn hàng | 03 | 100% |
+| A16 | Quản lý kho | 03 | 100% |
+| A17 | Quản lý báo cáo kinh doanh | 03 | 100% |
+
+## Công nghệ sử dụng
+<i class="fa-brands fa-html5"></i>  <i class="fa-brands fa-css3-alt"></i>  <i class="fa-brands fa-square-js"></i>
+
+## Hướng dẫn cài đặt (Lưu ý đồ án chỉ có FrontEnd, có thể sẽ cập nhật BackEnd trong tương lai)
+### Bước 1: Thực hiện clone repository này với lệnh
+```
+https://github.com/AlyThien/Furniture-Shopping-Web.git
+```
+
+### Bước 2: Mở dự án mới clone về và thực hiện các lệnh sau
+```
+npm install
+```
+```
+npm start
+```
