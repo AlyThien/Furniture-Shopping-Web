@@ -1,0 +1,640 @@
+/* === 1. @import font === */
+/* (Không có) */
+
+
+/* === 2. @font-face === */
+@font-face {
+    font-family: 'Roboto Serif';
+    src: url('Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
+}
+
+
+/* === 3. :root (Biến toàn cục) === */
+/* (Không có) */
+
+
+/* === 4. Reset / Global styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* === 5. Layout === */
+.sofa-gallery {
+    font-family: "Roboto Serif",  serif;
+    background: linear-gradient(
+      180deg,
+      rgba(238, 249, 229, 1) 0%,
+      rgba(97, 163, 140, 1) 100%
+    );
+    overflow: hidden;
+    width: 100%;
+    min-width: 1433px;
+    min-height: auto;
+
+}
+  
+
+.sofa-gallery .sofa-container {
+    width: 1325px;
+    height: 2169px;
+    margin-top: 40px; 
+    margin-bottom: 150px; 
+
+    left: 60px;
+    position: relative;
+}
+
+.sofa-gallery .sofa-grid {
+    position: relative;
+    padding-bottom: 100px;
+}
+
+
+/* === 6. Components === */
+
+/* --- Product Category Navigation --- */
+.product-category-nav {
+    width: 100%;
+    /* Đẩy thanh nav xuống dưới header (55px) + 15px đệm */
+    padding-top: 70px; 
+    background-color: transparent; /* Nằm trên nền gradient của body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-category-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 10px; /* Khoảng cách giữa các mục */
+}
+
+/* Ghi đè padding từ common.css */
+.product-category-nav li {
+    padding: 0; 
+}
+
+.product-category-nav a:link,
+.product-category-nav a:visited {
+    font-family: "Roboto Serif",  serif; 
+    font-size: 16px;
+    font-weight: 600;
+    color: #A8C4B5; 
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 15px; /* Bo góc giống header */
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi hover - giống với nav chính */
+.product-category-nav a:hover {
+    background-color: #3B6D54; /* Màu xanh vừa */
+    color: #A8C4B5; /* Màu chữ sáng */
+}
+
+/* Định dạng cho mục đang được chọn (active) */
+.product-category-nav a.active {
+    font-weight: 700;
+    background-color: #044b2b; /* Màu xanh đậm nhất */
+    color: #E8F3DE; /* Màu chữ sáng */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- Product Category Navigation (Tablet) --- */
+/* Lưu ý: Các quy tắc này không nằm trong @media query, 
+   chúng sẽ bị ghi đè bởi các quy tắc ở trên. 
+   Để chúng hoạt động, chúng cần nằm trong @media (max-width: 768px) */
+.product-category-nav {
+    padding-top: 60px; /* Điều chỉnh cho header mobile (50px) */
+}
+.product-category-nav ul {
+    gap: 8px; /* Giảm khoảng cách */
+}
+.product-category-nav a:link,
+.product-category-nav a:visited {
+    font-size: 14px;
+    padding: 6px 10px;
+}
+
+/* --- Style chung cho Sofa Card --- */
+.sofa-gallery .sofa-card__name {
+    width: auto; 
+    font-family: "Roboto Serif",  serif;
+    font-weight: 400;
+    color: #221515;
+    font-size: 29px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+    padding-bottom: 4px; 
+}
+  
+.sofa-gallery .sofa-card__underline {
+    background-color: #000000;
+    position: absolute;
+    width: 0; /* Bắt đầu từ 0 */
+    height: 2px;
+    bottom: 0; 
+    left: 0;
+    transition: width 0.3s ease; /* Thêm transition */
+}
+
+.sofa-gallery .sofa-card__caption-box {
+    cursor: pointer;
+    position: relative;
+}
+
+/* Tắt gạch chân mặc định của link */
+.sofa-gallery a {
+  text-decoration: none;
+}
+
+/* Hover vào phần caption (chữ) thì gạch chân xuất hiện */
+.sofa-gallery .sofa-card__caption-box:hover .sofa-card__underline {
+    width: 100%; /* Khi hover vào chữ, gạch chân chạy ra 100% */
+}
+
+/* --- Vị trí Sofa (15 components) --- */
+
+/* 1. E7 Fabric Couch */
+.sofa-gallery .sofa-1 {
+    position: absolute;
+    top: 37px;
+    left: 17px;
+    width: 379px;
+    height: 240px;
+}
+.sofa-gallery .sofa-1 .sofa-card__image {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 232px;
+    aspect-ratio: 1.63;
+}
+.sofa-gallery .sofa-1 .sofa-card__caption-box {
+    top: 214px;
+    left: 73px;
+    width: fit-content;
+    position: absolute;
+    height: 35px;
+}
+
+/* 2. N9 Fabric Couch */
+.sofa-gallery .sofa-2 {
+    left: 484px;
+    position: absolute;
+    top: 0;
+    width: 318px;
+    height: 306px;
+}
+.sofa-gallery .sofa-2 .sofa-card__caption-box {
+    top: 249px;
+    left: 54px;
+    width: fit-content;
+    position: absolute;
+    height: 35px;
+}
+.sofa-gallery .sofa-2 .sofa-card__image {
+    left: 0;
+    aspect-ratio: 1.04;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 318px;
+    height: 306px;
+}
+
+/* 3. Bred Couch*/
+.sofa-gallery .sofa-3 {
+    position: absolute;
+    top: 62px;
+    left: 918px;
+    width: 389px;
+    height: 222px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.sofa-gallery .sofa-3 .sofa-card__image {
+    width: 389px;
+    height: 181px;
+    aspect-ratio: 2.15;
+}
+.sofa-gallery .sofa-3 .sofa-card__caption-box {
+    margin-left: 112px;
+    width: fit-content;
+    height: 35px;
+    position: relative;
+}
+
+/* 4. Cloud Couch */
+.sofa-gallery .sofa-4 {
+    position: absolute;
+    top: 485px;
+    left: 0;
+    width: 414px;
+    height: 232px;
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+}
+.sofa-gallery .sofa-4 .sofa-card__image {
+    width: 414px;
+    height: 166px;
+    aspect-ratio: 2.5;
+}
+.sofa-gallery .sofa-4 .sofa-card__caption-box {
+    margin-left: 129px;
+    width: fit-content;
+    height: 35px;
+    position: relative;
+}
+
+/* 5. Saphire Couch */
+.sofa-gallery .sofa-5 {
+    position: absolute;
+    top: 477px;
+    left: 470px;
+    width: 365px;
+    height: 239px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.sofa-gallery .sofa-5 .sofa-card__image {
+    width: 365px;
+    height: 199px;
+    aspect-ratio: 1.83;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-5 .sofa-card__caption-box {
+    margin-left: 80px;
+    width: fit-content;
+    height: 35px;
+    position: relative;
+}
+
+/* 6. Moka Couch */
+.sofa-gallery .sofa-6 {
+    position: absolute;
+    top: 504px;
+    left: 918px;
+    width: 407px;
+    height: 211px;
+    display: flex;
+    flex-direction: column;
+    gap: 49px;
+}
+.sofa-gallery .sofa-6 .sofa-card__image {
+    width: 407px;
+    height: 127px;
+    aspect-ratio: 3.2;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-6 .sofa-card__caption-box {
+    margin-left: 115px;
+    width: fit-content;
+    height: 35px;
+    position: relative;
+}
+
+/* 7. Wave Couch */
+.sofa-gallery .sofa-7 {
+    position: absolute;
+    top: 968px;
+    left: 37px;
+    width: 377px;
+    height: 213px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.sofa-gallery .sofa-7 .sofa-card__image {
+    width: 377px;
+    height: 143px;
+    aspect-ratio: 2.63;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-7 .sofa-card__caption-box {
+    margin-left: 106px;
+    width: fit-content;
+    height: 35px;
+    position: relative;
+}
+
+/* 8. Cotton Candi Couch */
+.sofa-gallery .sofa-8 {
+    position: absolute;
+    top: 968px;
+    left: 485px;
+    width: 360px;
+    height: 212px;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+.sofa-gallery .sofa-8 .sofa-card__image {
+    width: 360px;
+    height: 154px;
+    aspect-ratio: 2.34;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-8 .sofa-card__caption-box {
+    margin-left: 40px;
+    width: fit-content;
+    height: 35px;
+    position: relative;
+}
+
+/* 9. Sandi Couch */
+.sofa-gallery .sofa-9 {
+    position: absolute;
+    top: 954px;
+    left: 954px;
+    width: 364px;
+    height: 226px;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+.sofa-gallery .sofa-9 .sofa-card__image {
+    width: 364px;
+    height: 168px;
+    aspect-ratio: 2.17;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-9 .sofa-card__caption-box {
+    margin-left: 91px;
+    width: fit-content;
+    height: 35px;
+    position: relative;
+}
+
+/* 10. Haven Couch */
+.sofa-gallery .sofa-10 {
+    position: absolute;
+    top: 1339px;
+    left: 37px;
+    width: 339px;
+    height: 339px;
+}
+.sofa-gallery .sofa-10 .sofa-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 339px;
+    height: 339px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-10 .sofa-card__caption-box {
+    position: absolute;
+    top: 275px;
+    left: 75px;
+    width: fit-content;
+    height: 35px;
+}
+
+/* 11. Nemesis Couch */
+.sofa-gallery .sofa-11 {
+    position: absolute;
+    top: 1329px;
+    left: 489px;
+    width: 359px;
+    height: 359px;
+}
+.sofa-gallery .sofa-11 .sofa-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 359px;
+    height: 359px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-11 .sofa-card__caption-box {
+    position: absolute;
+    top: 285px;
+    left: 71px;
+    width: fit-content;
+    height: 35px;
+}
+
+/* 12. Nuclear Couch */
+.sofa-gallery .sofa-12 {
+    position: absolute;
+    top: 1445px;
+    left: 965px;
+    width: 360px;
+    height: 204px;
+}
+.sofa-gallery .sofa-12 .sofa-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 360px;
+    height: 197px;
+    aspect-ratio: 1.83;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-12 .sofa-card__caption-box {
+    position: absolute;
+    top: 169px;
+    left: 75px;
+    width: fit-content;
+    height: 35px;
+}
+
+/* 13. Traditional Couch */
+.sofa-gallery .sofa-13 {
+    position: absolute;
+    top: 1823px;
+    left: 37px;
+    width: 334px;
+    height: 334px;
+}
+.sofa-gallery .sofa-13 .sofa-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 334px;
+    height: 334px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-13 .sofa-card__caption-box {
+    position: absolute;
+    top: 291px;
+    left: 42px;
+    width: fit-content;
+    height: 35px;
+}
+
+/* 14. N7 Cloth Couch */
+.sofa-gallery .sofa-14 {
+    position: absolute;
+    top: 1837px;
+    left: 521px;
+    width: 305px;
+    height: 312px;
+}
+.sofa-gallery .sofa-14 .sofa-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 305px;
+    height: 305px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-14 .sofa-card__caption-box {
+    position: absolute;
+    top: 277px;
+    left: 44px;
+    width: fit-content;
+    height: 35px;
+}
+
+/* 15. Rubi Rues Couch */
+.sofa-gallery .sofa-15 {
+    position: absolute;
+    top: 1810px;
+    left: 966px;
+    width: 359px;
+    height: 359px;
+}
+.sofa-gallery .sofa-15 .sofa-card__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 359px;
+    height: 359px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.sofa-gallery .sofa-15 .sofa-card__caption-box {
+    position: absolute;
+    top: 304px;
+    left: 59px;
+    width: fit-content;
+    height: 35px;
+}
+
+.related-products {
+  margin-bottom: 150px; /* Đẩy footer xuống 150px */
+}
+
+
+/* === 7. Utilities === */
+/* (Không có) */
+
+
+/* === 8. Responsive === */
+/* == Tablet (Giống 768px của common.css) == */
+@media (max-width: 768px) {
+    .sofa-gallery {
+        /* QUAN TRỌNG: Hủy bỏ ép buộc 1433px */
+        min-width: auto;
+
+        /* Điều chỉnh padding-top cho vừa với header mobile (45px) */
+        padding-top: 80px;
+
+        /* Thêm padding lề 2 bên */
+        padding-left: 2rem;
+        padding-right: 2rem;
+        
+        /* Cho phép trang tự động co giãn */
+        overflow: visible;
+    }
+
+    /* ĐỊNH NGHĨA LẠI BỐ CỤC */
+    .sofa-gallery .sofa-container {
+        /* Hủy bỏ position và kích thước cố định */
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: auto;
+        left: auto;
+        bottom: auto;
+
+        /* Tạo bố cục LƯỚI 2 cột */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem; /* Khoảng cách giữa các mục */
+    }
+
+    /* RESET TẤT CẢ SOFA */
+    /* [class*="sofa-"] chọn mọi class có chữ "sofa-" */
+    .sofa-gallery [class*="sofa-"] {
+        /* Hủy bỏ position tuyệt đối */
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+        left: auto !important;
+    }
+
+    /* RESET LẠI ẢNH BÊN TRONG */
+    .sofa-gallery .sofa-card__image {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important; /* Để ảnh tự co giãn */
+        aspect-ratio: 1 / 1; /* Giữ ảnh vuông */
+        top: auto !important;
+        left: auto !important;
+    }
+
+    /* RESET LẠI CHỮ BÊN TRONG */
+    .sofa-gallery .sofa-card__caption-box {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+        left: auto !important;
+        
+        /* Thêm tí đệm cho đẹp */
+        padding-top: 0.5rem;
+    }
+
+    .sofa-gallery .sofa-card__caption {
+        font-size: 16px; /* Chỉnh lại font cho dễ đọc */
+    }
+}
+
+
+/* == Mobile (Giống 480px của common.css) == */
+@media (max-width: 480px) {
+    .sofa-gallery {
+        /* Thu hẹp lề */
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .sofa-gallery .sofa-container {
+        /* Chuyển thành 1 cột */
+        grid-template-columns: 1fr;
+        gap: 2.5rem; /* Tăng khoảng cách dọc */
+    }
+
+    .product-category-nav {
+        padding-top: 55px; /* Điều chỉnh cho header mobile (45px) */
+    }
+    .product-category-nav ul {
+        gap: 5px; /* Giảm khoảng cách */
+    }
+    .product-category-nav a:link,
+    .product-category-nav a:visited {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+}
