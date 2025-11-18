@@ -47,7 +47,7 @@ Vì vậy, nhóm quyết định chọn đề tài "Thiết kế trang web bán 
 | A17 | Quản lý báo cáo kinh doanh | 03 | 100% |
 
 ## Công nghệ sử dụng
-<i class="fa-brands fa-html5"></i>  <i class="fa-brands fa-css3-alt"></i>  <i class="fa-brands fa-square-js"></i>
+<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> </p>
 
 ## Hướng dẫn cài đặt (Lưu ý đồ án chỉ có FrontEnd, có thể sẽ cập nhật BackEnd trong tương lai)
 ### Bước 1: Thực hiện clone repository này với lệnh
