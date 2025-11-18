@@ -9,9 +9,22 @@
 }
 
 
-/* === 3. :root (Biến toàn cục) === */
-/* (Không có) */
+/* === 3. Javascript Effects & Animations === */
+/* Trạng thái ẨN ban đầu */
+.reveal-hidden {
+    opacity: 0; /* Hoàn toàn vô hình */
+    transform: translateY(30px); /* Dịch chuyển xuống 30px */
+    
+    /* Thiết lập độ mượt khi chuyển đổi (animation) */
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
+/* Trạng thái HIỆN (JavaScript sẽ thêm class này) */
+.reveal-visible {
+    opacity: 1; /* Hiện ra */
+    transform: translateY(0); /* Trở về vị trí ban đầu */
+}
 
 /* === 4. Reset / Global styles === */
 * {
@@ -192,7 +205,7 @@
 
 .product-category-nav a:link,
 .product-category-nav a:visited {
-    font-family: 'Nunito', sans-serif; /* Dùng font giống header */
+    font-family: "Roboto Serif", serif; /* Dùng font giống header */
     font-size: 16px;
     font-weight: 600;
     color: #A8C4B5; /* Màu xanh đậm để đọc được trên nền sáng */

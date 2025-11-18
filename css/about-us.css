@@ -9,8 +9,22 @@
 }
 
 
-/* === 3. :root (Biến toàn cục) === */
-/* (Không có) */
+/* === 3. Javascript Effects & Animations === */
+/* Trạng thái ẨN ban đầu */
+.reveal-hidden {
+    opacity: 0; /* Hoàn toàn vô hình */
+    transform: translateY(40px); /* Dịch chuyển xuống 40px */
+    
+    /* Thiết lập độ mượt khi chuyển đổi (animation) */
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Trạng thái HIỆN (JavaScript sẽ thêm class này) */
+.reveal-visible {
+    opacity: 1; /* Hiện ra */
+    transform: translateY(0); /* Trở về vị trí ban đầu */
+}
 
 
 /* === 4. Reset / Global styles === */

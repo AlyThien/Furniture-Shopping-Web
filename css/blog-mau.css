@@ -9,8 +9,38 @@
 }
 
 
-/* === 3. :root (Biến toàn cục) === */
-/* (Không có) */
+/* === 3. Javascript Effects & Animations === */
+
+/* 1. Thanh tiến độ đọc */
+.reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #cc6847; /* Màu cam đất (lấy từ màu logo hoặc điểm nhấn) */
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 2. Hiệu ứng Reveal (Ẩn/Hiện) */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(30px); /* Dịch xuống dưới một chút */
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-hidden.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tinh chỉnh riêng cho ảnh để nó không bị giật khi parallax */
+.main-image-container img {
+    transition: transform 0.1s cubic-bezier(0,0,0.2,1); /* Mượt mà hơn cho parallax */
+    will-change: transform;
+}
 
 
 /* === 4. Reset / Global styles === */
@@ -37,7 +67,6 @@
   flex-direction: column;
   align-items: center; /* Căn giữa tất cả nội dung theo chiều ngang */
   padding-top: 10px;
-
 }
 
 .case-study-page .page-header {
@@ -184,7 +213,7 @@
   width: 100%;
   max-width: 1020px;
   margin-top: 60px;
-
+  margin-bottom: 80px;
   /* Các style này sẽ áp dụng cho các thẻ <p> bên trong */
   font-family: 'Roboto Serif', serif;
   font-weight: 200;
@@ -219,6 +248,11 @@
 .case-study-page .content__main-text-block p a {
   color: #000000;
   text-decoration: underline;
+}
+
+.case-study-page footer {
+    margin-top: 50px !important; /* Đẩy footer xuống xa 150px */
+    width: 100%; /* Đảm bảo footer vẫn rộng toàn màn hình */
 }
 
 

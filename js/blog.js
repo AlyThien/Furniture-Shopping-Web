@@ -53,38 +53,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    /* ==========================================
-       3. TÍNH NĂNG LỌC THEO TAGS (Sidebar)
-       ========================================== */
-    const tagLinks = document.querySelectorAll('.tags li a');
-    
-    tagLinks.forEach(tag => {
-        tag.addEventListener('click', function(e) {
-            e.preventDefault(); // Ngăn chuyển trang
-            
-            // Xóa class active ở các tag khác và thêm vào tag hiện tại
-            tagLinks.forEach(t => t.classList.remove('active-tag'));
-            this.classList.add('active-tag');
-
-            const selectedTag = this.textContent.toLowerCase().trim();
-
-            // Reset tìm kiếm nếu bấm vào tag
-            if(searchInput) searchInput.value = '';
-
-            blogCards.forEach(card => {
-                // Giả lập: Ở đây tôi lọc theo text trong phần Category của bài viết
-                // (Bạn cần đảm bảo HTML bài viết có chứa từ khóa tương ứng)
-                const cardCategory = card.querySelector('.blog-meta span')?.textContent.toLowerCase() || "";
-                const cardTitle = card.querySelector('.blog-title')?.textContent.toLowerCase() || "";
-
-                // Logic lọc: Nếu chọn "all" hoặc tag khớp với category/title
-                if (selectedTag === 'all' || cardCategory.includes(selectedTag) || cardTitle.includes(selectedTag)) {
-                    card.style.display = '';
-                    card.classList.add('fade-in-search');
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
 });
