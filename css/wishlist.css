@@ -2,27 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
 
-/* ========== CSS VARIABLES ========== */
+/* ========== NHOM 9 - CSS VARIABLES ========== */
 :root {
   --font-primary: 'Roboto Serif', sans-serif;
   --font-secondary: 'Nunito', sans-serif;
 }
 
-/* ========== RESET ========== */
+/* ========== NHOM 9 - RESET ========== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ========== BODY ========== */
+/* ========== NHOM 9 - BODY ========== */
 body {
   font-family: var(--font-primary);
   background: linear-gradient(to bottom, #EEF9E5, #61A38C);
   min-height: 100vh;
 }
 
-/* ========== WISHLIST SECTION ========== */
+/* ========== NHOM 9 - WISHLIST SECTION ========== */
 h1 {
   text-align: center;
   font-size: 110px;
@@ -32,7 +32,7 @@ h1 {
   margin-bottom: 150px;
 }
 
-/* ========== TABLE STYLES ========== */
+/* ========== NHOM 9 - TABLE STYLES ========== */
 .wishlist-table {
   border-radius: 10px;
   padding: 30px;
@@ -66,7 +66,7 @@ tbody td {
   color: #2d4a3e;
 }
 
-/* ========== PRODUCT COLUMN ========== */
+/* ========== NHOM 9 - PRODUCT COLUMN ========== */
 .product-info {
   font-weight: 600;
 }
@@ -113,7 +113,7 @@ tbody td {
   font-weight: 600;
 }
 
-/* ========== COLOR SELECTOR ========== */
+/* ========== NHOM 9 - COLOR SELECTOR ========== */
 .colors-cell {
   min-width: 160px;
 }
@@ -160,7 +160,7 @@ tbody td {
   box-shadow: inset 0 0 3px rgba(29, 56, 44, 0.1);
 }
 
-/* ========== PRICE COLUMN ========== */
+/* ========== NHOM 9 - PRICE COLUMN ========== */
 .price-cell {
   font-weight: 700;
   color: #1D382C;
@@ -169,7 +169,7 @@ tbody td {
   text-align: center;
 }
 
-/* ========== QUANTITY COLUMN ========== */
+/* ========== NHOM 9 - QUANTITY COLUMN ========== */
 .quantity-cell {
   min-width: 140px;
 }
@@ -192,7 +192,7 @@ tbody td {
   text-align: center;
 }
 
-/* ========== TOTAL & REMOVE COLUMN ========== */
+/* ========== NHOM 9 - TOTAL & REMOVE COLUMN ========== */
 .total-cell {
   min-width: 200px;
 }
@@ -247,7 +247,7 @@ tbody td {
   font-style: italic;
 }
 
-/* ========== ORDER ESTIMATE ========== */
+/* ========== NHOM 9 - ORDER ESTIMATE ========== */
 .order-estimate {
   background: transparent;
   padding: 30px 0;
@@ -274,7 +274,7 @@ tbody td {
   font-weight: 600;
 }
 
-/* ========== NOTE SECTION ========== */
+/* ========== NHOM 9 - NOTE SECTION ========== */
 .note {
   background: transparent;
   padding: 0 50px;
@@ -302,7 +302,7 @@ tbody td {
   text-decoration: underline;
 }
 
-/* ========== CONTINUE BUTTON ========== */
+/* ========== NHOM 9 - CONTINUE BUTTON ========== */
 .continue-bu {
   display: block;
   margin: 40px auto 100px;
@@ -321,7 +321,7 @@ tbody td {
   color: #fff;
 }
 
-/* ========== RESPONSIVE: TABLET (max-width: 1024px) ========== */
+/* ========== NHOM 9 - RESPONSIVE: TABLET (max-width: 1024px) ========== */
 @media (max-width: 1024px) {
   h1 {
     font-size: 80px;
@@ -406,7 +406,7 @@ tbody td {
 
 }
 
-/* ========== RESPONSIVE: MOBILE (max-width: 768px) ========== */
+/* ========== NHOM 9 - RESPONSIVE: MOBILE (max-width: 768px) ========== */
 @media (max-width: 768px) {
   h1 {
     font-size: 60px;
