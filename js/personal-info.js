@@ -1,19 +1,8 @@
 const USER_DATA_KEY = 'Haguchi_UserData';
 const ORDER_DATA_KEY = 'Haguchi_MockOrders';
+const LOGIN_EMAIL_KEY = 'Haguchi_LoggedInUser'; // KEY ĐỒNG BỘ với login.js
 
-// Dữ liệu Mặc định (Default Data) - Giả lập email đăng nhập ban đầu
-const defaultUserData = {
-    email: 'user001@haguchi.com', // Email giả lập
-    fullName: '',
-    phone: '',
-    dob: '',
-    gender: '',
-    cityProvince: '',
-    addressDetail: '',
-    avatarUrl: 'https://via.placeholder.com/100'
-};
-
-// Dữ liệu Đơn hàng giả lập
+// Dữ liệu Đơn hàng GIẢ LẬP
 const defaultMockOrders = [
     { 
         id: '1011', 
@@ -21,14 +10,14 @@ const defaultMockOrders = [
         phone: '09123456789',
         email: 'kzan@gmail.com',
         address: 'Dong Xoai City, Binh Phuoc Province',
-        productName: 'L-shaped Sofa NF201 (Navy)', // Tên sản phẩm đã bao gồm màu sắc
+        productName: 'L-shaped Sofa NF201 (Navy)', 
         paymentMethod: 'COD',
         price: '11,000,000 VND',
         quantity: 2,
         total: '22,000,000 VND', 
         date: '26/11/2025', 
-        status: 'pending', // Trạng thái dùng cho logic (CSS class, Cancel)
-        statusText: 'Pending Confirmation', // Trạng thái hiển thị
+        status: 'pending',
+        statusText: 'Pending Confirmation',
     }
 ];
 
@@ -36,19 +25,18 @@ const defaultMockOrders = [
 let userData;
 let mockOrders;
 
+// --- UTILITY FUNCTIONS ---
+
 function formatCurrency(amount) {
     if (typeof amount === 'string') {
-        // Nếu là chuỗi (ví dụ: "22,000,000 VND"), ta giữ nguyên
         return amount;
     }
     if (isNaN(amount) || amount === null) return '0 VND';
-    // Chuyển số thành chuỗi định dạng tiền tệ VN
     return amount.toLocaleString('vi-VN') + ' VND';
 }
 
 // VIEW MODE FUNCTIONS 
 function showViewMode() {
-    // Dùng 'block' nếu không có CSS cho 'grid' trên main container, nhưng tôi giữ lại 'grid' theo code bạn gửi
     document.getElementById('view-mode-container').style.display = 'block'; 
 }
 
@@ -58,25 +46,47 @@ function hideViewMode() {
 
 // === STORAGE FUNCTIONS ===
 function loadDataFromStorage() {
+    // LẤY EMAIL THẬT TỪ LOGIN
+    const loggedInEmail = localStorage.getItem(LOGIN_EMAIL_KEY);
+    
+    // Nếu không có email đăng nhập, chuyển về trang login
+    if (!loggedInEmail) {
+        alert('Please login first!');
+        window.location.href = 'login.html';
+        return;
+    }
+
     const storedUser = localStorage.getItem(USER_DATA_KEY);
     const storedOrders = localStorage.getItem(ORDER_DATA_KEY);
     
-    // Nếu có dữ liệu trong localStorage, tải nó. Ngược lại, dùng default.
-    userData = storedUser ? JSON.parse(storedUser) : { ...defaultUserData }; 
+    if (storedUser) {
+        userData = JSON.parse(storedUser);
+        // CẬP NHẬT EMAIL THẬT VÀO USERDATA
+        userData.email = loggedInEmail;
+    } else {
+        // Tạo dữ liệu mặc định với EMAIL THẬT
+        userData = {
+            email: loggedInEmail, // SỬ DỤNG EMAIL THẬT
+            fullName: '',
+            phone: '',
+            dob: '',
+            gender: '',
+            cityProvince: '',
+            addressDetail: '',
+            avatarUrl: 'https://via.placeholder.com/100'
+        };
+    }
+    
     mockOrders = storedOrders ? JSON.parse(storedOrders) : [...defaultMockOrders]; 
 
-    // Lần đầu tiên, lưu dữ liệu mặc định để khởi tạo localStorage
-    if (!storedUser || !storedOrders) {
-        saveDataToStorage();
-    }
+    // Lưu lại để đảm bảo email được cập nhật
+    saveDataToStorage();
 }
 
 function saveDataToStorage() {
     localStorage.setItem(USER_DATA_KEY, JSON.stringify(userData));
     localStorage.setItem(ORDER_DATA_KEY, JSON.stringify(mockOrders));
 }
-
-loadDataFromStorage();
 
 // === MODAL FUNCTIONS (Chỉ cho Edit và Order Details) ===
 function showModal(modalId) {
@@ -96,16 +106,14 @@ function openEditModal() {
 
 function closeEditModal() {
     closeModal('edit-profile-modal');
-    loadViewData(); // Tải lại dữ liệu sau khi sửa để cập nhật View Mode
+    loadViewData();
 }
 
 // === LOAD/RENDER DATA FUNCTIONS ===
 function loadViewData() {
-    // Load data vào các phần tử của View Mode (trang tĩnh)
     document.getElementById('display-view-user-name').textContent = userData.fullName || 'User';
     document.getElementById('display-view-user-email').textContent = userData.email;
     
-    // View Tab Content
     document.getElementById('view-full-name').textContent = userData.fullName || 'N/A';
     document.getElementById('view-phone').textContent = userData.phone || 'N/A';
     document.getElementById('view-dob').textContent = userData.dob || 'N/A';
@@ -120,7 +128,6 @@ function loadViewData() {
 }
 
 function loadEditData() {
-    // Load data vào input của Edit Modal
     document.getElementById('edit-full-name').value = userData.fullName || '';
     document.getElementById('edit-phone').value = userData.phone || '';
     document.getElementById('edit-dob').value = userData.dob || '';
@@ -130,11 +137,10 @@ function loadEditData() {
 }
 
 function renderOrders() {
-    // Ánh xạ trạng thái dùng cho CSS và hiển thị
     const statusMap = {
         'pending': { text: 'Pending Confirmation', class: 'status-pending' },
         'shipped': { text: 'Shipping', class: 'status-shipped' },
-        'delivered': { text: 'Delivered', class: 'status-delivered' }, // Thêm Delivered
+        'delivered': { text: 'Delivered', class: 'status-delivered' },
         'cancelled': { text: 'Cancelled', class: 'status-cancelled' }
     };
     
@@ -147,10 +153,8 @@ function renderOrders() {
     }
 
     orderListContainer.innerHTML = mockOrders.map(order => {
-        // Lấy status dựa trên khóa trạng thái (status)
         const statusData = statusMap[order.status.toLowerCase()] || { text: order.statusText || 'Unknown', class: '' };
         
-        // Chỉ hiện nút Cancel nếu trạng thái là 'pending'
         const cancelButton = (order.status.toLowerCase() === 'pending') ? 
                              `<button class="action-btn cancel-btn" onclick="cancelOrder('${order.id}')">Cancel</button>` : '';
 
@@ -173,7 +177,6 @@ function renderOrders() {
     }).join('');
 }
 
-
 // === INTERACTION HANDLERS ===
 
 function cancelOrder(orderId) {
@@ -187,7 +190,6 @@ function cancelOrder(orderId) {
 
     if (order.status.toLowerCase() === 'pending') {
         if (confirm(`Are you sure you want to cancel order #${orderId}?`)) {
-            // Cập nhật trạng thái
             mockOrders[orderIndex].status = 'cancelled';
             mockOrders[orderIndex].statusText = 'Cancelled';
 
@@ -195,7 +197,6 @@ function cancelOrder(orderId) {
 
             alert(`Order #${orderId} has been cancelled.`);
             
-            // Đóng modal chi tiết (nếu đang mở) và render lại danh sách
             closeModal('order-details-modal'); 
             renderOrders(); 
         }
@@ -211,11 +212,10 @@ function viewOrderDetails(orderId) {
         return;
     }
     
-    // Ánh xạ trạng thái dùng cho CSS
     const statusMap = {
         'pending': { class: 'status-pending' },
         'shipped': { class: 'status-shipped' },
-        'delivered': { class: 'status-success' }, // Dùng status-success cho Delivered trong modal
+        'delivered': { class: 'status-success' },
         'cancelled': { class: 'status-cancelled' }
     };
     const statusKey = order.status.toLowerCase();
@@ -229,8 +229,8 @@ function viewOrderDetails(orderId) {
     document.getElementById('detail-date').textContent = order.date;
     
     const statusSpan = document.getElementById('detail-status');
-    statusSpan.textContent = order.statusText; // Sử dụng statusText để hiển thị
-    statusSpan.className = statusClass; // Sử dụng class CSS tương ứng
+    statusSpan.textContent = order.statusText;
+    statusSpan.className = statusClass;
     
     document.getElementById('detail-payment-method').textContent = order.paymentMethod;
     document.getElementById('detail-product-name').textContent = order.productName;
@@ -240,7 +240,6 @@ function viewOrderDetails(orderId) {
 
     const cancelBtnContainer = document.getElementById('order-detail-action-container');
     if (order.status.toLowerCase() === 'pending') {
-        // Sử dụng hàm cancelOrder đã định nghĩa
         cancelBtnContainer.innerHTML = `<button type="button" class="action-btn cancel-btn" onclick="cancelOrder('${order.id}')">Cancel Order</button>`;
     } else {
         cancelBtnContainer.innerHTML = ''; 
@@ -265,7 +264,6 @@ function initTabNavigation() {
             const targetContent = document.getElementById(target + '-content');
             if (targetContent) {
                 targetContent.classList.add('active');
-                // Nếu chuyển sang tab Orders, đảm bảo render lại
                 if (target === 'orders') {
                     renderOrders(); 
                 }
@@ -299,60 +297,65 @@ function initAvatarUpload() {
 
 function logout() {
     if (confirm('Are you sure you want to logout?')) {
-        alert('Logged out successfully! All personal data (Name, Phone, etc.) has been reset. Email remains as the login ID.');
+        alert('Logged out successfully! All personal data has been reset.');
         
         const loggedInEmail = userData.email; 
         
-        // RESET CÁC THÔNG TIN KHÁC VỀ MẶC ĐỊNH, GIỮ LẠI EMAIL
-        userData = { ...defaultUserData };
-        userData.email = loggedInEmail; 
+        // RESET CÁC THÔNG TIN VỀ MẶC ĐỊNH
+        userData = {
+            email: loggedInEmail,
+            fullName: '',
+            phone: '',
+            dob: '',
+            gender: '',
+            cityProvince: '',
+            addressDetail: '',
+            avatarUrl: 'https://via.placeholder.com/100'
+        };
 
-        // RESET ĐƠN HÀNG VỀ MẶC ĐỊNH GIẢ LẬP
+        // RESET ĐƠN HÀNG VỀ MẶC ĐỊNH
         mockOrders = [...defaultMockOrders]; 
 
         saveDataToStorage();
         
         document.getElementById('current-user-email').textContent = userData.email;
         
-        hideViewMode(); // Ẩn View Mode (trang tĩnh)
-        document.getElementById('setup-mode-container').style.display = 'block'; // Hiện Setup Mode
+        hideViewMode();
+        document.getElementById('setup-mode-container').style.display = 'block';
     }
 }
 
 // === INITIALIZATION ===
 document.addEventListener('DOMContentLoaded', function() {
+    // Load data từ storage (đã có check login ở trong)
+    loadDataFromStorage();
     
-    // Đảm bảo email hiện tại được hiển thị trong Setup Mode
+    // Hiển thị email trong Setup Mode
     const emailDisplaySetup = document.getElementById('current-user-email');
     if (emailDisplaySetup) {
         emailDisplaySetup.textContent = userData.email;
     }
 
-    // --- KIỂM TRA ĐỂ HIỂN THỊ VIEW MODE HOẶC SETUP ---
+    // KIỂM TRA ĐỂ HIỂN THỊ VIEW MODE HOẶC SETUP
     const urlParams = new URLSearchParams(window.location.search);
     const openModalParam = urlParams.get('open');
     
-    // Coi như đã setup nếu trường tên có dữ liệu
     const isProfileSetup = !!userData.fullName; 
     
     if (openModalParam === 'profile' || isProfileSetup) {
-        // HIỂN THỊ VIEW MODE (trang tĩnh)
         document.getElementById('setup-mode-container').style.display = 'none';
         loadViewData();
         showViewMode(); 
 
-        // Kích hoạt tab profile nếu có tham số URL
         if (openModalParam === 'profile') {
              const profileTab = document.querySelector('.nav-tab[data-target="profile"]');
              if (profileTab) profileTab.click(); 
         }
 
     } else {
-        // HIỂN THỊ SETUP MODE
         document.getElementById('setup-mode-container').style.display = 'block';
         hideViewMode(); 
     }
-    // --- KẾT THÚC LOGIC HIỂN THỊ ---
 
     // === FORM SUBMISSIONS ===
     const setupForm = document.getElementById('setup-info-form');
@@ -360,7 +363,6 @@ document.addEventListener('DOMContentLoaded', function() {
         setupForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Cập nhật userData từ Setup form
             userData.fullName = document.getElementById('setup-full-name').value.trim();
             userData.phone = document.getElementById('setup-phone').value.trim();
             userData.dob = document.getElementById('setup-dob').value.trim();
@@ -374,7 +376,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 loadViewData();
                 showViewMode(); 
                 
-                // Chuyển sang tab Profile sau khi setup thành công
                 document.querySelector('.nav-tab[data-target="profile"]').click();
             } else {
                 alert('Please fill in all required fields (Full Name, Phone, DOB, Gender).');
@@ -387,7 +388,6 @@ document.addEventListener('DOMContentLoaded', function() {
         editForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Cập nhật userData từ Edit form
             userData.fullName = document.getElementById('edit-full-name').value.trim();
             userData.phone = document.getElementById('edit-phone').value.trim();
             userData.dob = document.getElementById('edit-dob').value.trim();
@@ -403,7 +403,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // === EVENT LISTENERS ===
-    // Đảm bảo nút đóng modal hoạt động
     document.querySelectorAll('.edit-close-btn').forEach(btn => btn.addEventListener('click', closeEditModal));
     document.querySelectorAll('.order-details-close-btn').forEach(btn => btn.addEventListener('click', () => closeModal('order-details-modal')));
 
@@ -421,7 +420,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTabNavigation();
     initAvatarUpload();
 
-    // Export window functions (đảm bảo các onclick từ HTML vẫn hoạt động)
+    // Export window functions
     window.openEditModal = openEditModal; 
     window.closeModal = closeModal; 
     window.closeEditModal = closeEditModal; 
