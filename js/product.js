@@ -985,163 +985,22 @@
 
     initWriteReview() {
       const writeReviewBtn = document.querySelector(".write-review-btn-modern");
-
+      const openFormBtn = document.getElementById("openReviewFormBtn");
+      const openModal = () => {
+        const modal = document.getElementById("reviewModal");
+        if (modal) {
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        } else {
+          console.error("❌ Review modal not found in HTML!");
+        }
+      };
       if (writeReviewBtn) {
         writeReviewBtn.addEventListener("click", () => this.openReviewModal());
       }
-    },
-
-    openReviewModal() {
-      if (!document.getElementById("reviewModal")) {
-        const modal = document.createElement("div");
-        modal.id = "reviewModal";
-        modal.className = "review-modal";
-        modal.style.cssText = `
-          display: none; position: fixed; z-index: 10000;
-          left: 0; top: 0; width: 100%; height: 100%;
-          overflow: auto; background-color: rgba(0,0,0,0.6);
-          justify-content: center; align-items: center;
-        `;
-
-        modal.innerHTML = `
-          <div class="review-modal-content" style="
-            background: white; padding: 30px; border-radius: 16px;
-            max-width: 600px; width: 90%; position: relative;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
-          ">
-            <span class="review-modal-close" style="
-              position: absolute; right: 20px; top: 20px;
-              font-size: 28px; font-weight: bold; cursor: pointer;
-              color: #999; transition: color 0.3s;
-            ">&times;</span>
-            <h2 style="margin-bottom: 20px; color: #1d3227;">Write a Review</h2>
-            <form id="reviewForm" class="review-form">
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Your Name</label>
-                <input type="text" required placeholder="Enter your name" style="
-                  width: 100%; padding: 12px; border: 1px solid #ddd;
-                  border-radius: 8px; font-size: 14px;
-                ">
-              </div>
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Your Rating</label>
-                <div class="star-rating-input" style="display: flex; gap: 8px; font-size: 32px;">
-                  <span class="star-input" data-rating="1" style="cursor: pointer; color: #d1d5db;">☆</span>
-                  <span class="star-input" data-rating="2" style="cursor: pointer; color: #d1d5db;">☆</span>
-                  <span class="star-input" data-rating="3" style="cursor: pointer; color: #d1d5db;">☆</span>
-                  <span class="star-input" data-rating="4" style="cursor: pointer; color: #d1d5db;">☆</span>
-                  <span class="star-input" data-rating="5" style="cursor: pointer; color: #d1d5db;">☆</span>
-                </div>
-              </div>
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Review Title</label>
-                <input type="text" required placeholder="Sum up your experience" style="
-                  width: 100%; padding: 12px; border: 1px solid #ddd;
-                  border-radius: 8px; font-size: 14px;
-                ">
-              </div>
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Your Review</label>
-                <textarea rows="5" required placeholder="Share your thoughts about this product..." style="
-                  width: 100%; padding: 12px; border: 1px solid #ddd;
-                  border-radius: 8px; font-size: 14px; resize: vertical;
-                "></textarea>
-              </div>
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Add Photos (Optional)</label>
-                <input type="file" multiple accept="image/*" style="
-                  width: 100%; padding: 12px; border: 1px solid #ddd;
-                  border-radius: 8px; font-size: 14px;
-                ">
-              </div>
-              <button type="submit" class="submit-review-btn" style="
-                width: 100%; padding: 14px; background: linear-gradient(135deg, #3b6d54 0%, #2a5240 100%);
-                color: white; border: none; border-radius: 30px;
-                font-size: 16px; font-weight: 700; cursor: pointer;
-                transition: all 0.3s ease;
-              ">Submit Review</button>
-            </form>
-          </div>
-        `;
-
-        document.body.appendChild(modal);
-
-        // Close modal
-        modal
-          .querySelector(".review-modal-close")
-          .addEventListener("click", () => {
-            modal.style.display = "none";
-          });
-
-        // Click outside to close
-        window.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            modal.style.display = "none";
-          }
-        });
-
-        // Star rating input
-        const starInputs = modal.querySelectorAll(".star-input");
-        let selectedRating = 0;
-
-        starInputs.forEach((star) => {
-          star.addEventListener("click", function () {
-            selectedRating = this.getAttribute("data-rating");
-
-            starInputs.forEach((s) => {
-              const rating = s.getAttribute("data-rating");
-              if (rating <= selectedRating) {
-                s.textContent = "★";
-                s.style.color = "#fbbf24";
-              } else {
-                s.textContent = "☆";
-                s.style.color = "#d1d5db";
-              }
-            });
-          });
-
-          star.addEventListener("mouseenter", function () {
-            const rating = this.getAttribute("data-rating");
-            starInputs.forEach((s) => {
-              if (s.getAttribute("data-rating") <= rating) {
-                s.textContent = "★";
-                s.style.color = "#fbbf24";
-              }
-            });
-          });
-        });
-
-        const starContainer = modal.querySelector(".star-rating-input");
-        starContainer.addEventListener("mouseleave", function () {
-          starInputs.forEach((s) => {
-            const rating = s.getAttribute("data-rating");
-            if (rating <= selectedRating) {
-              s.textContent = "★";
-              s.style.color = "#fbbf24";
-            } else {
-              s.textContent = "☆";
-              s.style.color = "#d1d5db";
-            }
-          });
-        });
-
-        // Form submission
-        modal.querySelector("#reviewForm").addEventListener("submit", (e) => {
-          e.preventDefault();
-          alert(
-            "Thank you for your review! It will be published after moderation."
-          );
-          modal.style.display = "none";
-          e.target.reset();
-          selectedRating = 0;
-          starInputs.forEach((s) => {
-            s.textContent = "☆";
-            s.style.color = "#d1d5db";
-          });
-        });
+      if (openFormBtn) {
+        openFormBtn.addEventListener("click", () => this.openReviewModal());
       }
-
-      document.getElementById("reviewModal").style.display = "flex";
     },
 
     initImageLightbox() {
@@ -1301,6 +1160,437 @@
       this.showSlide(this.index);
     },
   };
+  // =========================================================
+  // 14. REVIEW FORM SUBMIT
+  // =========================================================
+
+  const ReviewFormSubmit = {
+    selectedPhotos: [],
+
+    init() {
+      const form = document.getElementById("reviewForm");
+      const modal = document.getElementById("reviewModal");
+      const closeBtn = document.getElementById("closeReviewModal");
+      const cancelBtn = document.getElementById("cancelReviewBtn");
+      const openBtn = document.getElementById("openReviewFormBtn");
+      const writeReviewBtn = document.querySelector(".write-review-btn-modern");
+
+      if (!form || !modal) {
+        console.error("❌ Review form or modal not found!");
+        return;
+      }
+
+      // Open modal handlers
+      if (openBtn) {
+        openBtn.addEventListener("click", () => this.openModal());
+      }
+      if (writeReviewBtn) {
+        writeReviewBtn.addEventListener("click", () => this.openModal());
+      }
+
+      // Close modal function
+      const closeModal = () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      };
+
+      closeBtn?.addEventListener("click", closeModal);
+      cancelBtn?.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+
+      this.initStarRating();
+      this.initCharCounters();
+      this.initPhotoUpload();
+      this.initFormSubmit(form, closeModal);
+
+      console.log("✅ Review Form Submit initialized");
+    },
+
+    openModal() {
+      const modal = document.getElementById("reviewModal");
+      if (modal) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+    },
+
+    initStarRating() {
+      const starInputs = document.querySelectorAll(
+        '.star-rating-input input[name="rating"]'
+      );
+      const ratingMessage = document.getElementById("ratingMessage");
+
+      const messages = {
+        5: "Excellent! 😍",
+        4: "Good! 👍",
+        3: "Average 😐",
+        2: "Poor 👎",
+        1: "Terrible 😞",
+      };
+
+      starInputs.forEach((input) => {
+        input.addEventListener("change", function () {
+          const rating = this.value;
+          if (ratingMessage) {
+            ratingMessage.textContent = messages[rating] || "Select a rating";
+          }
+        });
+      });
+    },
+
+    initCharCounters() {
+      const titleInput = document.getElementById("reviewTitle");
+      const reviewText = document.getElementById("reviewText");
+      const titleCount = document.getElementById("titleCharCount");
+      const reviewCount = document.getElementById("reviewCharCount");
+
+      titleInput?.addEventListener("input", function () {
+        const count = this.value.length;
+        if (titleCount) {
+          titleCount.textContent = `${count}/100`;
+          titleCount.style.color = count > 100 ? "#ef4444" : "#9ca3af";
+        }
+      });
+
+      reviewText?.addEventListener("input", function () {
+        const count = this.value.length;
+        if (reviewCount) {
+          reviewCount.textContent = `${count}/1000`;
+          reviewCount.style.color = count > 1000 ? "#ef4444" : "#9ca3af";
+        }
+      });
+    },
+
+    initPhotoUpload() {
+      const photoInput = document.getElementById("reviewPhotos");
+      const previewGrid = document.getElementById("photoPreviewGrid");
+
+      photoInput?.addEventListener("change", (e) => {
+        const files = Array.from(e.target.files);
+
+        if (this.selectedPhotos.length + files.length > 3) {
+          Utils.showNotification("Maximum 3 photos allowed", "warning");
+          return;
+        }
+
+        files.forEach((file) => {
+          if (file.size > 5 * 1024 * 1024) {
+            Utils.showNotification(
+              `${file.name} is too large (max 5MB)`,
+              "warning"
+            );
+            return;
+          }
+
+          this.selectedPhotos.push(file);
+          this.addPhotoPreview(file);
+        });
+      });
+    },
+
+    addPhotoPreview(file) {
+      const previewGrid = document.getElementById("photoPreviewGrid");
+      if (!previewGrid) return;
+
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        const div = document.createElement("div");
+        div.className = "photo-preview-item";
+        div.style.cssText = `
+          position: relative; display: inline-block;
+          margin: 5px; width: 80px; height: 80px;
+        `;
+
+        div.innerHTML = `
+          <img src="${e.target.result}" alt="Preview" style="
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: 8px; border: 2px solid #3b6d54;
+          ">
+          <button type="button" class="photo-remove-btn" data-file="${file.name}" style="
+            position: absolute; top: -8px; right: -8px;
+            width: 24px; height: 24px; border-radius: 50%;
+            background: #ef4444; color: white; border: none;
+            cursor: pointer; font-size: 16px; line-height: 1;
+          ">×</button>
+        `;
+
+        div.querySelector(".photo-remove-btn").addEventListener("click", () => {
+          this.removePhoto(file.name);
+          div.remove();
+        });
+
+        previewGrid.appendChild(div);
+      };
+
+      reader.readAsDataURL(file);
+    },
+
+    removePhoto(fileName) {
+      this.selectedPhotos = this.selectedPhotos.filter(
+        (f) => f.name !== fileName
+      );
+    },
+
+    initFormSubmit(form, closeModal) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const agreeTerms = document.getElementById("agreeTerms");
+        if (agreeTerms && !agreeTerms.checked) {
+          Utils.showNotification(
+            "Please agree to the review guidelines",
+            "warning"
+          );
+          return;
+        }
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const formData = {
+          name: document.getElementById("reviewerName")?.value || "Anonymous",
+          email: document.getElementById("reviewerEmail")?.value || "",
+          title: document.getElementById("reviewTitle")?.value || "",
+          review: document.getElementById("reviewText")?.value || "",
+          rating:
+            document.querySelector('input[name="rating"]:checked')?.value ||
+            "5",
+          verified:
+            document.getElementById("verifiedPurchase")?.checked || false,
+          recommend:
+            document.querySelector('input[name="recommend"]:checked')?.value ||
+            "yes",
+          date: "Just now",
+          images: this.selectedPhotos.map((file) => URL.createObjectURL(file)),
+        };
+
+        const submitBtn = form.querySelector(".btn-submit");
+        if (submitBtn) {
+          const originalText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = "<span>⏳ Submitting...</span>";
+
+          setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }, 1500);
+        }
+
+        try {
+          let reviews = JSON.parse(localStorage.getItem("userReviews")) || [];
+          reviews.push(formData);
+          localStorage.setItem("userReviews", JSON.stringify(reviews));
+        } catch (error) {
+          console.error("Error saving to localStorage:", error);
+        }
+
+        this.addReviewToPage(formData);
+        Utils.showNotification("✅ Review submitted successfully!", "success");
+
+        form.reset();
+        this.selectedPhotos = [];
+        const previewGrid = document.getElementById("photoPreviewGrid");
+        if (previewGrid) previewGrid.innerHTML = "";
+
+        const ratingMessage = document.getElementById("ratingMessage");
+        if (ratingMessage) ratingMessage.textContent = "Select a rating";
+
+        const titleCount = document.getElementById("titleCharCount");
+        const reviewCount = document.getElementById("reviewCharCount");
+        if (titleCount) titleCount.textContent = "0/100";
+        if (reviewCount) reviewCount.textContent = "0/1000";
+
+        closeModal();
+
+        setTimeout(() => {
+          const reviewsSection = document.querySelector(".reviews-grid");
+          if (reviewsSection) {
+            reviewsSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        }, 500);
+
+        console.log("✅ Review submitted:", formData);
+      });
+    },
+
+    addReviewToPage(reviewData) {
+      const reviewsGrid = document.querySelector(".reviews-grid");
+
+      if (!reviewsGrid) {
+        console.error("❌ Reviews grid not found!");
+        return;
+      }
+
+      const starsHTML = Array(5)
+        .fill(0)
+        .map((_, i) => {
+          const isFilled = i < parseInt(reviewData.rating);
+          return `<span class="star${isFilled ? " filled" : ""}">★</span>`;
+        })
+        .join("");
+
+      const initials = reviewData.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+        .slice(0, 2);
+
+      const reviewCard = document.createElement("div");
+      reviewCard.className = "review-card";
+      reviewCard.setAttribute("data-scroll", "scale-up");
+      reviewCard.setAttribute("data-rating", reviewData.rating);
+
+      reviewCard.innerHTML = `
+        <div class="review-header">
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">${initials}</div>
+            <div class="reviewer-details">
+              <h4 class="reviewer-name">${reviewData.name}</h4>
+              <div class="review-meta">
+                ${
+                  reviewData.verified
+                    ? '<span class="verified-badge">✓ Verified Purchase</span>'
+                    : ""
+                }
+                <span class="review-date">${reviewData.date}</span>
+              </div>
+            </div>
+          </div>
+          <div class="review-rating">
+            ${starsHTML}
+          </div>
+        </div>
+
+        <div class="review-content">
+          <h5 class="review-title">${reviewData.title}</h5>
+          <p class="review-text">
+            ${reviewData.review}
+          </p>
+        </div>
+
+        ${
+          reviewData.images && reviewData.images.length > 0
+            ? `
+          <div class="review-images">
+            ${reviewData.images
+              .map(
+                (img) => `
+              <img src="${img}" alt="Customer photo" class="review-img" />
+            `
+              )
+              .join("")}
+          </div>
+        `
+            : ""
+        }
+
+        <div class="review-footer">
+          <button class="helpful-btn">
+            <span class="icon">👍</span>
+            Helpful (0)
+          </button>
+          <button class="report-btn">Report</button>
+        </div>
+      `;
+
+      reviewsGrid.insertBefore(reviewCard, reviewsGrid.firstChild);
+
+      reviewCard.style.opacity = "0";
+      reviewCard.style.transform = "translateY(-20px)";
+
+      setTimeout(() => {
+        reviewCard.style.transition = "all 0.5s ease";
+        reviewCard.style.opacity = "1";
+        reviewCard.style.transform = "translateY(0)";
+      }, 10);
+
+      this.attachReviewCardEvents(reviewCard);
+
+      console.log("✅ Review added to page:", reviewData);
+    },
+
+    attachReviewCardEvents(reviewCard) {
+      const helpfulBtn = reviewCard.querySelector(".helpful-btn");
+      if (helpfulBtn) {
+        helpfulBtn.addEventListener("click", function () {
+          if (this.classList.contains("voted")) {
+            this.classList.remove("voted");
+            this.style.background = "";
+            this.style.color = "";
+            const currentCount = parseInt(this.textContent.match(/\d+/)[0]);
+            this.innerHTML = `<span class="icon">👍</span> Helpful (${
+              currentCount - 1
+            })`;
+          } else {
+            this.classList.add("voted");
+            this.style.background = "#3b6d54";
+            this.style.color = "white";
+            const currentCount = parseInt(this.textContent.match(/\d+/)[0]);
+            this.innerHTML = `<span class="icon">👍</span> Helpful (${
+              currentCount + 1
+            })`;
+          }
+        });
+      }
+
+      const reportBtn = reviewCard.querySelector(".report-btn");
+      if (reportBtn) {
+        reportBtn.addEventListener("click", function () {
+          if (confirm("Report this review as inappropriate?")) {
+            Utils.showNotification(
+              "Review has been reported. Thank you!",
+              "info"
+            );
+            this.disabled = true;
+            this.textContent = "Reported";
+            this.style.opacity = "0.5";
+          }
+        });
+      }
+
+      const reviewImages = reviewCard.querySelectorAll(".review-img");
+      reviewImages.forEach((img) => {
+        img.addEventListener("click", function () {
+          const overlay = document.createElement("div");
+          overlay.style.cssText = `
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); display: flex;
+            align-items: center; justify-content: center;
+            z-index: 10000; cursor: pointer;
+          `;
+
+          const fullImg = document.createElement("img");
+          fullImg.src = this.src;
+          fullImg.style.cssText = `
+            max-width: 90%; max-height: 90%; border-radius: 8px;
+          `;
+
+          overlay.appendChild(fullImg);
+          document.body.appendChild(overlay);
+
+          overlay.addEventListener("click", () => {
+            document.body.removeChild(overlay);
+          });
+        });
+      });
+    },
+  };
 
   // =========================================================
   // 16. INJECT GLOBAL STYLES
@@ -1358,492 +1648,8 @@
     ReviewsManager.init();
     ProductSlider.init();
     SimpleSlider.init();
+    ReviewFormSubmit.init();
 
     console.log("✅ Modern Product Page Fully Initialized!");
   });
 })();
-// =========================================================
-// 17. REVIEW FORM MANAGER
-// =========================================================
-
-const ReviewFormManager = {
-  selectedPhotos: [],
-
-  init() {
-    const openBtn = document.getElementById("openReviewFormBtn");
-    const modal = document.getElementById("reviewModal");
-    const closeBtn = document.getElementById("closeReviewModal");
-    const cancelBtn = document.getElementById("cancelReviewBtn");
-    const form = document.getElementById("reviewForm");
-
-    if (!modal || !form) return;
-
-    // Open modal
-    openBtn?.addEventListener("click", () => {
-      modal.classList.add("active");
-      document.body.style.overflow = "hidden";
-    });
-
-    // Close modal
-    const closeModal = () => {
-      modal.classList.remove("active");
-      document.body.style.overflow = "";
-    };
-
-    closeBtn?.addEventListener("click", closeModal);
-    cancelBtn?.addEventListener("click", closeModal);
-
-    // Close on outside click
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    // Close on ESC
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("active")) {
-        closeModal();
-      }
-    });
-
-    // Initialize form features
-    this.initStarRating();
-    this.initCharCounters();
-    this.initPhotoUpload();
-    this.initFormSubmit();
-
-    console.log("✅ Review Form Manager initialized");
-  },
-
-  initStarRating() {
-    const starInputs = document.querySelectorAll(".star-rating-input input");
-    const ratingMessage = document.getElementById("ratingMessage");
-
-    const messages = {
-      5: "Excellent! 😍",
-      4: "Good! 👍",
-      3: "Average 😐",
-      2: "Poor 👎",
-      1: "Terrible 😞",
-    };
-
-    starInputs.forEach((input) => {
-      input.addEventListener("change", function () {
-        const rating = this.value;
-        if (ratingMessage) {
-          ratingMessage.textContent = messages[rating] || "Select a rating";
-        }
-      });
-    });
-  },
-
-  initCharCounters() {
-    const titleInput = document.getElementById("reviewTitle");
-    const reviewText = document.getElementById("reviewText");
-    const titleCount = document.getElementById("titleCharCount");
-    const reviewCount = document.getElementById("reviewCharCount");
-
-    titleInput?.addEventListener("input", function () {
-      const count = this.value.length;
-      titleCount.textContent = `${count}/100`;
-      titleCount.style.color = count > 100 ? "#ef4444" : "#9ca3af";
-    });
-
-    reviewText?.addEventListener("input", function () {
-      const count = this.value.length;
-      reviewCount.textContent = `${count}/1000`;
-      reviewCount.style.color = count > 1000 ? "#ef4444" : "#9ca3af";
-    });
-  },
-
-  initPhotoUpload() {
-    const photoInput = document.getElementById("reviewPhotos");
-    const previewGrid = document.getElementById("photoPreviewGrid");
-
-    photoInput?.addEventListener("change", (e) => {
-      const files = Array.from(e.target.files);
-
-      // Max 3 photos
-      if (this.selectedPhotos.length + files.length > 3) {
-        alert("Maximum 3 photos allowed");
-        return;
-      }
-
-      files.forEach((file) => {
-        if (file.size > 5 * 1024 * 1024) {
-          alert(`${file.name} is too large (max 5MB)`);
-          return;
-        }
-
-        this.selectedPhotos.push(file);
-        this.addPhotoPreview(file);
-      });
-    });
-  },
-
-  addPhotoPreview(file) {
-    const previewGrid = document.getElementById("photoPreviewGrid");
-    const reader = new FileReader();
-
-    reader.onload = (e) => {
-      const div = document.createElement("div");
-      div.className = "photo-preview-item";
-      div.innerHTML = `
-        <img src="${e.target.result}" alt="Preview">
-        <button type="button" class="photo-remove-btn" data-file="${file.name}">×</button>
-      `;
-
-      div.querySelector(".photo-remove-btn").addEventListener("click", () => {
-        this.removePhoto(file.name);
-        div.remove();
-      });
-
-      previewGrid.appendChild(div);
-    };
-
-    reader.readAsDataURL(file);
-  },
-
-  removePhoto(fileName) {
-    this.selectedPhotos = this.selectedPhotos.filter(
-      (f) => f.name !== fileName
-    );
-  },
-
-  initFormSubmit() {
-    const form = document.getElementById("reviewForm");
-
-    form?.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      // Validate
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      // Get form data
-      const formData = new FormData(form);
-      const reviewData = {
-        rating: formData.get("rating"),
-        name: formData.get("name"),
-        email: formData.get("email"),
-        title: formData.get("title"),
-        review: formData.get("review"),
-        verified: formData.get("verified") === "on",
-        recommend: formData.get("recommend"),
-        photos: this.selectedPhotos,
-        productId: "sofa-001",
-        date: new Date().toISOString(),
-      };
-
-      // Show loading
-      const submitBtn = form.querySelector(".btn-submit");
-      const btnText = submitBtn.querySelector(".btn-text");
-      const btnLoader = submitBtn.querySelector(".btn-loader");
-
-      submitBtn.disabled = true;
-      btnText.style.display = "none";
-      btnLoader.style.display = "inline";
-
-      try {
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-
-        // Save to localStorage (for demo)
-        let reviews = JSON.parse(localStorage.getItem("userReviews")) || [];
-        reviews.push(reviewData);
-        localStorage.setItem("userReviews", JSON.stringify(reviews));
-
-        // Add to page
-        this.addReviewToPage(reviewData);
-
-        // Success
-        alert(
-          "Thank you for your review! It will be published after moderation."
-        );
-
-        // Reset form
-        form.reset();
-        this.selectedPhotos = [];
-        document.getElementById("photoPreviewGrid").innerHTML = "";
-        document.getElementById("reviewModal").classList.remove("active");
-        document.body.style.overflow = "";
-
-        console.log("✅ Review submitted:", reviewData);
-      } catch (error) {
-        alert("Error submitting review. Please try again.");
-        console.error("Review submission error:", error);
-      } finally {
-        submitBtn.disabled = false;
-        btnText.style.display = "inline";
-        btnLoader.style.display = "none";
-      }
-    });
-  },
-
-  addReviewToPage(reviewData) {
-    const reviewsGrid = document.querySelector(".reviews-grid");
-    if (!reviewsGrid) return;
-
-    const reviewCard = document.createElement("div");
-    reviewCard.className = "review-card";
-    reviewCard.setAttribute("data-rating", reviewData.rating);
-
-    const initials = reviewData.name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase();
-    const stars =
-      "★".repeat(parseInt(reviewData.rating)) +
-      "☆".repeat(5 - parseInt(reviewData.rating));
-
-    reviewCard.innerHTML = `
-      <div class="review-header">
-        <div class="reviewer-info">
-          <div class="reviewer-avatar">${initials}</div>
-          <div class="reviewer-details">
-            <h4 class="reviewer-name">${reviewData.name}</h4>
-            <div class="review-meta">
-              ${
-                reviewData.verified
-                  ? '<span class="verified-badge">✓ Verified Purchase</span>'
-                  : ""
-              }
-              <span class="review-date">Just now</span>
-            </div>
-          </div>
-        </div>
-        <div class="review-rating">
-          ${stars
-            .split("")
-            .map(
-              (s) =>
-                `<span class="star ${s === "★" ? "filled" : ""}">${s}</span>`
-            )
-            .join("")}
-        </div>
-      </div>
-      <div class="review-content">
-        <h5 class="review-title">${reviewData.title}</h5>
-        <p class="review-text">${reviewData.review}</p>
-      </div>
-      <div class="review-footer">
-        <button class="helpful-btn">
-          <span class="icon">👍</span> Helpful (0)
-        </button>
-        <button class="report-btn">Report</button>
-      </div>
-    `;
-
-    reviewsGrid.insertBefore(reviewCard, reviewsGrid.firstChild);
-  },
-};
-
-// Add to initialization
-document.addEventListener("DOMContentLoaded", () => {
-  // ... existing code ...
-  ReviewFormManager.init();
-});
-// =========================================================
-// ✅ REVIEW FORM - SUBMIT & DISPLAY
-const ReviewFormSubmit = {
-  init() {
-    const form = document.getElementById("reviewForm");
-    const modal = document.getElementById("reviewModal");
-    const closeBtn = document.getElementById("closeReviewModal");
-    const cancelBtn = document.getElementById("cancelReviewBtn");
-
-    if (!form || !modal) {
-      console.error("❌ Review form or modal not found!");
-      return;
-    }
-
-    // Close modal function
-    const closeModal = () => {
-      modal.classList.remove("active");
-      document.body.style.overflow = "";
-    };
-
-    // Close button click
-    closeBtn?.addEventListener("click", closeModal);
-    cancelBtn?.addEventListener("click", closeModal);
-
-    // Close on outside click
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    // Close on ESC
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("active")) {
-        closeModal();
-      }
-    });
-
-    // ✅ FORM SUBMIT
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      // Check if checkbox is checked
-      const agreeTerms = document.getElementById("agreeTerms");
-      if (!agreeTerms.checked) {
-        Utils.showNotification(
-          "❌ Please agree to the review guidelines",
-          "warning"
-        );
-        return;
-      }
-
-      // Validate form
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      // Get form data
-      const formData = {
-        name: document.getElementById("reviewerName")?.value || "Anonymous",
-        email: document.getElementById("reviewerEmail")?.value || "",
-        title: document.getElementById("reviewTitle")?.value || "",
-        review: document.getElementById("reviewText")?.value || "",
-        rating:
-          document.querySelector('input[name="rating"]:checked')?.value || "5",
-        verified: document.getElementById("verifiedPurchase")?.checked || false,
-        recommend:
-          document.querySelector('input[name="recommend"]:checked')?.value ||
-          "yes",
-        date: new Date().toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        }),
-      };
-
-      // ✅ ADD REVIEW TO PAGE NGAY LẬP TỨC
-      this.addReviewToPage(formData);
-
-      // Show success notification
-      Utils.showNotification("✅ Review submitted successfully!", "success");
-
-      // Reset form
-      form.reset();
-
-      // Close modal
-      closeModal();
-
-      // Scroll to reviews section
-      const reviewsSection = document.querySelector(".reviews-grid");
-      if (reviewsSection) {
-        setTimeout(() => {
-          reviewsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 500);
-      }
-
-      console.log("✅ Review submitted:", formData);
-    });
-
-    console.log("✅ Review Form Submit initialized");
-  },
-
-  addReviewToPage(reviewData) {
-    const reviewsGrid = document.querySelector(".reviews-grid");
-
-    if (!reviewsGrid) {
-      console.error("❌ Reviews grid not found!");
-      return;
-    }
-
-    // Create stars
-    const starsHTML = Array(5)
-      .fill(0)
-      .map((_, i) => {
-        const isFilled = i < parseInt(reviewData.rating);
-        return `<span class="star${isFilled ? " filled" : ""}">★</span>`;
-      })
-      .join("");
-
-    // Get initials
-    const initials = reviewData.name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2);
-
-    // Create review card
-    const reviewCard = document.createElement("div");
-    reviewCard.className = "review-card";
-    reviewCard.setAttribute("data-rating", reviewData.rating);
-
-    reviewCard.innerHTML = `
-            <div class="review-header">
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar">${initials}</div>
-                    <div>
-                        <h4 class="reviewer-name">${reviewData.name}</h4>
-                        <div style="font-size: 12px; color: #9ca3af;">
-                            ${
-                              reviewData.verified
-                                ? "<span>✓ Verified Purchase</span>"
-                                : ""
-                            }
-                            <span>${reviewData.date}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-rating">
-                    ${starsHTML}
-                </div>
-            </div>
-            <h5 class="review-title">${reviewData.title}</h5>
-            <p class="review-text">${reviewData.review}</p>
-            <div style="margin-top: 15px; font-size: 14px; color: #3b6d54; font-weight: 600;">
-                ✓ Recommend: ${reviewData.recommend === "yes" ? "Yes" : "No"}
-            </div>
-        `;
-
-    // Add to top
-    reviewsGrid.insertBefore(reviewCard, reviewsGrid.firstChild);
-
-    // Animate entrance
-    reviewCard.style.opacity = "0";
-    reviewCard.style.transform = "translateY(-20px)";
-
-    setTimeout(() => {
-      reviewCard.style.transition = "all 0.5s ease";
-      reviewCard.style.opacity = "1";
-      reviewCard.style.transform = "translateY(0)";
-    }, 10);
-
-    console.log("✅ Review added to page:", reviewData);
-  },
-};
-
-// ✅ Initialize
-document.addEventListener("DOMContentLoaded", () => {
-  ReviewFormSubmit.init();
-});
-
-// Form submit
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  // Check if checkbox is checked
-  const agreeTerms = document.getElementById("agreeTerms");
-  if (!agreeTerms.checked) {
-    Utils.showNotification(
-      "❌ Please agree to the review guidelines",
-      "warning"
-    );
-    return;
-  }
-
-  // Validate form
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
-
-  // ... rest of submit code
-});
