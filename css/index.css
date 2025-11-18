@@ -78,7 +78,7 @@ video {
     color: #E8F3DE;
     z-index: 2;
     width: 90%;
-    max-width: 800px;
+    max-width: 750px;
 }
 
 .Slogan h1 {
@@ -128,7 +128,7 @@ Nhóm 9: PHẦN SẢN PHẨM MỚI
     padding-top: 50px;
     padding-left: 100px;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 #New-Product p.premium-content {
@@ -439,7 +439,7 @@ Nhóm 9: PHẦN PRODUCT CATEGORIES
     font-size: 55px;
     text-align: center;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 5px;
 }
 
@@ -449,7 +449,7 @@ Nhóm 9: PHẦN PRODUCT CATEGORIES
     text-align: center;
     font-style: italic;
     margin-bottom: 70px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .Categories {
@@ -522,16 +522,15 @@ Nhóm 9: PHẦN NHẬN XÉT KHÁCH HÀNG
     color: #2d5043;
     font-size: 50px;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 8px;
-    text-transform: lowercase;
 }
 
 .section-title p {
     color: #3B6D54;
     font-size: 18px;
     font-style: italic;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .reviews-container {
@@ -704,7 +703,7 @@ Nhóm 9: PHẦN FAQ - CÂU HỎI THƯỜNG GẶP
 .faq-answer p {
     color: #2d5043;
     font-size: 17px;
-    line-height: 1.8;
+    line-height: 1.5;
     margin: 0;
 }
 
