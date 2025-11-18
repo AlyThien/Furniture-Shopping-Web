@@ -37,7 +37,7 @@ Vì vậy, nhóm quyết định chọn đề tài "Thiết kế trang web bán 
 | A7 | Sửa thông tin cá nhân | 02 | 100% |
 | A8 | Đăng xuất | 02 | 100% |
 | A9 | Thêm vào giỏ hàng | 01, 02 | 100% |
-| A10 | Quản lý giỏ hàng | 01, o2 | 100% |
+| A10 | Quản lý giỏ hàng | 01, 02 | 100% |
 | A11 | Đặt hàng | 01, 02 | 100% |
 | A12 | Thanh toán | 01, 02 | 100% |
 | A13 | Xem lịch sử mua hàng | 02 | 50% |
