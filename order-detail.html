@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - Haguchi</title>
+    <link rel="stylesheet" href="/css/order-detail.css">
+    <link rel="stylesheet" href="/css/component.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="Logo">
+            <p>
+                <a href="index.html"><em>Haguchi</em><br>葉具家</a>
+            </p>
+        </div>
+        <nav class="Main-Menu">
+            <ul>
+                <li><a href="">Products</a></li>
+                <li><a href="">About us</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="/policy_index.html">Policies</a></li>
+            </ul>
+        </nav>
+        <nav class="Sub-Menu">
+            <ul>
+                <li><span class="fluent--search-12-filled"></span></li>
+                <li><a href="Wishlist_index.html"><span class="solar--heart-bold"></span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <section class="container">
+        <!-- Order Status Section -->
+        <div class="order-status-container">
+            <div class="status-header">
+                <div class="status-icon">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="60" r="60" fill="#0B2D21"/>
+                        <path d="M35 60L52 77L85 44" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h1>Order Completed</h1>
+                <p class="order-id">Order ID: HG2024110001</p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline">
+                <div class="timeline-item completed">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Order placed</h3>
+                        <p class="timestamp">08-11-2025 18:42</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item inactive">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Order is being processed</h3>
+                    </div>
+                </div>
+
+                <div class="timeline-item inactive">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Order has been packed</h3>
+                    </div>
+                </div>
+
+                <div class="timeline-item inactive">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Order is on the way</h3>
+                    </div>
+                </div>
+
+                <div class="timeline-item inactive">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Order successfully delivered</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="products-section">
+            <h2 class="section-title">Products Ordered</h2>
+
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="images/product/10.png" alt="L-shaped Sofa NF201" class="product-image">
+                    <div class="product-info">
+                        <p class="product-name">L-shaped Sofa NF201</p>
+                        <p class="product-specs">Color: White | Quantity: 1</p>
+                    </div>
+                    <div class="product-price">11,000,000 VND</div>
+                </div>                
+            </div>
+
+            <!-- Price Summary -->
+            <div class="price-summary">
+                <div class="price-row">
+                    <span>Subtotal</span>
+                    <span>11.000.000 VND</span>
+                </div>
+                <div class="price-row">
+                    <span>Taxes</span>
+                    <span>1.000.000 VND</span>
+                </div>
+                <div class="price-row total">
+                    <span>Total</span>
+                    <span>12.000.000 VND</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delivery Address Section -->
+        <div class="delivery-section">
+            <h2 class="section-title">Delivery Address</h2>
+            <div class="address-card">
+                <p class="address-name">Vân Nguyễn</p>
+                <p class="address-phone">09123456789</p>
+                <p class="address-detail">Tân Đồng, Thành phố Đồng Xoài, Tỉnh Bình Phước</p>
+            </div>
+        </div>
+
+        <!-- Payment & Shipping Section -->
+        <div class="payment-shipping-section">
+            <h2 class="section-title">Payment & Shipping Method</h2>
+    
+            <div class="payment-shipping-grid">
+                <div class="info-card">
+                    <p class="info-label">PAYMENT METHOD</p>
+                    <p class="info-value">🏦 Bank Transfer (VietQR)</p>
+                </div>
+                <div class="info-card">
+                    <p class="info-label">SHIPPING METHOD</p>
+                    <p class="info-value">🚚 Standard Delivery</p>
+                </div>
+            </div>
+
+            <div class="payment-shipping-grid">
+                <div class="info-card">
+                    <p class="info-label">PAYMENT STATUS</p>
+                    <p class="info-value">✓ Paid</p>
+                </div>
+                <div class="info-card">
+                    <p class="info-label">ORDER TIME</p>
+                    <p class="info-value">08-11-2025 18:42</p>
+                </div>
+            </div>
+        </div>
+        <!-- Actions Section -->
+        <div class="actions-section">
+            <button id="contactSellerBtn" class="btn btn-outline">CONTACT SELLER</button>
+            <button id="buyAgainBtn" class="btn btn-primary">BUY AGAIN</button>
+        </div>
+        <span class="scollToTop"></span>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <div>Haguchi</div>
+            <div>葉具家</div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
+                    <li>📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
+                    <li>📞 (+84) 123 456 789</li>
+                    <li>📧 support@HAGUCHI.com</li>
+                    <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Shop by Category</h3>
+                <ul>
+                    <li>Sofas & Armchairs</li>
+                    <li>Dining Tables</li>
+                    <li>Beds</li>
+                    <li>Cabinets & Shelves</li>
+                    <li>Lighting & Decor</li>
+                    <li>New Arrivals / Promotions</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies & Support</h3>
+                <ul>
+                    <li>Warranty Policy</li>
+                    <li>Return & Exchange</li>
+                    <li>Shipping Policy</li>
+                    <li>How to Order</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 HAGUCHI – All rights reserved.</span>
+            <div class="social-icons">
+                <div class="social-icon">f</div>
+                <div class="social-icon">in</div>
+                <div class="social-icon">t</div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/order-detail.js"></script>
+    <script src="js/scoll-to-top.js"></script>
+</body>
+</html>
