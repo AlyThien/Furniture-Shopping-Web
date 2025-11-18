@@ -37,7 +37,11 @@
                         <span class="wishlist-count">0</span>
                     </a>
                 </li>
-                <li><span class="solar--user-bold"></span></li>
+                <li id="user-profile-link">
+                    <a href="personal-info.html">
+                        <span class="solar--user-bold"></span>
+                    </a>
+                </li>
                 <li class="lang-switcher">
                     <div class="lang-toggle" aria-label="Language switcher">
                         <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')">
@@ -160,7 +164,7 @@
                             <div class="section-box">
                                 <h2 class="section-title">My Purchases</h2>
                                 <div id="order-list-view" class="order-list">
-                                </div>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -222,7 +226,6 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="cancel-btn edit-close-btn">Cancel</button> 
                         <button type="submit" class="action-btn">Save Changes</button>
                     </div>
                 </form>
@@ -339,6 +342,11 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/common.js"></script> 
+    <script src="js/personal-info.js"></script> 
+</body>
+</html>
 
     <script src="js/common.js"></script> 
     <script src="js/personal-info.js"></script> 
