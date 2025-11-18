@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haguchi-Homepage</title>
+    <link rel="stylesheet" href="/css/wishlist-send.css">
+    <link rel="stylesheet" href="/css/component.css">
+</head>
+<body>
+    <!--Phần Header-->
+    <header>
+        <div class="Logo">
+            <p>
+                <a href="index.html"><em>Haguchi</em><br>葉具家</a>
+            </p>
+        </div>
+        <nav class="Main-Menu">
+            <ul>
+                <li><a href="">Products</a></li>
+                <li><a href="">About us</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="/policy_index.html">Policies</a></li>
+            </ul>
+        </nav>
+        <nav class="Sub-Menu">
+            <ul>
+                <li><span class="fluent--search-12-filled"></span></li>
+                <li><a href="Wishlist_index.html"><span class="solar--heart-bold"></span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Phần Wishlist form -->
+    <section id="wishlist-form">
+        <div class="container">
+            <h1>Wishlist</h1>
+            <h2>Send Wishlist to Haguchi</h2>
+            <p class="subtitle">Please fill in this form to send your wishlist</p>
+            <p class="required-note">(Fields marked with <span style="color: #d44;">*</span> are required)</p>
+
+            <form id="paymentForm">
+                <section id="contact-info" class="form-section">
+                    <h3>Contact Information:</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name <span class="required">*</span></label>
+                            <input type="text" name="name" >
+                        </div>
+                        <div class="form-group">
+                            <label>Surname <span class="required">*</span></label>
+                            <input type="text" name="surname">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone <span class="required">*</span></label>
+                            <input type="tel" name="phone" >
+                        </div>
+                        <div class="form-group">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" name="email" >
+                        </div>
+                    </div>
+                </section>
+
+                <section id="delivery-info" class="form-section">
+                    <h3>Delivery Information:</h3>
+                    <div class="form-group full-width">
+                        <label>Country/Region <span class="required">*</span></label>
+                        <select name="country" >
+                            <option value="">Select country</option>
+                            <option value="vn">Vietnam</option>
+                            <option value="us">United States</option>
+                            <option value="uk">United Kingdom</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Address <span class="required">*</span></label>
+                        <input type="text" name="address" >
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Province <span class="required">*</span></label>
+                            <select name="province" id="province" >
+                                <option value="">Select province</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>City <span class="required">*</span></label>
+                            <select name="city" id="city" >
+                                <option value="">Select city</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="save-info" name="saveInfo">
+                        <label for="save-info">Save this information for next time</label>
+                    </div>
+                </section>
+                <!-- Phần Payment -->
+                <section id="payment-section" class="form-section">        
+                        <h3>Payment:</h3>
+                        <p class="payment-note">All transactions are secure and encrypted.</p>
+
+                        <!-- COD Option -->
+                        <div class="radio-option" id="cod-option">
+                            <input type="radio" name="payment" id="cod" value="cod">
+                            <label for="cod">Cash on Delivery (COD)</label>
+                        </div>
+
+                        <!-- Bank Transfer Option -->
+                        <div class="radio-option" id="bank-option">
+                            <input type="radio" name="payment" id="bank" value="bank" checked>
+                            <label for="bank">Bank Transfer</label>
+                        </div>
+
+                        <!-- QR Code Section (chỉ hiện khi chọn Bank Transfer) -->
+                        <div class="qr-section" id="qr-section">
+                            <div class="qr-code">
+                                <img src="images/image 2.png" alt="QR Code">
+                                <p class="qr-amount">50,000 VND</p>
+                                <p class="qr-name">mas</p>
+                            </div>
+                        </div>
+                </section>
+
+                <button type="submit" class="continue-bu">Continue</button>
+            </form>
+        </div>
+        <span class="scollToTop"></span>
+    </section>
+    <!--Phần footer-->
+    <footer>
+        <div class="footer-logo">
+            <div>Haguchi</div>
+            <div>葉具家</div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
+                    <li>📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
+                    <li>📞 (+84) 123 456 789</li>
+                    <li>📧 support@HAGUCHI.com</li>
+                    <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Shop by Category</h3>
+                <ul>
+                    <li>Sofas & Armchairs</li>
+                    <li>Dining Tables</li>
+                    <li>Beds</li>
+                    <li>Cabinets & Shelves</li>
+                    <li>Lighting & Decor</li>
+                    <li>New Arrivals / Promotions</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies & Support</h3>
+                <ul>
+                    <li>Warranty Policy</li>
+                    <li>Return & Exchange</li>
+                    <li>Shipping Policy</li>
+                    <li>How to Order</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 HAGUCHI – All rights reserved.</span>
+            <div class="social-icons">
+                <div class="social-icon">f</div>
+                <div class="social-icon">in</div>
+                <div class="social-icon">t</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Import payment handler script -->
+
+    <script src="js/VNcity.js"></script>
+    <script src="js/wishlist-send.js"></script>  
+    <script src="js/scoll-to-top.js"></script>   
+</body>
+</html>
