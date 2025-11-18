@@ -623,7 +623,7 @@
             <span class="sticky-price">4.200.000 đ</span>
           </div>
           <button class="sticky-add-cart-btn">
-            <span>🛒</span> Add to Cart
+            <span>🛒</span> Add to Wishlist
           </button>
         </div>
       `;
