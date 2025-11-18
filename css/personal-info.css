@@ -6,20 +6,18 @@
     box-sizing: border-box;
 }
 
-body { 
-    background: linear-gradient(135deg, #E0F2F1 0%, #C8E6C9 50%, #A5D6A7 100%); 
+body {
+    background: linear-gradient(135deg, #E0F2F1 0%, #C8E6C9 50%, #A5D6A7 100%);
     font-family: 'Roboto Serif', serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start; 
-    padding-top: 100px; 
+    align-items: center; /* Giữ align-items: center để nội dung ở giữa màn hình */
+    padding-top: 100px;
     padding-bottom: 50px;
 }
 
 header {
-    /* Đảm bảo header không co giãn, cố định ở trên cùng */
     flex-shrink: 0;
 }
 
@@ -27,9 +25,9 @@ main {
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* căn trên */
     width: 100%;
-    padding: 20px 0 100px 0;
+    padding: 20px 0 120px 0; /* Padding lớn hơn cho khung trắng */
 }
 
 /* COMMON MODAL STYLES */
@@ -63,7 +61,7 @@ main {
 
 .modal-header h2 {
     font-size: 1.8em;
-    color: #1C5E47; 
+    color: #1e3b30; 
     margin-bottom: 20px;
 }
 
@@ -82,7 +80,7 @@ main {
 }
 
 
-/* Setup styles */
+/* === SETUP MODE STYLES === */
 .setup-card {
     max-width: 500px;
     margin: 50px auto;
@@ -92,127 +90,149 @@ main {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     background-color: #fff; 
 }
-
-/* Căn giữa tiêu đề và nút trong Setup Card */
 #setup-mode-container h1,
 .user-email-display {
     text-align: center;
 }
-
+#setup-mode-container h1 {
+    color: #1e3b30;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+.user-email-display {
+    color: #4CAF50;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
 #setup-info-form .action-btn { 
     display: block; 
     margin: 20px auto 0;
-    background-color: #4CAF50; 
-}
-
-.user-email-display {
-    margin-bottom: 20px;
-    font-size: 1.1em;
-    color: #333;
 }
 
 
 /* === VIEW MODE STYLES === */
 .profile-main-view {
-    padding: 30px 50px; 
-    max-width: 1400px; /* Tăng max-width để cho phép rộng hơn */
+    padding: 0; 
+    max-width: 1200px; 
     margin: 0 auto;
+    width: 90%; 
 }
 
-/*  Khung trắng bao quanh toàn bộ khu vực Account */
+/* Khung trắng lớn bao quanh toàn bộ khu vực Account */
 .profile-container-wrapper {
-    background-color: #fff;
+    background-color: #fff; 
     border-radius: 12px;
     padding: 30px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Thêm khoảng cách giữa header và khung trắng */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); 
+    margin-top: 20px; 
 }
 
-
-/* Tiêu đề My Account */
+/* Tiêu đề My Account - GIỮ NGUYÊN MÀU GRADIENT */
 .page-header-title {
-    text-align: center; 
-    margin-bottom: 20px; 
-    padding-top: 10px; /* Thêm padding-top để tạo khoảng cách với viền trên của khung trắng */
-    color: #1e3b30; 
-    font-size: 2.2em; 
+    text-align: center; /* Căn trái trong khung trắng */
+    margin-bottom: 30px;
+    padding-top: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+    /* Hiệu ứng Gradient */
+    background: linear-gradient(to left, #1e3b30, #5cce60); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* Thiết lập bố cục Grid 2 cột */
+/* Thiết lập bố cục Grid 2 cột - TỶ LỆ 1:3 */
 .profile-layout-grid {
     display: grid;
-    /* 3. Sidebar: Content Area = 1:3. 
-       Sidebar 25%, Content 75%. */
     grid-template-columns: 1fr 3fr; 
     gap: 30px; 
 }
 
+/* Sidebar Styling - GIỮ NGUYÊN MÀU XANH ĐẬM */
 .sidebar {
-    padding: 20px 15px;
-    background-color: #fff; 
+    padding: 0;
+    background-color: #1e3b30; /* Màu nền Xanh Đậm */
     border-radius: 8px;
-    border: 1px solid #eee; /* Thêm viền nhẹ */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #fff;
 }
 
 .user-profile-summary {
     text-align: center;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
+    padding: 20px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .view-avatar {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
+    border: 3px solid #4CAF50; 
 }
 
 .user-name {
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 1.2em;
     margin: 5px 0 2px;
+    color: #fff;
 }
 
 .user-email {
     font-size: 0.9em;
-    color: #777;
+    color: #A5D6A7;
 }
 
 .edit-profile-link {
-    background: none;
-    border: none;
-    color: #007bff;
-    cursor: pointer;
-    margin-top: 10px;
+    background: #4CAF50;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
     font-size: 0.9em;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-profile-link:hover {
+    background: #45A049;
 }
 
 .nav-menu {
     list-style: none;
-    padding: 0;
+    padding: 10px 0;
 }
 
 .nav-menu li a {
     display: flex;
     align-items: center;
-    padding: 10px 15px;
+    padding: 15px 25px;
     margin: 5px 0;
-    color: #333;
+    color: #fff;
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.2s;
+    border-radius: 0;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-.nav-menu li a:hover,
-.nav-menu li a.active {
-    background-color: #e0e0e0;
+.nav-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
     font-weight: 600;
+}
+.nav-menu li a.active {
+    background-color: #fff; 
+    color: #1e3b30;
+    font-weight: 700;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3); 
 }
 
 .nav-icon {
-    margin-right: 10px;
-    font-size: 1.1em;
+    margin-right: 15px;
+    font-size: 1.2em;
 }
 
 /* Content Area Styles */
@@ -229,26 +249,27 @@ main {
 }
 
 .section-box {
-    background-color: #fff;
-    padding: 20px;
+    background-color: #f7f7f7; 
+    padding: 30px;
     border-radius: 8px;
     border: 1px solid #eee;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
 }
 
 .section-title {
-    border-bottom: 2px solid #4CAF50; 
+    border-bottom: 2px solid #4CAF50;
     padding-bottom: 10px;
     margin-bottom: 20px;
-    font-size: 1.4em;
-    color: #333;
+    font-size: 1.8em;
+    color: #1e3b30;
 }
 
+/* Personal Details Grid */
 .info-display-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 15px 50px; 
 }
 
 .info-group label {
@@ -266,78 +287,269 @@ main {
 }
 
 
-/* FORM STYLES (Chung cho Setup, Edit, Product Edit) */
-.form-group, .form-row {
+/* === FORM INPUT STYLES === */
+.form-group {
     margin-bottom: 15px;
 }
 
-.form-group label, .form-row label,
-.address-section-title {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-.form-group input[type="text"],
+.form-group input[type="text"], 
+.form-group input[type="email"], 
+.form-group input[type="tel"], 
+.form-group input[type="date"],
 .form-group select,
-.form-row input[type="text"] {
+.form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 10px 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #ffffff;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
-/* Nút hành động */
-.action-btn {
-    background-color: #4CAF50; 
+/* AVATAR UPLOAD */
+.avatar-upload-group {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.avatar-upload-group .view-avatar {
+    margin: 0 auto 10px;
+    display: block;
+}
+.avatar-upload-group .action-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 20px;
+}
+
+
+/* === ACTION BUTTONS === */
+.action-btn, 
+#setup-info-form .action-btn { 
+    background-color: #1e3b30; 
     color: white;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px; /* Bo tròn nút */
     cursor: pointer;
-    transition: background-color 0.2s;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(30, 59, 48, 0.2);
 }
 
-.action-btn:hover {
-    background-color: #45A049; 
+.action-btn:hover,
+#setup-info-form .action-btn:hover {
+    background-color: #5cce60; /* Xanh lá nhạt hơn khi hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(30, 59, 48, 0.3);
 }
 
-/* Nút hủy trong Modal */
-.modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-}
-/* Nút Hủy */
+/* Nút Hủy (Cancel) */
 .cancel-btn {
-    background-color: #f44336; 
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    background-color: #E53935; /* Màu đỏ cảnh báo */
+    box-shadow: 0 4px 10px rgba(229, 57, 53, 0.2);
 }
 .cancel-btn:hover {
-    background-color: #da190b;
+    background-color: #FF5722; /* Đỏ cam khi hover */
+    box-shadow: 0 6px 15px rgba(229, 57, 53, 0.3);
+}
+
+/* Modal Footer Action */
+.modal-footer {
+    text-align: right;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.modal-footer .action-btn {
+    min-width: 150px;
+    margin-left: 10px; 
+}
+
+
+/* === ORDER LIST STYLES === */
+.order-item {
+    background-color: #fff; 
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.order-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.order-id {
+    font-weight: 700;
+    color: #1e3b30;
+    font-size: 1.1em;
+}
+
+.order-status {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.85em;
+    color: white;
+}
+
+/* Màu sắc trạng thái */
+.status-pending {
+    background-color: #FF9800; 
+}
+.status-shipped {
+    background-color: #2196F3; 
+}
+.status-delivered {
+    background-color: #4CAF50; 
+}
+.status-cancelled {
+    background-color: #F44336; 
+}
+
+.order-detail {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.order-total {
+    font-weight: 700;
+    color: #1e3b30;
+    font-size: 1.2em;
+}
+
+.order-actions .action-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+
+/* === ORDER DETAILS MODAL === */
+#order-details-modal .section-box {
+    background-color: #fcfcfc;
+}
+
+.detail-status-bar {
+    text-align: center;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    font-weight: 700;
+    background-color: #fff; 
+    border: 1px solid #eee;
+}
+.detail-status-bar #detail-status {
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+.detail-total-bar {
+    background-color: #E8F5E9; 
+    padding: 15px;
+    border-radius: 6px;
+    text-align: right;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #1e3b30;
+    margin-top: 20px;
+}
+.detail-total-bar span {
+    color: #4CAF50; 
 }
 
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .profile-layout-grid {
         grid-template-columns: 1fr; 
-    }
-    .profile-main-view {
-        padding: 30px 20px;
+        gap: 20px;
     }
     .sidebar {
         margin-bottom: 20px;
     }
+    .profile-container-wrapper {
+        padding: 20px;
+    }
+    /* Chỉnh sidebar ngang khi màn hình nhỏ */
+    .user-profile-summary {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 15px 20px;
+    }
+    .user-profile-summary .view-avatar {
+        margin: 0 15px 0 0;
+    }
+    .user-profile-summary .edit-profile-link {
+        margin-left: auto;
+    }
+    .nav-menu {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    .nav-menu li {
+        flex-grow: 1;
+        text-align: center;
+    }
+    .nav-menu li a {
+        justify-content: center;
+        padding: 10px 15px;
+        margin: 0;
+    }
+    .nav-icon {
+        margin-right: 5px;
+    }
+}
+@media (max-width: 768px) {
+    .profile-main-view {
+        padding: 30px 20px;
+    }
     .modal-content {
         width: 90%;
         margin: 5% auto;
+    }
+    .order-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .order-actions {
+        margin-top: 10px;
+    }
+    .order-actions .action-btn {
+        margin-left: 0;
+        margin-right: 10px;
     }
 }
