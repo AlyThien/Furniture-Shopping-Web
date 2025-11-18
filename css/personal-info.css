@@ -1,0 +1,1055 @@
+/* ==============================================
+Nhóm 9: PHẦN RESET & BODY - BACKGROUND & LAYOUT
+============================================== */
+body {
+    background: linear-gradient(135deg, #E0F2F1 0%, #C8E6C9 50%, #A5D6A7 100%);
+    font-family: 'Roboto Serif', serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px 0 120px 0;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN MODAL - POPUP CHUNG
+============================================== */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-content {
+    background-color: #fff; 
+    margin: 10% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 700px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header h2 {
+    font-size: 1.8em;
+    color: #1e3b30; 
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.modal-footer {
+    text-align: right;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer .action-btn {
+    min-width: 150px;
+    margin-left: 10px; 
+}
+
+/* ==============================================
+Nhóm 9: PHẦN SETUP MODE - THIẾT LẬP BAN ĐẦU
+============================================== */
+.setup-card {
+    max-width: 500px;
+    margin: 10px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background-color: #fff; 
+}
+
+#setup-mode-container h1,
+.user-email-display {
+    text-align: center;
+}
+
+#setup-mode-container h1 {
+    color: #1e3b30;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.user-email-display {
+    color: #4CAF50;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+#setup-info-form .action-btn { 
+    display: block; 
+    margin: 20px auto 0;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN VIEW MODE - GIAO DIỆN XEM THÔNG TIN
+============================================== */
+/*Khung chính*/
+.profile-main-view {
+    padding: 0; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    width: 90%; 
+}
+
+/*Khung trắng bao quanh toàn bộ*/
+.profile-container-wrapper {
+    background-color: #fff; 
+    border-radius: 12px;
+    padding: 30px; 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); 
+    margin-top: 20px; 
+}
+
+/*Tiêu đề My Account*/
+.page-header-title {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-top: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+    background: linear-gradient(to left, #1e3b30, #5cce60); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/*Bố cục Grid 2 cột - Tỷ lệ 1:3*/
+.profile-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr; 
+    gap: 30px; 
+}
+
+/* ==============================================
+Nhóm 9: PHẦN SIDEBAR - THANH BÊN TRÁI
+============================================== */
+.sidebar {
+    padding: 0;
+    background-color: #1e3b30;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+/*Thông tin người dùng*/
+.user-profile-summary {
+    text-align: center;
+    padding: 20px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.view-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #4CAF50; 
+}
+
+.user-name {
+    font-weight: 700;
+    font-size: 1.2em;
+    margin: 5px 0 2px;
+    color: #fff;
+}
+
+.user-email {
+    font-size: 0.9em;
+    color: #A5D6A7;
+}
+
+.edit-profile-link {
+    background: #4CAF50;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-profile-link:hover {
+    background: #45A049;
+}
+
+/*Menu điều hướng*/
+.nav-menu {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.nav-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    margin: 5px 0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+.nav-menu li a.active {
+    background-color: #fff; 
+    color: #1e3b30;
+    font-weight: 700;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3); 
+}
+
+.nav-icon {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN CONTENT AREA - KHU VỰC NỘI DUNG
+============================================== */
+.content-area {
+    padding: 0;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.section-box {
+    background-color: #f7f7f7; 
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.section-title {
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #1e3b30;
+}
+
+/*Lưới hiển thị thông tin*/
+.info-display-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 15px 50px; 
+}
+
+.info-group label {
+    font-weight: 600;
+    display: block;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.info-group span {
+    display: block;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ddd;
+    color: #000;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN FORM - CÁC TRƯỜNG NHẬP LIỆU
+============================================== */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input[type="text"], 
+.form-group input[type="email"], 
+.form-group input[type="tel"], 
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #ffffff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/*Upload Avatar trong Edit Modal*/
+.avatar-upload-group {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.avatar-upload-group label {
+    display: block;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.avatar-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar-area img,
+#edit-avatar-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4CAF50;
+    display: block;
+}
+
+.choose-avatar-btn,
+.avatar-upload-group .action-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 20px;
+    background-color: #1e3b30;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.choose-avatar-btn:hover,
+.avatar-upload-group .action-btn:hover {
+    background-color: #5cce60;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN BUTTONS - CÁC NÚT HÀNH ĐỘNG
+============================================== */
+.action-btn, 
+#setup-info-form .action-btn { 
+    background-color: #1e3b30; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(30, 59, 48, 0.2);
+}
+
+.action-btn:hover,
+#setup-info-form .action-btn:hover {
+    background-color: #5cce60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(30, 59, 48, 0.3);
+}
+
+/*Nút Hủy*/
+.cancel-btn {
+    background-color: #E53935;
+    box-shadow: 0 4px 10px rgba(229, 57, 53, 0.2);
+}
+
+.cancel-btn:hover {
+    background-color: #FF5722;
+    box-shadow: 0 6px 15px rgba(229, 57, 53, 0.3);
+}
+
+/* ==============================================
+Nhóm 9: PHẦN ORDER LIST - DANH SÁCH ĐỌN HÀNG
+============================================== */
+.order-item {
+    background-color: #fff; 
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.order-item:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.order-id {
+    font-weight: 700;
+    color: #1e3b30;
+    font-size: 1.1em;
+}
+
+.order-status {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.85em;
+    color: white;
+}
+
+/*Màu sắc trạng thái đơn hàng*/
+.status-pending {
+    background-color: #FF9800; 
+}
+
+.status-shipped {
+    background-color: #2196F3; 
+}
+
+.status-delivered {
+    background-color: #4CAF50; 
+}
+
+.status-cancelled {
+    background-color: #F44336; 
+}
+
+.order-detail {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.order-total {
+    font-weight: 700;
+    color: #1e3b30;
+    font-size: 1.2em;
+}
+
+.order-actions .action-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN ORDER DETAILS MODAL - CHI TIẾT ĐƠN HÀNG
+============================================== */
+#order-details-modal .section-box {
+    background-color: #fcfcfc;
+}
+
+.detail-status-bar {
+    text-align: center;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    font-weight: 700;
+    background-color: #fff; 
+    border: 1px solid #eee;
+}
+
+.detail-status-bar #detail-status {
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.detail-total-bar {
+    background-color: #E8F5E9; 
+    padding: 15px;
+    border-radius: 6px;
+    text-align: right;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #1e3b30;
+    margin-top: 20px;
+}
+
+.detail-total-bar span {
+    color: #4CAF50; 
+}
+
+/* ==============================================
+Nhóm 9: PHẦN NOTIFICATION - THÔNG BÁO TRONG MODAL
+============================================== */
+.profile-notification {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideDown 0.3s ease;
+}
+
+.profile-notification.hidden {
+    display: none;
+}
+
+.profile-notification.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.profile-notification.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.profile-notification.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.profile-notification::before {
+    content: '✓';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.profile-notification.success::before {
+    background-color: #28a745;
+    color: white;
+}
+
+.profile-notification.info::before {
+    content: 'ℹ';
+    background-color: #17a2b8;
+    color: white;
+}
+
+.profile-notification.warning::before {
+    content: '!';
+    background-color: #ffc107;
+    color: #333;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================================
+Nhóm 9: PHẦN ORDER NOTIFICATION - THÔNG BÁO ĐƠN HÀNG
+============================================== */
+.order-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    animation: slideInRight 0.3s ease;
+}
+
+.order-notification.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - TABLET (max-width: 1024px)
+============================================== */
+@media (max-width: 992px) {
+    /*Phần Layout*/
+    .profile-layout-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .sidebar {
+        margin-bottom: 20px;
+    }
+
+    .profile-container-wrapper {
+        padding: 20px;
+    }
+
+    /*Phần Sidebar ngang*/
+    .user-profile-summary {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 15px 20px;
+    }
+
+    .user-profile-summary .view-avatar {
+        margin: 0 15px 0 0;
+    }
+
+    .user-profile-summary .edit-profile-link {
+        margin-left: auto;
+    }
+
+    /*Phần Menu ngang*/
+    .nav-menu {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    .nav-menu li {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .nav-menu li a {
+        justify-content: center;
+        padding: 10px 15px;
+        margin: 0;
+    }
+
+    .nav-icon {
+        margin-right: 5px;
+    }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
+============================================== */
+@media (max-width: 768px) {
+    /*Phần Body*/
+    body {
+        padding-top: 80px;
+    }
+
+    main {
+        padding: 15px 0 80px 0;
+    }
+
+    /*Phần Main*/
+    .profile-main-view {
+        width: 95%;
+        padding: 0;
+    }
+
+    .profile-container-wrapper {
+        padding: 20px 15px;
+        margin-top: 15px;
+    }
+
+    /*Phần Tiêu đề*/
+    .page-header-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    /*Phần Sidebar*/
+    .nav-menu {
+        flex-wrap: wrap;
+    }
+
+    .nav-menu li {
+        flex-basis: 50%;
+    }
+
+    .nav-menu li a {
+        font-size: 0.9em;
+        padding: 12px 10px;
+    }
+
+    /*Phần Section*/
+    .section-box {
+        padding: 20px 15px;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+    }
+
+    /*Phần Info Grid*/
+    .info-display-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /*Phần Modal*/
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        margin: 5% auto;
+    }
+
+    .modal-header h2 {
+        font-size: 1.5em;
+    }
+
+    /*Phần Order*/
+    .order-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .order-actions {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .order-actions .action-btn {
+        margin-left: 0;
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+
+    /*Phần Setup Mode*/
+    .setup-card {
+        padding: 25px 20px;
+        margin: 10px 15px;
+    }
+
+    #setup-mode-container h1 {
+        font-size: 1.8em;
+    }
+
+    /*Phần Avatar trong Modal*/
+    .avatar-area img,
+    #edit-avatar-preview {
+        width: 100px;
+        height: 100px;
+    }
+
+    .choose-avatar-btn {
+        font-size: 0.85em;
+        padding: 7px 13px;
+    }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE NHỎ (max-width: 480px)
+============================================== */
+@media (max-width: 480px) {
+    /*Phần Body*/
+    body {
+        padding-top: 70px;
+    }
+
+    main {
+        padding: 10px 0 60px 0;
+    }
+
+    /*Phần Main Container*/
+    .profile-main-view {
+        width: 100%;
+        padding: 0;
+    }
+
+    .profile-container-wrapper {
+        padding: 15px 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    /*Phần Tiêu đề*/
+    .page-header-title {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+
+    /*Phần Sidebar*/
+    .user-profile-summary {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .user-profile-summary .view-avatar {
+        width: 80px;
+        height: 80px;
+        margin: 0 0 10px 0;
+    }
+
+    .user-name {
+        font-size: 1em;
+    }
+
+    .user-email {
+        font-size: 0.85em;
+        word-break: break-all;
+    }
+
+    .edit-profile-link {
+        margin-top: 10px;
+        margin-left: 0;
+        font-size: 0.85em;
+        padding: 5px 12px;
+    }
+
+    /*Phần Menu*/
+    .nav-menu {
+        flex-direction: column;
+    }
+
+    .nav-menu li {
+        flex-basis: 100%;
+    }
+
+    .nav-menu li a {
+        font-size: 0.9em;
+        padding: 12px 15px;
+        justify-content: flex-start;
+    }
+
+    .nav-icon {
+        margin-right: 10px;
+        font-size: 1.1em;
+    }
+
+    /*Phần Section*/
+    .section-box {
+        padding: 15px 12px;
+    }
+
+    .section-title {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+
+    /*Phần Info Display*/
+    .info-display-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .info-group label {
+        font-size: 0.9em;
+    }
+
+    .info-group span {
+        font-size: 0.95em;
+    }
+
+    /*Phần Form*/
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-group input[type="text"], 
+    .form-group input[type="email"], 
+    .form-group input[type="tel"], 
+    .form-group input[type="date"],
+    .form-group select,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+
+    /*Phần Buttons*/
+    .action-btn, 
+    #setup-info-form .action-btn {
+        padding: 10px 18px;
+        font-size: 0.95em;
+    }
+
+    /*Phần Modal*/
+    .modal-content {
+        width: 98%;
+        padding: 15px;
+        margin: 3% auto;
+    }
+
+    .modal-header h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+
+    .close-btn {
+        font-size: 24px;
+        top: 8px;
+        right: 12px;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-footer .action-btn {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /*Phần Order*/
+    .order-item {
+        padding: 15px;
+    }
+
+    .order-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .order-id {
+        font-size: 1em;
+    }
+
+    .order-status {
+        font-size: 0.8em;
+        padding: 3px 8px;
+    }
+
+    .order-detail {
+        font-size: 0.9em;
+    }
+
+    .order-total {
+        font-size: 1.1em;
+    }
+
+    .order-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .order-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .order-actions .action-btn {
+        width: 100%;
+        margin: 0;
+    }
+
+    /*Phần Order Details Modal*/
+    .detail-status-bar {
+        font-size: 1em;
+        padding: 12px;
+    }
+
+    .detail-total-bar {
+        font-size: 1.1em;
+        padding: 12px;
+    }
+
+    /*Phần Setup Mode*/
+    .setup-card {
+        padding: 20px 15px;
+        margin: 5px;
+    }
+
+    #setup-mode-container h1 {
+        font-size: 1.5em;
+    }
+
+    .user-email-display {
+        font-size: 0.9em;
+        word-break: break-all;
+    }
+
+    /*Phần Avatar Upload*/
+    .avatar-area img,
+    #edit-avatar-preview {
+        width: 90px;
+        height: 90px;
+    }
+
+    .choose-avatar-btn {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+}

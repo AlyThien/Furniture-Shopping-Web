@@ -1,0 +1,27 @@
+{
+  "en": {
+    "login-title": "Login to Your Account",
+    "login-subtitle": "Enter your email address",
+    "email-placeholder": "Your Email Address",
+    "send-code-btn": "Send Login Code",
+    "verify-title": "Verify Your Code",
+    "verify-subtitle-1": "A 6-digit code has been sent to",
+    "verify-subtitle-2": "Please enter it below.",
+    "otp-placeholder": "Enter 6-Digit Code",
+    "login-btn": "Log In",
+    "back-link": "Not your email? Go back."
+  },
+  
+  "vi": {
+    "login-title": "Đăng Nhập Tài Khoản",
+    "login-subtitle": "Nhập địa chỉ email của bạn",
+    "email-placeholder": "Địa chỉ Email của bạn",
+    "send-code-btn": "Gửi Mã Đăng Nhập",
+    "verify-title": "Xác Minh Mã Của Bạn",
+    "verify-subtitle-1": "Mã gồm 6 chữ số đã được gửi đến",
+    "verify-subtitle-2": "Vui lòng nhập mã bên dưới.",
+    "otp-placeholder": "Nhập Mã 6 Chữ Số",
+    "login-btn": "Đăng Nhập",
+    "back-link": "Không phải email của bạn? Quay lại."
+  }
+}

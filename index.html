@@ -40,7 +40,13 @@
                         <span class="wishlist-count">0</span>
                     </a>
                 </li>
-                <li><span class="solar--user-bold"></span></li> <!--Nhóm 9: Tài khoản người dùng-->
+                <li id="User">  <!--Nhóm 9: Tài khoản người dùng-->
+                    <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
+                    <a href="personal-info.html" id="user-avatar-link">
+                        <img id="header-user-avatar" class="header-avatar" src="" alt="User Avatar" style="display: none;">
+                        <span id="header-default-icon" class="solar--user-bold"></span>
+                    </a>
+                </li>
                 <li class="lang-switcher"> <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
                     <div class="lang-toggle">
                         <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')"> <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
@@ -357,15 +363,15 @@
                 <li><a href="" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
             </ul>
         </div>
-    </div>
-        <div class="footer-bottom">
-            <span>© 2025 HAGUCHI – All rights reserved.</span>
-            <div class="social-icons">
-                <div class="social-icon">f</div>
-                <div class="social-icon">in</div>
-                <div class="social-icon">t</div>
-            </div>
         </div>
+            <div class="footer-bottom">
+                <span>© 2025 HAGUCHI – All rights reserved.</span>
+                <div class="social-icons">
+                    <div class="social-icon">f</div>
+                    <div class="social-icon">in</div>
+                    <div class="social-icon">t</div>
+                </div>
+            </div>
     </footer>
     
     <script src="js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
