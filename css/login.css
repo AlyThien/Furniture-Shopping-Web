@@ -1,5 +1,5 @@
 /* ==============================================
-Nhóm 9: PHẦN BODY - BACKGROUND & LAYOUT
+Nhóm 9: PHẦN CHÍNH
 ============================================== */
 body {
     background-image: linear-gradient(to bottom, #A8C6AE 0%, #689F73 50%, #1D523C 100%);
@@ -24,7 +24,7 @@ main {
 }
 
 /* ==============================================
-Nhóm 9: PHẦN LOGIN CONTAINER
+Nhóm 9: PHẦN KHUNG ĐĂNG NHẬP
 ============================================== */
 .login-container {
     background: white;
