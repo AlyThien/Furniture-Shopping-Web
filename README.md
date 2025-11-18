@@ -33,8 +33,8 @@ Vì vậy, nhóm quyết định chọn đề tài "Thiết kế trang web bán 
 | A3 | Xem danh sách sản phẩm | 01, 02 | 100% |
 | A4 | Xem chi tiết sản phẩm | 01, 02 | 100% |
 | A5 | Sử dụng bộ lọc | 01, 02 | 0% |
-| A6 | Xem thông tin cá nhân | 02 | 100% |
-| A7 | Sửa thông tin cá nhân | 02 | 100% |
+| A6 | Xem thông tin cá nhân | 02 | 80% |
+| A7 | Sửa thông tin cá nhân | 02 | 90% |
 | A8 | Đăng xuất | 02 | 100% |
 | A9 | Thêm vào giỏ hàng | 01, 02 | 100% |
 | A10 | Quản lý giỏ hàng | 01, 02 | 100% |
