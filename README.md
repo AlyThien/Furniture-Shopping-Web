@@ -43,8 +43,8 @@ Vì vậy, nhóm quyết định chọn đề tài "Thiết kế trang web bán 
 | A13 | Xem lịch sử mua hàng | 02 | 50% |
 | A14 | Đánh giá | 02 | 100% |
 | A15 | Quản lý đơn hàng | 03 | 100% |
-| A16 | Quản lý kho | 03 | 100% |
-| A17 | Quản lý báo cáo kinh doanh | 03 | 100% |
+| A16 | Quản lý kho | 03 | 90% |
+| A17 | Quản lý báo cáo kinh doanh | 03 | 0% |
 
 ## Công nghệ sử dụng
 <p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> </p>
