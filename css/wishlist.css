@@ -1,0 +1,544 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* ========== CSS VARIABLES ========== */
+:root {
+  --font-primary: 'Roboto Serif', sans-serif;
+  --font-secondary: 'Nunito', sans-serif;
+}
+
+/* ========== RESET ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== BODY ========== */
+body {
+  font-family: var(--font-primary);
+  background: linear-gradient(to bottom, #EEF9E5, #61A38C);
+  min-height: 100vh;
+}
+
+/* ========== WISHLIST SECTION ========== */
+h1 {
+  text-align: center;
+  font-size: 110px;
+  font-style: italic;
+  color: #1D382C;
+  margin-top: 140px;
+  margin-bottom: 150px;
+}
+
+/* ========== TABLE STYLES ========== */
+.wishlist-table {
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-bottom: 2px solid #2d4a3e;
+}
+
+thead tr {
+  border-bottom: 2px solid #2d4a3e;
+}
+
+thead th {
+  padding: 15px;
+  text-align: left;
+  color: #2d4a3e;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(168, 196, 181, 0.2);
+}
+
+tbody td {
+  padding: 20px 15px;
+  color: #2d4a3e;
+}
+
+/* ========== PRODUCT COLUMN ========== */
+.product-info {
+  font-weight: 600;
+}
+
+.product-details {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.product-image {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  align-self: center;
+}
+ .product-image::after{
+  transition: opacity 0.3s ease;
+ }
+
+.product-text {
+  flex: 1;
+}
+
+.product-text strong {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #1D382C;
+}
+
+.product-specs p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: #666;
+  font-weight: 400;
+}
+
+.product-specs strong {
+  font-size: 12px;
+  color: #1D382C;
+  font-weight: 600;
+}
+
+/* ========== COLOR SELECTOR ========== */
+.colors-cell {
+  min-width: 160px;
+}
+
+.color-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.color-dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.color-dropdown,
+.quantity-dropdown {
+  padding: 12px 30px 12px 12px;
+  border: 1px solid #999;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1D382C;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.color-dropdown {
+  width: 100%;
+}
+
+.color-dropdown:hover,
+.quantity-dropdown:hover {
+  border-color: #1D382C;
+}
+
+.color-dropdown:focus,
+.quantity-dropdown:focus {
+  outline: none;
+  border-color: #1D382C;
+  box-shadow: inset 0 0 3px rgba(29, 56, 44, 0.1);
+}
+
+/* ========== PRICE COLUMN ========== */
+.price-cell {
+  font-weight: 700;
+  color: #1D382C;
+  font-size: 15px;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* ========== QUANTITY COLUMN ========== */
+.quantity-cell {
+  min-width: 140px;
+}
+
+.quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100px;
+}
+
+.quantity-dropdown {
+  width: 100%;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ========== TOTAL & REMOVE COLUMN ========== */
+.total-cell {
+  min-width: 200px;
+}
+
+.total-with-remove {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  top: 25px;
+}
+
+.item-total {
+  font-weight: 700;
+  color: #1D382C;
+  font-size: 16px;
+}
+
+.remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #999;
+  color: #666;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.remove-btn:hover {
+  border-color: #cc3333;
+  color: #cc3333;
+  background: #fff5f5;
+}
+
+.remove-btn span {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 40px 20px !important;
+  color: #999;
+  font-size: 16px;
+  font-style: italic;
+}
+
+/* ========== ORDER ESTIMATE ========== */
+.order-estimate {
+  background: transparent;
+  padding: 30px 0;
+  margin-bottom: 100px;
+}
+
+.order-title {
+  text-align: right;
+  padding-right: 100px;
+  color: #1D382C;
+  margin-bottom: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.Total {
+  display: flex;
+  justify-content: flex-end;
+  gap: 100px;
+  padding-right: 100px;
+  font-size: 16px;
+  color: #1D382C;
+  font-weight: 600;
+}
+
+/* ========== NOTE SECTION ========== */
+.note {
+  background: transparent;
+  padding: 0 50px;
+  margin-bottom: 40px;
+}
+
+.note-title {
+  font-style: italic;
+  font-weight: 600;
+  color: #1D382C;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.note p {
+  color: #1D382C;
+  line-height: 1.8;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.note a {
+  color: #1D382C;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+/* ========== CONTINUE BUTTON ========== */
+.continue-bu {
+  display: block;
+  margin: 40px auto 100px;
+  padding: 12px 50px;
+  background-color: #fff;
+  color: #1D382C;
+  border: 2px solid #1D382C;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.continue-bu:hover {
+  background-color: #1D382C;
+  color: #fff;
+}
+
+/* ========== RESPONSIVE: TABLET (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 80px;
+    margin-top: 100px;
+    margin-bottom: 80px;
+  }
+
+  .wishlist-table {
+    padding: 20px;
+  }
+
+  table {
+    min-width: 700px;
+  }
+
+  thead th {
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+
+  tbody td {
+    padding: 15px 10px;
+    font-size: 13px;
+  }
+
+  .product-image {
+    width: 150px;
+    height: 100px;
+  }
+
+  .product-text {
+    min-width: 200px;
+  }
+
+  .product-text strong {
+    font-size: 14px;
+  }
+
+  .product-specs p {
+    font-size: 12px;
+  }
+
+  .color-dropdown,
+  .quantity-dropdown {
+    font-size: 13px;
+    padding: 8px 26px 8px 10px;
+  }
+
+  .price-cell {
+    font-size: 14px;
+    min-width: 100px;
+  }
+
+  .item-total {
+    font-size: 14px;
+  }
+
+  .remove-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .order-title {
+    padding-right: 60px;
+    margin-bottom: 40px;
+    font-size: 13px;
+  }
+
+  .Total {
+    gap: 60px;
+    padding-right: 60px;
+    font-size: 15px;
+  }
+
+  .note {
+    padding: 0 30px;
+  }
+
+  .note p {
+    font-size: 13px;
+  }
+
+}
+
+/* ========== RESPONSIVE: MOBILE (max-width: 768px) ========== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 60px;
+    margin-top: 80px;
+    margin-bottom: 60px;
+  }
+
+  .wishlist-table {
+    padding: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 600px;
+    font-size: 12px;
+  }
+
+  thead th {
+    padding: 10px 8px;
+    font-size: 11px;
+  }
+
+  tbody td {
+    padding: 12px 8px;
+    font-size: 12px;
+  }
+
+  .product-details {
+    gap: 10px;
+  }
+
+  .product-image {
+    width: 130px;
+    height: 90px;
+    min-width: 130px;
+  }
+
+  .product-text {
+    min-width: 150px;
+  }
+
+  .product-text strong {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  .product-specs p {
+    font-size: 11px;
+    margin: 3px 0;
+  }
+
+  .colors-cell {
+    min-width: 130px;
+  }
+
+  .color-dropdown {
+    font-size: 12px;
+    padding: 8px 24px 8px 10px;
+  }
+
+  .quantity-cell {
+    min-width: 100px;
+  }
+
+  .quantity-dropdown {
+    max-width: 80px;
+    font-size: 12px;
+    padding: 8px 22px 8px 10px;
+  }
+
+  .price-cell {
+    font-size: 13px;
+    min-width: 90px;
+  }
+
+  .total-cell {
+    min-width: 140px;
+  }
+
+  .total-with-remove {
+    gap: 10px;
+  }
+
+  .item-total {
+    font-size: 13px;
+  }
+
+  .remove-btn {
+    padding: 6px 10px;
+    font-size: 10px;
+    gap: 4px;
+  }
+
+  .remove-btn span {
+    font-size: 12px;
+  }
+
+  .order-estimate {
+    padding: 20px 0;
+    margin-bottom: 60px;
+  }
+
+  .order-title {
+    padding-right: 30px;
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+
+  .Total {
+    gap: 40px;
+    padding-right: 30px;
+    font-size: 14px;
+  }
+
+  .note {
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
+
+  .note-title {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .note p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .continue-bu {
+    margin: 30px auto 60px;
+    padding: 10px 40px;
+    font-size: 14px;
+  }
+
+}

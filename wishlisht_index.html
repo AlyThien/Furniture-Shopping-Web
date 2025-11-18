@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="css/Wishlist.css">
+    <link rel="stylesheet" href="/css/component.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="Logo">
+            <a href="index.html"><em>NatureFurni</em></a>
+        </div>
+        <nav class="Main-Menu">
+            <ul>
+                <li><a href="product_page_index.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="policies.html">Policies</a></li>
+            </ul>
+        </nav>
+        <nav class="Sub-Menu">
+            <ul>
+                <li><a href="wishlist.html"><span class="solar--heart-bold"></span></a></li>
+                <li><a href="#search"><span class="fluent--search-12-filled"></span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Phần Wishlist -->
+    <section id="wishlist">
+        <h1>Wishlist</h1>
+
+        <!-- Wishlist Table -->
+        <div class="wishlist-table">
+            <table id="wishlist">
+                <thead>
+                    <tr>
+                        <th>Product Information</th>
+                        <th>Colors</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample Product -->
+                    <tr>
+                        <td>
+                            <div class="product-details">
+                                <img src="images/product/9.png" 
+                                     alt="L-shaped Sofa NF201" 
+                                     class="product-image"
+                                     style="transition: opacity 0.3s ease;">
+                                <div class="product-text">
+                                    <strong>L-shaped Sofa NF201</strong>
+                                    <div class="product-specs">
+                                        <p><strong>DIMENSIONS</strong></p>
+                                        <p>W2400 x D1100 x H800 mm</p>
+                                        <p><strong>MATERIALS</strong></p>
+                                        <p>Structure: wood, pocket spring<br>Seat & backrest: HR foam, polyester wadding, feathers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="colors-cell">
+                            <div class="color-selector">
+                                <select class="color-dropdown">
+                                    <option value="">Select Color</option>
+                                    <option value="0">Brown</option>
+                                    <option value="1">Navy</option>
+                                    <option value="2">Olive</option>
+                                    <option value="3">Gray</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td class="price-cell">11.000.000 VND</td>
+                        <td class="quantity-cell">
+                            <div class="quantity-control">
+                                <select class="quantity-dropdown">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td class="total-cell">
+                            <div class="total-with-remove">
+                                <div class="item-total">11.000.000 VND</div>
+                                <button class="remove-btn">
+                                    <span>×</span> Remove
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Order Estimate -->
+        <div class="order-estimate">
+            <div class="order-title">ORDER ESTIMATE</div>
+            <div class="Total">
+                <span>TOTAL</span>
+                <span id="wishlist-total">11.000.000 VND</span>
+            </div>
+        </div>
+
+        <!-- Note -->
+        <div class="note">
+            <div class="note-title">Note:</div>
+            <p>
+                This price list does not include shipping fee and taxes. 
+                The color chart is for reference only so that we can better understand 
+                the color tone that you are looking for. For more information on 
+                shipping and payment methods, please visit our 
+                <a href="policies.html">Policies</a> page.
+            </p>
+        </div>
+
+        <!-- Continue Button -->
+        <button class="continue-bu">Continue</button>
+        <span class="scollToTop"></span>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <div>Haguchi</div>
+            <div>葉具家</div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
+                    <li>📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
+                    <li>📞 (+84) 123 456 789</li>
+                    <li>📧 support@HAGUCHI.com</li>
+                    <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Shop by Category</h3>
+                <ul>
+                    <li>Sofas & Armchairs</li>
+                    <li>Dining Tables</li>
+                    <li>Beds</li>
+                    <li>Cabinets & Shelves</li>
+                    <li>Lighting & Decor</li>
+                    <li>New Arrivals / Promotions</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies & Support</h3>
+                <ul>
+                    <li>Warranty Policy</li>
+                    <li>Return & Exchange</li>
+                    <li>Shipping Policy</li>
+                    <li>How to Order</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 HAGUCHI – All rights reserved.</span>
+            <div class="social-icons">
+                <div class="social-icon">f</div>
+                <div class="social-icon">in</div>
+                <div class="social-icon">t</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/js/wishlist.js"></script>
+    <script src="/js/scoll-to-top.js"></script>
+</body>
+</html>

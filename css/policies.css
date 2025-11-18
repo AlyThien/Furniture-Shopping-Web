@@ -1,0 +1,149 @@
+
+   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
+   
+/* ========== CSS VARIABLES ========== */
+   :root {
+     /* Fonts */
+     --font-primary: 'Roboto Serif', sans-serif;
+     --font-secondary: 'Nunito', sans-serif;
+     --font-heading: 'Ibarra Real Nova', serif;
+   }
+   /* ========== RESET ========== */
+   * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+   }
+   /* ========== BODY ========== */
+   body {
+     font-family: var(--font-primary);
+     background: linear-gradient(to bottom, #EEF9E5, #61A38C);
+     min-height: 100vh;
+   }
+
+   
+  /* ========== POLICIES SECTION ========== */
+   #Policies {
+     padding-top: 100px;
+   }
+   
+   .policies-content {
+     display: flex;
+     align-items: center;
+     min-height: calc(100vh - 55px);
+   }
+   
+   .policies-text {
+     flex: 2;
+     padding: 40px 60px 60px 80px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     max-width: 900px;
+   }
+   
+   .policies-text h1 {
+     font-family: var(--font-heading);
+     font-style: italic;
+     font-size: 120px;
+     line-height: 1;
+     letter-spacing: 0.5px;
+     margin-bottom: 60px;
+     white-space: nowrap;
+     background: linear-gradient(to bottom, #4B7B63, #3BA36F);
+     background-clip: text;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+   }
+   
+   .policies-text p {
+     font-family: var(--font-heading);
+     font-weight: 500;
+     font-style: italic;
+     font-size: 25px;
+     text-indent: 50px;
+     line-height: 1.75;
+     color: #083F10;
+     margin-bottom: 30px;
+     max-width: 720px;
+   }
+   
+   .policies-image {
+     flex: 1;
+     display: flex;
+     align-items: flex-end;
+     justify-content: flex-end;
+     overflow: hidden;
+   }
+   
+   .policies-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: center bottom;
+   }
+/* ==========  RESPONSIVE - TABLET ========== */
+   @media (max-width: 1024px) {
+     #Policies {
+       padding-top: 80px;
+       min-height: calc(100vh - 55px);
+       display: flex;
+       align-items: center;
+     }
+   
+     .policies-content {
+       flex-direction: column;
+       width: 100%;
+     }
+   
+     .policies-image {
+       display: none;
+     }
+   
+     .policies-text {
+       flex: 1;
+       width: 100%;
+       padding: 50px 40px;
+       max-width: 100%;
+       margin: 0 auto;
+     }
+   
+     .policies-text h1 {
+       font-size: 100px;
+       margin-bottom: 50px;
+       white-space: normal;
+       line-height: 1.2;
+     }
+   
+     .policies-text p {
+       font-size: 20px;
+       text-indent: 40px;
+       line-height: 1.7;
+       margin-bottom: 25px;
+       max-width: 100%;
+     }
+   }
+/* ==========  RESPONSIVE - MOBILE ========== */
+   @media (max-width: 768px) {
+     #Policies {
+       padding-top: 70px;
+     }
+   
+     .policies-text {
+       padding: 40px 20px;
+     }
+   
+     .policies-text h1 {
+       font-size: 70px;
+       margin-bottom: 35px;
+       letter-spacing: 0;
+     }
+   
+     .policies-text p {
+       font-size: 20px;
+       text-indent: 25px;
+       margin-bottom: 20px;
+     }
+   }

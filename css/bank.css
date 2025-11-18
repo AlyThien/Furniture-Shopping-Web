@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* ==================== ROOT VARIABLES ==================== */
+:root {
+    /* Font Families */
+    --font-primary: 'Roboto Serif', sans-serif;
+    --font-secondary: 'Nunito', sans-serif;
+}
+
+/* ==================== RESET ==================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(to bottom, #EEF9E5, #61A38C);
+    min-height: 100vh;
+}
+/* ==================== CONTAINER ==================== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+h1 {
+    text-align: center;
+    font-size: 110px;
+    font-style: italic;
+    color: #1D382C;
+    margin-top: 140px;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 28px;
+    text-align: center;
+    color: #1a3a2e;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 50px;
+    line-height: 1.6;
+}
+
+/* Payment Detail Section */
+.payment-detail-container {
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.payment-detail-container h3 {
+    color: #1a3a2e;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.detail-note {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Upload Section */
+.upload-section {
+    margin-top: 30px;
+}
+
+.upload-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 24px;
+    background: #1D382C;
+    color: white;
+    border: 2px dashed #3B6D54;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    min-height: 120px;
+    flex-direction: column;
+}
+
+.upload-btn svg {
+    width: 32px;
+    height: 32px;
+    stroke: currentColor;
+}
+
+#file-upload {
+    display: none;
+}
+
+/* Preview Area */
+.preview-area {
+    position: relative;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f5f5f5;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+#preview-image {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+    object-fit: contain;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Remove Button */
+.remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.remove-btn:hover {
+    background: #cc0000;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Continue Button */
+.continue-bu {
+    display: block;
+    margin: 40px auto 100px;
+    padding: 14px 60px;
+    background-color: white;
+    color: #1a3a2e;
+    border: 2px solid #1a3a2e;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+}
+
+.continue-bu:hover {
+    background-color: #1a3a2e;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(26, 58, 46, 0.2);
+}
+
+.continue-bu:active {
+    transform: translateY(0);
+}
+
+
+/* ==================== RESPONSIVE: TABLET (768px - 1024px) ==================== */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 80px;
+        margin-top: 100px;
+        margin-bottom: 40px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 30px;
+    }
+
+    .payment-detail-container h3 {
+        font-size: 17px;
+        margin-bottom: 15px;
+    }
+
+    .detail-note {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .upload-btn {
+        padding: 14px 20px;
+        font-size: 15px;
+        min-height: 100px;
+    }
+
+    .upload-btn svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .preview-area {
+        min-height: 250px;
+        padding: 12px;
+    }
+
+    #preview-image {
+        max-height: 350px;
+    }
+
+    .continue-bu {
+        margin: 30px auto 80px;
+        padding: 12px 50px;
+        font-size: 15px;
+    }
+
+}
+
+/* ==================== RESPONSIVE: MOBILE (480px - 768px) ==================== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 55px;
+        margin-top: 80px;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .payment-detail-container h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .detail-note {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .upload-btn {
+        padding: 12px 16px;
+        min-height: 90px;
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    .upload-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .preview-area {
+        min-height: 200px;
+        padding: 10px;
+    }
+
+    #preview-image {
+        max-height: 300px;
+    }
+
+    .remove-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+    }
+
+    .continue-bu {
+        width: 90%;
+        margin: 25px auto 60px;
+        padding: 11px 40px;
+        font-size: 14px;
+    }
+}
