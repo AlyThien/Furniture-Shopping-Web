@@ -33,21 +33,21 @@ Vì vậy, nhóm quyết định chọn đề tài "Thiết kế trang web bán 
 | A3 | Xem danh sách sản phẩm | 01, 02 | 100% |
 | A4 | Xem chi tiết sản phẩm | 01, 02 | 100% |
 | A5 | Sử dụng bộ lọc | 01, 02 | 0% |
-| A6 | Xem thông tin cá nhân | 02 | 100% |
-| A7 | Sửa thông tin cá nhân | 02 | 100% |
+| A6 | Xem thông tin cá nhân | 02 | 80% |
+| A7 | Sửa thông tin cá nhân | 02 | 90% |
 | A8 | Đăng xuất | 02 | 100% |
 | A9 | Thêm vào giỏ hàng | 01, 02 | 100% |
-| A10 | Quản lý giỏ hàng | 01, o2 | 100% |
+| A10 | Quản lý giỏ hàng | 01, 02 | 100% |
 | A11 | Đặt hàng | 01, 02 | 100% |
 | A12 | Thanh toán | 01, 02 | 100% |
 | A13 | Xem lịch sử mua hàng | 02 | 50% |
 | A14 | Đánh giá | 02 | 100% |
 | A15 | Quản lý đơn hàng | 03 | 100% |
-| A16 | Quản lý kho | 03 | 100% |
-| A17 | Quản lý báo cáo kinh doanh | 03 | 100% |
+| A16 | Quản lý kho | 03 | 90% |
+| A17 | Quản lý báo cáo kinh doanh | 03 | 0% |
 
 ## Công nghệ sử dụng
-<i class="fa-brands fa-html5"></i>  <i class="fa-brands fa-css3-alt"></i>  <i class="fa-brands fa-square-js"></i>
+<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> </p>
 
 ## Hướng dẫn cài đặt (Lưu ý đồ án chỉ có FrontEnd, có thể sẽ cập nhật BackEnd trong tương lai)
 ### Bước 1: Thực hiện clone repository này với lệnh
