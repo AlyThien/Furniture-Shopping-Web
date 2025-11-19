@@ -1,288 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Haguchi</title>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/about-us.css">
-</head>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/about-us.css" />
+  </head>
 
-<body data-page="about-us">
+  <body data-page="about-us">
     <!--Nhóm 9: Phần Header-->
     <header>
-        <div class="Logo">
-            <p>
-                <a href="index.html"><em>Haguchi</em><br>
-                葉具家</a>
-            </p>
-        </div>
-        <nav class="Main-Menu"> <!--Nhóm 9: Thanh điều hướng chính-->
-            <ul>
-                <li><a href="typologies.html" data-i18n="nav-products">Products</a></li>
-                <li><a href="about-us.html" class="active" data-i18n="nav-about">About us</a></li>
-                <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
-                <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
-            </ul>
-        </nav>
+      <div class="Logo">
+        <p>
+          <a href="index.html"
+            ><em>Haguchi</em><br />
+            葉具家</a
+          >
+        </p>
+      </div>
+      <nav class="Main-Menu">
+        <!--Nhóm 9: Thanh điều hướng chính-->
+        <ul>
+          <li>
+            <a href="typologies.html" data-i18n="nav-products">Products</a>
+          </li>
+          <li>
+            <a href="about-us.html" class="active" data-i18n="nav-about"
+              >About us</a
+            >
+          </li>
+          <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
+          <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
+        </ul>
+      </nav>
 
-        <nav class="Sub-Menu"> <!--Nhóm 9: Thanh điều hướng phụ-->
-            <ul>
-                <li>
-                    <form id="search-box"> <!--Nhóm 9: Nút tìm kiếm-->
-                        <input type="text" id="search-text" placeholder="Search..." data-i18n="search-placeholder">
-                        <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
-                    </form>
-                </li>
-                <li id="Wishlist"> <!--Nhóm 9: Giỏ yêu thích-->
-                    <a href="wishlist_index.html">
-                        <span class="solar--heart-bold"></span>
-                        <span class="wishlist-count">0</span>
-                    </a>
-                </li>
-                <li id="User">  <!--Nhóm 9: Tài khoản người dùng-->
-                    <!--Nhóm 9: Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa-->
-                    <a href="personal-info.html" id="user-avatar-link">
-                        <img id="header-user-avatar" class="header-avatar" src="images/return_to_top.png" alt="User Avatar" style="display: none;">
-                        <span id="header-default-icon" class="solar--user-bold"></span>
-                    </a>
-                </li>
-                <li class="lang-switcher"> <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
-                    <div class="lang-toggle">
-                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')"> <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
-                        <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
-                        <div class="lang-track"> <!--Nhóm 9: Thanh trượt ngôn ngữ-->
-                            <label for="lang-en" class="lang-opt lang-en">EN</label>
-                            <label for="lang-vi" class="lang-opt lang-vi">VI</label>
-                            <div class="lang-knob" aria-hidden="true"></div> <!--Nhóm 9: Nút trượt ngôn ngữ-->
-                        </div>
-                    </div>
-                </li>
-                <li><span class="icomoon-free--leaf"></span></li> <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
-            </ul>
-        </nav>
+      <nav class="Sub-Menu">
+        <!--Nhóm 9: Thanh điều hướng phụ-->
+        <ul>
+          <li>
+            <form id="search-box">
+              <!--Nhóm 9: Nút tìm kiếm-->
+              <input
+                type="text"
+                id="search-text"
+                placeholder="Search..."
+                data-i18n="search-placeholder"
+              />
+              <button id="search-btn">
+                <span class="fluent--search-12-filled"></span>
+              </button>
+            </form>
+          </li>
+          <li id="Wishlist">
+            <!--Nhóm 9: Giỏ yêu thích-->
+            <a href="wishlist_index.html">
+              <span class="solar--heart-bold"></span>
+              <span class="wishlist-count">0</span>
+            </a>
+          </li>
+          <li id="User">
+            <!--Nhóm 9: Tài khoản người dùng-->
+            <!--Nhóm 9: Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa-->
+            <a href="personal-info.html" id="user-avatar-link">
+              <img
+                id="header-user-avatar"
+                class="header-avatar"
+                src="images/return_to_top.png"
+                alt="User Avatar"
+                style="display: none"
+              />
+              <span id="header-default-icon" class="solar--user-bold"></span>
+            </a>
+          </li>
+          <li class="lang-switcher">
+            <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
+            <div class="lang-toggle">
+              <input
+                type="radio"
+                id="lang-en"
+                name="site-lang"
+                checked
+                onchange="changeLanguage('en')"
+              />
+              <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
+              <input
+                type="radio"
+                id="lang-vi"
+                name="site-lang"
+                onchange="changeLanguage('vi')"
+              />
+              <div class="lang-track">
+                <!--Nhóm 9: Thanh trượt ngôn ngữ-->
+                <label for="lang-en" class="lang-opt lang-en">EN</label>
+                <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                <div class="lang-knob" aria-hidden="true"></div>
+                <!--Nhóm 9: Nút trượt ngôn ngữ-->
+              </div>
+            </div>
+          </li>
+          <li><span class="icomoon-free--leaf"></span></li>
+          <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
+        </ul>
+      </nav>
     </header>
 
     <!--Nhóm 9: GIỚI THIỆU CHÍNH-->
-    <main class="hero-section">
-        <div class="container">
-            <div class="hero-container">
-                
-                <!--Nhóm 9: Cột văn bản bên trái-->
-                <div class="hero-text-content">
-                    <p class="hero-subtitle">
-                        <span data-i18n="hero-subtitle">about us</span>
-                        <span class="hero-subtitle-line"></span>
-                    </p>
-                    <h1 class="hero-title" data-i18n="hero-title">
-                        A project of us - a group of students from University of Information Technology
-                    </h1>
-                </div>
+    <main data-scroll="fade-up" class="hero-section">
+      <div data-scroll="fade-up" class="container">
+        <div data-scroll="fade-up" class="hero-container">
+          <!--Nhóm 9: Cột văn bản bên trái-->
+          <div data-scroll="fade-up" class="hero-text-content">
+            <p data-scroll="fade-up" class="hero-subtitle">
+              <span data-i18n="hero-subtitle">about us</span>
+              <span class="hero-subtitle-line"></span>
+            </p>
+            <h1 data-scroll="fade-up" class="hero-title" data-i18n="hero-title">
+              A project of us - a group of students from University of
+              Information Technology
+            </h1>
+          </div>
 
-                <!--Nhóm 9: Hình ảnh bên phải-->
-                <div class="hero-image-container">
-                    <img src="images/about-us/hình2.jpg" alt="Aesthetic Pattern" class="hero-image" loading="lazy">
-                </div>
+          <!--Nhóm 9: Hình ảnh bên phải-->
+          <div data-scroll="fade-up" class="hero-image-container">
+            <img
+              data-scroll="fade-up"
+              src="images/about-us/hình2.jpg"
+              alt="Aesthetic Pattern"
+              class="hero-image"
+              loading="lazy"
+            />
+          </div>
 
-                <!--Nhóm 9: Hộp văn bản chồng lên-->
-                <div class="hero-info-box">
-                    <p class="hero-info-box-italic" data-i18n="hero-intro-1">
-                        At our core, we believe furniture is more than just objects in a room — it is the essence of how a home feels. Every piece we create is designed to combine functionality with beauty, transforming ordinary spaces into places of warmth, comfort, and inspiration.
-                    </p>
-                    <p class="hero-info-box-text" data-i18n="hero-intro-2">
-                        We understand that your home is a reflection of your lifestyle and your story. That is why we carefully select materials, colors, and textures that not only elevate interiors but also stand the test of time. From living rooms to bedrooms, from statement pieces to subtle accents, our collections are thoughtfully curated to harmonize with the rhythm of everyday life.
-                    </p>
-                    <a href="typologies.html" class="hero-info-box-link">
-                        <span data-i18n="hero-explore">Explore</span> →
-                    </a>
-                </div>
-
-            </div>
+          <!--Nhóm 9: Hộp văn bản chồng lên-->
+          <div data-scroll="fade-up" class="hero-info-box">
+            <p
+              data-scroll="fade-up"
+              class="hero-info-box-italic"
+              data-i18n="hero-intro-1"
+            >
+              At our core, we believe furniture is more than just objects in a
+              room — it is the essence of how a home feels. Every piece we
+              create is designed to combine functionality with beauty,
+              transforming ordinary spaces into places of warmth, comfort, and
+              inspiration.
+            </p>
+            <p
+              data-scroll="fade-up"
+              class="hero-info-box-text"
+              data-i18n="hero-intro-2"
+            >
+              We understand that your home is a reflection of your lifestyle and
+              your story. That is why we carefully select materials, colors, and
+              textures that not only elevate interiors but also stand the test
+              of time. From living rooms to bedrooms, from statement pieces to
+              subtle accents, our collections are thoughtfully curated to
+              harmonize with the rhythm of everyday life.
+            </p>
+            <a
+              data-scroll="fade-up"
+              href="typologies.html"
+              class="hero-info-box-link"
+            >
+              <span data-i18n="hero-explore">Explore</span> →
+            </a>
+          </div>
         </div>
+      </div>
     </main>
 
     <!--Nhóm 9: ACCORDION 3 MỤC-->
-    <section class="section">
-        <div class="container">
-            <div class="philosophy-grid">
+    <section data-scroll="fade-up" class="section">
+      <div data-scroll="fade-up" class="container">
+        <div data-scroll="fade-up" class="philosophy-grid">
+          <!--Nhóm 9: Cột bên trái: Văn bản và Accordion-->
+          <div data-scroll="fade-up" class="philosophy-text-column">
+            <h2
+              data-scroll="fade-up"
+              class="section-title"
+              data-i18n="philosophy-title"
+            >
+              Our Philosophy
+            </h2>
+            <p
+              data-scroll="fade-up"
+              class="section-subtitle"
+              data-i18n="philosophy-subtitle"
+            >
+              We are driven by three core pillars that define our identity and
+              guide our work. Each represents a commitment to excellence,
+              innovation, and the human spirit.
+            </p>
 
-                <!--Nhóm 9: Cột bên trái: Văn bản và Accordion-->
-                <div class="philosophy-text-column">
-                    <h2 class="section-title" data-i18n="philosophy-title">Our Philosophy</h2>
-                    <p class="section-subtitle" data-i18n="philosophy-subtitle">
-                        We are driven by three core pillars that define our identity and guide our work. Each represents a commitment to excellence, innovation, and the human spirit.
-                    </p>
-
-                    <!--Nhóm 9: Accordion container-->
-                    <div id="accordion-container">
-
-                        <!--Nhóm 9: Mục 1-->
-                        <div class="accordion-item" data-target="content-1">
-                            <div class="accordion-trigger" data-trigger="content-1">
-                                <img src="images/about-us/icon.png" alt="Heritage Icon" class="accordion-icon" loading="lazy">
-                                <h3 class="accordion-title" data-i18n="accordion-heritage-title">Heritage & Craftsmanship</h3>
-                            </div>
-                            <!--Nhóm 9: Nội dung sổ xuống 1-->
-                            <div class="accordion-content" id="content-1">
-                                <p class="accordion-text" data-i18n="accordion-heritage-text">
-                                    We honor the timeless techniques of traditional artisans. Our foundation is built on a deep respect for craftsmanship, quality materials, and meticulous attention to detail, ensuring every piece is not just made, but masterfully created.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!--Nhóm 9: Mục 2-->
-                        <div class="accordion-item" data-target="content-2">
-                            <div class="accordion-trigger" data-trigger="content-2">
-                                <img src="images/about-us/icon.png" alt="Modern Icon" class="accordion-icon" loading="lazy">
-                                <h3 class="accordion-title" data-i18n="accordion-modern-title">Modern Edge – Future-Focused</h3>
-                            </div>
-                            <!--Nhóm 9: Nội dung sổ xuống 2-->
-                            <div class="accordion-content" id="content-2">
-                                <p class="accordion-text" data-i18n="accordion-modern-text">
-                                    While rooted in tradition, our vision is set on the future. We embrace contemporary design, sustainable practices, and innovative technology to create furniture that is relevant, functional, and forward-thinking.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!--Nhóm 9: Mục 3-->
-                        <div class="accordion-item" data-target="content-3">
-                            <div class="accordion-trigger" data-trigger="content-3">
-                                <img src="images/about-us/icon.png" alt="Humanistic Icon" class="accordion-icon" loading="lazy">
-                                <h3 class="accordion-title" data-i18n="accordion-humanistic-title">Humanistic Values</h3>
-                            </div>
-                            <!--Nhóm 9: Nội dung sổ xuống 3-->
-                            <div class="accordion-content" id="content-3">
-                                <p class="accordion-text" data-i18n="accordion-humanistic-text">
-                                    We design for people. Our work is centered on creating environments that foster connection, comfort, and well-being. We value our community, our customers, and the stories that are shared within the spaces we help create.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
+            <!--Nhóm 9: Accordion container-->
+            <div data-scroll="fade-up" id="accordion-container">
+              <!--Nhóm 9: Mục 1-->
+              <div
+                data-scroll="fade-up"
+                class="accordion-item"
+                data-target="content-1"
+              >
+                <div
+                  data-scroll="fade-up"
+                  class="accordion-trigger"
+                  data-trigger="content-1"
+                >
+                  <img
+                    data-scroll="fade-up"
+                    src="images/about-us/icon.png"
+                    alt="Heritage Icon"
+                    class="accordion-icon"
+                    loading="lazy"
+                  />
+                  <h3
+                    data-scroll="fade-up"
+                    class="accordion-title"
+                    data-i18n="accordion-heritage-title"
+                  >
+                    Heritage & Craftsmanship
+                  </h3>
                 </div>
-
-                <!--Nhóm 9: Cột bên phải: Hình ảnh-->
-                <div class="philosophy-image-column">
-                    <img src="images/about-us/hình1.jpg" alt="A collection of artistic green wall tiles" class="philosophy-image" loading="lazy">
+                <!--Nhóm 9: Nội dung sổ xuống 1-->
+                <div
+                  data-scroll="fade-up"
+                  class="accordion-content"
+                  id="content-1"
+                >
+                  <p
+                    data-scroll="fade-up"
+                    class="accordion-text"
+                    data-i18n="accordion-heritage-text"
+                  >
+                    We honor the timeless techniques of traditional artisans.
+                    Our foundation is built on a deep respect for craftsmanship,
+                    quality materials, and meticulous attention to detail,
+                    ensuring every piece is not just made, but masterfully
+                    created.
+                  </p>
                 </div>
+              </div>
 
+              <!--Nhóm 9: Mục 2-->
+              <div
+                data-scroll="fade-up"
+                class="accordion-item"
+                data-target="content-2"
+              >
+                <div
+                  data-scroll="fade-up"
+                  class="accordion-trigger"
+                  data-trigger="content-2"
+                >
+                  <img
+                    data-scroll="fade-up"
+                    src="images/about-us/icon.png"
+                    alt="Modern Icon"
+                    class="accordion-icon"
+                    loading="lazy"
+                  />
+                  <h3
+                    data-scroll="fade-up"
+                    class="accordion-title"
+                    data-i18n="accordion-modern-title"
+                  >
+                    Modern Edge – Future-Focused
+                  </h3>
+                </div>
+                <!--Nhóm 9: Nội dung sổ xuống 2-->
+                <div
+                  data-scroll="fade-up"
+                  class="accordion-content"
+                  id="content-2"
+                >
+                  <p
+                    data-scroll="fade-up"
+                    class="accordion-text"
+                    data-i18n="accordion-modern-text"
+                  >
+                    While rooted in tradition, our vision is set on the future.
+                    We embrace contemporary design, sustainable practices, and
+                    innovative technology to create furniture that is relevant,
+                    functional, and forward-thinking.
+                  </p>
+                </div>
+              </div>
+
+              <!--Nhóm 9: Mục 3-->
+              <div
+                data-scroll="fade-up"
+                class="accordion-item"
+                data-target="content-3"
+              >
+                <div
+                  data-scroll="fade-up"
+                  class="accordion-trigger"
+                  data-trigger="content-3"
+                >
+                  <img
+                    data-scroll="fade-up"
+                    src="images/about-us/icon.png"
+                    alt="Humanistic Icon"
+                    class="accordion-icon"
+                    loading="lazy"
+                  />
+                  <h3
+                    data-scroll="fade-up"
+                    class="accordion-title"
+                    data-i18n="accordion-humanistic-title"
+                  >
+                    Humanistic Values
+                  </h3>
+                </div>
+                <!--Nhóm 9: Nội dung sổ xuống 3-->
+                <div
+                  data-scroll="fade-up"
+                  class="accordion-content"
+                  id="content-3"
+                >
+                  <p
+                    data-scroll="fade-up"
+                    class="accordion-text"
+                    data-i18n="accordion-humanistic-text"
+                  >
+                    We design for people. Our work is centered on creating
+                    environments that foster connection, comfort, and
+                    well-being. We value our community, our customers, and the
+                    stories that are shared within the spaces we help create.
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <!--Nhóm 9: Cột bên phải: Hình ảnh-->
+          <div data-scroll="fade-up" class="philosophy-image-column">
+            <img
+              data-scroll="fade-up"
+              src="images/about-us/hình1.jpg"
+              alt="A collection of artistic green wall tiles"
+              class="philosophy-image"
+              loading="lazy"
+            />
+          </div>
         </div>
+      </div>
     </section>
 
     <!--Nhóm 9: ĐỘI NGŨ-->
-    <section class="section">
-        <div class="container">
-            
-            <!--Nhóm 9: Tiêu đề-->
-            <h2 class="section-title team-title" data-i18n="team-title">
-                Greetings Our Team
-            </h2>
+    <section data-scroll="fade-up" class="section">
+      <div data-scroll="fade-up" class="container">
+        <!--Nhóm 9: Tiêu đề-->
+        <h2
+          data-scroll="fade-up"
+          class="section-title team-title"
+          data-i18n="team-title"
+        >
+          Greetings Our Team
+        </h2>
 
-            <!--Nhóm 9: Bố cục 1+4-->
-            <div class="team-layout-container">
-                
-                <!--Nhóm 9: Thẻ Leader (ở giữa, đè lên)-->
-                <div class="team-leader-wrapper">
-                    <div class="team-leader-card-container">
-                        <div class="team-card team-card-leader">
-                            <img src="images/about-us/TS.jpg" alt="Team Leader" class="team-card-image team-card-image-leader" loading="lazy">
-                            <h4 class="team-card-name">Lê Trần Đức Thiện</h4>
-                            <p class="team-card-role" data-i18n="team-leader">Group Leader</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Nhóm 9: Lưới 4 thành viên (bên dưới)-->
-                <div class="team-grid-container">
-                    <div class="team-grid">
-                        
-                        <!--Nhóm 9: Thẻ Thành viên 2-->
-                        <div class="team-card">
-                            <img src="images/about-us/AG.jpg" alt="Team Member 2" class="team-card-image team-card-image-member" loading="lazy">
-                            <h4 class="team-card-name">Nguyễn Trần Khánh Vân</h4>
-                        </div>
-
-                        <!--Nhóm 9: Thẻ Thành viên 3-->
-                        <div class="team-card">
-                            <img src="images/about-us/trump-hello-kitty-mugshot.jpg" alt="Team Member 3" class="team-card-image team-card-image-member" loading="lazy">
-                            <h4 class="team-card-name">Từ Lý Mai</h4>
-                        </div>
-
-                        <!--Nhóm 9: Thẻ Thành viên 4-->
-                        <div class="team-card">
-                            <img src="images/about-us/SC.jpg" alt="Team Member 4" class="team-card-image team-card-image-member" loading="lazy">
-                            <h4 class="team-card-name">Đỗ Bá Luân</h4>
-                        </div>
-
-                        <!--Nhóm 9: Thẻ Thành viên 5-->
-                        <div class="team-card">
-                            <img src="images/about-us/VH.jpg" alt="Team Member 5" class="team-card-image team-card-image-member" loading="lazy">
-                            <h4 class="team-card-name">Trần Thanh Hà</h4>
-                        </div>
-
-                    </div>
-                </div>
-
+        <!--Nhóm 9: Bố cục 1+4-->
+        <div data-scroll="fade-up" class="team-layout-container">
+          <!--Nhóm 9: Thẻ Leader (ở giữa, đè lên)-->
+          <div data-scroll="fade-up" class="team-leader-wrapper">
+            <div data-scroll="fade-up" class="team-leader-card-container">
+              <div data-scroll="fade-up" class="team-card team-card-leader">
+                <img
+                  data-scroll="fade-up"
+                  src="images/about-us/TS.jpg"
+                  alt="Team Leader"
+                  class="team-card-image team-card-image-leader"
+                  loading="lazy"
+                />
+                <h4 data-scroll="fade-up" class="team-card-name">
+                  Lê Trần Đức Thiện
+                </h4>
+                <p
+                  data-scroll="fade-up"
+                  class="team-card-role"
+                  data-i18n="team-leader"
+                >
+                  Group Leader
+                </p>
+              </div>
             </div>
+          </div>
+
+          <!--Nhóm 9: Lưới 4 thành viên (bên dưới)-->
+          <div data-scroll="fade-up" class="team-grid-container">
+            <div data-scroll="fade-up" class="team-grid">
+              <!--Nhóm 9: Thẻ Thành viên 2-->
+              <div data-scroll="fade-up" class="team-card">
+                <img
+                  data-scroll="fade-up"
+                  src="images/about-us/AG.jpg"
+                  alt="Team Member 2"
+                  class="team-card-image team-card-image-member"
+                  loading="lazy"
+                />
+                <h4 data-scroll="fade-up" class="team-card-name">
+                  Nguyễn Trần Khánh Vân
+                </h4>
+              </div>
+
+              <!--Nhóm 9: Thẻ Thành viên 3-->
+              <div data-scroll="fade-up" class="team-card">
+                <img
+                  data-scroll="fade-up"
+                  src="images/about-us/trump-hello-kitty-mugshot.jpg"
+                  alt="Team Member 3"
+                  class="team-card-image team-card-image-member"
+                  loading="lazy"
+                />
+                <h4 data-scroll="fade-up" class="team-card-name">Từ Lý Mai</h4>
+              </div>
+
+              <!--Nhóm 9: Thẻ Thành viên 4-->
+              <div data-scroll="fade-up" class="team-card">
+                <img
+                  data-scroll="fade-up"
+                  src="images/about-us/SC.jpg"
+                  alt="Team Member 4"
+                  class="team-card-image team-card-image-member"
+                  loading="lazy"
+                />
+                <h4 data-scroll="fade-up" class="team-card-name">Đỗ Bá Luân</h4>
+              </div>
+
+              <!--Nhóm 9: Thẻ Thành viên 5-->
+              <div data-scroll="fade-up" class="team-card">
+                <img
+                  data-scroll="fade-up"
+                  src="images/about-us/VH.jpg"
+                  alt="Team Member 5"
+                  class="team-card-image team-card-image-member"
+                  loading="lazy"
+                />
+                <h4 data-scroll="fade-up" class="team-card-name">
+                  Trần Thanh Hà
+                </h4>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!--Nhóm 9: Phần quay lại đầu trang-->
-    <img id="btn-top" src="images/return_to_top.png" alt="Return to top">
+    <img
+      data-scroll="fade-up"
+      id="btn-top"
+      src="images/return_to_top.png"
+      alt="Return to top"
+    />
 
     <!--Nhóm 9: Phần footer-->
-    <footer>
-        <div class="footer-logo">
-            <div><em>Haguchi</em></div>
-            <div>葉具家</div>
-        </div>
-        <div class="footer-content"> <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
-            <div class="footer-section">
-                <h3 data-i18n="nav-about">About Us</h3> 
-                <ul>
-                    <li data-i18n="footer-aboutus"> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
-                    <li data-i18n="footer-aboutus-add">📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
-                    <li>📞 (+84) 123 456 789</li>
-                    <li>📧 support@haguchi.com</li>
-                    <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
-                </ul>
-            </div>
+    <footer data-scroll="fade-up">
+      <div class="footer-logo">
+        <div><em>Haguchi</em></div>
+        <div>葉具家</div>
+      </div>
+      <div class="footer-content">
+        <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
         <div class="footer-section">
-            <h3 data-i18n="footer-categories">Shop by Category</h3>
-            <ul>
-                <li><a href="couch.html" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
-                <li><a  data-i18n="footer-categories-dining">Dining Tables</a></li>
-                <li><a href="bed.html" data-i18n="footer-categories-bed">Beds</a></li>
-                <li><a  data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
-                <li><a  data-i18n="footer-categories-decor">Lighting & Decor</a></li>
-                <li><a  data-i18n="footer-categories-new">New Arrivals / Promotions</a></li>
-            </ul>
+          <h3 data-i18n="nav-about">About Us</h3>
+          <ul>
+            <li data-i18n="footer-aboutus">
+              Bringing elegance and comfort to your home with high-quality
+              furniture designed for modern living
+            </li>
+            <li data-i18n="footer-aboutus-add">
+              📍 123 Harmony Street, District 1, Ho Chi Minh City
+            </li>
+            <li>📞 (+84) 123 456 789</li>
+            <li>📧 support@haguchi.com</li>
+            <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+          </ul>
         </div>
         <div class="footer-section">
-            <h3 data-i18n="footer-policies">Policies & Support</h3>
-            <ul>
-                <li><a href="policies.html" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-return">Return & Exchange</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-order">How to Order</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
-            </ul>
+          <h3 data-i18n="footer-categories">Shop by Category</h3>
+          <ul>
+            <li>
+              <a href="couch.html" data-i18n="footer-categories-sofa"
+                >Sofas & Armchairs</a
+              >
+            </li>
+            <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
+            <li>
+              <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
+            </li>
+            <li>
+              <a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
+            </li>
+            <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+            <li>
+              <a data-i18n="footer-categories-new">New Arrivals / Promotions</a>
+            </li>
+          </ul>
         </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-policies">Policies & Support</h3>
+          <ul>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-warranty"
+                >Warranty Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-return"
+                >Return & Exchange</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-shipping"
+                >Shipping Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-order"
+                >How to Order</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-privacy"
+                >Privacy Policy</a
+              >
+            </li>
+          </ul>
         </div>
-            <div class="footer-bottom">
-                <span>© 2025 HAGUCHI – All rights reserved.</span>
-                <div class="social-icons">
-                    <div class="social-icon">f</div>
-                    <div class="social-icon">in</div>
-                    <div class="social-icon">t</div>
-                </div>
-            </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 HAGUCHI – All rights reserved.</span>
+        <div class="social-icons">
+          <div class="social-icon">f</div>
+          <div class="social-icon">in</div>
+          <div class="social-icon">t</div>
+        </div>
+      </div>
     </footer>
-    
-    <script src="js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
-    <script src="js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
-    <script src="js/about-us.js"></script> <!--Nhóm 9: Liên kết file JS riêng cho about-us-->
 
-</body>
+    <script src="js/lang-change.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="js/common.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="js/about-us.js"></script>
+    <!--Nhóm 9: Liên kết file JS riêng cho about-us-->
+    <script src="js/animations.js"></script>
+  </body>
 </html>

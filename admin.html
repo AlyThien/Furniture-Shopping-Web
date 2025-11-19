@@ -1,206 +1,243 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trang chủ Admin | Haguchi</title>
-    <link rel="stylesheet" href="css/admin.css">
-</head>
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
 
-<body>
-    <aside class="admin-sidebar">
-        <h2>Haguchi</h2>
-        <nav>
-            <ul>
-                <li><button data-view="orders" class="active">Đơn hàng</button></li>
-                <li><button data-view="inventory">Quản lý kho</button></li>
-                <li><button data-view="reports">Báo cáo</button></li>
-            </ul>
-        </nav>
+  <body>
+    <aside data-scroll="blur" class="admin-sidebar">
+      <h2 data-scroll="blur">Haguchi</h2>
+      <nav data-scroll="blur">
+        <ul data-scroll="blur">
+          <li>
+            <button data-scroll="blur" data-view="orders" class="active">
+              Đơn hàng
+            </button>
+          </li>
+          <li>
+            <button data-scroll="blur" data-view="inventory">
+              Quản lý kho
+            </button>
+          </li>
+          <li>
+            <button data-scroll="blur" data-view="reports">Báo cáo</button>
+          </li>
+        </ul>
+      </nav>
     </aside>
 
-    <main class="admin-main">
-        <header class="admin-header">
-            <h1 id="page-title">Đơn hàng hiện có</h1>
-            <div class="header-controls">
-                <button id="refreshBtn">Làm mới</button>
-                <button id="logoutBtn">Đăng xuất</button>
-            </div>
-        </header>
+    <main data-scroll="blur" class="admin-main">
+      <header data-scroll="blur" class="admin-header">
+        <h1 data-scroll="blur" data-scroll="blur" id="page-title">
+          Đơn hàng hiện có
+        </h1>
+        <div data-scroll="blur" class="header-controls">
+          <button data-scroll="blur" id="refreshBtn">Làm mới</button>
+          <button data-scroll="blur" id="logoutBtn">Đăng xuất</button>
+        </div>
+      </header>
 
-        <section id="view-orders" class="admin-view active-view">
-            <div class="table-responsive-container"> 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Đơn hàng</th>
-                            <th>Khách hàng</th>
-                            <th>Ngày</th>
-                            <th>Trị giá</th>
-                            <th>Trạng thái</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody id="orders-body">
-                    </tbody>
-                </table>
-            </div>
-        </section>
-            
-        <section id="view-inventory" class="admin-view hidden">
-            <div class="inventory-controls">
-                <input type="text" id="prod-filter" placeholder="Tìm kiếm sản phẩm...">
-                <button id="addProdBtn" class="add-btn">Thêm sản phẩm mới</button>
-            </div>
-            <div class="table-responsive-container"> 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Tên sản phẩm</th>
-                            <th>Số lượng tồn</th>
-                            <th>Giá (đ)</th>
-                            <th>Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody id="inventory-body">
-                        </tbody>
-                </table>
-            </div>
-        </section>
+      <section
+        data-scroll="blur"
+        id="view-orders"
+        class="admin-view active-view"
+      >
+        <div data-scroll="blur" class="table-responsive-container">
+          <table data-scroll="blur" class="table">
+            <thead>
+              <tr>
+                <th data-scroll="blur">Đơn hàng</th>
+                <th data-scroll="blur">Khách hàng</th>
+                <th data-scroll="blur">Ngày</th>
+                <th data-scroll="blur">Trị giá</th>
+                <th data-scroll="blur">Trạng thái</th>
+                <th data-scroll="blur">Hành động</th>
+              </tr>
+            </thead>
+            <tbody data-scroll="blur" id="orders-body"></tbody>
+          </table>
+        </div>
+      </section>
 
-        <section id="view-reports" class="admin-view hidden">
-            <div class="report-controls">
-                <select id="report-type-select">
-                    <option value="daily">Doanh thu ngày</option>
-                    <option value="monthly">Doanh thu tháng</option>
-                    <option value="best-sellers">Sản phẩm bán chạy</option>
-                </select>
-                <button id="btn-run-report">Xem báo cáo</button>
-            </div>
+      <section data-scroll="blur" id="view-inventory" class="admin-view hidden">
+        <div class="inventory-controls">
+          <input
+            type="text"
+            id="prod-filter"
+            placeholder="Tìm kiếm sản phẩm..."
+          />
+          <button id="addProdBtn" class="add-btn">Thêm sản phẩm mới</button>
+        </div>
+        <div data-scroll="blur" class="table-responsive-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng tồn</th>
+                <th>Giá (đ)</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-body"></tbody>
+          </table>
+        </div>
+      </section>
 
-            <div class="report-summary">
-                <div class="summary-card">
-                    <h3>Tổng Doanh Thu (T11)</h3>
-                    <p class="value" id="summary-revenue">0đ</p>
-                </div>
-                <div class="summary-card">
-                    <h3>Số Đơn Hàng Hoàn thành (T11)</h3>
-                    <p class="value" id="summary-orders">0</p>
-                </div>
-                <div class="summary-card">
-                    <h3>Sản Phẩm Bán Chạy Nhất</h3>
-                    <p class="value" id="summary-best-seller">...</p>
-                </div>
-            </div>
+      <section data-scroll="blur" id="view-reports" class="admin-view hidden">
+        <div class="report-controls">
+          <select id="report-type-select">
+            <option value="daily">Doanh thu ngày</option>
+            <option value="monthly">Doanh thu tháng</option>
+            <option value="best-sellers">Sản phẩm bán chạy</option>
+          </select>
+          <button id="btn-run-report">Xem báo cáo</button>
+        </div>
 
-            <div class="report-list">
-                <h3 class="list-title">Chi tiết Đơn hàng Hoàn thành trong T11</h3>
-                <div class="table-responsive-container"> 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Ngày mua</th>
-                                <th>Đơn hàng/Sản phẩm</th>
-                                <th>Khách hàng</th>
-                                <th>Số tiền</th>
-                            </tr>
-                        </thead>
-                        <tbody id="reports-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-            
+        <div data-scroll="blur" data-scroll="blur" class="report-summary">
+          <div data-scroll="blur" class="summary-card">
+            <h3 data-scroll="blur">Tổng Doanh Thu (T11)</h3>
+            <p data-scroll="blur" class="value" id="summary-revenue">0đ</p>
+          </div>
+          <div data-scroll="blur" class="summary-card">
+            <h3 data-scroll="blur">Số Đơn Hàng Hoàn thành (T11)</h3>
+            <p data-scroll="blur" class="value" id="summary-orders">0</p>
+          </div>
+          <div data-scroll="blur" class="summary-card">
+            <h3 data-scroll="blur">Sản Phẩm Bán Chạy Nhất</h3>
+            <p data-scroll="blur" class="value" id="summary-best-seller">...</p>
+          </div>
+        </div>
+
+        <div data-scroll="blur" class="report-list">
+          <h3 data-scroll="blur" class="list-title">
+            Chi tiết Đơn hàng Hoàn thành trong T11
+          </h3>
+          <div data-scroll="blur" class="table-responsive-container">
+            <table data-scroll="blur" class="table">
+              <thead>
+                <tr>
+                  <th data-scroll="blur">Ngày mua</th>
+                  <th data-scroll="blur">Đơn hàng/Sản phẩm</th>
+                  <th data-scroll="blur">Khách hàng</th>
+                  <th data-scroll="blur">Số tiền</th>
+                </tr>
+              </thead>
+              <tbody data-scroll="blur" id="reports-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <div id="order-detail-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Chi tiết Đơn hàng <span id="modal-order-id"></span></h2>
-            <div class="modal-body">
-                <h3 class="modal-sub-title">Thông tin Khách hàng</h3>
-                <div class="detail-row">
-                    <strong>Tên:</strong> <span id="detail-customer"></span>
-                </div>
-                <div class="detail-row">
-                    <strong>SĐT:</strong> <span id="detail-phone"></span>
-                </div>
-                <div class="detail-row">
-                    <strong>Địa chỉ:</strong> <span id="detail-address"></span>
-                </div>
-                
-                <h3 class="modal-sub-title">Thông tin Đơn hàng</h3>
-                <div class="detail-row">
-                    <strong>Ngày đặt:</strong> <span id="detail-date"></span>
-                </div>
-                <div class="detail-row">
-                    <strong>Trạng thái:</strong> <span id="detail-status" class="badge"></span>
-                </div>
-                <div class="detail-row">
-                    <strong>Phương thức TT:</strong> <span id="detail-payment"></span>
-                </div>
-                
-                <h3 class="modal-sub-title">Sản phẩm</h3>
-                <div class="table-responsive-container">
-                    <table class="table modal-table">
-                        <thead>
-                            <tr>
-                                <th>Sản phẩm</th>
-                                <th>SL</th>
-                                <th>Đơn giá</th>
-                                <th>Thành tiền</th>
-                            </tr>
-                        </thead>
-                        <tbody id="detail-items-body">
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="detail-total">
-                    <strong>Tổng cộng:</strong> <span id="detail-total-value"></span>
-                </div>
-            </div>
-            
-            <div class="modal-footer">
-                <button id="btn-cancel-order">Hủy Đơn</button>
-                <button id="btn-update-status">Cập nhật Trạng thái</button>
-            </div>
+    <div
+      data-scroll="blur"
+      id="order-detail-modal"
+      class="modal-overlay hidden"
+    >
+      <div data-scroll="blur" class="modal-content">
+        <span data-scroll="blur" class="close-btn">&times;</span>
+        <h2 data-scroll="blur">
+          Chi tiết Đơn hàng <span id="modal-order-id"></span>
+        </h2>
+        <div data-scroll="blur" class="modal-body">
+          <h3 data-scroll="blur" class="modal-sub-title">
+            Thông tin Khách hàng
+          </h3>
+          <div data-scroll="blur" class="detail-row">
+            <strong>Tên:</strong> <span id="detail-customer"></span>
+          </div>
+          <div data-scroll="blur" class="detail-row">
+            <strong>SĐT:</strong> <span id="detail-phone"></span>
+          </div>
+          <div data-scroll="blur" class="detail-row">
+            <strong>Địa chỉ:</strong> <span id="detail-address"></span>
+          </div>
+
+          <h3 data-scroll="blur" class="modal-sub-title">Thông tin Đơn hàng</h3>
+          <div data-scroll="blur" class="detail-row">
+            <strong>Ngày đặt:</strong> <span id="detail-date"></span>
+          </div>
+          <div data-scroll="blur" class="detail-row">
+            <strong>Trạng thái:</strong>
+            <span id="detail-status" class="badge"></span>
+          </div>
+          <div data-scroll="blur" class="detail-row">
+            <strong>Phương thức TT:</strong> <span id="detail-payment"></span>
+          </div>
+
+          <h3 data-scroll="blur" class="modal-sub-title">Sản phẩm</h3>
+          <div data-scroll="blur" class="table-responsive-container">
+            <table data-scroll="blur" class="table modal-table">
+              <thead>
+                <tr>
+                  <th data-scroll="blur">Sản phẩm</th>
+                  <th data-scroll="blur">SL</th>
+                  <th data-scroll="blur">Đơn giá</th>
+                  <th data-scroll="blur">Thành tiền</th>
+                </tr>
+              </thead>
+              <tbody id="detail-items-body"></tbody>
+            </table>
+          </div>
+
+          <div data-scroll="blur" class="detail-total">
+            <strong>Tổng cộng:</strong> <span id="detail-total-value"></span>
+          </div>
         </div>
+
+        <div data-scroll="blur" class="modal-footer">
+          <button data-scroll="blur" id="btn-cancel-order">Hủy Đơn</button>
+          <button data-scroll="blur" id="btn-update-status">
+            Cập nhật Trạng thái
+          </button>
+        </div>
+      </div>
     </div>
 
-    <div id="product-modal-overlay" class="modal-overlay hidden">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modal-prod-title">Thêm Sản phẩm mới</h2>
-            <div class="modal-body">
-                <form id="product-form">
-                    <div class="form-group">
-                        <label for="prod-id">ID Sản phẩm:</label>
-                        <input type="text" id="prod-id" value="Tự động tạo" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="prod-name">Tên Sản phẩm:</label>
-                        <input type="text" id="prod-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="prod-stock">Số lượng tồn:</label>
-                        <input type="number" id="prod-stock" required min="0">
-                    </div>
-                    <div class="form-group">
-                        <label for="prod-price">Giá (đ):</label>
-                        <input type="number" id="prod-price" required min="0">
-                    </div>
-                    
-                    <div class="modal-footer">
-                        <button type="button" class="close-btn btn-close-modal">Hủy</button>
-                        <button type="submit" id="save-prod-btn" class="add-btn">Thêm Sản phẩm</button>
-                    </div>
-                </form>
+    <div
+      data-scroll="blur"
+      id="product-modal-overlay"
+      class="modal-overlay hidden"
+    >
+      <div data-scroll="blur" class="modal-content">
+        <span data-scroll="blur" class="close-btn">&times;</span>
+        <h2 data-scroll="blur" id="modal-prod-title">Thêm Sản phẩm mới</h2>
+        <div data-scroll="blur" class="modal-body">
+          <form data-scroll="blur" id="product-form">
+            <div data-scroll="blur" class="form-group">
+              <label for="prod-id">ID Sản phẩm:</label>
+              <input type="text" id="prod-id" value="Tự động tạo" readonly />
             </div>
+            <div class="form-group">
+              <label for="prod-name">Tên Sản phẩm:</label>
+              <input type="text" id="prod-name" required />
+            </div>
+            <div class="form-group">
+              <label for="prod-stock">Số lượng tồn:</label>
+              <input type="number" id="prod-stock" required min="0" />
+            </div>
+            <div class="form-group">
+              <label for="prod-price">Giá (đ):</label>
+              <input type="number" id="prod-price" required min="0" />
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="close-btn btn-close-modal">
+                Hủy
+              </button>
+              <button type="submit" id="save-prod-btn" class="add-btn">
+                Thêm Sản phẩm
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
     <script src="js/admin.js"></script>
-</body>
+    <script src="js/animations.js"></script>
+  </body>
 </html>

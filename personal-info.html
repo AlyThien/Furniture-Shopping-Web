@@ -64,7 +64,7 @@
 
     <main>
         <!-- Setup Mode -->
-        <div id="setup-mode-container" class="container setup-card" style="display: none;">
+        <div data-scroll="fade-up"id="setup-mode-container" class="container setup-card" style="display: none;">
             <h1 data-i18n="setup-title">Personal Information Setup</h1>
             <div class="user-email-display">
                 <span data-i18n="setup-email-label">Your Email:</span> <strong id="current-user-email"></strong>
@@ -106,13 +106,13 @@
         </div>
         
         <!-- View Mode -->
-        <div id="view-mode-container" class="profile-main-view container" style="display: none;">
+        <div data-scroll="fade-up" id="view-mode-container" class="profile-main-view container" style="display: none;">
             <div class="profile-container-wrapper"> 
                 <h1 class="page-header-title" data-i18n="page-title">My Account</h1>
                 
                 <div class="profile-layout-grid">
                     <!-- Sidebar -->
-                    <div class="sidebar">
+                    <div data-scroll="fade-up" class="sidebar">
                         <div class="user-profile-summary">
                             <img id="view-avatar-preview" src="https://via.placeholder.com/100" alt="Avatar" class="view-avatar">
                             <p class="user-name" id="display-view-user-name">User</p>
@@ -128,9 +128,9 @@
                     </div>
 
                     <!-- Content Area -->
-                    <div class="content-area">
+                    <div data-scroll="fade-up"class="content-area">
                         <!-- Profile Tab -->
-                        <div class="tab-content active" id="profile-content">
+                        <div data-scroll="fade-up" class="tab-content active" id="profile-content">
                             <div class="section-box">
                                 <h2 class="section-title" data-i18n="section-personal">Personal Details</h2>
                                 <div class="info-display-grid">
@@ -153,13 +153,13 @@
                                 </div>
                             </div>
                             
-                            <div class="section-box">
+                            <div data-scroll="fade-up"class="section-box">
                                 <h2 class="section-title" data-i18n="section-address">My Address</h2>
                                 <div class="info-group">
                                     <label data-i18n="label-city">City/Province:</label>
                                     <span id="view-city-province" data-i18n="not-updated">Not updated</span>
                                 </div>
-                                <div class="info-group">
+                                <div data-scroll="fade-up"class="info-group">
                                     <label data-i18n="label-address-detail">Detailed Address:</label>
                                     <span id="view-address-detail" data-i18n="not-updated">Not updated</span>
                                 </div>
@@ -167,7 +167,7 @@
                         </div>
                         
                         <!-- Orders Tab -->
-                        <div class="tab-content" id="orders-content">
+                        <div data-scroll="fade-up"class="tab-content" id="orders-content">
                             <div class="section-box">
                                 <h2 class="section-title" data-i18n="section-purchases">My Purchases</h2>
                                 <div id="order-list-view" class="order-list">
@@ -180,16 +180,16 @@
         </div>
 
         <!-- Edit Profile Modal -->
-        <div id="edit-profile-modal" class="modal">
-            <div class="modal-content">
+        <div data-scroll="fade-up"id="edit-profile-modal" class="modal">
+            <div data-scroll="fade-up"class="modal-content">
                 <div class="modal-header">
                     <h2 data-i18n="modal-edit-title">Edit Profile</h2>
                     <span class="close-btn edit-close-btn" onclick="closeEditModal()">&times;</span>
                 </div>
                 
-                <div id="profile-notification" class="profile-notification hidden"></div>
+                <div data-scroll="fade-up"id="profile-notification" class="profile-notification hidden"></div>
                 
-                <div class="modal-body">
+                <div data-scroll="fade-up"class="modal-body">
                     <form id="info-form">
                         <div class="form-group avatar-upload-group">
                             <label data-i18n="label-avatar">Profile Picture</label>
@@ -200,22 +200,22 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div data-scroll="fade-up"class="form-group">
                             <label for="edit-full-name" data-i18n="label-fullname">Full Name</label>
                             <input type="text" id="edit-full-name" data-i18n="placeholder-fullname" placeholder="Enter full name" required>
                         </div>
                         
-                        <div class="form-group">
+                        <div data-scroll="fade-up"class="form-group">
                             <label for="edit-phone" data-i18n="label-phone">Phone Number</label>
                             <input type="text" id="edit-phone" data-i18n="placeholder-phone" placeholder="Enter phone number" required>
                         </div>
                         
-                        <div class="form-group">
+                        <div data-scroll="fade-up"class="form-group">
                             <label for="edit-dob" data-i18n="label-dob">Date of Birth</label>
                             <input type="text" id="edit-dob" placeholder="dd/mm/yyyy" required maxlength="10">
                         </div>
                         
-                        <div class="form-group">
+                        <div data-scroll="fade-up"class="form-group">
                             <label for="edit-gender" data-i18n="label-gender">Gender</label>
                             <select id="edit-gender" required>
                                 <option value="" disabled data-i18n="select-gender">Select Gender</option>
@@ -225,19 +225,19 @@
                             </select>
                         </div>
                         
-                        <h3 class="address-section-title" data-i18n="section-address">Address</h3>
+                        <h3 data-scroll="fade-up"class="address-section-title" data-i18n="section-address">Address</h3>
                         
-                        <div class="form-group">
+                        <div data-scroll="fade-up"class="form-group">
                             <label for="edit-city-province" data-i18n="label-city">City/Province</label>
                             <input type="text" id="edit-city-province" data-i18n="placeholder-city" placeholder="E.g: Ho Chi Minh City" required>
                         </div>
                         
-                        <div class="form-group">
+                        <div data-scroll="fade-up"class="form-group">
                             <label for="edit-address-detail" data-i18n="label-address-detail">Detailed Address</label>
                             <input type="text" id="edit-address-detail" data-i18n="placeholder-address-detail" placeholder="E.g: 123 Main Street, Ben Thanh Ward">
                         </div>
 
-                        <div class="modal-footer">
+                        <div data-scroll="fade-up"class="modal-footer">
                             <button type="submit" class="action-btn" data-i18n="btn-save-changes">Save Changes</button>
                         </div>
                     </form>
@@ -246,12 +246,12 @@
         </div>
 
         <!-- Order Details Modal -->
-        <div id="order-details-modal" class="modal">
-            <div class="modal-content order-details-modal-content">
+        <div data-scroll="fade-up"id="order-details-modal" class="modal">
+            <div data-scroll="fade-up"class="modal-content order-details-modal-content">
                 <span class="close-btn order-details-close-btn">&times;</span> 
                 <h2 class="modal-order-title"><span data-i18n="order-details-title">Order Details</span> #<span id="detail-order-id"></span></h2>
 
-                <div class="order-detail-container">
+                <div data-scroll="fade-up"class="order-detail-container">
                     <div class="detail-section">
                         <h3><span class="nav-icon">👤</span> <span data-i18n="customer-info">Customer Information</span></h3>
                         <div class="info-group">
@@ -272,7 +272,7 @@
                         </div>
                     </div>
 
-                    <div class="detail-section">
+                    <div data-scroll="fade-up"class="detail-section">
                         <h3><span class="nav-icon">📦</span> <span data-i18n="order-info">Order Information</span></h3>
                         <div class="info-group info-group-grid">
                             <label data-i18n="label-date">Date:</label>
@@ -284,7 +284,7 @@
                         </div>
                     </div>
 
-                    <div class="detail-section product-section">
+                    <div data-scroll="fade-up"class="detail-section product-section">
                         <h3><span class="nav-icon">🛒</span> <span data-i18n="products-title">Products</span></h3>
                         <div class="product-item-details">
                             <p class="product-name" id="detail-product-name"></p>
@@ -295,7 +295,7 @@
                         </div>
                     </div>
 
-                    <div class="detail-total-bar">
+                    <div data-scroll="fade-up"class="detail-total-bar">
                         <label data-i18n="label-total">Total Payment:</label>
                         <span id="detail-total-amount"></span>
                     </div>
@@ -307,7 +307,7 @@
         </div>
 
         <!-- Cancel Confirm Modal -->
-        <div id="cancel-confirm-modal" class="modal">
+        <div data-scroll="fade-up"id="cancel-confirm-modal" class="modal">
             <div class="modal-content confirm-modal-content">
                 <div class="modal-header">
                     <h2 data-i18n="confirm-cancel-title">Confirm Cancellation</h2>
@@ -325,10 +325,10 @@
     </main>
 
     <!--Nhóm 9: Phần quay lại đầu trang-->
-    <img id="btn-top" src="images/return_to_top.png" alt="Return to top">
+    <img data-scroll="fade-up"id="btn-top" src="images/return_to_top.png" alt="Return to top">
 
     <!--Nhóm 9: Phần footer-->
-    <footer>
+    <footer data-scroll="fade-up">
         <div class="footer-logo">
             <div><em>Haguchi</em></div>
             <div>葉具家</div>
@@ -379,5 +379,6 @@
     <script src="js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
     <script src="js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
     <script src="js/personal-info.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>
