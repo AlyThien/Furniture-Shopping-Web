@@ -411,7 +411,7 @@ class Wishlist {
         // Kiểm tra wishlist có empty không
         if (this.wishlist.length === 0) {
           alert('Your wishlist is empty. Keep shopping to add products!');
-          window.location.href = '/typologies.html';
+          window.location.href = 'typologies.html';
           return;
         }
 
@@ -441,7 +441,7 @@ class Wishlist {
         
         // ✅ Validation passed - Chuyển sang trang tiếp theo
         console.log('✅ Validation passed');
-        window.location.href = '/wishlist-send_index.html';
+        window.location.href = 'wishlist-send_index.html';
       });
     }
   }
