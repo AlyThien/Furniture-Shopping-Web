@@ -1,28 +1,33 @@
+/* === 1. @import font === */
+/* (Không có) */
+
+
+/* === 2. @font-face === */
 @font-face {
     font-family: 'Roboto Serif';
     src: url('Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
 }
 
-/* ==============================================
-Nhóm 9: HOẠT ẢNH JAVASCRIPT
-============================================== */
+
+/* === 3. Javascript Effects & Animations === */
 /* Trạng thái ẨN ban đầu */
 .reveal-hidden {
-    opacity: 0;
-    transform: translateY(40px);
+    opacity: 0; /* Hoàn toàn vô hình */
+    transform: translateY(40px); /* Dịch chuyển xuống 40px */
+    
+    /* Thiết lập độ mượt khi chuyển đổi (animation) */
     transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Trạng thái HIỆN (JavaScript sẽ thêm class này) */
 .reveal-visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Hiện ra */
+    transform: translateY(0); /* Trở về vị trí ban đầu */
 }
 
-/* ==============================================
-Nhóm 9: STYLE CHUNG
-============================================== */
+
+/* === 4. Reset / Global styles === */
 body {
     font-family: 'Roboto Serif', serif;
     background: linear-gradient(
@@ -36,9 +41,8 @@ body {
     color: #1f2937;
 }
 
-/* ==============================================
-Nhóm 9: LAYOUT
-============================================== */
+
+/* === 5. Layout === */
 .container {
     width: 100%;
     max-width: 80rem;
@@ -53,10 +57,8 @@ Nhóm 9: LAYOUT
     padding-bottom: 4rem;
 }
 
-/* ==============================================
-Nhóm 9: COMPONENTS
-============================================== */
-/* Section Title & Subtitle */
+
+/* === 6. Components === */
 .section-title {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -73,7 +75,7 @@ Nhóm 9: COMPONENTS
     line-height: 1.625;
 }
 
-/* Hero Section */
+/* --- Hero Section --- */
 .hero-section {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -173,7 +175,7 @@ Nhóm 9: COMPONENTS
     font-size: 1rem;
 }
 
-/* Philosophy Section */
+/* --- Philosophy Section --- */
 .philosophy-grid {
     display: flex;
     flex-direction: column;
@@ -197,7 +199,7 @@ Nhóm 9: COMPONENTS
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Accordion Component */
+/* --- Accordion Component --- */
 #accordion-container > :not([hidden]) ~ :not([hidden]) {
     margin-top: 1rem;
 }
@@ -249,7 +251,7 @@ Nhóm 9: COMPONENTS
     font-size: 1rem;
 }
 
-/* Team Section */
+/* --- Team Section --- */
 .team-title {
     text-align: center;
     margin-bottom: 4rem;
@@ -333,6 +335,8 @@ Nhóm 9: COMPONENTS
     gap: 3rem;
 }
 
+
+/* === 7. Utilities === */
 .text-custom-green { color: #4a6948; }
 .bg-custom-cream { background-color: #fdfbf6; }
 .text-custom-cream { color: #fdfbf6; }
@@ -341,44 +345,77 @@ Nhóm 9: COMPONENTS
 .border-custom-green-theme { border-color: #4a6948; }
 .text-gray-700 { color: #374151; }
 
-/* ==============================================
-Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
-============================================== */
+
+/* === 8. Responsive === */
+
+@media (min-width: 640px) {
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
 @media (min-width: 768px) {
-    /*Section*/
     .section {
         padding-top: 6rem;
         padding-bottom: 6rem;
     }
+}
 
-    /*Section Title*/
+@media (min-width: 768px) {
     .section-title {
         font-size: 2.25rem;
         line-height: 2.5rem;
     }
+}
 
-    /*Section Subtitle*/
+@media (min-width: 768px) {
     .section-subtitle {
         font-size: 1.25rem;
         line-height: 1.75rem;
     }
+}
 
-    /*Hero Section*/
+@media (min-width: 768px) {
     .hero-section {
         padding-top: 5rem;
         padding-bottom: 5rem;
     }
+}
 
+@media (min-width: 1024px) {
+    .hero-container {
+        min-height: 700px;
+    }
+}
+
+@media (min-width: 768px) {
     .hero-text-content {
         width: 40%;
         padding-right: 1rem;
     }
+}
+@media (min-width: 1024px) {
+    .hero-text-content {
+        width: 50%;
+        padding-right: 2rem;
+    }
+}
 
+@media (min-width: 768px) {
     .hero-title {
         font-size: 3rem;
         line-height: 1;
     }
+}
 
+@media (min-width: 768px) {
     .hero-image-container {
         position: absolute;
         top: 0;
@@ -387,7 +424,14 @@ Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
         height: 100%;
         margin-top: 0;
     }
+}
+@media (min-width: 1024px) {
+    .hero-image-container {
+        width: 50%;
+    }
+}
 
+@media (min-width: 768px) {
     .hero-info-box {
         position: absolute;
         top: 12rem;
@@ -396,73 +440,72 @@ Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
         margin-top: 0;
         padding: 2rem;
     }
+}
+@media (min-width: 1024px) {
+    .hero-info-box {
+        top: 14rem;
+        right: 0;
+        width: 40%;
+    }
+}
+@media (min-width: 1280px) {
+    .hero-info-box {
+        right: 0;
+    }
+}
 
+@media (min-width: 768px) {
     .hero-info-box-italic {
         font-size: 1.25rem;
     }
+}
 
+@media (min-width: 768px) {
     .hero-info-box-text {
         font-size: 1.125rem;
     }
+}
 
-    /*Philosophy Section*/
+@media (min-width: 768px) {
     .philosophy-grid {
         flex-direction: row;
     }
+}
+@media (min-width: 1024px) {
+    .philosophy-grid {
+        gap: 4rem;
+    }
+}
 
+@media (min-width: 768px) {
     .philosophy-text-column {
         width: 50%;
     }
+}
 
+@media (min-width: 768px) {
     .philosophy-image-column {
         width: 50%;
         height: 700px;
     }
+}
 
-    /*Accordion*/
+@media (min-width: 768px) {
     .accordion-title {
         font-size: 1.5rem;
         line-height: 2rem;
     }
+}
 
+@media (min-width: 768px) {
     .accordion-text {
         font-size: 1.125rem;
         line-height: 1.75rem;
     }
 }
 
-/* ==============================================
-Nhóm 9: RESPONSIVE - TABLET (max-width: 1024px)
-============================================== */
-@media (min-width: 1024px) {
-    /*Container*/
-    .container {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-
-    /*Hero Container*/
-    .hero-container {
-        min-height: 700px;
-    }
-
-    .hero-text-content {
-        width: 50%;
-        padding-right: 2rem;
-    }
-
-    .hero-image-container {
-        width: 50%;
-    }
-
-    .hero-info-box {
-        top: 14rem;
-        right: 0;
-        width: 40%;
-    }
-
-    /*Philosophy Grid*/
-    .philosophy-grid {
-        gap: 4rem;
+@media (min-width: 640px) {
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
