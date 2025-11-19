@@ -1,9 +1,15 @@
-//product.js
+/**
+ * =====================================================
+ * MODERN PRODUCT PAGE - COMPLETE & OPTIMIZED
+ * Version: 3.1 (FIXED REVIEW SUBMISSION)
+ * =====================================================
+ */
+
 (function () {
   "use strict";
 
   // =========================================================
-  // Nhóm 9: CONFIGURATION - Cấu hình chung cho toàn bộ trang
+  // CONFIGURATION
   // =========================================================
 
   const CONFIG = {
@@ -15,7 +21,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: UTILITY FUNCTIONS - Các hàm tiện ích dùng chung
+  // UTILITY FUNCTIONS
   // =========================================================
 
   const Utils = {
@@ -53,7 +59,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: IMAGE GALLERY WITH COLOR SYNC - Quản lý gallery ảnh sản phẩm với đồng bộ màu sắc
+  // 1. IMAGE GALLERY WITH COLOR SYNC
   // =========================================================
 
   const ImageGallery = {
@@ -77,23 +83,19 @@
     },
 
     bindEvents() {
-      // Nhóm 9: Thumbnails click events
       this.thumbnails.forEach((thumb, index) => {
         thumb.addEventListener("click", () => this.goToImage(index));
       });
 
-      // Nhóm 9: Navigation buttons (prev/next)
       const prevBtn = document.querySelector(".prev-img-btn");
       const nextBtn = document.querySelector(".next-img-btn");
 
       if (prevBtn) prevBtn.addEventListener("click", () => this.navigate(-1));
-      if (nextBtn) nextBtn.addEventListener("click", () => this.navigate(1));
+      if (nextBtn) prevBtn.addEventListener("click", () => this.navigate(1));
 
-      // Nhóm 9: Zoom functionality
       const zoomBtn = document.querySelector(".zoom-btn");
       if (zoomBtn) zoomBtn.addEventListener("click", () => this.zoom());
 
-      // Nhóm 9: Keyboard navigation (Arrow keys)
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowLeft") this.navigate(-1);
         if (e.key === "ArrowRight") this.navigate(1);
@@ -113,7 +115,6 @@
     },
 
     updateImage() {
-      // Nhóm 9: Fade effect khi chuyển ảnh
       this.mainImage.style.opacity = "0";
 
       setTimeout(() => {
@@ -121,14 +122,12 @@
         this.mainImage.style.opacity = "1";
       }, CONFIG.IMAGE_FADE_DURATION);
 
-      // Nhóm 9: Update active state cho thumbnails
       this.thumbnails.forEach((thumb, index) => {
         thumb.classList.toggle("active", index === this.currentIndex);
       });
     },
 
     zoom() {
-      // Nhóm 9: Tạo overlay để zoom ảnh fullscreen
       const overlay = document.createElement("div");
       overlay.style.cssText = `
         position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -153,7 +152,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: COLOR SELECTION WITH IMAGE SYNC - Quản lý chọn màu sắc và đồng bộ với ảnh
+  // 2. COLOR SELECTION WITH IMAGE SYNC
   // =========================================================
 
   const ColorManager = {
@@ -168,7 +167,6 @@
           );
           const color = this.getAttribute("data-color");
 
-          // Nhóm 9: Update active state cho color swatches
           colorSwatches.forEach((s) => {
             s.classList.remove("active");
             s.setAttribute("aria-checked", "false");
@@ -176,17 +174,14 @@
           this.classList.add("active");
           this.setAttribute("aria-checked", "true");
 
-          // Nhóm 9: Update text hiển thị màu đã chọn
           if (selectedColor) {
             selectedColor.textContent = color;
           }
 
-          // Nhóm 9: Đồng bộ với Image Gallery
           if (!isNaN(thumbnailIndex) && thumbnailIndex >= 0) {
             ImageGallery.goToImage(thumbnailIndex);
           }
 
-          // Nhóm 9: Animation effect khi click
           this.style.transform = "scale(1.15)";
           setTimeout(() => {
             this.style.transform = "";
@@ -199,7 +194,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: SIZE SELECTION - Quản lý chọn kích thước sản phẩm
+  // 3. SIZE SELECTION
   // =========================================================
 
   const SizeManager = {
@@ -209,7 +204,6 @@
 
       sizeButtons.forEach((btn) => {
         btn.addEventListener("click", function () {
-          // Nhóm 9: Remove active state từ tất cả size buttons
           sizeButtons.forEach((b) => {
             b.classList.remove("active");
             b.setAttribute("aria-checked", "false");
@@ -217,12 +211,10 @@
           this.classList.add("active");
           this.setAttribute("aria-checked", "true");
 
-          // Nhóm 9: Update text hiển thị size đã chọn
           if (selectedSize) {
             selectedSize.textContent = this.getAttribute("data-size");
           }
 
-          // Nhóm 9: Animation effect
           this.style.transform = "scale(1.05)";
           setTimeout(() => {
             this.style.transform = "";
@@ -235,7 +227,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: MATERIAL SELECTION - Quản lý chọn chất liệu sản phẩm
+  // 4. MATERIAL SELECTION
   // =========================================================
 
   const MaterialManager = {
@@ -249,16 +241,13 @@
           if (input) {
             input.checked = true;
 
-            // Nhóm 9: Remove active state từ tất cả material cards
             materialCards.forEach((c) => c.classList.remove("active"));
             this.classList.add("active");
 
-            // Nhóm 9: Update text hiển thị material đã chọn
             if (selectedMaterial) {
               selectedMaterial.textContent = input.value;
             }
 
-            // Nhóm 9: Animation effect
             this.style.transform = "scale(1.03)";
             setTimeout(() => {
               this.style.transform = "";
@@ -272,7 +261,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: QUANTITY CONTROL - Quản lý tăng/giảm số lượng sản phẩm
+  // 5. QUANTITY CONTROL
   // =========================================================
 
   const QuantityManager = {
@@ -283,7 +272,6 @@
 
       if (!quantityInput) return;
 
-      // Nhóm 9: Nút giảm số lượng
       if (minusBtn) {
         minusBtn.addEventListener("click", () => {
           const current = parseInt(quantityInput.value);
@@ -295,7 +283,6 @@
         });
       }
 
-      // Nhóm 9: Nút tăng số lượng
       if (plusBtn) {
         plusBtn.addEventListener("click", () => {
           const current = parseInt(quantityInput.value);
@@ -313,7 +300,6 @@
     },
 
     animate(input) {
-      // Nhóm 9: Animation khi thay đổi số lượng
       input.style.transform = "scale(1.2)";
       input.style.color = "#3b6d54";
       setTimeout(() => {
@@ -324,7 +310,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: ADD TO CART - Quản lý thêm sản phẩm vào giỏ hàng
+  // 6. ADD TO CART
   // =========================================================
 
   const CartManager = {
@@ -351,7 +337,6 @@
     },
 
     addToCart() {
-      // Nhóm 9: Lấy thông tin sản phẩm từ form
       const productData = {
         id: CONFIG.PRODUCT_ID,
         name: "L-shaped Sofa",
@@ -366,12 +351,10 @@
         image: document.getElementById("mainProductImage")?.src || "",
       };
 
-      // Nhóm 9: Lưu vào localStorage
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
       cart.push(productData);
       localStorage.setItem("cart", JSON.stringify(cart));
 
-      // Nhóm 9: Success animation cho button
       const btn = document.querySelector(".btn-add-cart");
       if (btn) {
         const originalHTML = btn.innerHTML;
@@ -391,7 +374,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: WISHLIST MANAGER - Quản lý thêm/xóa sản phẩm khỏi wishlist
+  // 7. WISHLIST MANAGER
   // =========================================================
 
   const WishlistManager = {
@@ -406,18 +389,15 @@
 
       this.loadState();
 
-      // Nhóm 9: Click vào nút Add to Wishlist
       wishlistBtn.addEventListener("click", () => {
         const heartIcon = wishlistBtn.querySelector(".btn-icon");
         const isAdded = wishlistBtn.classList.contains("added");
 
         if (isAdded) {
-          // Nhóm 9: Xóa khỏi wishlist
           heartIcon.textContent = "♡";
           wishlistBtn.classList.remove("added");
           this.removeFromWishlist();
         } else {
-          // Nhóm 9: Thêm vào wishlist
           const productData = this.getProductData();
           let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
@@ -428,13 +408,11 @@
             wishlistBtn.classList.add("added");
             this.updateCount(wishlist.length);
 
-            // Nhóm 9: Hiển thị popup xác nhận
             wishlistPopup.classList.add("show");
           }
         }
       });
 
-      // Nhóm 9: Đóng popup
       if (closePopup) {
         closePopup.addEventListener("click", () => {
           wishlistPopup.classList.remove("show");
@@ -447,21 +425,18 @@
         });
       }
 
-      // Nhóm 9: Xem trang wishlist
       if (viewBtn) {
         viewBtn.addEventListener("click", () => {
           window.location.href = "wishlist.html";
         });
       }
 
-      // Nhóm 9: Click outside để đóng popup
       window.addEventListener("click", (e) => {
         if (e.target === wishlistPopup) {
           wishlistPopup.classList.remove("show");
         }
       });
 
-      // Nhóm 9: ESC key để đóng popup
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && wishlistPopup.classList.contains("show")) {
           wishlistPopup.classList.remove("show");
@@ -472,7 +447,6 @@
     },
 
     getProductData() {
-      // Nhóm 9: Lấy thông tin sản phẩm hiện tại
       return {
         id: CONFIG.PRODUCT_ID,
         name: "L-shaped Sofa",
@@ -489,7 +463,6 @@
     },
 
     removeFromWishlist() {
-      // Nhóm 9: Xóa sản phẩm khỏi wishlist
       let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
       wishlist = wishlist.filter((item) => item.id !== CONFIG.PRODUCT_ID);
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
@@ -498,7 +471,6 @@
     },
 
     updateCount(count) {
-      // Nhóm 9: Cập nhật số lượng wishlist ở header
       const wishlistCount = document.querySelector(".wishlist-count");
       if (wishlistCount) {
         wishlistCount.textContent = count;
@@ -506,7 +478,6 @@
     },
 
     loadState() {
-      // Nhóm 9: Load trạng thái wishlist từ localStorage
       const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
       this.updateCount(wishlist.length);
 
@@ -523,7 +494,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: SHARE BUTTONS - Quản lý chia sẻ sản phẩm lên mạng xã hội
+  // 8. SHARE BUTTONS
   // =========================================================
 
   const ShareManager = {
@@ -536,7 +507,6 @@
           const productTitle = "L-shaped Sofa - Haguchi Furniture";
           const btnText = this.title.toLowerCase();
 
-          // Nhóm 9: Share lên Facebook
           if (btnText.includes("facebook")) {
             window.open(
               `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
@@ -544,33 +514,26 @@
               )}`,
               "_blank"
             );
-          }
-          // Nhóm 9: Share lên Twitter
-          else if (btnText.includes("twitter")) {
+          } else if (btnText.includes("twitter")) {
             window.open(
               `https://twitter.com/intent/tweet?url=${encodeURIComponent(
                 productUrl
               )}&text=${encodeURIComponent(productTitle)}`,
               "_blank"
             );
-          }
-          // Nhóm 9: Share lên Pinterest
-          else if (btnText.includes("pinterest")) {
+          } else if (btnText.includes("pinterest")) {
             window.open(
               `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(
                 productUrl
               )}&description=${encodeURIComponent(productTitle)}`,
               "_blank"
             );
-          }
-          // Nhóm 9: Copy link
-          else if (btnText.includes("link")) {
+          } else if (btnText.includes("link")) {
             navigator.clipboard.writeText(productUrl).then(() => {
               Utils.showNotification("Link copied to clipboard!", "success");
             });
           }
 
-          // Nhóm 9: Animation khi click
           this.style.transform = "scale(1.2)";
           setTimeout(() => {
             this.style.transform = "";
@@ -583,7 +546,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: COMPARE BUTTON - Thêm sản phẩm vào danh sách so sánh
+  // 9. COMPARE BUTTON
   // =========================================================
 
   const CompareManager = {
@@ -595,7 +558,6 @@
           const compareList =
             JSON.parse(localStorage.getItem("compareList")) || [];
 
-          // Nhóm 9: Giới hạn tối đa 4 sản phẩm
           if (compareList.length >= 4) {
             Utils.showNotification(
               "Maximum 4 items can be compared. Please remove one first.",
@@ -613,7 +575,6 @@
           localStorage.setItem("compareList", JSON.stringify(compareList));
           Utils.showNotification("Added to compare list!", "success");
 
-          // Nhóm 9: Animation
           this.style.transform = "scale(1.05)";
           setTimeout(() => {
             this.style.transform = "";
@@ -626,7 +587,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: STICKY CART BAR - Thanh sticky hiển thị khi scroll qua sản phẩm
+  // 10. STICKY CART BAR
   // =========================================================
 
   const StickyCartBar = {
@@ -639,7 +600,6 @@
     },
 
     createBar() {
-      // Nhóm 9: Tạo sticky bar element
       const bar = document.createElement("div");
       bar.className = "sticky-cart-bar";
       bar.innerHTML = `
@@ -653,7 +613,7 @@
             <span class="sticky-price">4.200.000 đ</span>
           </div>
           <button class="sticky-add-cart-btn">
-            <span>🛒</span> Add to Wishlist
+            <span>🛒</span> Add to Cart
           </button>
         </div>
       `;
@@ -668,7 +628,6 @@
       this.addStyles();
       document.body.appendChild(bar);
 
-      // Nhóm 9: Click vào nút sticky bar
       bar
         .querySelector(".sticky-add-cart-btn")
         .addEventListener("click", () => {
@@ -680,7 +639,6 @@
     },
 
     handleScroll() {
-      // Nhóm 9: Hiển thị/ẩn sticky bar dựa vào scroll position
       const productSection = document.querySelector(".product-display-modern");
       if (productSection) {
         const rect = productSection.getBoundingClientRect();
@@ -693,7 +651,6 @@
     },
 
     addStyles() {
-      // Nhóm 9: Inject CSS cho sticky bar
       const style = document.createElement("style");
       style.textContent = `
         .sticky-cart-bar.visible { transform: translateY(0) !important; }
@@ -732,7 +689,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: TABS MANAGER - Quản lý các tab (Description, Specifications, etc.)
+  // 11. TABS MANAGER
   // =========================================================
 
   const TabsManager = {
@@ -746,11 +703,9 @@
         btn.addEventListener("click", function () {
           const targetTab = this.getAttribute("data-tab");
 
-          // Nhóm 9: Remove active từ tất cả tabs
           tabBtns.forEach((b) => b.classList.remove("active"));
           this.classList.add("active");
 
-          // Nhóm 9: Show tab content tương ứng
           tabContents.forEach((content) => {
             content.classList.remove("active");
             if (content.id === targetTab) {
@@ -765,7 +720,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: GALLERY SLIDER - Slider cho lifestyle gallery images
+  // 12. GALLERY SLIDER
   // =========================================================
 
   const GallerySlider = {
@@ -788,7 +743,6 @@
       this.updateSlide();
       this.startAutoplay();
 
-      // Nhóm 9: Pause autoplay khi hover
       const sliderContainer = document.querySelector(".gallery-slider-modern");
       if (sliderContainer) {
         sliderContainer.addEventListener("mouseenter", () =>
@@ -799,13 +753,11 @@
         );
       }
 
-      // Nhóm 9: Keyboard navigation
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowLeft") this.changeSlide(-1);
         if (e.key === "ArrowRight") this.changeSlide(1);
       });
 
-      // Nhóm 9: Expose global functions cho HTML onclick
       window.galleryChangeSlide = (direction) => this.changeSlide(direction);
       window.galleryGoToSlide = (index) => this.goToSlide(index);
 
@@ -813,7 +765,6 @@
     },
 
     startAutoplay() {
-      // Nhóm 9: Bắt đầu autoplay với progress bar
       let progress = 0;
       const duration = CONFIG.GALLERY_DURATION;
       const interval = 50;
@@ -833,7 +784,6 @@
     },
 
     stopAutoplay() {
-      // Nhóm 9: Dừng autoplay
       clearInterval(this.autoplayInterval);
       if (this.progressBar) {
         this.progressBar.style.width = "0%";
@@ -841,13 +791,11 @@
     },
 
     resumeAutoplay() {
-      // Nhóm 9: Resume autoplay
       this.stopAutoplay();
       this.startAutoplay();
     },
 
     changeSlide(direction) {
-      // Nhóm 9: Chuyển slide theo direction
       this.stopAutoplay();
       this.index =
         (this.index + direction + this.slides.length) % this.slides.length;
@@ -856,7 +804,6 @@
     },
 
     goToSlide(index) {
-      // Nhóm 9: Đi đến slide cụ thể
       this.stopAutoplay();
       this.index = index;
       this.updateSlide();
@@ -864,7 +811,6 @@
     },
 
     updateSlide() {
-      // Nhóm 9: Update active slide và thumbnail
       this.slides.forEach((slide, i) => {
         slide.classList.toggle("active", i === this.index);
       });
@@ -876,7 +822,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: REVIEWS MANAGER - Quản lý phần reviews (filter, sort, helpful)
+  // 13. REVIEWS MANAGER
   // =========================================================
 
   const ReviewsManager = {
@@ -892,7 +838,6 @@
     },
 
     initFilters() {
-      // Nhóm 9: Filter reviews theo rating hoặc verified
       const filterBtns = document.querySelectorAll(".filter-btn");
       const reviewCards = document.querySelectorAll(".review-card");
 
@@ -921,7 +866,6 @@
     },
 
     initSort() {
-      // Nhóm 9: Sort reviews theo recent, helpful, rating
       const sortSelect = document.querySelector(".sort-select");
       const reviewsGrid = document.querySelector(".reviews-grid");
 
@@ -962,13 +906,11 @@
     },
 
     initHelpful() {
-      // Nhóm 9: Nút Helpful - vote review hữu ích
       const helpfulBtns = document.querySelectorAll(".helpful-btn");
 
       helpfulBtns.forEach((btn) => {
         btn.addEventListener("click", function () {
           if (this.classList.contains("voted")) {
-            // Nhóm 9: Unvote
             this.classList.remove("voted");
             this.style.background = "";
             this.style.color = "";
@@ -977,7 +919,6 @@
               currentCount - 1
             })`;
           } else {
-            // Nhóm 9: Vote
             this.classList.add("voted");
             this.style.background = "#3b6d54";
             this.style.color = "white";
@@ -996,13 +937,15 @@
     },
 
     initReport() {
-      // Nhóm 9: Nút Report - báo cáo review không phù hợp
       const reportBtns = document.querySelectorAll(".report-btn");
 
       reportBtns.forEach((btn) => {
         btn.addEventListener("click", function () {
           if (confirm("Are you sure you want to report this review?")) {
-            alert("Thank you for your report. We will review this feedback.");
+            Utils.showNotification(
+              "Thank you for your report. We will review this feedback.",
+              "info"
+            );
             this.disabled = true;
             this.textContent = "Reported";
             this.style.opacity = "0.5";
@@ -1012,7 +955,6 @@
     },
 
     initLoadMore() {
-      // Nhóm 9: Nút Load More - tải thêm reviews
       const loadMoreBtn = document.querySelector(".load-more-btn");
 
       if (loadMoreBtn) {
@@ -1021,9 +963,7 @@
           this.disabled = true;
 
           setTimeout(() => {
-            alert(
-              "No more reviews to load. This would fetch from your database in production."
-            );
+            Utils.showNotification("No more reviews to load.", "info");
             this.innerHTML = "No More Reviews";
             this.style.opacity = "0.5";
           }, 1000);
@@ -1032,20 +972,27 @@
     },
 
     initWriteReview() {
-      // Nhóm 9: Nút Write Review - mở form viết review
       const writeReviewBtn = document.querySelector(".write-review-btn-modern");
       const openFormBtn = document.getElementById("openReviewFormBtn");
 
       if (writeReviewBtn) {
         writeReviewBtn.addEventListener("click", () => this.openReviewModal());
       }
+
       if (openFormBtn) {
         openFormBtn.addEventListener("click", () => this.openReviewModal());
       }
     },
 
+    openReviewModal() {
+      const modal = document.getElementById("reviewModal");
+      if (modal) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+    },
+
     initImageLightbox() {
-      // Nhóm 9: Click vào review image để xem fullscreen
       const reviewImages = document.querySelectorAll(".review-img");
 
       reviewImages.forEach((img) => {
@@ -1076,34 +1023,21 @@
   };
 
   // =========================================================
-  // Nhóm 9: REVIEW FORM SUBMIT - Xử lý submit form review
+  // 14. REVIEW FORM SUBMIT (✅ FIXED VERSION)
   // =========================================================
 
   const ReviewFormSubmit = {
-    selectedPhotos: [],
-
     init() {
       const form = document.getElementById("reviewForm");
       const modal = document.getElementById("reviewModal");
       const closeBtn = document.getElementById("closeReviewModal");
       const cancelBtn = document.getElementById("cancelReviewBtn");
-      const openBtn = document.getElementById("openReviewFormBtn");
-      const writeReviewBtn = document.querySelector(".write-review-btn-modern");
 
       if (!form || !modal) {
         console.error("❌ Review form or modal not found!");
         return;
       }
 
-      // Nhóm 9: Open modal handlers
-      if (openBtn) {
-        openBtn.addEventListener("click", () => this.openModal());
-      }
-      if (writeReviewBtn) {
-        writeReviewBtn.addEventListener("click", () => this.openModal());
-      }
-
-      // Nhóm 9: Close modal function
       const closeModal = () => {
         modal.classList.remove("active");
         document.body.style.overflow = "";
@@ -1112,178 +1046,25 @@
       closeBtn?.addEventListener("click", closeModal);
       cancelBtn?.addEventListener("click", closeModal);
 
-      // Nhóm 9: Click outside modal để đóng
       modal.addEventListener("click", (e) => {
         if (e.target === modal) closeModal();
       });
 
-      // Nhóm 9: ESC key để đóng modal
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && modal.classList.contains("active")) {
           closeModal();
         }
       });
 
-      this.initStarRating();
-      this.initCharCounters();
-      this.initPhotoUpload();
-      this.initFormSubmit(form, closeModal);
-
-      console.log("✅ Review Form Submit initialized");
-    },
-
-    openModal() {
-      // Nhóm 9: Mở review modal
-      const modal = document.getElementById("reviewModal");
-      if (modal) {
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
-      }
-    },
-
-    initStarRating() {
-      // Nhóm 9: Star rating input với message
-      const starInputs = document.querySelectorAll(
-        '.star-rating-input input[name="rating"]'
-      );
-      const ratingMessage = document.getElementById("ratingMessage");
-
-      const messages = {
-        5: "Excellent! 😍",
-        4: "Good! 👍",
-        3: "Average 😐",
-        2: "Poor 👎",
-        1: "Terrible 😞",
-      };
-
-      starInputs.forEach((input) => {
-        input.addEventListener("change", function () {
-          const rating = this.value;
-          if (ratingMessage) {
-            ratingMessage.textContent = messages[rating] || "Select a rating";
-          }
-        });
-      });
-    },
-
-    initCharCounters() {
-      // Nhóm 9: Character counter cho title và review text
-      const titleInput = document.getElementById("reviewTitle");
-      const reviewText = document.getElementById("reviewText");
-      const titleCount = document.getElementById("titleCharCount");
-      const reviewCount = document.getElementById("reviewCharCount");
-
-      titleInput?.addEventListener("input", function () {
-        const count = this.value.length;
-        if (titleCount) {
-          titleCount.textContent = `${count}/100`;
-          titleCount.style.color = count > 100 ? "#ef4444" : "#9ca3af";
-        }
-      });
-
-      reviewText?.addEventListener("input", function () {
-        const count = this.value.length;
-        if (reviewCount) {
-          reviewCount.textContent = `${count}/1000`;
-          reviewCount.style.color = count > 1000 ? "#ef4444" : "#9ca3af";
-        }
-      });
-    },
-
-    initPhotoUpload() {
-      // Nhóm 9: Upload photos (tối đa 3 ảnh, mỗi ảnh max 5MB)
-      const photoInput = document.getElementById("reviewPhotos");
-      const previewGrid = document.getElementById("photoPreviewGrid");
-
-      photoInput?.addEventListener("change", (e) => {
-        const files = Array.from(e.target.files);
-
-        if (this.selectedPhotos.length + files.length > 3) {
-          Utils.showNotification("Maximum 3 photos allowed", "warning");
-          return;
-        }
-
-        files.forEach((file) => {
-          if (file.size > 5 * 1024 * 1024) {
-            Utils.showNotification(
-              `${file.name} is too large (max 5MB)`,
-              "warning"
-            );
-            return;
-          }
-
-          this.selectedPhotos.push(file);
-          this.addPhotoPreview(file);
-        });
-      });
-    },
-
-    addPhotoPreview(file) {
-      // Nhóm 9: Thêm photo preview với nút remove
-      const previewGrid = document.getElementById("photoPreviewGrid");
-      if (!previewGrid) return;
-
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        const div = document.createElement("div");
-        div.className = "photo-preview-item";
-        div.style.cssText = `
-          position: relative; display: inline-block;
-          margin: 5px; width: 80px; height: 80px;
-        `;
-
-        div.innerHTML = `
-          <img src="${e.target.result}" alt="Preview" style="
-            width: 100%; height: 100%; object-fit: cover;
-            border-radius: 8px; border: 2px solid #3b6d54;
-          ">
-          <button type="button" class="photo-remove-btn" data-file="${file.name}" style="
-            position: absolute; top: -8px; right: -8px;
-            width: 24px; height: 24px; border-radius: 50%;
-            background: #ef4444; color: white; border: none;
-            cursor: pointer; font-size: 16px; line-height: 1;
-          ">×</button>
-        `;
-
-        div.querySelector(".photo-remove-btn").addEventListener("click", () => {
-          this.removePhoto(file.name);
-          div.remove();
-        });
-
-        previewGrid.appendChild(div);
-      };
-
-      reader.readAsDataURL(file);
-    },
-
-    removePhoto(fileName) {
-      // Nhóm 9: Xóa photo khỏi selected list
-      this.selectedPhotos = this.selectedPhotos.filter(
-        (f) => f.name !== fileName
-      );
-    },
-
-    initFormSubmit(form, closeModal) {
-      // Nhóm 9: Xử lý submit form review
-      form.addEventListener("submit", async (e) => {
+      // ✅ FORM SUBMIT HANDLER
+      form.addEventListener("submit", (e) => {
         e.preventDefault();
-
-        const agreeTerms = document.getElementById("agreeTerms");
-        if (agreeTerms && !agreeTerms.checked) {
-          Utils.showNotification(
-            "Please agree to the review guidelines",
-            "warning"
-          );
-          return;
-        }
 
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
         }
 
-        // Nhóm 9: Lấy dữ liệu từ form
         const formData = {
           name: document.getElementById("reviewerName")?.value || "Anonymous",
           email: document.getElementById("reviewerEmail")?.value || "",
@@ -1298,68 +1079,37 @@
             document.querySelector('input[name="recommend"]:checked')?.value ||
             "yes",
           date: "Just now",
-          images: this.selectedPhotos.map((file) => URL.createObjectURL(file)),
+          images: [], // Placeholder cho ảnh nếu có
         };
 
-        // Nhóm 9: Loading state cho submit button
-        const submitBtn = form.querySelector(".btn-submit");
-        if (submitBtn) {
-          const originalText = submitBtn.innerHTML;
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = "<span>⏳ Submitting...</span>";
-
-          setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-          }, 1500);
-        }
-
-        // Nhóm 9: Lưu vào localStorage
-        try {
-          let reviews = JSON.parse(localStorage.getItem("userReviews")) || [];
-          reviews.push(formData);
-          localStorage.setItem("userReviews", JSON.stringify(reviews));
-        } catch (error) {
-          console.error("Error saving to localStorage:", error);
-        }
-
-        // Nhóm 9: Thêm review vào trang
+        // ✅ ADD REVIEW TO PAGE
         this.addReviewToPage(formData);
+
+        // Success notification
         Utils.showNotification("✅ Review submitted successfully!", "success");
 
-        // Nhóm 9: Reset form
+        // Reset form
         form.reset();
-        this.selectedPhotos = [];
-        const previewGrid = document.getElementById("photoPreviewGrid");
-        if (previewGrid) previewGrid.innerHTML = "";
-
-        const ratingMessage = document.getElementById("ratingMessage");
-        if (ratingMessage) ratingMessage.textContent = "Select a rating";
-
-        const titleCount = document.getElementById("titleCharCount");
-        const reviewCount = document.getElementById("reviewCharCount");
-        if (titleCount) titleCount.textContent = "0/100";
-        if (reviewCount) reviewCount.textContent = "0/1000";
-
         closeModal();
 
-        // Nhóm 9: Scroll đến reviews section
-        setTimeout(() => {
-          const reviewsSection = document.querySelector(".reviews-grid");
-          if (reviewsSection) {
+        // Scroll to reviews
+        const reviewsSection = document.querySelector(".reviews-grid");
+        if (reviewsSection) {
+          setTimeout(() => {
             reviewsSection.scrollIntoView({
               behavior: "smooth",
               block: "start",
             });
-          }
-        }, 500);
+          }, 500);
+        }
 
         console.log("✅ Review submitted:", formData);
       });
+
+      console.log("✅ Review Form Submit initialized");
     },
 
     addReviewToPage(reviewData) {
-      // Nhóm 9: Thêm review card mới vào đầu reviews grid
       const reviewsGrid = document.querySelector(".reviews-grid");
 
       if (!reviewsGrid) {
@@ -1367,7 +1117,7 @@
         return;
       }
 
-      // Nhóm 9: Tạo stars HTML
+      // ✅ CREATE STARS HTML
       const starsHTML = Array(5)
         .fill(0)
         .map((_, i) => {
@@ -1376,7 +1126,7 @@
         })
         .join("");
 
-      // Nhóm 9: Tạo avatar initials
+      // ✅ GET INITIALS
       const initials = reviewData.name
         .split(" ")
         .map((n) => n[0])
@@ -1384,12 +1134,13 @@
         .toUpperCase()
         .slice(0, 2);
 
-      // Nhóm 9: Tạo review card element
+      // ✅ CREATE REVIEW CARD
       const reviewCard = document.createElement("div");
       reviewCard.className = "review-card";
       reviewCard.setAttribute("data-scroll", "scale-up");
       reviewCard.setAttribute("data-rating", reviewData.rating);
 
+      // ✅ HTML STRUCTURE (ĐỒNG BỘ VỚI REVIEW CÓ SẴN)
       reviewCard.innerHTML = `
         <div class="review-header">
           <div class="reviewer-info">
@@ -1443,10 +1194,10 @@
         </div>
       `;
 
-      // Nhóm 9: Insert vào đầu grid
+      // ✅ INSERT AT TOP
       reviewsGrid.insertBefore(reviewCard, reviewsGrid.firstChild);
 
-      // Nhóm 9: Animation khi thêm mới
+      // ✅ ANIMATE
       reviewCard.style.opacity = "0";
       reviewCard.style.transform = "translateY(-20px)";
 
@@ -1456,14 +1207,15 @@
         reviewCard.style.transform = "translateY(0)";
       }, 10);
 
-      // Nhóm 9: Attach event listeners cho review card mới
+      // ✅ ATTACH EVENT LISTENERS
       this.attachReviewCardEvents(reviewCard);
 
       console.log("✅ Review added to page:", reviewData);
     },
 
+    // ✅ ATTACH EVENTS TO NEW REVIEW CARD
     attachReviewCardEvents(reviewCard) {
-      // Nhóm 9: Attach helpful button event
+      // Helpful button
       const helpfulBtn = reviewCard.querySelector(".helpful-btn");
       if (helpfulBtn) {
         helpfulBtn.addEventListener("click", function () {
@@ -1487,7 +1239,7 @@
         });
       }
 
-      // Nhóm 9: Attach report button event
+      // Report button
       const reportBtn = reviewCard.querySelector(".report-btn");
       if (reportBtn) {
         reportBtn.addEventListener("click", function () {
@@ -1503,7 +1255,7 @@
         });
       }
 
-      // Nhóm 9: Attach lightbox cho review images
+      // Review images lightbox
       const reviewImages = reviewCard.querySelectorAll(".review-img");
       reviewImages.forEach((img) => {
         img.addEventListener("click", function () {
@@ -1533,140 +1285,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: PRODUCT SLIDER - Slider cho old product section (nếu có)
-  // =========================================================
-
-  const ProductSlider = {
-    products: [
-      {
-        title: "L-shaped sofa",
-        img: "Product/Ảnh/11.png",
-        price: "9.500.000 đ",
-      },
-      {
-        title: "L-shaped sofa - Grey",
-        img: "Product/Ảnh/9.png",
-        price: "9.500.000 đ",
-      },
-      {
-        title: "Corner Sofa Deluxe",
-        img: "Product/Ảnh/10.png",
-        price: "11.000.000 đ",
-      },
-      {
-        title: "Modern Armchair",
-        img: "Product/Ảnh/12.png",
-        price: "4.200.000 đ",
-      },
-    ],
-    index: 0,
-
-    init() {
-      const img = document.getElementById("productImage");
-      const price = document.getElementById("productPrice");
-      const prev = document.getElementById("prevBtn");
-      const next = document.getElementById("nextBtn");
-
-      if (!img || !price) return;
-
-      this.img = img;
-      this.price = price;
-
-      // Nhóm 9: Previous button
-      if (prev) {
-        prev.addEventListener("click", () => {
-          this.index =
-            (this.index - 1 + this.products.length) % this.products.length;
-          this.updateProduct();
-        });
-      }
-
-      // Nhóm 9: Next button
-      if (next) {
-        next.addEventListener("click", () => {
-          this.index = (this.index + 1) % this.products.length;
-          this.updateProduct();
-        });
-      }
-
-      this.updateProduct();
-      console.log("✅ Product Slider initialized");
-    },
-
-    updateProduct() {
-      // Nhóm 9: Update image và price
-      if (this.img && this.price) {
-        this.img.src = this.products[this.index].img;
-        this.price.textContent = this.products[this.index].price;
-      }
-    },
-  };
-
-  // =========================================================
-  // Nhóm 9: SIMPLE SLIDER - Slider với dots navigation
-  // =========================================================
-
-  const SimpleSlider = {
-    index: 0,
-
-    init() {
-      const slides = document.querySelectorAll(".slide");
-      const dotsContainer = document.getElementById("dots");
-
-      if (slides.length === 0 || !dotsContainer) return;
-
-      this.slides = slides;
-      this.dotsContainer = dotsContainer;
-
-      // Nhóm 9: Tạo dots
-      slides.forEach((_, i) => {
-        const dot = document.createElement("span");
-        dot.style.cssText = `
-          display: inline-block; width: 12px; height: 12px;
-          margin: 0 5px; background: #bbb; border-radius: 50%;
-          cursor: pointer; transition: background 0.3s;
-        `;
-        dot.addEventListener("click", () => this.showSlide(i));
-        dotsContainer.appendChild(dot);
-      });
-
-      this.dots = dotsContainer.querySelectorAll("span");
-
-      // Nhóm 9: Auto play
-      setInterval(() => this.changeSlide(1), 4000);
-
-      // Nhóm 9: Show first slide
-      this.showSlide(0);
-
-      // Nhóm 9: Expose global function
-      window.changeSlide = (n) => this.changeSlide(n);
-
-      console.log("✅ Simple Slider initialized");
-    },
-
-    showSlide(i) {
-      // Nhóm 9: Show slide và update dots
-      this.slides.forEach((s) => s.classList.remove("active"));
-      this.dots.forEach((d) => {
-        d.classList.remove("active");
-        d.style.background = "#bbb";
-      });
-
-      this.slides[i].classList.add("active");
-      this.dots[i].classList.add("active");
-      this.dots[i].style.background = "#3b6d54";
-      this.index = i;
-    },
-
-    changeSlide(n) {
-      // Nhóm 9: Thay đổi slide
-      this.index = (this.index + n + this.slides.length) % this.slides.length;
-      this.showSlide(this.index);
-    },
-  };
-
-  // =========================================================
-  // Nhóm 9: INJECT GLOBAL STYLES - Inject CSS animations và styles
+  // 15. INJECT GLOBAL STYLES
   // =========================================================
 
   const InjectStyles = {
@@ -1685,13 +1304,6 @@
           from { transform: translateX(0); opacity: 1; }
           to { transform: translateX(400px); opacity: 0; }
         }
-        .review-modal-close:hover {
-          color: #333 !important;
-        }
-        .submit-review-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(59, 109, 84, 0.4);
-        }
       `;
       document.head.appendChild(style);
       console.log("✅ Styles injected");
@@ -1699,7 +1311,7 @@
   };
 
   // =========================================================
-  // Nhóm 9: MASTER INITIALIZATION - Khởi tạo tất cả modules
+  // MASTER INITIALIZATION
   // =========================================================
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -1719,9 +1331,7 @@
     TabsManager.init();
     GallerySlider.init();
     ReviewsManager.init();
-    ProductSlider.init();
-    SimpleSlider.init();
-    ReviewFormSubmit.init();
+    ReviewFormSubmit.init(); // ✅ ADDED
 
     console.log("✅ Modern Product Page Fully Initialized!");
   });

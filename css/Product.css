@@ -59,12 +59,12 @@ body {
   align-items: center;
   justify-content: center;
 
-  /* ✅ Tăng padding để ảnh nhỏ hơn */
+  /* Tăng padding để ảnh nhỏ hơn */
   padding: 40px; /* Tăng từ 20px lên 40px */
 }
 
 .main-product-image {
-  /* ✅ Giới hạn kích thước tối đa */
+  /* Giới hạn kích thước tối đa */
   max-width: 100%;
   max-height: 100%;
 
@@ -401,22 +401,6 @@ body {
 .color-swatch.active {
   border-color: #1d3227;
   box-shadow: 0 0 0 2px white, 0 0 0 4px #3b6d54;
-}
-
-.checkmark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 18px;
-  font-weight: 900;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.color-swatch.active .checkmark {
-  opacity: 1;
 }
 
 /* Size Buttons */
@@ -1879,10 +1863,6 @@ input:focus {
 .add-btn:hover {
   background-color: #000000;
 }
-
-/* =========================================================
-📜 4. PRODUCT DESCRIPTION - RESPONSIVE
-========================================================= */
 /* =========================================================
 📑 TABBED PRODUCT DETAILS - PROFESSIONAL LAYOUT
 ========================================================= */
@@ -3076,8 +3056,7 @@ input:focus {
 
 /* Form group */
 .checkbox-group {
-  margin-top: 12px;
-  margin-bottom: 20px;
+  margin: 1.5rem 0;
 }
 
 .recommend-buttons {
@@ -3166,7 +3145,7 @@ input:focus {
 }
 
 /* =========================================================
-📱 RESPONSIVE
+RESPONSIVE
 ========================================================= */
 
 @media (max-width: 768px) {
@@ -3554,7 +3533,7 @@ body {
   background: white !important;
 }
 /* =========================================================
-✅ REVIEW FORM - CHECKBOX & STYLING
+ REVIEW FORM - CHECKBOX & STYLING
 ========================================================= */
 
 /* Form Group */
@@ -3589,92 +3568,8 @@ body {
   box-shadow: 0 0 0 3px rgba(59, 109, 84, 0.1);
 }
 
-/* ===================== CHECKBOX STYLING ===================== */
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  font-size: 14px;
-  color: #374151;
-  user-select: none;
-  padding: 8px 0;
-}
-
-/* Hide native checkbox */
-.checkbox-label input[type="checkbox"] {
-  display: none;
-}
-
-/* Custom checkmark box */
-.checkbox-label .checkmark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
-  border: 2px solid #d1d5db;
-  border-radius: 4px;
-  background: white;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-/* Hover state */
-.checkbox-label:hover .checkmark {
-  border-color: #3b6d54;
-  background: #f0f9f7;
-}
-
-/* CHECKED - show ✓ */
-.checkbox-label input[type="checkbox"]:checked + .checkmark {
-  background: linear-gradient(135deg, #3b6d54 0%, #2a5240 100%);
-  border-color: #3b6d54;
-}
-
-.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
-  content: "✓";
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* Focus state */
-.checkbox-label input[type="checkbox"]:focus + .checkmark {
-  outline: 2px solid #3b6d54;
-  outline-offset: 2px;
-}
-
-/* Link styling */
-.checkbox-label .link {
-  color: #3b6d54;
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.checkbox-label .link:hover {
-  color: #2a5240;
-}
-
-.checkbox-group {
-  margin: 16px 0;
-  padding: 12px;
-  background: #f9fafb;
-  border-radius: 8px;
-}
-
-.form-label.required::after {
-  content: " *";
-  color: #ef4444;
-  font-weight: bold;
-}
-
 /* =========================================================
-✅ BUTTON STYLING
+ BUTTON STYLING
 ========================================================= */
 
 .form-actions {
@@ -3721,7 +3616,7 @@ body {
 }
 
 /* =========================================================
-✅ REVIEW CARD - Display
+REVIEW CARD - Display
 ========================================================= */
 
 .review-card {
