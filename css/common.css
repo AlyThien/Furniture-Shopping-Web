@@ -70,6 +70,11 @@ nav a:link, a:visited, li {
     border-radius: 15px;
 }
 
+nav a:active {
+    color: #1D382C;
+    background-color: #E8F3DE;
+}
+
 nav.Main-Menu a:hover {
     background-color: #E8F3DE;
     color: #3B6D54;
@@ -364,6 +369,17 @@ footer::before {
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
+}
+
+footer a:link,
+footer a:visited {
+    color: #E8F3DE;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
    
 /*Các Icon mạng xã hội*/
