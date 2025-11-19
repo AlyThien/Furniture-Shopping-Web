@@ -3,14 +3,13 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <title>Sofa Collection Gallery</title>
+    <title>Sofa Collection Gallery - Page 2</title>
     <meta name="description" content="Browse our collection of modern and traditional couches" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/couch.css" />
-    <link href="Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/couch.css"/>
   </head>
-  <body>
-    <!--Phần Header-->
+  <body data-page="couch">
+    <!--Nhóm 9: Phần Header-->
     <header>
         <div class="Logo">
             <p>
@@ -18,169 +17,185 @@
                 葉具家</a>
             </p>
         </div>
-        <nav class="Main-Menu">
+        <nav class="Main-Menu"> <!--Nhóm 9: Thanh điều hướng chính-->
             <ul>
-                <li><a href="typologies.html" data-i18n="nav-products">Products</a></li>
+                <li><a href="typologies.html" class="active" data-i18n="nav-products">Products</a></li>
                 <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
                 <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
                 <li><a href="policy_index.html" data-i18n="nav-policies">Policies</a></li>
             </ul>
         </nav>
-        <nav class="Sub-Menu">
+
+        <nav class="Sub-Menu"> <!--Nhóm 9: Thanh điều hướng phụ-->
             <ul>
                 <li>
-                    <form id="search-box" action="">
-                        <input type="text" id="search-text" placeholder="Search...">
+                    <form id="search-box"> <!--Nhóm 9: Nút tìm kiếm-->
+                        <input type="text" id="search-text" placeholder="Search..." data-i18n="search-placeholder">
                         <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
                     </form>
                 </li>
-                <li id="Wishlist">
-                    <a href="">
+                <li id="Wishlist"> <!--Nhóm 9: Giỏ yêu thích-->
+                    <a href="wishlist_index.html">
                         <span class="solar--heart-bold"></span>
                         <span class="wishlist-count">0</span>
                     </a>
                 </li>
-                <li><span class="solar--user-bold"></span></li>
-                <li class="lang-switcher">
-                    <div class="lang-toggle" aria-label="Language switcher">
-                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')">
+                <li id="User">  <!--Nhóm 9: Tài khoản người dùng-->
+                    <!--Nhóm 9: Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa-->
+                    <a href="personal-info.html" id="user-avatar-link">
+                        <img id="header-user-avatar" class="header-avatar" src="" alt="User Avatar" style="display: none;">
+                        <span id="header-default-icon" class="solar--user-bold"></span>
+                    </a>
+                </li>
+                <li class="lang-switcher"> <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
+                    <div class="lang-toggle">
+                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')"> <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
                         <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
-                        <div class="lang-track">
+                        <div class="lang-track"> <!--Nhóm 9: Thanh trượt ngôn ngữ-->
                             <label for="lang-en" class="lang-opt lang-en">EN</label>
                             <label for="lang-vi" class="lang-opt lang-vi">VI</label>
-                            <div class="lang-knob" aria-hidden="true"></div>
+                            <div class="lang-knob" aria-hidden="true"></div> <!--Nhóm 9: Nút trượt ngôn ngữ-->
                         </div>
                     </div>
                 </li>
+                <li><span class="icomoon-free--leaf"></span></li> <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
             </ul>
+        </nav>
     </header>
 
-    </header>
-
+    <!--Nhóm 9: Thanh điều hướng các sản phẩm khác-->
     <nav class="product-category-nav">
         <ul>
-            <li><a href="couch.html" class="active">Sofa</a></li>
-            <li><a href="bed.html">Bed</a></li>
-            <li><a href="#">Armchair</a></li>
-            <li><a href="#">Wardrobe</a></li>
-            <li><a href="#">Chair</a></li>
-            <li><a href="#">Storage & Shelving</a></li>
-            <li><a href="#">Dining table</a></li>
-            <li><a href="#">Side - coffee table</a></li>
+            <li><a href="couch.html" class="active" data-i18n="category-sofa">Sofa</a></li>
+            <li><a href="bed.html" data-i18n="category-bed">Bed</a></li>
+            <li><a href="#" data-i18n="category-armchair">Armchair</a></li>
+            <li><a href="#" data-i18n="category-wardrobe">Wardrobe</a></li>
+            <li><a href="#" data-i18n="category-chair">Chair</a></li>
+            <li><a href="#" data-i18n="category-storage">Storage & Shelving</a></li>
+            <li><a href="#" data-i18n="category-dining">Dining table</a></li>
+            <li><a href="#" data-i18n="category-sidetable">Side - coffee table</a></li>
         </ul>
     </nav>
-    <main class="sofa-gallery">
-      <div class="background" role="presentation"></div>
+
     <main class="sofa-gallery">
       <div class="background" role="presentation"></div>
       <section class="sofa-container">
         <div class="sofa-grid">
             
+            <!--Nhóm 9: Sản phẩm 16 - B3 Couch-->
             <a href="product_index.html" class="sofa-card sofa-1">
-             <img class="sofa-card__image" src="images/hình couch/16.png" alt="B3 Couch" loading="lazy" />
+             <img class="sofa-card__image" src="images/couch/16.png" alt="B3 Couch" loading="lazy" />
              <figure class="sofa-card__caption-box">
              <div class="sofa-card__price">4.300.000 đ</div>
-             <figcaption class="sofa-card__name">B3 Couch</figcaption>
+             <figcaption class="sofa-card__name" data-i18n="product-b3">B3 Couch</figcaption>
              <span class="sofa-card__underline" role="presentation"></span>
             </figure>
             </a>
 
+            <!--Nhóm 9: Sản phẩm 17 - Niacinamide Couch-->
             <a href="#" class="sofa-card sofa-2">
-             <img class="sofa-card__image" src="images/hình couch/17.png" alt="Niacinamide Couch" loading="lazy" />
+             <img class="sofa-card__image" src="images/couch/17.png" alt="Niacinamide Couch" loading="lazy" />
              <figure class="sofa-card__caption-box">
              <div class="sofa-card__price">3.800.000 đ</div>
-             <figcaption class="sofa-card__name">Niacinamide Couch</figcaption>
+             <figcaption class="sofa-card__name" data-i18n="product-niacinamide">Niacinamide Couch</figcaption>
              <span class="sofa-card__underline" role="presentation"></span>
             </figure>
             </a>
 
+            <!--Nhóm 9: Sản phẩm 18 - Betty Couch-->
             <a href="#" class="sofa-card sofa-3">
-             <img class="sofa-card__image" src="images/hình couch/18.png" alt="Betty Couch" loading="lazy" />
+             <img class="sofa-card__image" src="images/couch/18.png" alt="Betty Couch" loading="lazy" />
              <figure class="sofa-card__caption-box">
              <div class="sofa-card__price">4.000.000 đ</div>
-             <figcaption class="sofa-card__name">Betty Couch</figcaption>
+             <figcaption class="sofa-card__name" data-i18n="product-betty">Betty Couch</figcaption>
              <span class="sofa-card__underline" role="presentation"></span>
             </figure>
             </a>
 
+            <!--Nhóm 9: Sản phẩm 19 - Semei Couch-->
              <a href="#" class="sofa-card sofa-4">
-             <img class="sofa-card__image" src="images/hình couch/19.png" alt="Semei Couch" loading="lazy" />
+             <img class="sofa-card__image" src="images/couch/19.png" alt="Semei Couch" loading="lazy" />
              <figure class="sofa-card__caption-box">
              <div class="sofa-card__price">5.500.000 đ</div>
-             <figcaption class="sofa-card__name">Semei Couch</figcaption>
+             <figcaption class="sofa-card__name" data-i18n="product-semei">Semei Couch</figcaption>
              <span class="sofa-card__underline" role="presentation"></span>
             </figure>
             </a>
 
+            <!--Nhóm 9: Sản phẩm 20 - Kadarshian Couch-->
             <a href="#" class="sofa-card sofa-5">
-                <img class="sofa-card__image" src="images/hình couch/20.png" alt="Kadarshian Couch" loading="lazy" />
+                <img class="sofa-card__image" src="images/couch/20.png" alt="Kadarshian Couch" loading="lazy" />
                 <figure class="sofa-card__caption-box">
                  <div class="sofa-card__price">4.600.000 đ</div>
-                  <figcaption class="sofa-card__name">Kadarshian Couch</figcaption>
+                  <figcaption class="sofa-card__name" data-i18n="product-kadarshian">Kadarshian Couch</figcaption>
                   <span class="sofa-card__underline" role="presentation"></span>
                 </figure>
             </a>
 
+            <!--Nhóm 9: Sản phẩm 21 - Emmee Couch-->
             <a href="#" class="sofa-card sofa-6">
-                <img class="sofa-card__image" src="images/hình couch/21.png" alt="Emmee Couch" loading="lazy" />
+                <img class="sofa-card__image" src="images/couch/21.png" alt="Emmee Couch" loading="lazy" />
                 <figure class="sofa-card__caption-box">
                     <div class="sofa-card__price">3.700.000 đ</div>
-                  <figcaption class="sofa-card__name">Emmee Couch</figcaption>
+                  <figcaption class="sofa-card__name" data-i18n="product-emmee">Emmee Couch</figcaption>
                   <span class="sofa-card__underline" role="presentation"></span>
                 </figure>
             </a>
 
+            <!--Nhóm 9: Sản phẩm 22 - Maide Couch-->
             <a href="#" class="sofa-card sofa-7">
-                <img class="sofa-card__image" src="images/hình couch/22.png" alt="Maide Couch" loading="lazy" />
+                <img class="sofa-card__image" src="images/couch/22.png" alt="Maide Couch" loading="lazy" />
                 <figure class="sofa-card__caption-box">
                     <div class="sofa-card__price">4.400.000 đ</div>
-                  <figcaption class="sofa-card__name">Maide Couch</figcaption>
+                  <figcaption class="sofa-card__name" data-i18n="product-maide">Maide Couch</figcaption>
                   <span class="sofa-card__underline" role="presentation"></span>
                 </figure>
             </a>
 
+            <!--Nhóm 9: Sản phẩm 23 - Naimee Couch-->
             <a href="#" class="sofa-card sofa-8">
-                <img class="sofa-card__image" src="images/hình couch/23.png" alt="Naimee Couch" loading="lazy" />
+                <img class="sofa-card__image" src="images/couch/23.png" alt="Naimee Couch" loading="lazy" />
                 <figure class="sofa-card__caption-box">
                     <div class="sofa-card__price">4.200.000 đ</div>
-                  <figcaption class="sofa-card__name">Naimee Couch</figcaption>
+                  <figcaption class="sofa-card__name" data-i18n="product-naimee">Naimee Couch</figcaption>
                   <span class="sofa-card__underline" role="presentation"></span>
                 </figure>
             </a>
 
+            <!--Nhóm 9: Sản phẩm 24 - Houdini Couch-->
             <a href="#" class="sofa-card sofa-9">
-                <img class="sofa-card__image" src="images/hình couch/24.png" alt="Houdini Couch" loading="lazy" />
+                <img class="sofa-card__image" src="images/couch/24.png" alt="Houdini Couch" loading="lazy" />
                 <figure class="sofa-card__caption-box">
                     <div class="sofa-card__price">3.500.000 đ</div>
-                  <figcaption class="sofa-card__name">Houdini Couch</figcaption>
+                  <figcaption class="sofa-card__name" data-i18n="product-houdini">Houdini Couch</figcaption>
                   <span class="sofa-card__underline" role="presentation"></span>
                 </figure>
             </a>
 
+            <!--Nhóm 9: Sản phẩm 25 - Grande Couch-->
             <a href="#" class="sofa-card sofa-10">
-                <img class="sofa-card__image" src="images/hình couch/25.png" alt="Grande Couch" loading="lazy" />
+                <img class="sofa-card__image" src="images/couch/25.png" alt="Grande Couch" loading="lazy" />
                 <figure class="sofa-card__caption-box">
                     <div class="sofa-card__price">5.200.000 đ</div>
-                  <figcaption class="sofa-card__name">Grande Couch</figcaption>
+                  <figcaption class="sofa-card__name" data-i18n="product-grande">Grande Couch</figcaption>
                   <span class="sofa-card__underline" role="presentation"></span>
                 </figure>
             </a>
 
+            <!--Nhóm 9: Sản phẩm 26 - Lucian Couch-->
             <a href="#" class="sofa-card sofa-11">
-                <img class="sofa-card__image" src="images/hình couch/26.png" alt="Lucian Couch" loading="lazy" />
+                <img class="sofa-card__image" src="images/couch/26.png" alt="Lucian Couch" loading="lazy" />
                 <figure class="sofa-card__caption-box">
                     <div class="sofa-card__price">4.800.000 đ</div>
-                  <figcaption class="sofa-card__name">Lucian Couch</figcaption>
+                  <figcaption class="sofa-card__name" data-i18n="product-lucian">Lucian Couch</figcaption>
                   <span class="sofa-card__underline" role="presentation"></span>
                 </figure>
             </a>
-
-          
  
         </div>
       </section>
 
-       <!-- Pagination -->
+       <!--Nhóm 9: Phần phân trang-->
         <div class="pagination">
         <a href="couch.html" class="arrow">←</a>
 
@@ -189,43 +204,48 @@
        
         <a href="#" class="arrow">→</a>
         </div>
-    </div>
 
-              <footer>
+        <!--Nhóm 9: Phần quay lại đầu trang-->
+        <img id="btn-top" src="images/return_to_top.png" alt="Return to top">
+
+    </main>
+
+    <!--Nhóm 9: Phần footer-->
+    <footer>
         <div class="footer-logo">
             <div><em>Haguchi</em></div>
             <div>葉具家</div>
         </div>
-        <div class="footer-content">
+        <div class="footer-content"> <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
             <div class="footer-section">
-                <h3 data-i18n="nav-about">About Us</h3>
+                <h3 data-i18n="nav-about">About Us</h3> 
                 <ul>
-                    <li data-i18n="footer-aboutus"> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
+                    <li data-i18n="footer-aboutus">Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
                     <li data-i18n="footer-aboutus-add">📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
                     <li>📞 (+84) 123 456 789</li>
-                    <li>📧 support@noithatmaistudio.com</li>
+                    <li>📧 support@haguchi.com</li>
                     <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
                 </ul>
             </div>
         <div class="footer-section">
             <h3 data-i18n="footer-categories">Shop by Category</h3>
             <ul>
-                <li><a href="" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
-                <li><a href="" data-i18n="footer-categories-dining">Dining Tables</a></li>
-                <li><a href="" data-i18n="footer-categories-bed">Beds</a></li>
-                <li><a href="" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
-                <li><a href="" data-i18n="footer-categories-decor">Lighting & Decor</a></li>
-                <li><a href="" data-i18n="footer-categories-new">New Arrivals / Promotions</a></li>
+                <li><a href="couch.html" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
+                <li><a href="#" data-i18n="footer-categories-dining">Dining Tables</a></li>
+                <li><a href="bed.html" data-i18n="footer-categories-bed">Beds</a></li>
+                <li><a href="#" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
+                <li><a href="#" data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+                <li><a href="#" data-i18n="footer-categories-new">New Arrivals / Promotions</a></li>
             </ul>
         </div>
         <div class="footer-section">
             <h3 data-i18n="footer-policies">Policies & Support</h3>
             <ul>
-                <li><a href="" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
-                <li><a href="" data-i18n="footer-policies-return">Return & Exchange</a></li>
-                <li><a href="" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
-                <li><a href="" data-i18n="footer-policies-order">How to Order</a></li>
-                <li><a href="" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
+                <li><a href="policy_index.html" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
+                <li><a href="policy_index.html" data-i18n="footer-policies-return">Return & Exchange</a></li>
+                <li><a href="policy_index.html" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
+                <li><a href="policy_index.html" data-i18n="footer-policies-order">How to Order</a></li>
+                <li><a href="policy_index.html" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
             </ul>
         </div>
     </div>
@@ -238,9 +258,10 @@
             </div>
         </div>
     </footer>
+    
+    <script src="js/lang-change.js"></script> <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ-->
+    <script src="js/common.js"></script> <!--Nhóm 9: Liên kết file JS chung-->
+    <script src="js/couch.js"></script> <!--Nhóm 9: Liên kết file JS riêng cho couch-->
 
-    <script src="js/couch.js"></script>
-
-    </main>
   </body>
 </html>
