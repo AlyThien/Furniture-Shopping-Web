@@ -34,7 +34,7 @@ html, body {
 Nhóm 9: SIDEBAR - THANH ĐIỀU HƯỚNG BÊN TRÁI
 ============================================== */
 .admin-sidebar {
-    background-image: url('/images/admin/87479d86a87483230abb98832c30b30a.jpg');
+    background-image: url('../images/admin/87479d86a87483230abb98832c30b30a.jpg');
     background-size: 100%;
     position: fixed;
     left: 0;
@@ -679,3 +679,4 @@ Nhóm 9: RESPONSIVE - TABLET & MOBILE
     }
 
 }
+
