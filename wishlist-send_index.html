@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Confirmation - Haguchi</title>
-    <link rel="stylesheet" href="css/success.css">
+    <title>Send Wishlist - Haguchi</title>
+    <link rel="stylesheet" href="css/wishlist-send.css">
     <link rel="stylesheet" href="css/common.css">
 </head>
 
-<body data-page="success">
+<body data-page="wishlist-send">
     <!--Nhóm 9: Phần Header-->
     <header>
         <div class="Logo">
@@ -63,19 +63,100 @@
         </nav>
     </header>
 
-    <!-- Phần Success -->
-    <section id="success">
-            <!-- Success Icon -->
-            <div class="success-icon">
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="60" cy="60" r="60" fill="#0B2D21"/>
-                    <path d="M35 60L52 77L85 44" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
+    <!--Nhóm 9: Phần Wishlist form -->
+    <section id="wishlist-form">
+        <div class="container">
+            <h1 data-i18n="wishlist-title">Wishlist</h1>
+            <h2 data-i18n="send-wishlist-title">Send Wishlist to Haguchi</h2>
+            <p class="subtitle" data-i18n="send-subtitle">Please fill in this form to send your wishlist</p>
+            <p class="required-note">(<span data-i18n="required-note">Fields marked with</span> <span style="color: #d44;">*</span> <span data-i18n="required-note-2">are required</span>)</p>
 
-            <h2 class="success-title" data-i18n="success-message">Your order has been successfully placed. Thank you for choosing Haguchi!</h2>
+            <form id="paymentForm">
+                <section id="contact-info" class="form-section">
+                    <h3 data-i18n="contact-info-title">Contact Information:</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="name-label">Name <span class="required">*</span></label>
+                            <input type="text" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="surname-label">Surname <span class="required">*</span></label>
+                            <input type="text" name="surname">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="phone-label">Phone <span class="required">*</span></label>
+                            <input type="tel" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="email-label">Email <span class="required">*</span></label>
+                            <input type="email" name="email">
+                        </div>
+                    </div>
+                </section>
 
-            <button type="button" class="view-order-btn" onclick="window.location.href='order-detail.html'" data-i18n="view-order-btn">View Order Details</button>
+                <section id="delivery-info" class="form-section">
+                    <h3 data-i18n="delivery-info-title">Delivery Information:</h3>
+                    <div class="form-group full-width">
+                        <label data-i18n="country-label">Country/Region <span class="required">*</span></label>
+                        <select name="country">
+                            <option value="" data-i18n="select-country">Select country</option>
+                            <option value="vn" data-i18n="country-vietnam">Vietnam</option>
+                            <option value="us" data-i18n="country-us">United States</option>
+                            <option value="uk" data-i18n="country-uk">United Kingdom</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label data-i18n="address-label">Address <span class="required">*</span></label>
+                        <input type="text" name="address">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="province-label">Province <span class="required">*</span></label>
+                            <select name="province" id="province">
+                                <option value="" data-i18n="select-province">Select province</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-i18n="city-label">City <span class="required">*</span></label>
+                            <select name="city" id="city">
+                                <option value="" data-i18n="select-city">Select city</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="save-info" name="saveInfo">
+                        <label for="save-info" data-i18n="save-info-label">Save this information for next time</label>
+                    </div>
+                </section>
+                <!--Nhóm 9: Phần Payment -->
+                <section id="payment-section" class="form-section">        
+                        <h3 data-i18n="payment-title">Payment:</h3>
+                        <p class="payment-note" data-i18n="payment-note">All transactions are secure and encrypted.</p>
+
+                        <div class="radio-option" id="cod-option">
+                            <input type="radio" name="payment" id="cod" value="cod">
+                            <label for="cod" data-i18n="payment-cod">Cash on Delivery (COD)</label>
+                        </div>
+
+                        <div class="radio-option" id="bank-option">
+                            <input type="radio" name="payment" id="bank" value="bank" checked>
+                            <label for="bank" data-i18n="payment-bank">Bank Transfer</label>
+                        </div>
+
+                        <div class="qr-section" id="qr-section">
+                            <div class="qr-code">
+                                <img src="images/image 2.png" alt="QR Code">
+                                <p class="qr-amount">50,000 VND</p>
+                                <p class="qr-name">mas</p>
+                            </div>
+                        </div>
+                </section>
+
+                <button type="submit" class="continue-bu" data-i18n="continue-btn">Continue</button>
+            </form>
+        </div>
         
     </section>
 
@@ -131,8 +212,11 @@
             </div>
     </footer>
     
+    
     <script src="js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
     <script src="js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
-
+    <script src="js/VNcity.js"></script>
+    <script src="js/wishlist-send.js"></script>  <!--Nhóm 9: Import file JS xử lý thanh toán-->
+      
 </body>
 </html>

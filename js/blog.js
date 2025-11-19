@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     /* ==========================================
-       1. HIỆU ỨNG SCROLL REVEAL (Hiện dần khi cuộn)
+       Nhóm 9: 1. HIỆU ỨNG SCROLL REVEAL (Hiện dần khi cuộn)
        ========================================== */
     const observerOptions = {
         root: null,
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     /* ==========================================
-       2. TÍNH NĂNG TÌM KIẾM TRỰC TIẾP (Live Search)
+       Nhóm 9: 2. TÍNH NĂNG TÌM KIẾM TRỰC TIẾP (Live Search)
        ========================================== */
     const searchInput = document.getElementById('search-text');
     const blogCards = document.querySelectorAll('.blog-card');

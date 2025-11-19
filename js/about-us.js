@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     /* ************************************** */
-    /* *** 1. Logic cho Accordion (ĐÃ CÓ) *** */
+    /* *** Nhóm 9: 1. Logic cho Accordion (ĐÃ CÓ) *** */
     /* ************************************** */
 
     const accordionContainer = document.getElementById('accordion-container');
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /* ***************************************** */
-    /* *** 2. Logic cho Scroll Reveal (MỚI) *** */
+    /* *** Nhóm 9: 2. Logic cho Scroll Reveal (MỚI) *** */
     /* ***************************************** */
 
     function initScrollReveal() {

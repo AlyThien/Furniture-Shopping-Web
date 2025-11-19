@@ -1,16 +1,12 @@
-/* === 1. @import font === */
-/* (Không có) */
-
-
-/* === 2. @font-face === */
 @font-face {
   font-family: 'Roboto Serif';
   src: url('Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
 }
 
-
-/* === 3. Javascript Effects & Animations === */
-/* 1. Style cho hiệu ứng Scroll Reveal */
+/* ==============================================
+Nhóm 9: HOẠT ẢNH JAVASCRIPT
+============================================== */
+/* Hiệu ứng Scroll Reveal */
 .scroll-hidden {
     opacity: 0;
     transform: translateY(50px);
@@ -22,7 +18,7 @@
     transform: translateY(0);
 }
 
-/* 2. Style cho hiệu ứng khi Tìm kiếm/Lọc */
+/* Hiệu ứng khi Tìm kiếm/Lọc */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -38,17 +34,18 @@
     animation: fadeInUp 0.5s ease forwards;
 }
 
-/* 3. Style cho Tag đang được chọn */
+/* Tag đang được chọn */
 .tags li a.active-tag {
-    background-color: #3B6D54 !important; /* Thêm !important để đảm bảo nó đè được màu cũ */
+    background-color: #3B6D54 !important;
     color: #fff !important;
     border-radius: 4px;
     padding: 2px 6px;
     text-decoration: none;
 }
 
-
-/* === 4. Reset / Global styles === */
+/* ==============================================
+Nhóm 9: STYLE CHUNG
+============================================== */
 * {
   margin: 0;
   padding: 0;
@@ -68,8 +65,9 @@ body {
     padding-top: 90px;
 }
 
-
-/* === 5. Layout === */
+/* ==============================================
+Nhóm 9: LAYOUT
+============================================== */
 .container {
   max-width: 1300px;
   margin: 0 auto;
@@ -83,8 +81,10 @@ body {
   margin-bottom: 20px;
 }
 
-
-/* === 6. Components === */
+/* ==============================================
+Nhóm 9: COMPONENTS
+============================================== */
+/* Tiêu đề chính */
 h1 {
   font-size: 150px;
   font-weight: 400;
@@ -94,7 +94,7 @@ h1 {
   letter-spacing: 2px;
 }
 
-/* --- Blog Card --- */
+/* Blog Card */
 .blog-card {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 12px;
@@ -199,7 +199,7 @@ h1 {
   height: 250px;
 }
 
-/* --- Pagination --- */
+/* Pagination */
 .pagination {
   display: flex;
   justify-content: center;
@@ -218,33 +218,29 @@ h1 {
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
-
-
-  text-decoration: none;  /* Bỏ gạch chân của link */
-  display: inline-flex;   /* Căn giữa mũi tên (quan trọng) */
-  align-items: center;    /* Căn giữa mũi tên (quan trọng) */
-  justify-content: center; /* Căn giữa mũi tên (quan trọng) */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
-
 
 .pagination .arrow:hover {
   background: #2d5f4a;
   color: white;
 }
 
-/* Style cho nút bị vô hiệu hóa (disabled) */
 .pagination .arrow.disabled {
-  border-color: #6b9080; /* Màu viền mờ hơn */
-  color: #6b9080;      /* Màu chữ mờ hơn */
+  border-color: #6b9080;
+  color: #6b9080;
   opacity: 0.7;
-  cursor: not-allowed;  /* Đổi con trỏ chuột */
+  cursor: not-allowed;
 }
 
-/* Chặn hiệu ứng hover khi nút bị disabled */
 .pagination .arrow.disabled:hover {
   background: transparent;
   color: #6b9080;
 }
+
 .pagination .dot {
   width: 10px;
   height: 10px;
@@ -259,76 +255,60 @@ h1 {
   transform: scale(1.3);
 }
 
-
-/* === 7. Utilities === */
-/* (Không có) */
-
-
-/* === 8. Responsive === */
-/*
-========================================
-Phần Responsive (Theo style common.css)
-========================================
-*/
-
-/* == Tablet (Giống 768px của common.css) == */
+/* ==============================================
+Nhóm 9: RESPONSIVE - TABLET (max-width: 768px)
+============================================== */
 @media (max-width: 768px) {
+    /*Body*/
     body {
-        /* QUAN TRỌNG: Hủy bỏ ép buộc 1440px */
         min-width: auto;
-        
-        /* Điều chỉnh padding-top cho vừa với header mobile (45px) */
-        padding-top: 60px; /* Thêm 15px đệm so với header */
+        padding-top: 60px;
     }
 
+    /*Container*/
     .container {
-        /* Giảm padding lề */
         padding: 40px 2rem;
     }
 
-    /* Sửa lỗi gõ nhầm (nếu có) và đặt lại grid 1 cột */
+    /*Blog Grid*/
     .blog-grid {
-        font-size: inherit; /* Reset lại font-size */
-        grid-template-columns: 1fr; /* Chỉ 1 cột */
+        font-size: inherit;
+        grid-template-columns: 1fr;
     }
 
-    /* Ghi đè lại grid-column của desktop */
+    /*Main Content & Sidebar*/
     .main-content,
     .sidebar {
         grid-column: auto;
     }
 
-    /* Đẩy sidebar xuống dưới */
     .sidebar {
         margin-top: 40px;
     }
 
-    /* Header của Blog (Tiêu đề + Filter) */
+    /*Blog Header*/
     .blog-header {
-        /* Xếp dọc trên mobile */
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
     }
 
-    /* Bài viết nổi bật (Featured) */
+    /*Featured*/
     .featured {
-        /* Xếp dọc (ảnh trên, chữ dưới) */
         flex-direction: column;
     }
 
     .featured .blog-image {
         width: 100%;
-        height: 300px; /* Cho ảnh đầy đủ chiều rộng */
+        height: 300px;
     }
 
-    /* Danh sách bài viết (Post-list) */
+    /*Post List*/
     .post-list {
-        /* Chuyển từ 2 cột xuống 1 cột */
         grid-template-columns: 1fr;
     }
 
-    /* Tiêu đề */
+    /*Tiêu đề*/
     .blog-header h1 {
         font-size: 38px;
     }
@@ -342,15 +322,16 @@ Phần Responsive (Theo style common.css)
     }
 }
 
-
-/* == Mobile (Giống 480px của common.css) == */
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE (max-width: 480px)
+============================================== */
 @media (max-width: 480px) {
+    /*Container*/
     .container {
-        /* Giảm padding lề cho mobile */
         padding: 30px 1rem;
     }
 
-    /* Giảm kích thước ảnh */
+    /*Blog Image*/
     .blog-image {
         height: 220px;
     }
@@ -359,7 +340,7 @@ Phần Responsive (Theo style common.css)
         height: 250px;
     }
 
-    /* Giảm font chữ */
+    /*Tiêu đề*/
     .blog-header h1 {
         font-size: 32px;
     }
@@ -372,10 +353,11 @@ Phần Responsive (Theo style common.css)
         font-size: 20px;
     }
 
-    /* Thu nhỏ nút phân trang */
+    /*Pagination*/
     .pagination {
         gap: 10px;
     }
+
     .pagination button {
         width: 35px;
         height: 35px;

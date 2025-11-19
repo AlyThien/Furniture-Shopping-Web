@@ -3,20 +3,20 @@
    @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
    @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
    
-/* ========== CSS VARIABLES ========== */
+/* ========== NHOM 9 - CSS VARIABLES ========== */
    :root {
      /* Fonts */
      --font-primary: 'Roboto Serif', sans-serif;
      --font-secondary: 'Nunito', sans-serif;
      --font-heading: 'Ibarra Real Nova', serif;
    }
-   /* ========== RESET ========== */
+   /* ========== NHOM 9 - RESET ========== */
    * {
      box-sizing: border-box;
      margin: 0;
      padding: 0;
    }
-   /* ========== BODY ========== */
+   /* ========== NHOM 9 - BODY ========== */
    body {
      font-family: var(--font-primary);
      background: linear-gradient(to bottom, #EEF9E5, #61A38C);
@@ -24,7 +24,7 @@
    }
 
    
-  /* ========== POLICIES SECTION ========== */
+  /* ========== NHOM 9 - POLICIES SECTION ========== */
    #Policies {
      padding-top: 100px;
    }
@@ -84,7 +84,7 @@
      object-fit: cover;
      object-position: center bottom;
    }
-/* ==========  RESPONSIVE - TABLET ========== */
+/* ==========  NHOM 9 - RESPONSIVE - TABLET (max-width: 1024px) ========== */
    @media (max-width: 1024px) {
      #Policies {
        padding-top: 80px;
@@ -125,7 +125,7 @@
        max-width: 100%;
      }
    }
-/* ==========  RESPONSIVE - MOBILE ========== */
+/* ==========  NHOM 9 - RESPONSIVE - MOBILE (max-width: 768px) ========== */
    @media (max-width: 768px) {
      #Policies {
        padding-top: 70px;

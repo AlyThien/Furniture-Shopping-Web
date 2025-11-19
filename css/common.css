@@ -64,7 +64,7 @@ nav.Sub-Menu {
     align-items: center; 
 }
 
-nav a:link, a:visited, li {
+nav a:link, nav a:visited, li {
     color: #E8F3DE;
     text-decoration: none;
     font-size: 19px;
@@ -366,7 +366,16 @@ footer::before {
     list-style: none;
     padding: 0;
 }
-   
+
+footer a:visited, footer a:link {
+    color: #E8F3DE;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+  
 .footer-section li {
     margin-bottom: 14px;
     line-height: 1.6;

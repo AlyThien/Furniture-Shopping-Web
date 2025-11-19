@@ -1,4 +1,11 @@
+// Nhóm 9: Khởi tạo khi DOM đã load xong
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // ============================================
+    // Nhóm 9: CÁC HÀM TIỆN ÍCH (UTILITY FUNCTIONS)
+    // ============================================
+    
+    // Nhóm 9: Hàm lấy class CSS tương ứng với trạng thái đơn hàng
     function getStatusClass(statusEn) {
         switch (statusEn) {
             case 'success':
@@ -14,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Nhóm 9: Hàm dịch trạng thái từ tiếng Anh sang tiếng Việt
     function translateStatus(statusEn) {
         switch (statusEn) {
             case 'pending':
@@ -29,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Nhóm 9: Hàm định dạng ngày từ YYYY-MM-DD sang DD/MM/YYYY
     function formatDate(dateString) {
         if (!dateString) return '';
         try {
@@ -39,12 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Nhóm 9: Hàm định dạng số tiền theo chuẩn Việt Nam (thêm dấu chấm phân cách và đơn vị đ)
     function formatCurrency(number) {
         if (typeof number !== 'number') return '0đ';
         return number.toLocaleString('vi-VN') + 'đ';
     }
 
-    // Hàm chuyển chuỗi tiền tệ về số
+    // Nhóm 9: Hàm chuyển đổi chuỗi tiền tệ (VD: "5.400.000đ") về số nguyên
     function currencyToNumber(currencyString) {
         if (typeof currencyString !== 'string') return 0;
         let cleanedString = currencyString.replace(/đ/g, '').trim();
@@ -53,19 +63,23 @@ document.addEventListener('DOMContentLoaded', () => {
         return parseInt(cleanedString) || 0;
     }
 
-    // Hàm tính tổng tiền
+    // Nhóm 9: Hàm tính tổng giá trị đơn hàng dựa trên danh sách sản phẩm và giá hiện tại trong kho
     function calculateOrderTotal(items) {
         let total = 0;
         items.forEach(item => {
             const product = mockInventory.find(p => p.name === item.name);
-            const price = product ? product.price : currencyToNumber(item.price); // Dùng giá mới nhất nếu tìm thấy
+            const price = product ? product.price : currencyToNumber(item.price);
             const qty = parseInt(item.qty) || 0;
             total += price * qty;
         });
         return total;
     }
 
-    // --- DỮ LIỆU KHO HÀNG (Dùng làm cơ sở tính giá) ---
+    // ============================================
+    // Nhóm 9: DỮ LIỆU MẪU (MOCK DATA)
+    // ============================================
+    
+    // Nhóm 9: Dữ liệu kho hàng mẫu - lưu thông tin sản phẩm (ID, tên, số lượng tồn kho, giá)
     let mockInventory = [
         { id: 'SP001', name: 'Cloud Couch', stock: 15, price: 5400000 },
         { id: 'SP002', name: 'Wave Couch', stock: 8, price: 3400000 },
@@ -80,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'SP011', name: 'Giường ngủ cao cấp ODGN28', stock: 2, price: 29800000 },
     ];
     
-    // --- DỮ LIỆU ĐƠN HÀNG ---
+    // Nhóm 9: Dữ liệu đơn hàng mẫu - lưu thông tin đơn hàng (ID, khách hàng, ngày, trạng thái, địa chỉ, thanh toán, sản phẩm)
     let mockOrders = [
         { id: '1007', customer: 'Nguyễn Trọng An', date: '2025-11-26', status: 'pending', phone: '0901 234 567', address: '25 Lô A, Đường Số 10, Quận 7, TP.HCM', payment: 'Chuyển khoản Ngân hàng', items: [{ name: 'Cloud Couch', qty: 1 }] },
         { id: '1006', customer: 'Lê Thị Mỹ Hạnh', date: '2025-11-21', status: 'shipped', phone: '0902 987 654', address: '123/45 Đường Quang Trung, Gò Vấp, TP.HCM', payment: 'Thanh toán khi nhận hàng (COD)', items: [{ name: 'Bàn Ăn Zenith', qty: 1 }] },
@@ -91,16 +105,18 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: '1001', customer: 'Hoàng Đình Phú', date: '2025-11-08', status: 'success', phone: '0978 999 888', address: '456 Trường Chinh, Q.Tân Bình, TP.HCM', payment: 'COD', items: [{ name: 'Haven Couch', qty: 1 }, { name: 'Wave Couch', qty: 2 }] }, 
     ];
 
-    // Hàm hiển thị dữ liệu
+    // ============================================
+    // Nhóm 9: RENDER DỮ LIỆU LÊN GIAO DIỆN
+    // ============================================
+    
+    // Nhóm 9: Hàm hiển thị danh sách đơn hàng lên bảng
     function renderOrders(orders = mockOrders) {
         const ordersBody = document.getElementById('orders-body');
         if (!ordersBody) return;
         ordersBody.innerHTML = '';
 
         orders.forEach(order => {
-            // Tính tổng tiền dựa trên giá mới nhất
             const calculatedTotal = calculateOrderTotal(order.items);
-
             const statusClass = getStatusClass(order.status);
             const statusVi = translateStatus(order.status);
             const formattedDate = formatDate(order.date);
@@ -118,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Nhóm 9: Hàm hiển thị danh sách sản phẩm trong kho lên bảng
     function renderInventory(products = mockInventory) {
         const inventoryBody = document.getElementById('inventory-body');
         if (!inventoryBody) return;
@@ -139,7 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Thêm, xóa, sửa sản phẩm
+    // ============================================
+    // Nhóm 9: QUẢN LÝ SẢN PHẨM (THÊM/SỬA/XÓA)
+    // ============================================
+    
+    // Nhóm 9: Khai báo các phần tử DOM liên quan đến modal sản phẩm
     const addProdBtn = document.getElementById('addProdBtn');
     const prodModalOverlay = document.getElementById('product-modal-overlay');
     const prodModalCloseBtns = prodModalOverlay ? prodModalOverlay.querySelectorAll('.close-btn, .btn-close-modal') : [];
@@ -147,8 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveProdBtn = document.getElementById('save-prod-btn');
     const prodIdInput = document.getElementById('prod-id');
 
-
-    // Mở modal Thêm/Sửa
+    // Nhóm 9: Xử lý khi click nút "Thêm sản phẩm mới" - mở modal với form trống
     if (addProdBtn) {
         addProdBtn.addEventListener('click', () => {
             prodForm.reset();
@@ -156,19 +176,19 @@ document.addEventListener('DOMContentLoaded', () => {
             prodIdInput.value = 'Tự động tạo';
             prodIdInput.readOnly = true;
             saveProdBtn.textContent = 'Thêm Sản phẩm';
-            saveProdBtn.dataset.mode = 'add'; // Thiết lập chế độ: THÊM MỚI
+            saveProdBtn.dataset.mode = 'add';
             prodModalOverlay.classList.remove('hidden');
         });
     }
 
-    // Đóng modal 
+    // Nhóm 9: Xử lý đóng modal sản phẩm
     prodModalCloseBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             prodModalOverlay.classList.add('hidden');
         });
     });
 
-    // Sự kiện cho sửa / xóa trong kho 
+    // Nhóm 9: Lắng nghe sự kiện click trên bảng kho hàng để xử lý nút Sửa/Xóa
     const inventoryBody = document.getElementById('inventory-body');
     if (inventoryBody) {
         inventoryBody.addEventListener('click', (e) => {
@@ -183,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Chỉnh sửa sản phẩm
+    // Nhóm 9: Hàm xử lý chỉnh sửa sản phẩm - điền dữ liệu vào modal
     function handleEditProduct(prodId) {
         const product = mockInventory.find(p => p.id === prodId);
         if (!product) {
@@ -191,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // 1. Điền dữ liệu vào Modal
         document.getElementById('modal-prod-title').textContent = 'Chỉnh sửa Sản phẩm';
         prodIdInput.value = product.id;
         prodIdInput.readOnly = true;
@@ -199,16 +218,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('prod-stock').value = product.stock;
         document.getElementById('prod-price').value = product.price;
 
-        // 2. Cập nhật nút Lưu
         saveProdBtn.textContent = 'Lưu thay đổi';
-        saveProdBtn.dataset.mode = 'edit'; // Thiết lập chế độ: SỬA
-        saveProdBtn.dataset.currentId = product.id; // Lưu ID sản phẩm đang sửa
+        saveProdBtn.dataset.mode = 'edit';
+        saveProdBtn.dataset.currentId = product.id;
 
-        // 3. Mở Modal
         prodModalOverlay.classList.remove('hidden');
     }
 
-    // Xoá sản phẩm
+    // Nhóm 9: Hàm xử lý xóa sản phẩm khỏi kho
     function handleDeleteProduct(prodId) {
         if (confirm(`Bạn có chắc chắn muốn xóa sản phẩm ${prodId} này không?`)) {
             const initialLength = mockInventory.length;
@@ -216,15 +233,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (mockInventory.length < initialLength) {
                 alert(`Đã xóa sản phẩm ${prodId} thành công.`);
-                renderInventory(); // Render lại bảng
+                renderInventory();
             } else {
                 alert('Không tìm thấy sản phẩm để xóa.');
             }
         }
     }
 
-
-    // Xử lý lưu thêm / sửa sản phẩm
+    // Nhóm 9: Xử lý submit form sản phẩm - thêm mới hoặc cập nhật sản phẩm
     if (prodForm) {
         prodForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -244,7 +260,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (mode === 'add') {
-                // Logic Thêm mới
                 const newProd = {
                     id: 'SP' + (mockInventory.length + 1).toString().padStart(3, '0'),
                     name: nameInput,
@@ -255,7 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert(`Đã thêm sản phẩm "${newProd.name}" thành công!`);
 
             } else if (mode === 'edit' && currentId) {
-                // Logic CHỈNH SỬA
                 const prodIndex = mockInventory.findIndex(p => p.id === currentId);
                 if (prodIndex !== -1) {
                     mockInventory[prodIndex].name = nameInput;
@@ -267,12 +281,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            renderInventory(); // Cập nhật lại danh sách
+            renderInventory();
             prodModalOverlay.classList.add('hidden');
         });
     }
 
-    // Xử lý tìm kiếm kho hàng
+    // Nhóm 9: Xử lý tìm kiếm sản phẩm theo tên hoặc mã sản phẩm
     const prodFilterInput = document.getElementById('prod-filter');
     if (prodFilterInput) {
         prodFilterInput.addEventListener('input', (e) => {
@@ -285,21 +299,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Báo cáo, thống kê
+    // ============================================
+    // Nhóm 9: BÁO CÁO & THỐNG KÊ
+    // ============================================
+    
+    // Nhóm 9: Hàm tính toán dữ liệu báo cáo - tổng doanh thu, số đơn hoàn thành, sản phẩm bán chạy
     function calculateReportData() {
-        // Chỉ tính toán trên các đơn hàng HOÀN THÀNH
         const completedOrders = mockOrders.filter(o => o.status === 'success');
 
-        // Tính tổng doanh thu
         let totalRevenue = completedOrders.reduce((sum, order) => {
-            // TÍNH TOÁN LẠI TỔNG TIỀN DỰA TRÊN GIÁ MỚI NHẤT
             const totalNum = calculateOrderTotal(order.items);
             return sum + totalNum;
         }, 0);
 
         const orderCount = completedOrders.length;
 
-        // Tìm sản phẩm bán chạy nhất
         const itemSales = {};
         completedOrders.forEach(order => {
             order.items.forEach(item => {
@@ -323,23 +337,23 @@ document.addEventListener('DOMContentLoaded', () => {
             bestSeller = Object.keys(itemSales)[0];
         }
 
-
         return { totalRevenue, orderCount, bestSeller, completedOrders };
     }
 
+    // Nhóm 9: Hàm cập nhật tóm tắt báo cáo lên giao diện
     function updateReportSummary(data) {
         document.getElementById('summary-revenue').textContent = formatCurrency(data.totalRevenue);
         document.getElementById('summary-orders').textContent = data.orderCount;
         document.getElementById('summary-best-seller').textContent = data.bestSeller;
     }
 
+    // Nhóm 9: Hàm hiển thị chi tiết báo cáo (danh sách đơn hàng hoàn thành) lên bảng
     function renderReport(completedOrders) {
         const reportsBody = document.getElementById('reports-body');
         if (!reportsBody) return;
 
         reportsBody.innerHTML = completedOrders.map(order => {
             const itemNames = order.items.map(item => item.name).join(', ');
-            // Tính tổng tiền dựa trên giá mới nhất
             const calculatedTotal = calculateOrderTotal(order.items);
             
             return `
@@ -356,19 +370,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
     }
 
-    // Xử lý nút "Xem báo cáo"
+    // Nhóm 9: Xử lý khi click nút "Xem báo cáo" - tính toán và hiển thị báo cáo
     document.getElementById('btn-run-report').addEventListener('click', () => {
         const reportData = calculateReportData();
         updateReportSummary(reportData);
         renderReport(reportData.completedOrders);
     });
 
-
+    // ============================================
+    // Nhóm 9: MODAL CHI TIẾT ĐƠN HÀNG
+    // ============================================
+    
+    // Nhóm 9: Khai báo các phần tử DOM liên quan đến modal chi tiết đơn hàng
     const modalOverlay = document.getElementById('order-detail-modal');
     const closeModalBtn = modalOverlay ? modalOverlay.querySelector('.close-btn') : null;
     const ordersBody = document.getElementById('orders-body');
 
-
+    // Nhóm 9: Hàm điền dữ liệu đơn hàng vào modal chi tiết
     function populateModal(orderId) {
         const order = mockOrders.find(o => o.id === orderId);
         if (!order) {
@@ -381,7 +399,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const statusClass = getStatusClass(order.status);
         const formattedDate = formatDate(order.date);
 
-        // Dữ liệu khách hàng và tóm tắt đơn hàng
         document.getElementById('modal-order-id').textContent = `#${order.id}`;
         document.getElementById('detail-customer').textContent = order.customer;
         document.getElementById('detail-phone').textContent = order.phone;
@@ -390,12 +407,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('detail-payment').textContent = order.payment;
         document.getElementById('detail-total-value').textContent = formatCurrency(calculatedTotal);
 
-        // Cập nhật trạng thái
         const detailStatusSpan = document.getElementById('detail-status');
         detailStatusSpan.textContent = statusVi;
         detailStatusSpan.className = `badge ${statusClass}`;
 
-        // Điền danh sách sản phẩm (Chi tiết)
         const itemsBody = document.getElementById('detail-items-body');
         itemsBody.innerHTML = order.items.map(item => {
             const product = mockInventory.find(p => p.name === item.name);
@@ -412,7 +427,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }).join('');
 
-        // Cập nhật nút hành động dựa trên trạng thái
         const btnUpdate = document.getElementById('btn-update-status');
         const btnCancel = document.getElementById('btn-cancel-order');
         btnUpdate.dataset.orderId = order.id;
@@ -427,7 +441,6 @@ document.addEventListener('DOMContentLoaded', () => {
             btnUpdate.style.display = 'inline-block';
             btnCancel.style.display = 'none';
         } else {
-            // success, cancelled
             btnUpdate.style.display = 'none';
             btnCancel.style.display = 'none';
         }
@@ -435,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.classList.remove('hidden');
     }
 
-    // Mở Modal Chi tiết Đơn hàng
+    // Nhóm 9: Xử lý khi click nút "Chi tiết" trên bảng đơn hàng
     if (ordersBody) {
         ordersBody.addEventListener('click', (e) => {
             if (e.target.classList.contains('view-detail')) {
@@ -445,14 +458,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Đóng Modal (Nút X)
+    // Nhóm 9: Xử lý đóng modal chi tiết đơn hàng
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', () => {
             modalOverlay.classList.add('hidden');
         });
     }
 
-    // Đóng Modal khi click ra ngoài
+    // Nhóm 9: Đóng modal khi click ra ngoài overlay
     if (modalOverlay) {
         window.addEventListener('click', (e) => {
             if (e.target === modalOverlay) {
@@ -461,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Xử lý nút "Cập nhật Trạng thái" trong Modal
+    // Nhóm 9: Xử lý cập nhật trạng thái đơn hàng (pending → shipped → success)
     const btnUpdateStatus = document.getElementById('btn-update-status');
     if (btnUpdateStatus) {
         btnUpdateStatus.addEventListener('click', function() {
@@ -481,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Xử lý nút "Hủy Đơn" trong Modal
+    // Nhóm 9: Xử lý hủy đơn hàng (chỉ cho phép hủy khi trạng thái là pending)
     const btnCancelOrder = document.getElementById('btn-cancel-order');
     if (btnCancelOrder) {
         btnCancelOrder.addEventListener('click', function() {
@@ -502,8 +515,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    // Xử lý nút "Làm mới"
+    // ============================================
+    // Nhóm 9: XỬ LÝ CÁC NÚT CHỨC NĂNG
+    // ============================================
+    
+    // Nhóm 9: Xử lý nút "Làm mới" - reload dữ liệu của view hiện tại
     document.getElementById('refreshBtn').addEventListener('click', () => {
         alert("Đang làm mới dữ liệu...");
         const activeView = document.querySelector('.admin-view.active-view');
@@ -518,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Xử lý nút "Đăng xuất"
+    // Nhóm 9: Xử lý nút "Đăng xuất" - xóa thông tin đăng nhập và chuyển về trang login
     document.getElementById('logoutBtn').addEventListener('click', () => {
         alert("Đăng xuất thành công!");
         localStorage.removeItem('isLoggedIn');
@@ -526,6 +542,11 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'login.html';
     });
 
+    // ============================================
+    // Nhóm 9: ĐIỀU HƯỚNG GIỮA CÁC VIEW
+    // ============================================
+    
+    // Nhóm 9: Xử lý chuyển đổi giữa các tab (Đơn hàng, Kho, Báo cáo)
     const navButtons = document.querySelectorAll('.admin-sidebar nav button');
     const pageTitle = document.getElementById('page-title');
 
@@ -566,10 +587,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Khởi tạo ban đầu
-    renderOrders(); // Tải Đơn hàng ban đầu
+    // ============================================
+    // Nhóm 9: KHỞI TẠO BAN ĐẦU
+    // ============================================
+    
+    // Nhóm 9: Render dữ liệu ban đầu khi trang load
+    renderOrders();
     const initialReportData = calculateReportData();
-    updateReportSummary(initialReportData); // Cập nhật Summary Report ban đầu
+    updateReportSummary(initialReportData);
     
     const currentView = document.querySelector('.admin-view.active-view');
     if (currentView && currentView.id === 'view-inventory') {

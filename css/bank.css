@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
 
-/* ==================== ROOT VARIABLES ==================== */
+/* ==================== NHOM 9 - ROOT VARIABLES ==================== */
 :root {
     /* Font Families */
     --font-primary: 'Roboto Serif', sans-serif;
     --font-secondary: 'Nunito', sans-serif;
 }
 
-/* ==================== RESET ==================== */
+/* ==================== NHOM 9 - RESET ==================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,15 +21,19 @@ body {
     background: linear-gradient(to bottom, #EEF9E5, #61A38C);
     min-height: 100vh;
 }
-/* ==================== CONTAINER ==================== */
+/* ==================== NHOM 9 - CONTAINER ==================== */
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* ==================== MAIN CONTENT ==================== */
+/* ==================== NHOM 9 - MAIN CONTENT ==================== */
 h1 {
+    width: 700px;
     text-align: center;
     font-size: 110px;
     font-style: italic;
@@ -184,7 +188,7 @@ h2 {
 }
 
 
-/* ==================== RESPONSIVE: TABLET (768px - 1024px) ==================== */
+/* ==================== NHOM 9 - RESPONSIVE: TABLET (768px - 1024px) ==================== */
 @media (max-width: 1024px) {
     h1 {
         font-size: 80px;
@@ -245,7 +249,7 @@ h2 {
 
 }
 
-/* ==================== RESPONSIVE: MOBILE (480px - 768px) ==================== */
+/* ==================== NHOM 9 - RESPONSIVE: MOBILE (480px - 768px) ==================== */
 @media (max-width: 768px) {
     h1 {
         font-size: 55px;

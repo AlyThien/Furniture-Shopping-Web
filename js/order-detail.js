@@ -1,4 +1,4 @@
-//Chi tiết đơn hàng 
+//Nhóm 9: Chi tiết đơn hàng 
 class OrderDetailPage {
     // Khởi tạo
     constructor() {
@@ -329,7 +329,7 @@ class OrderDetailPage {
     }
 }
 
-// Khởi tạo khi trang load xong
+//Nhóm 9: Khởi tạo khi trang load xong
 document.addEventListener('DOMContentLoaded', function() {
     window.orderDetailPage = new OrderDetailPage();
     console.log('✅ Order Detail Page đã khởi tạo');

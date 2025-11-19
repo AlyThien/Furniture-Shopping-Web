@@ -2,7 +2,7 @@ const USER_DATA_KEY = 'Haguchi_UserData';
 const ORDER_DATA_KEY = 'Haguchi_MockOrders';
 const LOGIN_EMAIL_KEY = 'Haguchi_LoggedInUser'; // KEY ĐỒNG BỘ với login.js
 
-// Dữ liệu Đơn hàng GIẢ LẬP
+//Nhóm 9: Dữ liệu Đơn hàng GIẢ LẬP
 const defaultMockOrders = [
     { 
         id: '1011', 

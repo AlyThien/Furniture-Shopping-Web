@@ -1,4 +1,4 @@
-//Form thanh toán 
+//Nhóm 9: Form thanh toán 
 class PaymentHandler {
 //Khởi tạo các phần tử cho PaymentHandler
   constructor() {

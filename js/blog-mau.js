@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     /* ==========================================
-       1. READING PROGRESS BAR (Thanh tiến độ)
+       Nhóm 9: 1. READING PROGRESS BAR (Thanh tiến độ)
        ========================================== */
     // Tạo thanh progress bar bằng JS và chèn vào đầu body
     const progressBar = document.createElement('div');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     /* ==========================================
-       2. SCROLL REVEAL (Hiện nội dung khi cuộn)
+       Nhóm 9: 2. SCROLL REVEAL (Hiện nội dung khi cuộn)
        ========================================== */
     const observerOptions = {
         root: null,
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     /* ==========================================
-       3. PARALLAX EFFECT CHO ẢNH BÌA
+       Nhóm 9: 3. PARALLAX EFFECT CHO ẢNH BÌA
        ========================================== */
     const mainImage = document.querySelector('.main-image-container img');
     

@@ -16,7 +16,7 @@ const otpInput = document.getElementById('otp');
 const displayEmail = document.getElementById('display-email');
 const errorMessage = document.getElementById('error-message');
 
-// === HELPER FUNCTIONS ===
+// === Nhóm 9: Tính năng gửi code OTP ===
 
 function generateOTP() {
     return Math.floor(100000 + Math.random() * 900000).toString();
@@ -40,7 +40,7 @@ function showSuccess(message) {
     errorMessage.classList.remove('hidden');
 }
 
-// === MAIN WORKFLOW FUNCTIONS ===
+// === Nhóm 9: MAIN WORKFLOW FUNCTIONS ===
 
 function showEmailStep() {
     showStep(emailStep);
@@ -117,7 +117,7 @@ function verifyCode() {
     }
 }
 
-// === EVENT LISTENERS ===
+// === Nhóm 9: EVENT LISTENERS ===
 
 document.addEventListener('DOMContentLoaded', () => {
     // Load email đã lưu (nếu có)

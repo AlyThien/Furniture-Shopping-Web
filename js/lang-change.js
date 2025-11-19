@@ -1,9 +1,10 @@
+//Nhóm 9: Phần thay đổi ngôn ngữ
 let currentLang = 'en';
 let translations = {};
 
 async function loadTranslation(page, lang) {
     try {
-        // Tải đồng thời common + trang hiện tại
+        // Tải đồng thời file common,json và file json của trang hiện tại
         const [commonRes, pageRes] = await Promise.all([
             fetch(`json-lang/common.json`),
             fetch(`json-lang/${page}.json`)
@@ -25,7 +26,7 @@ async function loadTranslation(page, lang) {
         applyTranslations();
         currentLang = lang;
         
-        // Lưu ngôn ngữ đã chọn vào localStorage
+        // Lưu ngôn ngữ đã chọn vào localStorage: để khi chuyển sang trang khác vẫn giữ ngôn ngữ mong muốn
         localStorage.setItem('selectedLanguage', lang);
 
     } catch (err) {
@@ -48,12 +49,13 @@ function applyTranslations() {
     });
 }
 
+//Nhóm 9: Hàm thay đổi ngôn ngữ khi người dùng chọn radio button
 function changeLanguage(lang) {
     const page = document.body.dataset.page || 'home';
     loadTranslation(page, lang);
 }
 
-// Khởi động khi trang tải xong
+//Nhóm 9: Khởi động khi trang tải xong
 document.addEventListener('DOMContentLoaded', () => {
     const page = document.body.dataset.page || 'home';
 

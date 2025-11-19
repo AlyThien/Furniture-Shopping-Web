@@ -1,21 +1,20 @@
-/* ===== IMPORTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
-/* ===== CSS VARIABLES ===== */
+/* ===== NHOM 9 - CSS VARIABLES ===== */
 :root {
     --font-primary: 'Roboto Serif', serif;
     --font-secondary: 'Nunito', sans-serif;
 }
 
-/* ===== RESET ===== */
+/* ===== NHOM 9 - RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ===== BODY ===== */
+/* ===== NHOM 9 - BODY ===== */
 body {
     font-family: var(--font-primary);
     background: linear-gradient(to bottom, #EEF9E5, #61A38C);
@@ -24,14 +23,14 @@ body {
     min-height: 100vh;
 }
 
-/* ===== CONTAINER ===== */
+/* ===== NHOM 9 - CONTAINER ===== */
 .container {
     max-width: 900px;
     margin: 80px auto 0;
     padding: 20px;
 }
 
-/* ===== SHARED CARD STYLES ===== */
+/* ===== NHOM 9 - SHARED CARD STYLES ===== */
 .order-status-container,
 .products-section,
 .payment-shipping-section,
@@ -52,7 +51,7 @@ body {
     padding-bottom: 12px;
 }
 
-/* ===== ORDER STATUS SECTION ===== */
+/* ===== NHOM 9 - ORDER STATUS SECTION ===== */
 .status-header {
     text-align: center;
     margin-bottom: 40px;
@@ -91,7 +90,7 @@ body {
     font-size: 16px;
 }
 
-/* ===== TIMELINE ===== */
+/* ===== NHOM 9 - TIMELINE ===== */
 .timeline {
     display: flex;
     flex-direction: column;
@@ -149,7 +148,7 @@ body {
     font-weight: 500;
 }
 
-/* ===== PRODUCTS SECTION ===== */
+/* ===== NHOM 9 - PRODUCTS SECTION ===== */
 .product-list {
     margin-bottom: 30px;
 }
@@ -200,7 +199,7 @@ body {
     flex-shrink: 0;
 }
 
-/* ===== PRICE SUMMARY ===== */
+/* ===== NHOM 9 - PRICE SUMMARY ===== */
 .price-summary {
     background: #F5F5F5;
     padding: 20px;
@@ -225,7 +224,7 @@ body {
     border-top: 2px solid #E0E0E0;
 }
 
-/* ===== DELIVERY SECTION ===== */
+/* ===== NHOM 9 - DELIVERY SECTION ===== */
 .address-card {
     border-left: 4px solid #0B2D21;
     padding: 20px;
@@ -253,7 +252,7 @@ body {
     line-height: 1.6;
 }
 
-/* ===== PAYMENT & SHIPPING SECTION ===== */
+/* ===== NHOM 9 - PAYMENT & SHIPPING SECTION ===== */
 .payment-shipping-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -282,7 +281,7 @@ body {
     margin: 0;
 }
 
-/* ===== ACTIONS SECTION ===== */
+/* ===== NHOM 9 - ACTIONS SECTION ===== */
 .actions-section {
     border-radius: 12px;
     padding: 40px;
@@ -325,7 +324,7 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(11, 45, 33, 0.2);
 }
-/* ==================== RESPONSIVE: TABLET (768px - 1024px) ==================== */
+/* ==================== NHOM 9 - RESPONSIVE: TABLET (768px - 1024px) ==================== */
 @media (max-width: 1024px) {
     .container {
         padding: 30px 15px;
@@ -412,7 +411,7 @@ body {
     }
 }
 
-/* ==================== RESPONSIVE: MOBILE (480px - 768px) ==================== */
+/* ==================== NHOM 9 - RESPONSIVE: MOBILE (480px - 768px) ==================== */
 @media (max-width: 768px) {
     .container {
         padding: 20px 12px;

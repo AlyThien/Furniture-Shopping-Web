@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Confirmation - Haguchi</title>
-    <link rel="stylesheet" href="css/success.css">
+    <title>Wishlist - Haguchi</title>
+    <link rel="stylesheet" href="css/Wishlist.css">
     <link rel="stylesheet" href="css/common.css">
 </head>
-
-<body data-page="success">
+<body data-page="wishlist">
     <!--Nhóm 9: Phần Header-->
     <header>
         <div class="Logo">
@@ -35,7 +34,7 @@
                     </form>
                 </li>
                 <li id="Wishlist"> <!--Nhóm 9: Giỏ yêu thích-->
-                    <a href="wishlist_index.html">
+                    <a href="wishlisht_index.html">
                         <span class="solar--heart-bold"></span>
                         <span class="wishlist-count">0</span>
                     </a>
@@ -63,20 +62,106 @@
         </nav>
     </header>
 
-    <!-- Phần Success -->
-    <section id="success">
-            <!-- Success Icon -->
-            <div class="success-icon">
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="60" cy="60" r="60" fill="#0B2D21"/>
-                    <path d="M35 60L52 77L85 44" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+    <!--Nhóm 9: Phần Wishlist -->
+    <section id="wishlist-content">
+        <h1 data-i18n="wishlist-title">Wishlist</h1>
+
+        <!--Nhóm 9: Wishlist Table -->
+        <div class="wishlist-table">
+            <table id="wishlist">
+                <thead>
+                    <tr>
+                        <th data-i18n="table-product-info">Product Information</th>
+                        <th data-i18n="table-colors">Colors</th>
+                        <th data-i18n="table-price">Price</th>
+                        <th data-i18n="table-quantity">Quantity</th>
+                        <th data-i18n="table-total">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Nhóm 9: Sample Product -->
+                    <tr>
+                        <td>
+                            <div class="product-details">
+                                <img src="images/product-detail/9.png" 
+                                     alt="L-shaped Sofa NF201" 
+                                     class="product-image"
+                                     style="transition: opacity 0.3s ease;">
+                                <div class="product-text">
+                                    <strong>L-shaped Sofa NF201</strong>
+                                    <div class="product-specs">
+                                        <p><strong data-i18n="dimensions-label">DIMENSIONS</strong></p>
+                                        <p>W2400 x D1100 x H800 mm</p>
+                                        <p><strong data-i18n="materials-label">MATERIALS</strong></p>
+                                        <p><span data-i18n="structure-label">Structure:</span> wood, pocket spring<br><span data-i18n="seat-label">Seat & backrest:</span> HR foam, polyester wadding, feathers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="colors-cell">
+                            <div class="color-selector">
+                                <select class="color-dropdown">
+                                    <option value="" data-i18n="select-color">Select Color</option>
+                                    <option value="0" data-i18n="color-brown">Brown</option>
+                                    <option value="1" data-i18n="color-navy">Navy</option>
+                                    <option value="2" data-i18n="color-olive">Olive</option>
+                                    <option value="3" data-i18n="color-gray">Gray</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td class="price-cell">11.000.000 VND</td>
+                        <td class="quantity-cell">
+                            <div class="quantity-control">
+                                <select class="quantity-dropdown">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td class="total-cell">
+                            <div class="total-with-remove">
+                                <div class="item-total">11.000.000 VND</div>
+                                <button class="remove-btn">
+                                    <span>×</span> <span data-i18n="remove-btn">Remove</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--Nhóm 9: Order Estimate -->
+        <div class="order-estimate">
+            <div class="order-title" data-i18n="order-estimate-title">ORDER ESTIMATE</div>
+            <div class="Total">
+                <span data-i18n="total-label">TOTAL</span>
+                <span id="wishlist-total">11.000.000 VND</span>
             </div>
+        </div>
 
-            <h2 class="success-title" data-i18n="success-message">Your order has been successfully placed. Thank you for choosing Haguchi!</h2>
+        <!--Nhóm 9: Note -->
+        <div class="note">
+            <div class="note-title" data-i18n="note-title">Note:</div>
+            <p data-i18n="note-content">
+                This price list does not include shipping fee and taxes. 
+                The color chart is for reference only so that we can better understand 
+                the color tone that you are looking for. For more information on 
+                shipping and payment methods, please visit our 
+                <a href="policies.html">Policies</a> page.
+            </p>
+        </div>
 
-            <button type="button" class="view-order-btn" onclick="window.location.href='order-detail.html'" data-i18n="view-order-btn">View Order Details</button>
-        
+        <!--Nhóm 9: Continue Button -->
+        <button class="continue-bu" data-i18n="continue-btn">Continue</button>
     </section>
 
     <!--Nhóm 9: Phần quay lại đầu trang-->
@@ -131,8 +216,9 @@
             </div>
     </footer>
     
+    <!--Nhóm 9: JavaScript-->
     <script src="js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
     <script src="js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
-
+    <script src="js/wishlist.js"></script>
 </body>
 </html>

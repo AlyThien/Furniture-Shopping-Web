@@ -1,33 +1,28 @@
-/* === 1. @import font === */
-/* (Không có) */
-
-
-/* === 2. @font-face === */
 @font-face {
   font-family: 'Roboto Serif';
   src: url('Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
 }
 
-
-/* === 3. Javascript Effects & Animations === */
-
-/* 1. Thanh tiến độ đọc */
+/* ==============================================
+Nhóm 9: HOẠT ẢNH JAVASCRIPT
+============================================== */
+/* Thanh tiến độ đọc */
 .reading-progress-bar {
     position: fixed;
     top: 0;
     left: 0;
     height: 4px;
-    background: #cc6847; /* Màu cam đất (lấy từ màu logo hoặc điểm nhấn) */
+    background: #cc6847;
     width: 0%;
     z-index: 9999;
     transition: width 0.1s ease;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* 2. Hiệu ứng Reveal (Ẩn/Hiện) */
+/* Hiệu ứng Reveal (Ẩn/Hiện) */
 .reveal-hidden {
     opacity: 0;
-    transform: translateY(30px); /* Dịch xuống dưới một chút */
+    transform: translateY(30px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -36,48 +31,46 @@
     transform: translateY(0);
 }
 
-/* Tinh chỉnh riêng cho ảnh để nó không bị giật khi parallax */
+/* Hiệu ứng Parallax cho ảnh */
 .main-image-container img {
-    transition: transform 0.1s cubic-bezier(0,0,0.2,1); /* Mượt mà hơn cho parallax */
+    transition: transform 0.1s cubic-bezier(0,0,0.2,1);
     will-change: transform;
 }
 
-
-/* === 4. Reset / Global styles === */
+/* ==============================================
+Nhóm 9: STYLE CHUNG
+============================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-/* === 5. Layout === */
+/* ==============================================
+Nhóm 9: LAYOUT
+============================================== */
 .case-study-page {
-  /* Giữ lại nền gradient của bạn */
   background: linear-gradient(
     180deg,
     rgba(238, 249, 229, 1) 0%,
     rgba(97, 163, 140, 1) 100%
   );
   width: 100%;
-  min-width: 1440px; /* Giữ lại min-width để khớp thiết kế */
-
-  /* Dùng Flexbox để căn giữa nội dung theo chiều dọc */
+  min-width: 1440px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Căn giữa tất cả nội dung theo chiều ngang */
+  align-items: center;
   padding-top: 10px;
 }
 
+/* Page Header */
 .case-study-page .page-header {
   width: 100%;
-  max-width: 1350px; /* Đặt chiều rộng tối đa theo thiết kế */
-  margin-top: 142px; /* Giữ lại lề trên */
-
-  /* Dùng flex để sắp xếp tiêu đề và logo */
+  max-width: 1350px;
+  margin-top: 142px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Căn giữa các mục con (tiêu đề, logo) */
+  align-items: center;
 }
 
 .case-study-page .header__title-block {
@@ -92,7 +85,7 @@
 
 .case-study-page .header__date {
   font-weight: 300;
-  color: #000000; /* Đảm bảo văn bản có màu */
+  color: #000000;
 }
 
 .case-study-page .header__main-title {
@@ -100,52 +93,50 @@
   font-weight: 600;
   color: #1c3227;
   font-size: 110px;
-  line-height: 1.2; /* Thêm chiều cao dòng cho tiêu đề lớn */
+  line-height: 1.2;
 }
 
 .case-study-page .header__logo {
   width: 203.93px;
   height: 53.29px;
   object-fit: cover;
-
-  /* Căn giữa bằng margin */
-  margin-top: 20px; /* Thêm khoảng cách với tiêu đề */
+  margin-top: 20px;
 }
 
+/* Page Content */
 .case-study-page .page-content {
   width: 100%;
-  /* Đặt chiều rộng tối đa theo thiết kế của các khối nội dung */
   max-width: 1252px;
-
-  /* Căn giữa và xếp chồng nội dung */
-  margin: 80px auto 0 auto; /* 80px lề trên, tự động căn giữa ngang */
+  margin: 80px auto 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Căn giữa các khối con (ảnh, text) */
+  align-items: center;
 }
 
-
-/* === 6. Components === */
+/* ==============================================
+Nhóm 9: COMPONENTS
+============================================== */
+/* Hero Image */
 .case-study-page .content__hero-image {
-  width: 100%; /* Chiếm 100% chiều rộng của .page-content (1252px) */
-  height: auto; /* Chiều cao tự động theo tỷ lệ ảnh */
-  aspect-ratio: 2.15; /* Giữ tỷ lệ khung hình gốc */
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.15;
   border-radius: 20px;
   object-fit: cover;
 }
 
+/* Intro Section */
 .case-study-page .content__intro-section {
   width: 100%;
-  max-width: 1055px; /* Đặt chiều rộng tối đa theo thiết kế */
-  margin-top: 60px; /* Tạo khoảng cách với ảnh trên */
-
+  max-width: 1055px;
+  margin-top: 60px;
   font-family: 'Roboto Serif', serif;
   font-weight: 500;
   color: #000000;
   font-size: 70px;
   left: 40px;
   letter-spacing: 0;
-  line-height: 1.5; /* Thêm chiều cao dòng cho dễ đọc */
+  line-height: 1.5;
 }
 
 .case-study-page .intro-section__heading {
@@ -154,17 +145,19 @@
   color: #000000;
   font-size: 35px;
   letter-spacing: 0;
-  display: block; /* Đảm bảo đây là một khối riêng */
+  display: block;
   margin: 0;
 }
 
+/* Sub Paragraph */
 .case-study-page .content__sub-paragraph {
   font-family: 'Roboto Serif', serif;
   font-weight: 200;
   font-size: 23px;
-  line-height: 1.7; /* Thêm chiều cao dòng cho dễ đọc */
+  line-height: 1.7;
 }
 
+/* Inline Link */
 .case-study-page .content__inline-link {
   font-family: 'Roboto Serif', serif;
   font-weight: 200;
@@ -173,19 +166,20 @@
   color: #000000;
 }
 
+/* Standard Image */
 .case-study-page .content__standard-image {
   width: 100%;
-  max-width: 1020px; /* Đặt chiều rộng tối đa theo thiết kế */
+  max-width: 1020px;
   height: 600px;
   object-fit: cover;
-  margin-top: 50px; /* Tạo khoảng cách */
+  margin-top: 50px;
 }
 
+/* Quote Section */
 .case-study-page .content__quote-section {
   width: 100%;
   max-width: 1020px;
   margin-top: 60px;
-
   font-family: 'Roboto Serif', serif;
   font-weight: 400;
   color: #000000;
@@ -198,151 +192,132 @@
   font-weight: 500;
   display: block;
   margin: 0 0 2em 0;
-  font-style: italic; /* Giữ lại kiểu in nghiêng */
+  font-style: italic;
 }
 
 .case-study-page .quote-section__heading {
   font-family: 'Roboto Serif', serif;
   display: block;
   margin: 2em 0 1em 0;
-  font-size: 32px; /* Giảm kích thước một chút so với H1 */
+  font-size: 32px;
   font-weight: 600;
 }
 
+/* Main Text Block */
 .case-study-page .content__main-text-block {
   width: 100%;
   max-width: 1020px;
   margin-top: 60px;
   margin-bottom: 80px;
-  /* Các style này sẽ áp dụng cho các thẻ <p> bên trong */
   font-family: 'Roboto Serif', serif;
   font-weight: 200;
   color: #000000;
-  font-size: 23px; /* Đặt cỡ chữ chung cho đoạn văn */
+  font-size: 23px;
   letter-spacing: 0;
-  line-height: 1.7; /* Đặt chiều cao dòng chung */
+  line-height: 1.7;
 }
 
 .case-study-page .content__main-text-block h2 {
   font-family: 'Roboto Serif', serif;
-  font-weight: 500; /* Làm cho H2 đậm hơn */
+  font-weight: 500;
   color: #000000;
-  font-size: 32px; /* Cỡ chữ H2 */
+  font-size: 32px;
   margin: 2em 0 1em 0;
 }
 
 .case-study-page .content__main-text-block h3 {
   font-family: 'Roboto Serif', serif;
-  font-weight: 500; /* Làm cho H3 đậm hơn */
+  font-weight: 500;
   color: #000000;
-  font-size: 28px; /* Cỡ chữ H3 */
+  font-size: 28px;
   margin: 2em 0 1em 0;
 }
 
 .case-study-page .content__main-text-block p {
-  /* Giữ lại font-size 23px và line-height 1.7 từ cha */
-  margin: 0 0 1.5em 0; /* Khoảng cách giữa các đoạn văn */
+  margin: 0 0 1.5em 0;
 }
 
-/* Đảm bảo link trong đoạn văn bản cũng có style đúng */
 .case-study-page .content__main-text-block p a {
   color: #000000;
   text-decoration: underline;
 }
 
-.case-study-page footer {
-    margin-top: 50px !important; /* Đẩy footer xuống xa 150px */
-    width: 100%; /* Đảm bảo footer vẫn rộng toàn màn hình */
-}
-
-
-/* === 7. Utilities === */
-/* (Không có) */
-
-
-/* === 8. Responsive === */
-/*
-========================================
-Phần Responsive (Theo style common.css)
-========================================
-*/
-
-/* == Tablet (Giống 768px của common.css) == */
+/* ==============================================
+Nhóm 9: RESPONSIVE - TABLET (max-width: 768px)
+============================================== */
 @media (max-width: 768px) {
+    /*Case Study Page*/
     .case-study-page {
-        /* HỦY BỎ ép buộc 1440px */
         min-width: auto;
-
-        /* Điều chỉnh padding-top cho vừa với header mobile (45px) */
         padding-top: 45px;
-
-        /* Thêm padding lề 2 bên */
         padding-left: 2rem;
         padding-right: 2rem;
     }
 
-    /* Giảm khoảng cách đầu trang */
+    /*Page Header*/
     .case-study-page .page-header {
-        margin-top: 4rem; /* Giảm từ 110px */
+        margin-top: 4rem;
     }
 
-    /* Giảm chiều cao ảnh bìa */
+    /*Main Image Container*/
     .case-study-page .main-image-container {
-        height: 400px; /* Giảm từ 800px */
+        height: 400px;
     }
 
-    /* Giảm kích thước font chữ cho dễ đọc */
+    /*Main Text Block*/
     .case-study-page .content__main-text-block {
-        font-size: 18px; /* Giảm từ 23px */
+        font-size: 18px;
         line-height: 1.6;
-        margin-top: 40px; /* Giảm từ 60px */
+        margin-top: 40px;
     }
 
-    /* Giảm font của trích dẫn (quote) và tiêu đề H2 */
+    /*Quote Section*/
     .case-study-page .quote-section {
-        font-size: 24px; /* Giảm từ 32px */
+        font-size: 24px;
     }
 
+    /*Quote Heading & H2*/
     .case-study-page .quote-section__heading,
     .case-study-page .content__main-text-block h2 {
-        font-size: 26px; /* Giảm từ 32px */
+        font-size: 26px;
     }
 }
 
-
-/* == Mobile (Giống 480px của common.css) == */
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE (max-width: 480px)
+============================================== */
 @media (max-width: 480px) {
+    /*Case Study Page*/
     .case-study-page {
-        /* Thêm chút padding trên cho thoáng */
-        padding-top: 60px; /* (header vẫn 45px) */
-        
-        /* Thu hẹp lề */
+        padding-top: 60px;
         padding-left: 1rem;
         padding-right: 1rem;
     }
 
-    /* Giảm khoảng cách đầu trang */
+    /*Page Header*/
     .case-study-page .page-header {
-        margin-top: 2rem; /* Giảm nữa */
+        margin-top: 2rem;
     }
 
-    /* Giảm chiều cao ảnh bìa */
+    /*Main Image Container*/
     .case-study-page .main-image-container {
-        height: 250px; /* Giảm nữa */
+        height: 250px;
     }
 
-    /* Giảm font chữ về kích thước mobile tiêu chuẩn */
+    /*Main Text Block*/
     .case-study-page .content__main-text-block {
-        font-size: 16px; /* Giảm từ 18px (tablet) */
+        font-size: 16px;
         margin-top: 30px;
     }
 
+    /*Quote Section*/
     .case-study-page .quote-section {
-        font-size: 20px; /* Giảm từ 24px */
+        font-size: 20px;
     }
 
+    /*Quote Heading & H2*/
     .case-study-page .quote-section__heading,
     .case-study-page .content__main-text-block h2 {
-        font-size: 22px; /* Giảm từ 26px */
+        font-size: 22px;
     }
 }

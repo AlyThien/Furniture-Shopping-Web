@@ -1,4 +1,4 @@
-// Vietnam Provinces and Cities Data
+//Nhóm 9: Tạo dữ liệu các tỉnh thành phố Việt Nam để lựa chọn trong form
 // Cấu trúc: Province -> Cities
 const VIETNAM_DATA = {
     'An Giang': [
@@ -438,7 +438,7 @@ const VIETNAM_DATA = {
     ]
 };
 
-//Lấy danh sách tỉnh thành của Việt Nam từ VIETNAM_DATA
+//Nhóm 9: Lấy danh sách tỉnh thành của Việt Nam từ VIETNAM_DATA
 function getProvinces() {
     return Object.keys(VIETNAM_DATA).sort();
 }
@@ -446,7 +446,7 @@ function getProvinces() {
 function getCitiesForProvince(province) {
     return VIETNAM_DATA[province] || [];
 }
-//Tự động điền dữ liệu tỉnh thành vào dropdown
+//Nhóm 9: Tự động điền dữ liệu tỉnh thành vào dropdown
 function populateProvinces(selectElementId) {
     const select = document.getElementById(selectElementId);
     if (!select) return;
@@ -466,7 +466,7 @@ function populateProvinces(selectElementId) {
         select.appendChild(option);
     });
 }
-// Tự động điền dữ liệu quận/huyện dựa trên tỉnh thành đã chọn
+//Nhóm 9: Tự động điền dữ liệu quận/huyện dựa trên tỉnh thành đã chọn
 function populateCities(provinceSelectId, citySelectId) {
     const provinceSelect = document.getElementById(provinceSelectId);
     const citySelect = document.getElementById(citySelectId);

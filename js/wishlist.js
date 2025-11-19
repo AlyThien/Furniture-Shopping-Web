@@ -1,4 +1,4 @@
-//Giỏ hàng Wishlist 
+//Nhóm 9: Giỏ hàng Wishlist 
 class Wishlist {
   //Khởi tạo 
   constructor() {
@@ -103,12 +103,12 @@ class Wishlist {
   getColorImage(colorName) {
     // Map color names to images
     const imageMap = {
-      'Brown': 'images/product/13.png',
-      'Navy': 'images/product/12.png',
-      'Olive': 'images/product/11.png',
-      'Gray': 'images/product/10.png'
+      'Brown': 'images/product-detail/13.png',
+      'Navy': 'images/product-detail/12.png',
+      'Olive': 'images/product-detail/11.png',
+      'Gray': 'images/product-detail/10.png'
     };
-    return imageMap[colorName] || 'images/product/9.png';
+    return imageMap[colorName] || 'images/product-detail/9.png';
   }
 
   //parsePrice(priceText) - Chuyển text giá thành số --> Tính toán
@@ -411,7 +411,7 @@ class Wishlist {
         // Kiểm tra wishlist có empty không
         if (this.wishlist.length === 0) {
           alert('Your wishlist is empty. Keep shopping to add products!');
-          window.location.href = 'policies/policy_index.html';
+          window.location.href = '/typologies.html';
           return;
         }
 
@@ -441,7 +441,7 @@ class Wishlist {
         
         // ✅ Validation passed - Chuyển sang trang tiếp theo
         console.log('✅ Validation passed');
-        window.location.href = 'wishlist-send_indext.html';
+        window.location.href = '/wishlist-send_index.html';
       });
     }
   }

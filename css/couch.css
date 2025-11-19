@@ -1,40 +1,37 @@
-/* === 1. @import font === */
-/* (Không có) */
-
-
-/* === 2. @font-face === */
 @font-face {
     font-family: 'Roboto Serif';
     src: url('Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
 }
 
-
-/* === 3. Javascript Effects & Animations === */
+/* ==============================================
+Nhóm 9: HOẠT ẢNH JAVASCRIPT
+============================================== */
 /* Trạng thái ẨN ban đầu */
 .reveal-hidden {
-    opacity: 0; /* Hoàn toàn vô hình */
-    transform: translateY(30px); /* Dịch chuyển xuống 30px */
-    
-    /* Thiết lập độ mượt khi chuyển đổi (animation) */
+    opacity: 0;
+    transform: translateY(30px);
     transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Trạng thái HIỆN (JavaScript sẽ thêm class này) */
 .reveal-visible {
-    opacity: 1; /* Hiện ra */
-    transform: translateY(0); /* Trở về vị trí ban đầu */
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* === 4. Reset / Global styles === */
+/* ==============================================
+Nhóm 9: STYLE CHUNG
+============================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-/* === 5. Layout (ĐÃ SỬA LẠI GRID 3 CỘT) === */
+/* ==============================================
+Nhóm 9: LAYOUT
+============================================== */
 .sofa-gallery {
     font-family: "Roboto Serif", serif;
     background: linear-gradient(
@@ -42,126 +39,110 @@
       rgba(238, 249, 229, 1) 0%,
       rgba(97, 163, 140, 1) 100%
     );
-    overflow: hidden; /* Tránh thanh cuộn ngang */
+    overflow: hidden;
     width: 100%;
     min-width: 1433px;
     min-height: auto;
-    
 }
 
-/* Container chính: Dùng Grid để chia cột tự động */
+/* Container chính - Grid 3 cột */
 .sofa-gallery .sofa-container {
     width: 100%;
-    max-width: 1325px;     /* Giới hạn chiều rộng để đẹp trên màn hình lớn */
-    margin: 40px auto 60px; /* Căn giữa màn hình */
+    max-width: 1325px;
+    margin: 40px auto 60px;
     margin-top: 40px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 cột đều nhau */
-    gap: 60px 30px;        /* Khoảng cách: 60px hàng dọc, 30px hàng ngang */
-    padding: 0 20px;       /* Đệm 2 bên mép màn hình */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 30px;
+    padding: 0 20px;
     position: relative;
-    height: auto;          /* Chiều cao tự giãn theo nội dung */
-    left: auto;            /* Reset các thuộc tính cũ */
+    height: auto;
+    left: auto;
 }
 
 .sofa-gallery .sofa-grid {
-    /* Grid đã được xử lý ở container, class này để giữ cấu trúc html */
     display: contents; 
 }
 
-/* === 6. Components  === */
-
-/* Reset chung cho thẻ bao ngoài mỗi sản phẩm */
+/* ==============================================
+Nhóm 9: COMPONENTS
+============================================== */
+/* Sofa Card */
 .sofa-gallery .sofa-card {
-    /* Layout Flexbox để căn chỉnh */
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
     text-decoration: none;
-    
-    /* -- PHẦN MỚI THÊM ĐỂ TẠO KHUNG -- */
-    background-color: rgba(210, 234, 216, 0.6); /* Màu trắng mờ 60% để hòa trộn nhẹ với nền */
-    backdrop-filter: blur(5px); /* Hiệu ứng mờ nền phía sau (kính mờ) */
-    padding: 20px;              /* Khoảng cách từ viền vào nội dung */
-    border-radius: 15px;        /* Bo tròn 4 góc */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ giúp khung nổi lên */
-    border: 1px solid rgba(73, 48, 3, 0.8); /* Viền trắng mỏng bao quanh */
-    
-    /* Hiệu ứng chuyển động mượt mà */
+    background-color: rgba(210, 234, 216, 0.6);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(73, 48, 3, 0.8);
     transition: all 0.3s ease;
 }
 
-/* Hiệu ứng khi di chuột vào khung */
 .sofa-gallery .sofa-card:hover {
-    transform: translateY(-10px); /* Nhấc nhẹ khung lên */
-    background-color: rgb(175, 203, 193);/* Khung sáng rõ hơn */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Bóng đậm hơn */
+    transform: translateY(-10px);
+    background-color: rgb(175, 203, 193);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
-/* CHỈNH SỬA ẢNH: Đây là phần quan trọng nhất để đều nhau */
+
+/* Sofa Image */
 .sofa-gallery .sofa-card__image {
     position: relative;
     width: 100%;
     height: auto;
-    
-    /* Tỉ lệ chuẩn dựa trên size 725x483 bạn cung cấp (~1.5) */
     aspect-ratio: 3 / 2; 
-    
-    /* Đảm bảo ảnh nằm gọn trong khung, không bị cắt mất chân ghế */
     object-fit: contain; 
-    
     top: auto !important;
     left: auto !important;
 }
 
-/* Reset phần chữ bên dưới */
+/* Caption Box */
 .sofa-gallery .sofa-card__caption-box {
-    width: 100%;                /* Bắt buộc: Chiếm hết chiều ngang của khung */
-    display: flex;              /* Dùng Flexbox */
-    flex-direction: row;        /* Xếp hàng ngang */
-    justify-content: space-between; /* Đẩy Tên sang trái, Giá sang phải */
-    align-items: center;        /* Căn giữa theo chiều dọc */
-    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
     margin-top: 15px;
-    padding-bottom: 10px;       /* Chừa chỗ cho gạch chân bên dưới */
-    
-    /* Reset các thuộc tính cũ */
+    padding-bottom: 10px;
     height: auto;
     top: auto !important;
     left: auto !important;
     margin-left: 0 !important;
 }
 
-/* Style tên sản phẩm */
+/* Product Name */
 .sofa-gallery .sofa-card__name {
     font-family: "Roboto Serif", serif;
     font-weight: 400;
     color: #221515;
-    font-size: 20px;            /* Giảm nhẹ size chữ để đỡ bị chật */
+    font-size: 20px;
     line-height: normal;
-    
-    text-align: left;           /* Đổi thành căn trái */
-    white-space: nowrap;        /* Giữ trên 1 dòng */
-    overflow: hidden;           /* Ẩn chữ thừa nếu tên quá dài */
-    text-overflow: ellipsis;    /* Thêm dấu ... nếu tên quá dài */
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding-bottom: 0;          
 }
 
-
+/* Product Price */
 .sofa-gallery .sofa-card__price {
     font-family: "Roboto Serif", serif;
     font-size: 18px;
     font-weight: 600;
     color: #13451d;
-    
-    text-align: right;          /* Căn phải */
-    margin: 0;                  /* Xóa margin cũ */
-    margin-left: 15px;          /* Cách tên sản phẩm ra một chút */
-    white-space: nowrap;        /* Không cho giá bị rớt dòng */
+    text-align: right;
+    margin: 0;
+    margin-left: 15px;
+    white-space: nowrap;
 }
 
-/* Hiệu ứng gạch chân */
+/* Underline Effect */
 .sofa-gallery .sofa-card__underline {
     background-color: #000000;
     position: absolute;
@@ -173,15 +154,14 @@
 }
 
 .sofa-gallery .sofa-card:hover .sofa-card__underline {
-    width: 100%; /* Hover thì gạch chân full */
+    width: 100%;
 }
 
-/* === Product Category Navigation === */
+/* Product Category Navigation */
 .product-category-nav {
     width: 100%;
-    /* Đẩy thanh nav xuống dưới header (55px) + 15px đệm */
     padding-top: 70px; 
-    background-color: transparent; /* Nằm trên nền gradient của body */
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -190,152 +170,127 @@
 .product-category-nav ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 0;
     margin: 0;
-    gap: 10px; /* Khoảng cách giữa các mục */
+    gap: 10px;
 }
 
-/* Ghi đè padding từ common.css */
 .product-category-nav li {
     padding: 0; 
 }
 
 .product-category-nav a:link,
 .product-category-nav a:visited {
-    font-family: "Roboto Serif", serif; /* Dùng font giống header */
+    font-family: "Roboto Serif", serif;
     font-size: 16px;
     font-weight: 600;
-    color: #A8C4B5; /* Màu xanh đậm để đọc được trên nền sáng */
+    color: #A8C4B5;
     text-decoration: none;
     padding: 8px 12px;
-    border-radius: 15px; /* Bo góc giống header */
+    border-radius: 15px;
     transition: all 0.3s ease;
 }
 
-/* Hiệu ứng khi hover - giống với nav chính */
 .product-category-nav a:hover {
-    background-color: #3B6D54; /* Màu xanh vừa */
-    color: #E8F3DE; /* Màu chữ sáng */
+    background-color: #3B6D54;
+    color: #E8F3DE;
 }
 
-/* Định dạng cho mục đang được chọn (active) */
 .product-category-nav a.active {
     font-weight: 700;
-    background-color: #044b2b; /* Màu xanh đậm nhất */
-    color: #E8F3DE; /* Màu chữ sáng */
+    background-color: #044b2b;
+    color: #E8F3DE;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* --- Pagination --- */
+/* Pagination */
 .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-top: 60px;
-  margin-bottom: 80px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 60px;
+    margin-bottom: 80px;
 }
-
 
 .pagination .arrow {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid #2d5f4a;
-  background: transparent;
-  color: #2d5f4a;
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-
-  text-decoration: none;  /* Bỏ gạch chân của link */
-  display: inline-flex;   /* Căn giữa mũi tên (quan trọng) */
-  align-items: center;    /* Căn giữa mũi tên (quan trọng) */
-  justify-content: center; /* Căn giữa mũi tên (quan trọng) */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #2d5f4a;
+    background: transparent;
+    color: #2d5f4a;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
-
 
 .pagination .arrow:hover {
-  background: #2d5f4a;
-  color: white;
+    background: #2d5f4a;
+    color: white;
 }
 
-/* Style cho nút bị vô hiệu hóa (disabled) */
 .pagination .arrow.disabled {
-  border-color: #6b9080; /* Màu viền mờ hơn */
-  color: #6b9080;      /* Màu chữ mờ hơn */
-  opacity: 0.7;
-  cursor: not-allowed;  /* Đổi con trỏ chuột */
+    border-color: #6b9080;
+    color: #6b9080;
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
-/* Chặn hiệu ứng hover khi nút bị disabled */
 .pagination .arrow.disabled:hover {
-  background: transparent;
-  color: #6b9080;
+    background: transparent;
+    color: #6b9080;
 }
 
 .pagination .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #6b9080;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #6b9080;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .pagination .dot.active {
-  background: #2d5f4a;
-  transform: scale(1.3);
+    background: #2d5f4a;
+    transform: scale(1.3);
 }
 
-
-/* === 7. Utilities === */
-/* (Không có) */
-
-
-/* === 8. Responsive === */
-/* == Tablet (Giống 768px của common.css) == */
+/* ==============================================
+Nhóm 9: RESPONSIVE - TABLET (max-width: 768px)
+============================================== */
 @media (max-width: 768px) {
+    /*Sofa Gallery*/
     .sofa-gallery {
-        /* QUAN TRỌNG: Hủy bỏ ép buộc 1433px */
         min-width: auto;
-
-        /* Điều chỉnh padding-top cho vừa với header mobile (45px) */
         padding-top: 80px;
-
-        /* Thêm padding lề 2 bên */
         padding-left: 2rem;
         padding-right: 2rem;
-        
-        /* Cho phép trang tự động co giãn */
         overflow: visible;
     }
 
-    /* ĐỊNH NGHĨA LẠI BỐ CỤC */
+    /*Sofa Container - Grid 2 cột*/
     .sofa-gallery .sofa-container {
-        /* Hủy bỏ position và kích thước cố định */
         position: relative;
         width: 100%;
         height: auto;
         top: auto;
         left: auto;
         bottom: auto;
-
-        /* Tạo bố cục LƯỚI 2 cột */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem; /* Khoảng cách giữa các mục */
+        gap: 2rem;
     }
 
-    /* RESET TẤT CẢ SOFA */
-    /* [class*="sofa-"] chọn mọi class có chữ "sofa-" */
+    /*Reset Sofa*/
     .sofa-gallery [class*="sofa-"] {
-        /* Hủy bỏ position tuyệt đối */
         position: relative !important;
         width: 100% !important;
         height: auto !important;
@@ -343,58 +298,59 @@
         left: auto !important;
     }
 
-    /* RESET LẠI ẢNH BÊN TRONG */
+    /*Sofa Image*/
     .sofa-gallery .sofa-card__image {
         position: relative !important;
         width: 100% !important;
-        height: auto !important; /* Để ảnh tự co giãn */
-        aspect-ratio: 1 / 1; /* Giữ ảnh vuông */
+        height: auto !important;
+        aspect-ratio: 1 / 1;
         top: auto !important;
         left: auto !important;
     }
 
-    /* RESET LẠI CHỮ BÊN TRONG */
+    /*Caption Box*/
     .sofa-gallery .sofa-card__caption-box {
         position: relative !important;
         width: 100% !important;
         height: auto !important;
         top: auto !important;
         left: auto !important;
-        
-        /* Thêm tí đệm cho đẹp */
         padding-top: 0.5rem;
     }
 
     .sofa-gallery .sofa-card__caption {
-        font-size: 16px; /* Chỉnh lại font cho dễ đọc */
+        font-size: 16px;
     }
 }
 
-
-/* == Mobile (Giống 480px của common.css) == */
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE (max-width: 480px)
+============================================== */
 @media (max-width: 480px) {
+    /*Sofa Gallery*/
     .sofa-gallery {
-        /* Thu hẹp lề */
         padding-left: 1rem;
         padding-right: 1rem;
     }
 
+    /*Sofa Container - Grid 1 cột*/
     .sofa-gallery .sofa-container {
-        /* Chuyển thành 1 cột */
         grid-template-columns: 1fr;
-        gap: 2.5rem; /* Tăng khoảng cách dọc */
+        gap: 2.5rem;
     }
 
+    /*Product Category Nav*/
     .product-category-nav {
-        padding-top: 55px; /* Điều chỉnh cho header mobile (45px) */
+        padding-top: 55px;
     }
+
     .product-category-nav ul {
-        gap: 5px; /* Giảm khoảng cách */
+        gap: 5px;
     }
+
     .product-category-nav a:link,
     .product-category-nav a:visited {
         font-size: 12px;
         padding: 5px 8px;
     }
-
 }

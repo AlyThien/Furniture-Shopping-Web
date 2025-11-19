@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
-/* ========== CSS VARIABLES - CHỈ FONT ========== */
+/* ========== NHOM 9 - CSS VARIABLES ========== */
 :root {
     --font-primary: 'Roboto Serif', sans-serif;
     --font-secondary: 'Nunito', sans-serif;
   }
   
-  /* ========== RESET ========== */
+  /* ========== NHOM 9 - RESET ========== */
   * {
     box-sizing: border-box;
     margin: 0;
@@ -19,101 +17,24 @@
     background: linear-gradient(to bottom, #EEF9E5, #61A38C);
     min-height: 100vh;
   }
-  
-  /* ========== HEADER ========== */
-  header {
-    width: 100%;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #3B6D54, #1D3227);
-    color: #E8F3DE;
-    opacity: 90%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-  }
-  
-  .Logo {
-    position: absolute;
-    left: 40px;
-    font-family: var(--font-secondary);
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .Logo a {
-    color: #E8F3DE;
-    text-decoration: none;
-  }
-  
-  .Logo em {
-    font-weight: 500;
-    font-size: 25px;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-  }
-  
-  nav.Sub-Menu {
-    position: absolute;
-    right: 40px;
-  }
-  
-  nav a,
-  nav li {
-    color: #E8F3DE;
-    text-decoration: none;
-    font-size: 19px;
-    font-family: var(--font-secondary);
-    padding: 8px 12px;
-    border-radius: 15px;
-  }
-  
-  nav.Main-Menu a:hover {
-    background-color: #E8F3DE;
-    color: #3B6D54;
-    transition: 0.3s;
-  }
-  
-  /* ========== ICONS ========== */
-  .solar--heart-bold,
-  .fluent--search-12-filled {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-  }
-  
-  .solar--heart-bold {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M2 9.137C2 14 6.02 16.591 8.962 18.911C10 19.729 11 20.5 12 20.5s2-.77 3.038-1.59C17.981 16.592 22 14 22 9.138S16.5.825 12 5.501C7.5.825 2 4.274 2 9.137'/%3E%3C/svg%3E");
-  }
-  
-  .fluent--search-12-filled {
-    width: 25px;
-    height: 25px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M5 1a4 4 0 1 0 2.248 7.31l2.472 2.47a.75.75 0 1 0 1.06-1.06L8.31 7.248A4 4 0 0 0 5 1M2.5 5a2.5 2.5 0 1 1 5 0a2.5 2.5 0 0 1-5 0'/%3E%3C/svg%3E");
-  }
-  
-  /* ========== MAIN CONTENT ========== */
+  /* ========== NHOM 9 - MAIN CONTENT ========== */
   .container {
     max-width: 600px;
     margin: 0 auto;
     padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   h1 {
+    width: 700px;
     text-align: center;
     font-size: 110px;
     font-style: italic;
     color: #1D382C;
     margin-top: 140px;
+    margin-bottom: 20px;
   }
   
   h2 {
@@ -136,7 +57,7 @@
     margin-bottom: 30px;
   }
   
-  /* ========== FORM ========== */
+  /* ========== NHOM 9 - FORM ========== */
   .form-section {
     margin-bottom: 30px;
   }
@@ -164,7 +85,7 @@
     margin-bottom: 20px;
   }
   
-  label {
+  .form-group label {
     color: #1a3a2e;
     font-size: 14px;
     margin-bottom: 8px;
@@ -217,7 +138,7 @@
     cursor: pointer;
   }
   
-  /* ========== PAYMENT ========== */
+  /* ========== NHOM 9 - PAYMENT ========== */
   .radio-option {
     display: flex;
     align-items: center;
@@ -262,7 +183,7 @@
     line-height: 1.6;
   }
   
-  /* ========== QR SECTION ========== */
+  /* ========== NHOM 9 - QR SECTION ========== */
   .qr-section {
     margin-top: 30px;
     padding: 30px;
@@ -297,7 +218,7 @@
     color: #666;
   }
   
-  /* ========== BUTTON ========== */
+  /* ========== NHOM 9 - BUTTON ========== */
   .continue-bu {
     display: block;
     margin: 40px auto 100px;
@@ -315,7 +236,7 @@
     background-color: #1a3a2e;
     color: white;
   }
-  /* ========== RESPONSIVE: TABLET (max-width: 1024px) ========== */
+  /* ========== NHOM 9 - RESPONSIVE: TABLET (max-width: 1024px) ========== */
   @media (max-width: 1024px) {
     .container {
       max-width: 100%;
@@ -356,7 +277,7 @@
     }
 
 }
-  /* ========== RESPONSIVE: MOBILE (max-width: 768px) ========== */
+  /* ========== NHOM 9 - RESPONSIVE: MOBILE (max-width: 768px) ========== */
   @media (max-width: 768px) {
     .container {
       max-width: 100%;

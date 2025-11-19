@@ -1,27 +1,26 @@
-// Phần quay lại đầu trang
+//Nhóm 9: Phần quay lại đầu trang
 (function(){
     const btn = document.getElementById('btn-top');
     if (!btn) return;
 
-    const SHOW_AFTER = 300; // px scrolled before showing
+    const SHOW_AFTER = 300; // px
 
     function update() {
         if (window.scrollY > SHOW_AFTER) btn.classList.add('show');
         else btn.classList.remove('show');
     }
 
-    // show/hide on scroll
+    // ẩn/hiện nút khi scroll
     window.addEventListener('scroll', update, { passive: true });
-    // initial state
     update();
 
-    // smooth scroll to top
+    // chuyển động mượt khi cuộn trang
     btn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         btn.blur();
     });
 
-    // keyboard accessibility (Enter / Space)
+    // dành cho bàn phím sử dụng enter/space để kích hoạt
     btn.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -30,7 +29,7 @@
     });
 })();
 
-//Phần thanh menu hamburger cho mobile
+//Nhóm 9: Phần thanh menu hamburger cho mobile
 (function(){
     const menuToggle = document.querySelector('.icomoon-free--leaf');
     const mainMenu = document.querySelector('nav.Main-Menu');
@@ -69,6 +68,7 @@
     });
 })();
 
+//Nhóm 9: Phần hiển thị avatar người dùng trên header (lưu lại khi chuyển sang các trang khác)
 (function() {
     'use strict';
 
@@ -116,7 +116,7 @@
                 resetToDefaultIcon();
             }
         } else {
-            // CHƯA ĐĂNG NHẬP hoặc đã logout
+            // chưa đăng nhập hoặc đã logout
             resetToDefaultIcon();
         }
     }
@@ -155,6 +155,7 @@
 
 })();
 
+// Hàm cập nhật avatar trên header (có thể gọi từ các trang khác khi cần)
 function updateHeaderAvatar() {
     const headerAvatar = document.getElementById('header-user-avatar');
     const defaultIcon = document.getElementById('header-default-icon');
@@ -168,7 +169,7 @@ function updateHeaderAvatar() {
         try {
             const userData = JSON.parse(storedData);
             
-            // ĐÃ ĐĂNG NHẬP - Link đến personal-info
+            // Đã đăng nhập - Link đến personal-info
             userAvatarLink.href = 'personal-info.html';
             
             if (userData.avatarUrl) {
@@ -189,7 +190,7 @@ function updateHeaderAvatar() {
             userAvatarLink.title = 'Login';
         }
     } else {
-        // CHƯA ĐĂNG NHẬP - Link đến login
+        // chưa đăng nhập - Link đến login
         headerAvatar.style.display = 'none';
         defaultIcon.style.display = 'inline-block';
         userAvatarLink.href = 'login.html';
