@@ -8,7 +8,7 @@
 }
 
 /* ==============================================
-Nhóm 9: HEADER
+HEADER
 ============================================== */
 header {
     width: 100%;
@@ -59,12 +59,9 @@ nav ul {
 nav.Sub-Menu {
     position: absolute;
     right: 10px;
-    height: 100%;
-    display: flex;
-    align-items: center; 
 }
 
-nav a:link, nav a:visited, li {
+nav a:link, a:visited, li {
     color: #E8F3DE;
     text-decoration: none;
     font-size: 19px;
@@ -77,11 +74,6 @@ nav.Main-Menu a:hover {
     background-color: #E8F3DE;
     color: #3B6D54;
     transition: 0.3s;
-}
-
-nav.Main-Menu a.active {
-    background-color: #E8F3DE;
-    color: #3B6D54;
 }
 
 nav.Sub-Menu ul {
@@ -98,7 +90,6 @@ nav.Sub-Menu li {
 /*Thanh tìm kiếm*/
 .fluent--search-12-filled {
     display: inline-block;
-    vertical-align: middle;  
     width: 20px;
     height: 20px;
     --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23000' d='M5 1a4 4 0 1 0 2.248 7.31l2.472 2.47a.75.75 0 1 0 1.06-1.06L8.31 7.248A4 4 0 0 0 5 1M2.5 5a2.5 2.5 0 1 1 5 0a2.5 2.5 0 0 1-5 0'/%3E%3C/svg%3E");
@@ -162,10 +153,9 @@ nav.Sub-Menu li {
 
 /*Wishlist - Giỏ hàng yêu thích*/
 .solar--heart-bold {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    vertical-align: middle;
     width: 24px;
     height: 24px;
     padding: 0;
@@ -177,6 +167,21 @@ nav.Sub-Menu li {
     mask-repeat: no-repeat;
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
+}
+
+.solar--user-bold {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='6' r='4' fill='%23000'/%3E%3Cpath fill='%23000' d='M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  vertical-align: middle;
 }
 
 #Wishlist {
@@ -203,28 +208,6 @@ nav.Sub-Menu li {
 #Wishlist a {
     position: relative;
     display: inline-block;
-}
-
-/*Tài khoản người dùng*/
-#User a {
-    text-decoration: none;
-}
-
-.solar--user-bold {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-  width: 24px;
-  height: 24px;
-  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='6' r='4' fill='%23000'/%3E%3Cpath fill='%23000' d='M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5'/%3E%3C/svg%3E");
-  background-color: currentColor;
-  -webkit-mask-image: var(--svg);
-  mask-image: var(--svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
 }
 
 /*Chuyển đổi ngôn ngữ*/
@@ -312,16 +295,16 @@ nav.Sub-Menu li {
 }
 
 /* ==============================================
-Nhóm 9: FOOTER 
-================================================= */
+FOOTER
+============================================== */
 footer {
     background: #0B2D21;
     color: #fff;
-    padding: 0px 20px 20px;
-    margin-top: 0;
+    padding: 0 20px 20px;
     position: relative;
+    z-index: 100;
 }
-
+   
 footer::before {
     content: '';
     position: absolute;
@@ -332,183 +315,84 @@ footer::before {
     background: #0B2D21;
     clip-path: ellipse(50% 100% at 50% 100%);
 }
-
+   
 .footer-logo {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-secondary);
 }
-
+   
 .footer-content {
     width: calc(100% - 260px);
-    margin: 0 130px;
+    margin: 0 130px 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 220px;
     row-gap: 30px;
-    margin-bottom: 30px;
     align-items: start;
-    box-sizing: border-box; 
-}       
-
+}
+   
 .footer-section {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    text-align: left;
 }
-
+   
 .footer-section h3 {
     margin-bottom: 15px;
     font-size: 18px;
     font-weight: 600;
 }
-
+   
 .footer-section ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
-
+   
 .footer-section li {
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     line-height: 1.6;
 }
-
+   
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid rgba(168, 196, 181, 0.2);
+    border-top: 1px solid rgba(168, 196, 181, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
-
-.footer-content a:link, .footer-content a:visited {
-    color: #E8F3DE;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-content a:hover {
-    color: #A8C4B5;
-}
-
+   
+/*Các Icon mạng xã hội*/
 .social-icons {
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
-
+   
 .social-icon {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: rgba(168, 196, 181, 0.15);
+    background: rgba(168, 196, 181, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    color: #E8F3DE;
+    font-weight: bold;
 }
-
+   
 .social-icon:hover {
-    background: rgba(168, 196, 181, 0.3);
+    background: rgba(168, 196, 181, 0.4);
+    transform: scale(1.1);
 }
 
-/* ========== RESPONSIVE: TABLET (max-width: 1024px ========== */
-@media (max-width: 1024px) {
-	footer {
-        padding: 0px 20px 25px;
-    }
-
-    .footer-logo {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-
-    .footer-content {
-        width: calc(100% - 100px);
-        margin: 0 50px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);  
-        column-gap: 120px;                     
-        row-gap: 30px;                        
-        margin-bottom: 30px;
-        align-items: start;
-        box-sizing: border-box;
-    }
-
-    .footer-section h3 {
-        font-size: 18px;
-        margin-bottom: 15px;
-    }
-
-    .footer-section li {
-        font-size: 15px;
-        font-weight: 500;
-        margin-bottom: 12px;
-    }
-
-    .footer-bottom {
-        gap: 20px;
-        font-size: 13px;
-        padding-top: 20px;
-    }
-
-    .social-icon {
-        width: 35px;
-        height: 35px;
-    }
-}
-
-/* ========== RESPONSIVE: MOBILE (max-width: 768px ========== */
-@media (max-width: 768px) {
-	footer {
-        padding: 0px 15px 15px;
-    }
-
-    .footer-logo {
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-.footer-content {
-        width: 100%;
-        margin: 0 15px;
-        grid-template-columns: 1fr;
-        column-gap: 0;
-        row-gap: 25px;
-        margin-bottom: 20px;
-    }
-
-    .footer-section h3 {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-
-    .footer-section li {
-        font-size: 14px;
-        margin-bottom: 8px;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
-        padding-top: 15px;
-        font-size: 14px;
-    }
-
-    .social-icons {
-        gap: 12px;
-    }
-
-    .social-icon {
-        width: 30px;
-        height: 30px;
-    }
-}
 /* ==============================================
-Nhóm 9: BUTTON QUAY LẠI ĐẦU TRANG
+BUTTON QUAY LẠI ĐẦU TRANG
 ============================================== */
 #btn-top {
     position: fixed;
@@ -541,99 +425,337 @@ Nhóm 9: BUTTON QUAY LẠI ĐẦU TRANG
 }
 
 /* ==============================================
-Nhóm 4: PHẦN SUB-MENU - THANH ĐIỀU HƯỚNG PHỤ
+RESPONSIVE - TABLET (max-width: 1024px)
 ============================================== */
-
-/*Avatar người dùng trên header*/
-.header-avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #4CAF50;
-    cursor: pointer;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    display: none; /* Mặc định ẩn */
-}
-
-.header-avatar:hover {
-    transform: scale(1.1);
-    border-color: #45A049;
-}
-
-#user-avatar-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 35px;
-    min-height: 35px;
-    padding: 0;
-}
-
-#header-default-icon {
-    display: inline-flex; /* Thay đổi từ inline-block */
-    width: 24px;
-    height: 24px;
-}
-
-/* Đảm bảo cả User li có kích thước đủ */
-#User {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#User a {
-    padding: 8px; /* Thêm padding để dễ click */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ==============================================
-Nhóm 4: RESPONSIVE - TABLET (max-width: 768px)
-============================================== */
-@media (max-width: 768px) {
-    /*Avatar trên header*/
-    .header-avatar {
-        width: 32px;
-        height: 32px;
+@media only screen and (max-width: 1024px) {
+    /* Header */
+    header {
+        height: 50px;
+        padding: 0 10px;
     }
-    
-    #user-avatar-link {
-        min-width: 32px;
-        min-height: 32px;
-    }
-    
-    #header-default-icon {
-        width: 22px;
-        height: 22px;
-    }
-}
 
-/* ==============================================
-Nhóm 4: RESPONSIVE - MOBILE (max-width: 480px)
-============================================== */
-@media (max-width: 480px) {
-    /*Avatar trên header*/
-    .header-avatar {
-        width: 30px;
-        height: 30px;
-        border-width: 2px;
+    .Logo {
+        left: 10px;
+        margin-left: 10px;
+        font-size: 12px;
     }
-    
-    #user-avatar-link {
-        min-width: 30px;
-        min-height: 30px;
+
+    .Logo em {
+        font-size: 20px;
     }
-    
-    #header-default-icon {
+
+    /* Navigation */
+    nav.Main-Menu {
+        display: none;
+    }
+
+    nav.Sub-Menu {
+        right: 30px;
+    }
+
+    nav.Sub-Menu ul {
+        gap: 8px;
+    }
+
+    nav a:link, 
+    a:visited, 
+    li {
+        font-size: 16px;
+        padding: 6px 8px;
+    }
+
+    /* Search Box */
+    #search-box {
+        display: flex;
+    }
+
+    #search-text {
+        width: 120px;
+        opacity: 1;
+        position: static;
+        transform: none;
+        margin-right: 0;
+    }
+
+    #search-btn {
+        display: none;
+    }
+
+    #search-box:hover #search-text,
+    #search-box:focus-within #search-text {
+        width: 120px;
+        opacity: 1;
+    }
+
+    /* Icons */
+    .solar--heart-bold,
+    .solar--user-bold,
+    .fluent--search-12-filled, 
+    .icomoon-free--leaf {
         width: 20px;
         height: 20px;
     }
-    
-    #User a {
-        padding: 6px;
+
+    /* Language Toggle */
+    .lang-track {
+        width: 70px;
+        height: 30px;
+        padding: 3px;
     }
 
+    .lang-opt {
+        font-size: 0.75rem;
+    }
+
+    .lang-knob {
+        top: 3px;
+        left: 5px;
+        width: calc(50% - 6px);
+        height: calc(100% - 6px);
+    }
+
+    #lang-vi:checked ~ .lang-track .lang-knob {
+        transform: translateX(110%);
+    }
+
+    /* Wishlist Count */
+    #Wishlist .wishlist-count {
+        font-size: 8px;
+        min-width: 12px;
+        height: 12px;
+        top: -2px;
+        right: -3px;
+    }
+
+    /* Mobile Menu Icon */
+    .icomoon-free--leaf {
+        display: inline-block;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .icomoon-free--leaf.active {
+        transform: rotate(180deg);
+    }
+
+    /* Mobile Menu Sidebar */
+    nav.Main-Menu {
+        display: block;
+        position: fixed;
+        top: 50px;
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 50px);
+        background: linear-gradient(to bottom, #3B6D54, #1D3227);
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
+        padding: 20px 0;
+    }
+
+    nav.Main-Menu.active {
+        right: 0;
+    }
+
+    nav.Main-Menu ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+
+    nav.Main-Menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(232, 243, 222, 0.1);
+    }
+
+    nav.Main-Menu a:link,
+    nav.Main-Menu a:visited {
+        display: block;
+        padding: 15px 20px;
+        font-size: 16px;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    nav.Main-Menu a:hover {
+        background-color: rgba(232, 243, 222, 0.1);
+        color: #E8F3DE;
+        padding-left: 30px;
+        transition: all 0.3s ease;
+    }
+
+    /* Overlay khi menu mở */
+    body.menu-open::before {
+        content: '';
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    nav.Sub-Menu {
+        right: 10px;
+    }
+
+    /* Footer */
+    footer {
+       padding: 40px 20px 25px;
+    }
+   
+    .footer-content {
+       width: calc(100% - 100px);
+       margin: 0 50px 30px;
+       column-gap: 120px;
+    }
+   
+    .footer-section li {
+       font-size: 15px;
+       font-weight: 500;
+       margin-bottom: 12px;
+    }
+   
+    .footer-bottom {
+       font-size: 13px;
+    }
+   
+    .social-icon {
+       width: 35px;
+       height: 35px;
+    }
+
+    /* Return to Top Button */
+    #btn-top {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* ==============================================
+RESPONSIVE - MOBILE (max-width: 480px)
+============================================== */
+@media (max-width: 480px) {
+    /* Header */
+    header {
+        height: 45px;
+    }
+
+    .Logo {
+        font-size: 10px;
+    }
+
+    .Logo em {
+        font-size: 18px;
+    }
+
+    /* Navigation */
+    nav a:link, 
+    a:visited, 
+    li {
+        font-size: 14px;
+        padding: 4px 6px;
+    }
+
+    nav.Main-Menu {
+        width: 200px;
+    }
+
+    nav.Main-Menu a:link,
+    nav.Main-Menu a:visited {
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+
+    /* Search Box */
+    #search-text {
+        width: 100px;
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    /* Language Toggle */
+    .lang-track {
+        width: 60px;
+        height: 26px;
+    }
+
+    .lang-opt {
+        font-size: 0.7rem;
+    }
+
+    /* Icons */
+    .solar--heart-bold,
+    .solar--user-bold {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Footer */
+    footer {
+       padding: 0 15px 15px;
+    }
+   
+    .footer-logo {
+       font-size: 20px;
+       margin-bottom: 15px;
+    }
+   
+    .footer-content {
+       width: 100%;
+       margin: 0 15px 20px;
+       grid-template-columns: 1fr;
+       column-gap: 0;
+       row-gap: 25px;
+    }
+   
+    .footer-section h3 {
+       font-size: 16px;
+       margin-bottom: 10px;
+    }
+   
+    .footer-section li {
+       font-size: 14px;
+       margin-bottom: 8px;
+    }
+   
+    .footer-bottom {
+       flex-direction: column;
+       gap: 15px;
+       padding-top: 15px;
+       font-size: 14px;
+    }
+   
+    .social-icons {
+       gap: 12px;
+    }
+   
+    .social-icon {
+       width: 30px;
+       height: 30px;
+    }
+
+    /* Return to Top Button */
+    #btn-top {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
 }
