@@ -1,6 +1,6 @@
-/* =========================================================
-🌸 1. GLOBAL SETTINGS
-========================================================= */
+/* 
+1. GLOBAL SETTINGS
+ */
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
@@ -18,9 +18,9 @@ body {
   background: linear-gradient(to bottom, #eef9e5, #61a38c);
 }
 
-/* =========================================================
-🛋️ MODERN PRODUCT DISPLAY
-========================================================= */
+/* 
+MODERN PRODUCT DISPLAY
+ */
 
 .product-display-modern {
   width: 100%;
@@ -37,7 +37,7 @@ body {
   align-items: start;
 }
 
-/* ==================== LEFT: PRODUCT IMAGES ==================== */
+/*  LEFT: PRODUCT IMAGES  */
 
 .product-images-section {
   position: sticky;
@@ -59,12 +59,12 @@ body {
   align-items: center;
   justify-content: center;
 
-  /* ✅ Tăng padding để ảnh nhỏ hơn */
+  /* Tăng padding để ảnh nhỏ hơn */
   padding: 40px; /* Tăng từ 20px lên 40px */
 }
 
 .main-product-image {
-  /* ✅ Giới hạn kích thước tối đa */
+  /* Giới hạn kích thước tối đa */
   max-width: 100%;
   max-height: 100%;
 
@@ -195,7 +195,7 @@ body {
   object-fit: cover;
 }
 
-/* ==================== RIGHT: PRODUCT DETAILS ==================== */
+/*  RIGHT: PRODUCT DETAILS  */
 
 /* Breadcrumb */
 .breadcrumb-modern {
@@ -401,22 +401,6 @@ body {
 .color-swatch.active {
   border-color: #1d3227;
   box-shadow: 0 0 0 2px white, 0 0 0 4px #3b6d54;
-}
-
-.checkmark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 18px;
-  font-weight: 900;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.color-swatch.active .checkmark {
-  opacity: 1;
 }
 
 /* Size Buttons */
@@ -754,7 +738,7 @@ body {
   background: rgba(59, 109, 84, 0.05);
 }
 
-/* ==================== RESPONSIVE ==================== */
+/*  RESPONSIVE  */
 
 @media (max-width: 1024px) {
   .product-container {
@@ -827,9 +811,7 @@ body {
   }
 }
 
-/* =========================================================
-🛍️ PRODUCT PURCHASE CONTAINER - REDESIGNED
-========================================================= */
+/*  PRODUCT PURCHASE CONTAINER - REDESIGNED */
 
 .product-purchase-container {
   max-width: 800px;
@@ -1041,9 +1023,7 @@ body {
   font-weight: 600;
 }
 
-/* =========================================================
-📱 RESPONSIVE - MOBILE
-========================================================= */
+/*  RESPONSIVE - MOBILE */
 
 @media (max-width: 768px) {
   .product-purchase-container {
@@ -1091,9 +1071,8 @@ body {
   }
 }
 
-/* =========================================================
-💻 RESPONSIVE - DESKTOP
-========================================================= */
+/* RESPONSIVE - DESKTOP
+ */
 
 @media (min-width: 1024px) {
   .product-purchase-container {
@@ -1109,9 +1088,7 @@ body {
   }
 }
 
-/* =========================================================
-⭐ MODERN CUSTOMER REVIEWS SECTION
-========================================================= */
+/* MODERN CUSTOMER REVIEWS SECTION */
 
 .reviews-section-modern {
   width: 100%;
@@ -1540,9 +1517,7 @@ body {
   }
 }
 
-/* =========================================================
-🧭 BREADCRUMB NAVIGATION
-========================================================= */
+/* BREADCRUMB NAVIGATION */
 
 .breadcrumb {
   padding: 15px 5%;
@@ -1567,9 +1542,7 @@ body {
   font-weight: 600;
 }
 
-/* =========================================================
-📦 SHIPPING & INFO SECTIONS
-========================================================= */
+/* SHIPPING & INFO SECTIONS */
 
 .shipping-info {
   width: 95%;
@@ -1613,9 +1586,7 @@ body {
   font-size: 16px;
 }
 
-/* =========================================================
-❓ FAQ SECTION
-========================================================= */
+/*  FAQ SECTION */
 
 .faq-section {
   width: 95%;
@@ -1659,9 +1630,7 @@ body {
   font-size: 14px;
 }
 
-/* =========================================================
-🎁 RELATED PRODUCTS
-========================================================= */
+/* RELATED PRODUCTS */
 
 .related-products {
   width: 95%;
@@ -1725,9 +1694,8 @@ body {
   font-size: 14px;
 }
 
-/* =========================================================
-📱 RESPONSIVE - MOBILE
-========================================================= */
+/* RESPONSIVE - MOBILE
+ */
 
 @media (max-width: 768px) {
   .product-variants {
@@ -1774,9 +1742,7 @@ body {
   }
 }
 
-/* =========================================================
-💻 RESPONSIVE - DESKTOP
-========================================================= */
+/* RESPONSIVE - DESKTOP */
 
 @media (min-width: 1024px) {
   .product-variants {
@@ -1796,9 +1762,7 @@ body {
   }
 }
 
-/* =========================================================
-🎨 ADDITIONAL ENHANCEMENTS
-========================================================= */
+/* ADDITIONAL ENHANCEMENTS */
 
 /* Smooth transitions cho tất cả interactive elements */
 button,
@@ -1879,13 +1843,7 @@ input:focus {
 .add-btn:hover {
   background-color: #000000;
 }
-
-/* =========================================================
-📜 4. PRODUCT DESCRIPTION - RESPONSIVE
-========================================================= */
-/* =========================================================
-📑 TABBED PRODUCT DETAILS - PROFESSIONAL LAYOUT
-========================================================= */
+/*  TABBED PRODUCT DETAILS - PROFESSIONAL LAYOUT */
 
 .product-details-tabs {
   width: 90%;
@@ -2182,10 +2140,7 @@ input:focus {
   }
 }
 
-/* =========================================================
-/* =========================================================
-🎨 MODERN GALLERY SECTION
-========================================================= */
+/* MODERN GALLERY SECTION */
 
 .gallery-section {
   width: 100%;
@@ -2548,12 +2503,6 @@ input:focus {
     height: 55px;
   }
 }
-
-/* ================== WISHLIST POPUP - RESPONSIVE ================== */
-/* ===================== WISHLIST POPUP ===================== */
-
-/* ===================== WISHLIST POPUP ===================== */
-
 /* Overlay - Che toàn màn hình */
 .wishlist-popup {
   display: none;
@@ -2692,9 +2641,7 @@ input:focus {
   }
 }
 
-/* =========================================================
-✍️ WRITE REVIEW BUTTON
-========================================================= */
+/*  WRITE REVIEW BUTTON */
 
 .write-review-section {
   text-align: center;
@@ -2729,9 +2676,7 @@ input:focus {
   font-size: 20px;
 }
 
-/* =========================================================
-💬 REVIEW MODAL
-========================================================= */
+/* REVIEW MODAL */
 
 .review-modal {
   position: fixed;
@@ -2805,9 +2750,7 @@ input:focus {
   font-size: 14px;
 }
 
-/* =========================================================
-📝 REVIEW FORM
-========================================================= */
+/*  REVIEW FORM */
 
 .review-form {
   padding: 30px 40px 40px;
@@ -2868,9 +2811,7 @@ input:focus {
   margin-top: 6px;
 }
 
-/* =========================================================
-⭐ STAR RATING INPUT
-========================================================= */
+/*  STAR RATING INPUT */
 
 .star-rating-input {
   display: flex;
@@ -2906,9 +2847,7 @@ input:focus {
   margin-top: 8px;
 }
 
-/* =========================================================
-📷 PHOTO UPLOAD
-========================================================= */
+/*  PHOTO UPLOAD */
 
 .photo-upload-area {
   border: 2px dashed #d1d5db;
@@ -2988,7 +2927,7 @@ input:focus {
   background: #dc2626;
   transform: scale(1.1);
 }
-/* ===================== CHECKBOX STYLING ===================== */
+/*  CHECKBOX STYLING */
 
 .checkbox-label {
   display: flex;
@@ -3076,8 +3015,7 @@ input:focus {
 
 /* Form group */
 .checkbox-group {
-  margin-top: 12px;
-  margin-bottom: 20px;
+  margin: 1.5rem 0;
 }
 
 .recommend-buttons {
@@ -3114,9 +3052,7 @@ input:focus {
   font-size: 24px;
 }
 
-/* =========================================================
-🔘 FORM ACTIONS
-========================================================= */
+/* FORM ACTIONS */
 
 .form-actions {
   display: flex;
@@ -3165,9 +3101,7 @@ input:focus {
   transform: none;
 }
 
-/* =========================================================
-📱 RESPONSIVE
-========================================================= */
+/* RESPONSIVE */
 
 @media (max-width: 768px) {
   .review-modal-content {
@@ -3257,9 +3191,7 @@ input:focus {
     margin: 5px 0;
   }
 }
-/* =========================================================
-📱 TABLET BREAKPOINT (768px+)
-========================================================= */
+/* TABLET BREAKPOINT (768px+) */
 
 @media (min-width: 768px) {
   .product-display {
@@ -3332,9 +3264,7 @@ input:focus {
   }
 }
 
-/* =========================================================
-💻 DESKTOP BREAKPOINT (1024px+)
-========================================================= */
+/* DESKTOP BREAKPOINT (1024px+) */
 
 @media (min-width: 1024px) {
   .product-display {
@@ -3394,9 +3324,7 @@ input:focus {
   }
 }
 
-/* =========================================================
-📱 MOBILE SMALL (< 480px)
-========================================================= */
+/* MOBILE SMALL (< 480px) */
 
 @media (max-width: 479px) {
   .product-display {
@@ -3553,9 +3481,7 @@ body {
 .rating-summary-card {
   background: white !important;
 }
-/* =========================================================
-✅ REVIEW FORM - CHECKBOX & STYLING
-========================================================= */
+/* REVIEW FORM - CHECKBOX & STYLING */
 
 /* Form Group */
 .form-group {
@@ -3589,93 +3515,9 @@ body {
   box-shadow: 0 0 0 3px rgba(59, 109, 84, 0.1);
 }
 
-/* ===================== CHECKBOX STYLING ===================== */
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  font-size: 14px;
-  color: #374151;
-  user-select: none;
-  padding: 8px 0;
-}
-
-/* Hide native checkbox */
-.checkbox-label input[type="checkbox"] {
-  display: none;
-}
-
-/* Custom checkmark box */
-.checkbox-label .checkmark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  min-height: 20px;
-  border: 2px solid #d1d5db;
-  border-radius: 4px;
-  background: white;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-/* Hover state */
-.checkbox-label:hover .checkmark {
-  border-color: #3b6d54;
-  background: #f0f9f7;
-}
-
-/* CHECKED - show ✓ */
-.checkbox-label input[type="checkbox"]:checked + .checkmark {
-  background: linear-gradient(135deg, #3b6d54 0%, #2a5240 100%);
-  border-color: #3b6d54;
-}
-
-.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
-  content: "✓";
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* Focus state */
-.checkbox-label input[type="checkbox"]:focus + .checkmark {
-  outline: 2px solid #3b6d54;
-  outline-offset: 2px;
-}
-
-/* Link styling */
-.checkbox-label .link {
-  color: #3b6d54;
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.checkbox-label .link:hover {
-  color: #2a5240;
-}
-
-.checkbox-group {
-  margin: 16px 0;
-  padding: 12px;
-  background: #f9fafb;
-  border-radius: 8px;
-}
-
-.form-label.required::after {
-  content: " *";
-  color: #ef4444;
-  font-weight: bold;
-}
-
-/* =========================================================
-✅ BUTTON STYLING
-========================================================= */
+/* 
+ BUTTON STYLING
+ */
 
 .form-actions {
   display: flex;
@@ -3720,9 +3562,9 @@ body {
   background: #e5e7eb;
 }
 
-/* =========================================================
-✅ REVIEW CARD - Display
-========================================================= */
+/* 
+REVIEW CARD - Display
+ */
 
 .review-card {
   background: white;

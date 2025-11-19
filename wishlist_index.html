@@ -1,224 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wishlist - Haguchi</title>
-    <link rel="stylesheet" href="css/wishlist.css">
-    <link rel="stylesheet" href="css/common.css">
-</head>
-<body data-page="wishlist">
+    <link rel="stylesheet" href="css/wishlist.css" />
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+  <body data-page="wishlist">
     <!--Nhóm 9: Phần Header-->
     <header>
-        <div class="Logo">
-            <p>
-                <a href="index.html"><em>Haguchi</em><br>
-                葉具家</a>
-            </p>
-        </div>
-        <nav class="Main-Menu"> <!--Nhóm 9: Thanh điều hướng chính-->
-            <ul>
-                <li><a href="typologies.html" data-i18n="nav-products">Products</a></li>
-                <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
-                <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
-                <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
-            </ul>
-        </nav>
+      <div class="Logo">
+        <p>
+          <a href="index.html"
+            ><em>Haguchi</em><br />
+            葉具家</a
+          >
+        </p>
+      </div>
+      <nav class="Main-Menu">
+        <!--Nhóm 9: Thanh điều hướng chính-->
+        <ul>
+          <li>
+            <a href="typologies.html" data-i18n="nav-products">Products</a>
+          </li>
+          <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
+          <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
+          <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
+        </ul>
+      </nav>
 
-        <nav class="Sub-Menu"> <!--Nhóm 9: Thanh điều hướng phụ-->
-            <ul>
-                <li>
-                    <form id="search-box"> <!--Nhóm 9: Nút tìm kiếm-->
-                        <input type="text" id="search-text" placeholder="Search..." data-i18n="search-placeholder">
-                        <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
-                    </form>
-                </li>
-                <li id="Wishlist"> <!--Nhóm 9: Giỏ yêu thích-->
-                    <a href="wishlisht_index.html">
-                        <span class="solar--heart-bold"></span>
-                        <span class="wishlist-count">0</span>
-                    </a>
-                </li>
-                <li id="User">  <!--Nhóm 9: Tài khoản người dùng-->
-                    <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
-                    <a href="personal-info.html" id="user-avatar-link">
-                        <img id="header-user-avatar" class="header-avatar" src='' alt="User Avatar" style="display: none;">
-                        <span id="header-default-icon" class="solar--user-bold"></span>
-                    </a>
-                </li>
-                <li class="lang-switcher"> <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
-                    <div class="lang-toggle">
-                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')"> <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
-                        <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
-                        <div class="lang-track"> <!--Nhóm 9: Thanh trượt ngôn ngữ-->
-                            <label for="lang-en" class="lang-opt lang-en">EN</label>
-                            <label for="lang-vi" class="lang-opt lang-vi">VI</label>
-                            <div class="lang-knob" aria-hidden="true"></div> <!--Nhóm 9: Nút trượt ngôn ngữ-->
-                        </div>
-                    </div>
-                </li>
-                <li><span class="icomoon-free--leaf"></span></li> <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
-            </ul>
-        </nav>
+      <nav class="Sub-Menu">
+        <!--Nhóm 9: Thanh điều hướng phụ-->
+        <ul>
+          <li>
+            <form id="search-box">
+              <!--Nhóm 9: Nút tìm kiếm-->
+              <input
+                type="text"
+                id="search-text"
+                placeholder="Search..."
+                data-i18n="search-placeholder"
+              />
+              <button id="search-btn">
+                <span class="fluent--search-12-filled"></span>
+              </button>
+            </form>
+          </li>
+          <li id="Wishlist">
+            <!--Nhóm 9: Giỏ yêu thích-->
+            <a href="wishlisht_index.html">
+              <span class="solar--heart-bold"></span>
+              <span class="wishlist-count">0</span>
+            </a>
+          </li>
+          <li id="User">
+            <!--Nhóm 9: Tài khoản người dùng-->
+            <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
+            <a href="personal-info.html" id="user-avatar-link">
+              <img
+                id="header-user-avatar"
+                class="header-avatar"
+                src=""
+                alt="User Avatar"
+                style="display: none"
+              />
+              <span id="header-default-icon" class="solar--user-bold"></span>
+            </a>
+          </li>
+          <li class="lang-switcher">
+            <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
+            <div class="lang-toggle">
+              <input
+                type="radio"
+                id="lang-en"
+                name="site-lang"
+                checked
+                onchange="changeLanguage('en')"
+              />
+              <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
+              <input
+                type="radio"
+                id="lang-vi"
+                name="site-lang"
+                onchange="changeLanguage('vi')"
+              />
+              <div class="lang-track">
+                <!--Nhóm 9: Thanh trượt ngôn ngữ-->
+                <label for="lang-en" class="lang-opt lang-en">EN</label>
+                <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                <div class="lang-knob" aria-hidden="true"></div>
+                <!--Nhóm 9: Nút trượt ngôn ngữ-->
+              </div>
+            </div>
+          </li>
+          <li><span class="icomoon-free--leaf"></span></li>
+          <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
+        </ul>
+      </nav>
     </header>
 
     <!--Nhóm 9: Phần Wishlist -->
-    <section id="wishlist-content">
-        <h1 data-i18n="wishlist-title">Wishlist</h1>
+    <section data-scroll="fade-up" id="wishlist-content">
+      <h1 data-scroll="fade-up" data-i18n="wishlist-title">Wishlist</h1>
 
-        <!--Nhóm 9: Wishlist Table -->
-        <div class="wishlist-table">
-            <table id="wishlist">
-                <thead>
-                    <tr>
-                        <th data-i18n="table-product-info">Product Information</th>
-                        <th data-i18n="table-colors">Colors</th>
-                        <th data-i18n="table-price">Price</th>
-                        <th data-i18n="table-quantity">Quantity</th>
-                        <th data-i18n="table-total">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!--Nhóm 9: Sample Product -->
-                    <tr>
-                        <td>
-                            <div class="product-details">
-                                <img src="images/product-detail/9.png" 
-                                     alt="L-shaped Sofa NF201" 
-                                     class="product-image"
-                                     style="transition: opacity 0.3s ease;">
-                                <div class="product-text">
-                                    <strong>L-shaped Sofa NF201</strong>
-                                    <div class="product-specs">
-                                        <p><strong data-i18n="dimensions-label">DIMENSIONS</strong></p>
-                                        <p>W2400 x D1100 x H800 mm</p>
-                                        <p><strong data-i18n="materials-label">MATERIALS</strong></p>
-                                        <p><span data-i18n="structure-label">Structure:</span> wood, pocket spring<br><span data-i18n="seat-label">Seat & backrest:</span> HR foam, polyester wadding, feathers</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="colors-cell">
-                            <div class="color-selector">
-                                <select class="color-dropdown">
-                                    <option value="" data-i18n="select-color">Select Color</option>
-                                    <option value="0" data-i18n="color-brown">Brown</option>
-                                    <option value="1" data-i18n="color-navy">Navy</option>
-                                    <option value="2" data-i18n="color-olive">Olive</option>
-                                    <option value="3" data-i18n="color-gray">Gray</option>
-                                </select>
-                            </div>
-                        </td>
-                        <td class="price-cell">11.000.000 VND</td>
-                        <td class="quantity-cell">
-                            <div class="quantity-control">
-                                <select class="quantity-dropdown">
-                                    <option value="1" selected>1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            </div>
-                        </td>
-                        <td class="total-cell">
-                            <div class="total-with-remove">
-                                <div class="item-total">11.000.000 VND</div>
-                                <button class="remove-btn">
-                                    <span>×</span> <span data-i18n="remove-btn">Remove</span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+      <!--Nhóm 9: Wishlist Table -->
+      <div data-scroll="fade-up" class="wishlist-table">
+        <table data-scroll="fade-up" id="wishlist">
+          <thead>
+            <tr>
+              <th data-i18n="table-product-info">Product Information</th>
+              <th data-i18n="table-colors">Colors</th>
+              <th data-i18n="table-price">Price</th>
+              <th data-i18n="table-quantity">Quantity</th>
+              <th data-i18n="table-total">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--Nhóm 9: Sample Product -->
+            <tr data-scroll="fade-up">
+              <td data-scroll="fade-up">
+                <div data-scroll="fade-up" class="product-details">
+                  <img
+                    src="images/product-detail/9.png"
+                    alt="L-shaped Sofa NF201"
+                    class="product-image"
+                    style="transition: opacity 0.3s ease"
+                  />
+                  <div class="product-text">
+                    <strong>L-shaped Sofa NF201</strong>
+                    <div class="product-specs">
+                      <p>
+                        <strong data-i18n="dimensions-label">DIMENSIONS</strong>
+                      </p>
+                      <p>W2400 x D1100 x H800 mm</p>
+                      <p>
+                        <strong data-i18n="materials-label">MATERIALS</strong>
+                      </p>
+                      <p>
+                        <span data-i18n="structure-label">Structure:</span>
+                        wood, pocket spring<br /><span data-i18n="seat-label"
+                          >Seat & backrest:</span
+                        >
+                        HR foam, polyester wadding, feathers
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td data-scroll="fade-up" class="colors-cell">
+                <div class="color-selector">
+                  <select class="color-dropdown">
+                    <option value="" data-i18n="select-color">
+                      Select Color
+                    </option>
+                    <option value="0" data-i18n="color-brown">Brown</option>
+                    <option value="1" data-i18n="color-navy">Navy</option>
+                    <option value="2" data-i18n="color-olive">Olive</option>
+                    <option value="3" data-i18n="color-gray">Gray</option>
+                  </select>
+                </div>
+              </td>
+              <td data-scroll="fade-up" class="price-cell">11.000.000 VND</td>
+              <td data-scroll="fade-up" class="quantity-cell">
+                <div class="quantity-control">
+                  <select class="quantity-dropdown">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                </div>
+              </td>
+              <td data-scroll="fade-up" class="total-cell">
+                <div class="total-with-remove">
+                  <div class="item-total">11.000.000 VND</div>
+                  <button class="remove-btn">
+                    <span>×</span> <span data-i18n="remove-btn">Remove</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!--Nhóm 9: Order Estimate -->
+      <div data-scroll="fade-up" class="order-estimate">
+        <div class="order-title" data-i18n="order-estimate-title">
+          ORDER ESTIMATE
         </div>
-
-        <!--Nhóm 9: Order Estimate -->
-        <div class="order-estimate">
-            <div class="order-title" data-i18n="order-estimate-title">ORDER ESTIMATE</div>
-            <div class="Total">
-                <span data-i18n="total-label">TOTAL</span>
-                <span id="wishlist-total">11.000.000 VND</span>
-            </div>
+        <div class="Total">
+          <span data-i18n="total-label">TOTAL</span>
+          <span id="wishlist-total">11.000.000 VND</span>
         </div>
+      </div>
 
-        <!--Nhóm 9: Note -->
-        <div class="note">
-            <div class="note-title" data-i18n="note-title">Note:</div>
-            <p data-i18n="note-content">
-                This price list does not include shipping fee and taxes. 
-                The color chart is for reference only so that we can better understand 
-                the color tone that you are looking for. For more information on 
-                shipping and payment methods, please visit our 
-                <a href="policies.html">Policies</a> page.
-            </p>
-        </div>
+      <!--Nhóm 9: Note -->
+      <div data-scroll="fade-up" class="note">
+        <div class="note-title" data-i18n="note-title">Note:</div>
+        <p data-i18n="note-content">
+          This price list does not include shipping fee and taxes. The color
+          chart is for reference only so that we can better understand the color
+          tone that you are looking for. For more information on shipping and
+          payment methods, please visit our
+          <a href="policies.html">Policies</a> page.
+        </p>
+      </div>
 
-        <!--Nhóm 9: Continue Button -->
-        <button class="continue-bu" data-i18n="continue-btn">Continue</button>
+      <!--Nhóm 9: Continue Button -->
+      <button
+        data-scroll="fade-up"
+        class="continue-bu"
+        data-i18n="continue-btn"
+      >
+        Continue
+      </button>
     </section>
 
     <!--Nhóm 9: Phần quay lại đầu trang-->
-    <img id="btn-top" src="images/return_to_top.png" alt="Return to top">
+    <img
+      data-scroll="fade-up"
+      id="btn-top"
+      src="images/return_to_top.png"
+      alt="Return to top"
+    />
 
     <!--Nhóm 9: Phần footer-->
-    <footer>
-        <div class="footer-logo">
-            <div><em>Haguchi</em></div>
-            <div>葉具家</div>
-        </div>
-        <div class="footer-content"> <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
-            <div class="footer-section">
-                <h3 data-i18n="nav-about">About Us</h3> 
-                <ul>
-                    <li data-i18n="footer-aboutus"> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
-                    <li data-i18n="footer-aboutus-add">📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
-                    <li>📞 (+84) 123 456 789</li>
-                    <li>📧 support@haguchi.com</li>
-                    <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
-                </ul>
-            </div>
+    <footer data-scroll="fade-up">
+      <div class="footer-logo">
+        <div><em>Haguchi</em></div>
+        <div>葉具家</div>
+      </div>
+      <div class="footer-content">
+        <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
         <div class="footer-section">
-            <h3 data-i18n="footer-categories">Shop by Category</h3>
-            <ul>
-                <li><a href="couch.html" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
-                <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
-                <li><a href="bed.html" data-i18n="footer-categories-bed">Beds</a></li>
-                <li><a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
-                <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
-                <li><a data-i18n="footer-categories-new">New Arrivals / Promotions</a></li>
-            </ul>
+          <h3 data-i18n="nav-about">About Us</h3>
+          <ul>
+            <li data-i18n="footer-aboutus">
+              Bringing elegance and comfort to your home with high-quality
+              furniture designed for modern living
+            </li>
+            <li data-i18n="footer-aboutus-add">
+              📍 123 Harmony Street, District 1, Ho Chi Minh City
+            </li>
+            <li>📞 (+84) 123 456 789</li>
+            <li>📧 support@haguchi.com</li>
+            <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+          </ul>
         </div>
         <div class="footer-section">
-            <h3 data-i18n="footer-policies">Policies & Support</h3>
-            <ul>
-                <li><a href="policies.html" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-return">Return & Exchange</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-order">How to Order</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
-            </ul>
+          <h3 data-i18n="footer-categories">Shop by Category</h3>
+          <ul>
+            <li>
+              <a href="couch.html" data-i18n="footer-categories-sofa"
+                >Sofas & Armchairs</a
+              >
+            </li>
+            <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
+            <li>
+              <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
+            </li>
+            <li>
+              <a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
+            </li>
+            <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+            <li>
+              <a data-i18n="footer-categories-new">New Arrivals / Promotions</a>
+            </li>
+          </ul>
         </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-policies">Policies & Support</h3>
+          <ul>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-warranty"
+                >Warranty Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-return"
+                >Return & Exchange</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-shipping"
+                >Shipping Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-order"
+                >How to Order</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-privacy"
+                >Privacy Policy</a
+              >
+            </li>
+          </ul>
         </div>
-            <div class="footer-bottom">
-                <span>© 2025 HAGUCHI – All rights reserved.</span>
-                <div class="social-icons">
-                    <div class="social-icon">f</div>
-                    <div class="social-icon">in</div>
-                    <div class="social-icon">t</div>
-                </div>
-            </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 HAGUCHI – All rights reserved.</span>
+        <div class="social-icons">
+          <div class="social-icon">f</div>
+          <div class="social-icon">in</div>
+          <div class="social-icon">t</div>
+        </div>
+      </div>
     </footer>
-    
+
     <!--Nhóm 9: JavaScript-->
-    <script src="js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
-    <script src="js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="js/lang-change.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="js/common.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chung -->
     <script src="js/wishlist.js"></script>
-</body>
+    <script src="js/animations.js"></script>
+  </body>
 </html>

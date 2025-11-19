@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Nhóm 9: Meta tags và thiết lập cơ bản -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L-shaped Sofa - Haguchi Furniture</title>
@@ -13,7 +14,7 @@
   </head>
 
   <body>
-    <!-- ===================== HEADER ===================== -->
+<!-- Nhóm 9: Header -->
     <header>
       <div class="Logo">
         <p>
@@ -71,12 +72,11 @@
       </nav>
     </header>
 
-    <!-- ===================== PRODUCT SHOWCASE ===================== -->
+    <!-- Nhóm 9: Product Showcase - Phần hiển thị sản phẩm với hình ảnh và chi tiết -->
     <section class="product-display-modern" data-scroll="fade-up">
       <div class="product-container">
         <div class="product-images-section">
-          <!-- Main Image -->
-          <div class="main-image-container">
+  <!-- Nhóm 9: Product Images Section - Hiển thị ảnh chính và thumbnail gallery -->          <div class="main-image-container">
             <button class="image-nav-btn prev-img-btn">❮</button>
             <img
               src="images/product-detail/11.png"
@@ -745,6 +745,9 @@
             </button>
             <button class="filter-btn" data-filter="5">5 Stars</button>
             <button class="filter-btn" data-filter="4">4 Stars</button>
+            <button class="filter-btn" data-filter="3">3 Stars</button>
+            <button class="filter-btn" data-filter="2">2 Stars</button>
+            <button class="filter-btn" data-filter="1">1 Stars</button>
             <button class="filter-btn" data-filter="verified">
               Verified Purchase
             </button>
@@ -813,8 +816,9 @@
             </div>
           </div>
 
-          <!-- ========== Review Card 2 - 4 Stars ========== -->
-          <div class="review-card" data-scroll="fade-up" data-rating="4">
+          <!-- ========== Review Card 2 - 3 Stars ========== -->
+          <div class="review-card" data-scroll="fade-up" data-rating="3
+          ">
             <div class="review-header">
               <div class="reviewer-info">
                 <div class="reviewer-avatar">TN</div>
@@ -827,7 +831,6 @@
                 </div>
               </div>
               <div class="review-rating" data-scroll="fade-up">
-                <span class="star filled">★</span>
                 <span class="star filled">★</span>
                 <span class="star filled">★</span>
                 <span class="star filled">★</span>
@@ -856,8 +859,8 @@
             </div>
           </div>
 
-          <!-- ========== Review Card 3 - 5 Stars ========== -->
-          <div class="review-card" data-rating="5" data-scroll="fade-up">
+          <!-- ========== Review Card 3 - 1 Stars ========== -->
+          <div class="review-card" data-rating="1" data-scroll="fade-up">
             <div class="review-header">
               <div class="reviewer-info">
                 <div class="reviewer-avatar">SL</div>
@@ -870,10 +873,6 @@
                 </div>
               </div>
               <div class="review-rating" data-scroll="fade-up">
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star filled">★</span>
                 <span class="star filled">★</span>
               </div>
             </div>
@@ -946,8 +945,8 @@
             </div>
           </div>
 
-          <!-- ========== Review Card 5 - 4 Stars ========== -->
-          <div class="review-card" data-scroll="fade-up" data-rating="4">
+          <!-- ========== Review Card 5 - 3 Stars ========== -->
+          <div class="review-card" data-scroll="fade-up" data-rating="3">
             <div class="review-header">
               <div class="reviewer-info">
                 <div class="reviewer-avatar">LH</div>
@@ -963,8 +962,6 @@
                 <span class="star filled">★</span>
                 <span class="star filled">★</span>
                 <span class="star filled">★</span>
-                <span class="star filled">★</span>
-                <span class="star">★</span>
               </div>
             </div>
 
@@ -1061,8 +1058,6 @@
                 <span class="star filled">★</span>
                 <span class="star filled">★</span>
                 <span class="star filled">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
               </div>
             </div>
 
@@ -1144,7 +1139,6 @@
                 <span class="star filled">★</span>
                 <span class="star filled">★</span>
                 <span class="star filled">★</span>
-                <span class="star">★</span>
               </div>
             </div>
 
@@ -1338,8 +1332,7 @@
                 </label>
               </div>
             </div>
-
-            <!-- Terms -->
+    <!-- Terms -->
 <div class="form-group checkbox-group">
     <label class="checkbox-label">
         <input type="checkbox" id="agreeTerms" name="terms" required>
@@ -1347,7 +1340,6 @@
         <span>I agree to the <a href="#" class="link">review guidelines</a></span>
     </label>
 </div>
-
             <!-- Submit Button -->
             <div class="form-actions" data-scroll="fade-up">
               <button type="button" class="btn-cancel" id="cancelReviewBtn">

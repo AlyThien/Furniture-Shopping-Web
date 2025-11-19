@@ -1,15 +1,9 @@
-/**
- * =====================================================
- * MODERN PRODUCT PAGE - COMPLETE & OPTIMIZED
- * Version: 3.0 (MERGED & FIXED)
- * =====================================================
- */
-
+//product.js
 (function () {
   "use strict";
 
   // =========================================================
-  // CONFIGURATION
+  // Nhóm 9: CONFIGURATION - Cấu hình chung cho toàn bộ trang
   // =========================================================
 
   const CONFIG = {
@@ -21,7 +15,7 @@
   };
 
   // =========================================================
-  // UTILITY FUNCTIONS
+  // Nhóm 9: UTILITY FUNCTIONS - Các hàm tiện ích dùng chung
   // =========================================================
 
   const Utils = {
@@ -59,7 +53,7 @@
   };
 
   // =========================================================
-  // 1. IMAGE GALLERY WITH COLOR SYNC
+  // Nhóm 9: IMAGE GALLERY WITH COLOR SYNC - Quản lý gallery ảnh sản phẩm với đồng bộ màu sắc
   // =========================================================
 
   const ImageGallery = {
@@ -83,23 +77,23 @@
     },
 
     bindEvents() {
-      // Thumbnails
+      // Nhóm 9: Thumbnails click events
       this.thumbnails.forEach((thumb, index) => {
         thumb.addEventListener("click", () => this.goToImage(index));
       });
 
-      // Navigation buttons
+      // Nhóm 9: Navigation buttons (prev/next)
       const prevBtn = document.querySelector(".prev-img-btn");
       const nextBtn = document.querySelector(".next-img-btn");
 
       if (prevBtn) prevBtn.addEventListener("click", () => this.navigate(-1));
       if (nextBtn) nextBtn.addEventListener("click", () => this.navigate(1));
 
-      // Zoom
+      // Nhóm 9: Zoom functionality
       const zoomBtn = document.querySelector(".zoom-btn");
       if (zoomBtn) zoomBtn.addEventListener("click", () => this.zoom());
 
-      // Keyboard
+      // Nhóm 9: Keyboard navigation (Arrow keys)
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowLeft") this.navigate(-1);
         if (e.key === "ArrowRight") this.navigate(1);
@@ -119,6 +113,7 @@
     },
 
     updateImage() {
+      // Nhóm 9: Fade effect khi chuyển ảnh
       this.mainImage.style.opacity = "0";
 
       setTimeout(() => {
@@ -126,12 +121,14 @@
         this.mainImage.style.opacity = "1";
       }, CONFIG.IMAGE_FADE_DURATION);
 
+      // Nhóm 9: Update active state cho thumbnails
       this.thumbnails.forEach((thumb, index) => {
         thumb.classList.toggle("active", index === this.currentIndex);
       });
     },
 
     zoom() {
+      // Nhóm 9: Tạo overlay để zoom ảnh fullscreen
       const overlay = document.createElement("div");
       overlay.style.cssText = `
         position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -156,7 +153,7 @@
   };
 
   // =========================================================
-  // 2. COLOR SELECTION WITH IMAGE SYNC
+  // Nhóm 9: COLOR SELECTION WITH IMAGE SYNC - Quản lý chọn màu sắc và đồng bộ với ảnh
   // =========================================================
 
   const ColorManager = {
@@ -171,7 +168,7 @@
           );
           const color = this.getAttribute("data-color");
 
-          // Update active state
+          // Nhóm 9: Update active state cho color swatches
           colorSwatches.forEach((s) => {
             s.classList.remove("active");
             s.setAttribute("aria-checked", "false");
@@ -179,17 +176,17 @@
           this.classList.add("active");
           this.setAttribute("aria-checked", "true");
 
-          // Update text
+          // Nhóm 9: Update text hiển thị màu đã chọn
           if (selectedColor) {
             selectedColor.textContent = color;
           }
 
-          // ✅ SYNC TO IMAGE
+          // Nhóm 9: Đồng bộ với Image Gallery
           if (!isNaN(thumbnailIndex) && thumbnailIndex >= 0) {
             ImageGallery.goToImage(thumbnailIndex);
           }
 
-          // Animation
+          // Nhóm 9: Animation effect khi click
           this.style.transform = "scale(1.15)";
           setTimeout(() => {
             this.style.transform = "";
@@ -202,7 +199,7 @@
   };
 
   // =========================================================
-  // 3. SIZE SELECTION
+  // Nhóm 9: SIZE SELECTION - Quản lý chọn kích thước sản phẩm
   // =========================================================
 
   const SizeManager = {
@@ -212,6 +209,7 @@
 
       sizeButtons.forEach((btn) => {
         btn.addEventListener("click", function () {
+          // Nhóm 9: Remove active state từ tất cả size buttons
           sizeButtons.forEach((b) => {
             b.classList.remove("active");
             b.setAttribute("aria-checked", "false");
@@ -219,10 +217,12 @@
           this.classList.add("active");
           this.setAttribute("aria-checked", "true");
 
+          // Nhóm 9: Update text hiển thị size đã chọn
           if (selectedSize) {
             selectedSize.textContent = this.getAttribute("data-size");
           }
 
+          // Nhóm 9: Animation effect
           this.style.transform = "scale(1.05)";
           setTimeout(() => {
             this.style.transform = "";
@@ -235,7 +235,7 @@
   };
 
   // =========================================================
-  // 4. MATERIAL SELECTION
+  // Nhóm 9: MATERIAL SELECTION - Quản lý chọn chất liệu sản phẩm
   // =========================================================
 
   const MaterialManager = {
@@ -249,13 +249,16 @@
           if (input) {
             input.checked = true;
 
+            // Nhóm 9: Remove active state từ tất cả material cards
             materialCards.forEach((c) => c.classList.remove("active"));
             this.classList.add("active");
 
+            // Nhóm 9: Update text hiển thị material đã chọn
             if (selectedMaterial) {
               selectedMaterial.textContent = input.value;
             }
 
+            // Nhóm 9: Animation effect
             this.style.transform = "scale(1.03)";
             setTimeout(() => {
               this.style.transform = "";
@@ -269,7 +272,7 @@
   };
 
   // =========================================================
-  // 5. QUANTITY CONTROL
+  // Nhóm 9: QUANTITY CONTROL - Quản lý tăng/giảm số lượng sản phẩm
   // =========================================================
 
   const QuantityManager = {
@@ -280,6 +283,7 @@
 
       if (!quantityInput) return;
 
+      // Nhóm 9: Nút giảm số lượng
       if (minusBtn) {
         minusBtn.addEventListener("click", () => {
           const current = parseInt(quantityInput.value);
@@ -291,6 +295,7 @@
         });
       }
 
+      // Nhóm 9: Nút tăng số lượng
       if (plusBtn) {
         plusBtn.addEventListener("click", () => {
           const current = parseInt(quantityInput.value);
@@ -308,6 +313,7 @@
     },
 
     animate(input) {
+      // Nhóm 9: Animation khi thay đổi số lượng
       input.style.transform = "scale(1.2)";
       input.style.color = "#3b6d54";
       setTimeout(() => {
@@ -318,7 +324,7 @@
   };
 
   // =========================================================
-  // 6. ADD TO CART
+  // Nhóm 9: ADD TO CART - Quản lý thêm sản phẩm vào giỏ hàng
   // =========================================================
 
   const CartManager = {
@@ -345,6 +351,7 @@
     },
 
     addToCart() {
+      // Nhóm 9: Lấy thông tin sản phẩm từ form
       const productData = {
         id: CONFIG.PRODUCT_ID,
         name: "L-shaped Sofa",
@@ -359,12 +366,12 @@
         image: document.getElementById("mainProductImage")?.src || "",
       };
 
-      // Store in localStorage
+      // Nhóm 9: Lưu vào localStorage
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
       cart.push(productData);
       localStorage.setItem("cart", JSON.stringify(cart));
 
-      // Success animation
+      // Nhóm 9: Success animation cho button
       const btn = document.querySelector(".btn-add-cart");
       if (btn) {
         const originalHTML = btn.innerHTML;
@@ -384,8 +391,9 @@
   };
 
   // =========================================================
-  // 7. WISHLIST MANAGER
+  // Nhóm 9: WISHLIST MANAGER - Quản lý thêm/xóa sản phẩm khỏi wishlist
   // =========================================================
+
   const WishlistManager = {
     init() {
       const wishlistBtn = document.getElementById("addToWishlistBtn");
@@ -398,31 +406,35 @@
 
       this.loadState();
 
+      // Nhóm 9: Click vào nút Add to Wishlist
       wishlistBtn.addEventListener("click", () => {
         const heartIcon = wishlistBtn.querySelector(".btn-icon");
         const isAdded = wishlistBtn.classList.contains("added");
 
         if (isAdded) {
+          // Nhóm 9: Xóa khỏi wishlist
           heartIcon.textContent = "♡";
           wishlistBtn.classList.remove("added");
           this.removeFromWishlist();
         } else {
+          // Nhóm 9: Thêm vào wishlist
           const productData = this.getProductData();
           let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-          if (!wishlist.some((item) => item.id === CONFIG.PRODUCTID)) {
+          if (!wishlist.some((item) => item.id === CONFIG.PRODUCT_ID)) {
             wishlist.push(productData);
             localStorage.setItem("wishlist", JSON.stringify(wishlist));
             heartIcon.textContent = "❤️";
             wishlistBtn.classList.add("added");
             this.updateCount(wishlist.length);
 
-            // ✅ THÊM CLASS .show THAY VÌ style.display
+            // Nhóm 9: Hiển thị popup xác nhận
             wishlistPopup.classList.add("show");
           }
         }
       });
 
+      // Nhóm 9: Đóng popup
       if (closePopup) {
         closePopup.addEventListener("click", () => {
           wishlistPopup.classList.remove("show");
@@ -435,18 +447,21 @@
         });
       }
 
+      // Nhóm 9: Xem trang wishlist
       if (viewBtn) {
         viewBtn.addEventListener("click", () => {
           window.location.href = "wishlist.html";
         });
       }
 
+      // Nhóm 9: Click outside để đóng popup
       window.addEventListener("click", (e) => {
         if (e.target === wishlistPopup) {
           wishlistPopup.classList.remove("show");
         }
       });
 
+      // Nhóm 9: ESC key để đóng popup
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && wishlistPopup.classList.contains("show")) {
           wishlistPopup.classList.remove("show");
@@ -457,8 +472,9 @@
     },
 
     getProductData() {
+      // Nhóm 9: Lấy thông tin sản phẩm hiện tại
       return {
-        id: CONFIG.PRODUCTID,
+        id: CONFIG.PRODUCT_ID,
         name: "L-shaped Sofa",
         image: document.getElementById("mainProductImage")?.src || "",
         price: 4200000,
@@ -473,14 +489,16 @@
     },
 
     removeFromWishlist() {
+      // Nhóm 9: Xóa sản phẩm khỏi wishlist
       let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-      wishlist = wishlist.filter((item) => item.id !== CONFIG.PRODUCTID);
+      wishlist = wishlist.filter((item) => item.id !== CONFIG.PRODUCT_ID);
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
       this.updateCount(wishlist.length);
       Utils.showNotification("Removed from wishlist", "info");
     },
 
     updateCount(count) {
+      // Nhóm 9: Cập nhật số lượng wishlist ở header
       const wishlistCount = document.querySelector(".wishlist-count");
       if (wishlistCount) {
         wishlistCount.textContent = count;
@@ -488,12 +506,13 @@
     },
 
     loadState() {
+      // Nhóm 9: Load trạng thái wishlist từ localStorage
       const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
       this.updateCount(wishlist.length);
 
       const wishlistBtn = document.getElementById("addToWishlistBtn");
 
-      if (wishlist.some((item) => item.id === CONFIG.PRODUCTID)) {
+      if (wishlist.some((item) => item.id === CONFIG.PRODUCT_ID)) {
         const heartIcon = wishlistBtn?.querySelector(".btn-icon");
         if (heartIcon) {
           heartIcon.textContent = "❤️";
@@ -504,7 +523,7 @@
   };
 
   // =========================================================
-  // 8. SHARE BUTTONS
+  // Nhóm 9: SHARE BUTTONS - Quản lý chia sẻ sản phẩm lên mạng xã hội
   // =========================================================
 
   const ShareManager = {
@@ -517,6 +536,7 @@
           const productTitle = "L-shaped Sofa - Haguchi Furniture";
           const btnText = this.title.toLowerCase();
 
+          // Nhóm 9: Share lên Facebook
           if (btnText.includes("facebook")) {
             window.open(
               `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
@@ -524,26 +544,33 @@
               )}`,
               "_blank"
             );
-          } else if (btnText.includes("twitter")) {
+          }
+          // Nhóm 9: Share lên Twitter
+          else if (btnText.includes("twitter")) {
             window.open(
               `https://twitter.com/intent/tweet?url=${encodeURIComponent(
                 productUrl
               )}&text=${encodeURIComponent(productTitle)}`,
               "_blank"
             );
-          } else if (btnText.includes("pinterest")) {
+          }
+          // Nhóm 9: Share lên Pinterest
+          else if (btnText.includes("pinterest")) {
             window.open(
               `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(
                 productUrl
               )}&description=${encodeURIComponent(productTitle)}`,
               "_blank"
             );
-          } else if (btnText.includes("link")) {
+          }
+          // Nhóm 9: Copy link
+          else if (btnText.includes("link")) {
             navigator.clipboard.writeText(productUrl).then(() => {
               Utils.showNotification("Link copied to clipboard!", "success");
             });
           }
 
+          // Nhóm 9: Animation khi click
           this.style.transform = "scale(1.2)";
           setTimeout(() => {
             this.style.transform = "";
@@ -556,7 +583,7 @@
   };
 
   // =========================================================
-  // 9. COMPARE BUTTON
+  // Nhóm 9: COMPARE BUTTON - Thêm sản phẩm vào danh sách so sánh
   // =========================================================
 
   const CompareManager = {
@@ -568,6 +595,7 @@
           const compareList =
             JSON.parse(localStorage.getItem("compareList")) || [];
 
+          // Nhóm 9: Giới hạn tối đa 4 sản phẩm
           if (compareList.length >= 4) {
             Utils.showNotification(
               "Maximum 4 items can be compared. Please remove one first.",
@@ -585,6 +613,7 @@
           localStorage.setItem("compareList", JSON.stringify(compareList));
           Utils.showNotification("Added to compare list!", "success");
 
+          // Nhóm 9: Animation
           this.style.transform = "scale(1.05)";
           setTimeout(() => {
             this.style.transform = "";
@@ -597,7 +626,7 @@
   };
 
   // =========================================================
-  // 10. STICKY CART BAR
+  // Nhóm 9: STICKY CART BAR - Thanh sticky hiển thị khi scroll qua sản phẩm
   // =========================================================
 
   const StickyCartBar = {
@@ -610,6 +639,7 @@
     },
 
     createBar() {
+      // Nhóm 9: Tạo sticky bar element
       const bar = document.createElement("div");
       bar.className = "sticky-cart-bar";
       bar.innerHTML = `
@@ -638,6 +668,7 @@
       this.addStyles();
       document.body.appendChild(bar);
 
+      // Nhóm 9: Click vào nút sticky bar
       bar
         .querySelector(".sticky-add-cart-btn")
         .addEventListener("click", () => {
@@ -649,6 +680,7 @@
     },
 
     handleScroll() {
+      // Nhóm 9: Hiển thị/ẩn sticky bar dựa vào scroll position
       const productSection = document.querySelector(".product-display-modern");
       if (productSection) {
         const rect = productSection.getBoundingClientRect();
@@ -661,6 +693,7 @@
     },
 
     addStyles() {
+      // Nhóm 9: Inject CSS cho sticky bar
       const style = document.createElement("style");
       style.textContent = `
         .sticky-cart-bar.visible { transform: translateY(0) !important; }
@@ -699,7 +732,7 @@
   };
 
   // =========================================================
-  // 11. TABS MANAGER
+  // Nhóm 9: TABS MANAGER - Quản lý các tab (Description, Specifications, etc.)
   // =========================================================
 
   const TabsManager = {
@@ -713,9 +746,11 @@
         btn.addEventListener("click", function () {
           const targetTab = this.getAttribute("data-tab");
 
+          // Nhóm 9: Remove active từ tất cả tabs
           tabBtns.forEach((b) => b.classList.remove("active"));
           this.classList.add("active");
 
+          // Nhóm 9: Show tab content tương ứng
           tabContents.forEach((content) => {
             content.classList.remove("active");
             if (content.id === targetTab) {
@@ -730,7 +765,7 @@
   };
 
   // =========================================================
-  // 12. GALLERY SLIDER
+  // Nhóm 9: GALLERY SLIDER - Slider cho lifestyle gallery images
   // =========================================================
 
   const GallerySlider = {
@@ -753,7 +788,7 @@
       this.updateSlide();
       this.startAutoplay();
 
-      // Pause on hover
+      // Nhóm 9: Pause autoplay khi hover
       const sliderContainer = document.querySelector(".gallery-slider-modern");
       if (sliderContainer) {
         sliderContainer.addEventListener("mouseenter", () =>
@@ -764,13 +799,13 @@
         );
       }
 
-      // Keyboard navigation
+      // Nhóm 9: Keyboard navigation
       document.addEventListener("keydown", (e) => {
         if (e.key === "ArrowLeft") this.changeSlide(-1);
         if (e.key === "ArrowRight") this.changeSlide(1);
       });
 
-      // Global functions
+      // Nhóm 9: Expose global functions cho HTML onclick
       window.galleryChangeSlide = (direction) => this.changeSlide(direction);
       window.galleryGoToSlide = (index) => this.goToSlide(index);
 
@@ -778,6 +813,7 @@
     },
 
     startAutoplay() {
+      // Nhóm 9: Bắt đầu autoplay với progress bar
       let progress = 0;
       const duration = CONFIG.GALLERY_DURATION;
       const interval = 50;
@@ -797,6 +833,7 @@
     },
 
     stopAutoplay() {
+      // Nhóm 9: Dừng autoplay
       clearInterval(this.autoplayInterval);
       if (this.progressBar) {
         this.progressBar.style.width = "0%";
@@ -804,11 +841,13 @@
     },
 
     resumeAutoplay() {
+      // Nhóm 9: Resume autoplay
       this.stopAutoplay();
       this.startAutoplay();
     },
 
     changeSlide(direction) {
+      // Nhóm 9: Chuyển slide theo direction
       this.stopAutoplay();
       this.index =
         (this.index + direction + this.slides.length) % this.slides.length;
@@ -817,6 +856,7 @@
     },
 
     goToSlide(index) {
+      // Nhóm 9: Đi đến slide cụ thể
       this.stopAutoplay();
       this.index = index;
       this.updateSlide();
@@ -824,6 +864,7 @@
     },
 
     updateSlide() {
+      // Nhóm 9: Update active slide và thumbnail
       this.slides.forEach((slide, i) => {
         slide.classList.toggle("active", i === this.index);
       });
@@ -835,7 +876,7 @@
   };
 
   // =========================================================
-  // 13. REVIEWS MANAGER
+  // Nhóm 9: REVIEWS MANAGER - Quản lý phần reviews (filter, sort, helpful)
   // =========================================================
 
   const ReviewsManager = {
@@ -851,6 +892,7 @@
     },
 
     initFilters() {
+      // Nhóm 9: Filter reviews theo rating hoặc verified
       const filterBtns = document.querySelectorAll(".filter-btn");
       const reviewCards = document.querySelectorAll(".review-card");
 
@@ -879,6 +921,7 @@
     },
 
     initSort() {
+      // Nhóm 9: Sort reviews theo recent, helpful, rating
       const sortSelect = document.querySelector(".sort-select");
       const reviewsGrid = document.querySelector(".reviews-grid");
 
@@ -919,11 +962,13 @@
     },
 
     initHelpful() {
+      // Nhóm 9: Nút Helpful - vote review hữu ích
       const helpfulBtns = document.querySelectorAll(".helpful-btn");
 
       helpfulBtns.forEach((btn) => {
         btn.addEventListener("click", function () {
           if (this.classList.contains("voted")) {
+            // Nhóm 9: Unvote
             this.classList.remove("voted");
             this.style.background = "";
             this.style.color = "";
@@ -932,6 +977,7 @@
               currentCount - 1
             })`;
           } else {
+            // Nhóm 9: Vote
             this.classList.add("voted");
             this.style.background = "#3b6d54";
             this.style.color = "white";
@@ -950,6 +996,7 @@
     },
 
     initReport() {
+      // Nhóm 9: Nút Report - báo cáo review không phù hợp
       const reportBtns = document.querySelectorAll(".report-btn");
 
       reportBtns.forEach((btn) => {
@@ -965,6 +1012,7 @@
     },
 
     initLoadMore() {
+      // Nhóm 9: Nút Load More - tải thêm reviews
       const loadMoreBtn = document.querySelector(".load-more-btn");
 
       if (loadMoreBtn) {
@@ -984,167 +1032,20 @@
     },
 
     initWriteReview() {
+      // Nhóm 9: Nút Write Review - mở form viết review
       const writeReviewBtn = document.querySelector(".write-review-btn-modern");
+      const openFormBtn = document.getElementById("openReviewFormBtn");
 
       if (writeReviewBtn) {
         writeReviewBtn.addEventListener("click", () => this.openReviewModal());
       }
-    },
-
-    openReviewModal() {
-      if (!document.getElementById("reviewModal")) {
-        const modal = document.createElement("div");
-        modal.id = "reviewModal";
-        modal.className = "review-modal";
-        modal.style.cssText = `
-          display: none; position: fixed; z-index: 10000;
-          left: 0; top: 0; width: 100%; height: 100%;
-          overflow: auto; background-color: rgba(0,0,0,0.6);
-          justify-content: center; align-items: center;
-        `;
-
-        modal.innerHTML = `
-          <div class="review-modal-content" style="
-            background: white; padding: 30px; border-radius: 16px;
-            max-width: 600px; width: 90%; position: relative;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
-          ">
-            <span class="review-modal-close" style="
-              position: absolute; right: 20px; top: 20px;
-              font-size: 28px; font-weight: bold; cursor: pointer;
-              color: #999; transition: color 0.3s;
-            ">&times;</span>
-            <h2 style="margin-bottom: 20px; color: #1d3227;">Write a Review</h2>
-            <form id="reviewForm" class="review-form">
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Your Name</label>
-                <input type="text" required placeholder="Enter your name" style="
-                  width: 100%; padding: 12px; border: 1px solid #ddd;
-                  border-radius: 8px; font-size: 14px;
-                ">
-              </div>
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Your Rating</label>
-                <div class="star-rating-input" style="display: flex; gap: 8px; font-size: 32px;">
-                  <span class="star-input" data-rating="1" style="cursor: pointer; color: #d1d5db;">☆</span>
-                  <span class="star-input" data-rating="2" style="cursor: pointer; color: #d1d5db;">☆</span>
-                  <span class="star-input" data-rating="3" style="cursor: pointer; color: #d1d5db;">☆</span>
-                  <span class="star-input" data-rating="4" style="cursor: pointer; color: #d1d5db;">☆</span>
-                  <span class="star-input" data-rating="5" style="cursor: pointer; color: #d1d5db;">☆</span>
-                </div>
-              </div>
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Review Title</label>
-                <input type="text" required placeholder="Sum up your experience" style="
-                  width: 100%; padding: 12px; border: 1px solid #ddd;
-                  border-radius: 8px; font-size: 14px;
-                ">
-              </div>
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Your Review</label>
-                <textarea rows="5" required placeholder="Share your thoughts about this product..." style="
-                  width: 100%; padding: 12px; border: 1px solid #ddd;
-                  border-radius: 8px; font-size: 14px; resize: vertical;
-                "></textarea>
-              </div>
-              <div class="form-group" style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 8px; font-weight: 600;">Add Photos (Optional)</label>
-                <input type="file" multiple accept="image/*" style="
-                  width: 100%; padding: 12px; border: 1px solid #ddd;
-                  border-radius: 8px; font-size: 14px;
-                ">
-              </div>
-              <button type="submit" class="submit-review-btn" style="
-                width: 100%; padding: 14px; background: linear-gradient(135deg, #3b6d54 0%, #2a5240 100%);
-                color: white; border: none; border-radius: 30px;
-                font-size: 16px; font-weight: 700; cursor: pointer;
-                transition: all 0.3s ease;
-              ">Submit Review</button>
-            </form>
-          </div>
-        `;
-
-        document.body.appendChild(modal);
-
-        // Close modal
-        modal
-          .querySelector(".review-modal-close")
-          .addEventListener("click", () => {
-            modal.style.display = "none";
-          });
-
-        // Click outside to close
-        window.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            modal.style.display = "none";
-          }
-        });
-
-        // Star rating input
-        const starInputs = modal.querySelectorAll(".star-input");
-        let selectedRating = 0;
-
-        starInputs.forEach((star) => {
-          star.addEventListener("click", function () {
-            selectedRating = this.getAttribute("data-rating");
-
-            starInputs.forEach((s) => {
-              const rating = s.getAttribute("data-rating");
-              if (rating <= selectedRating) {
-                s.textContent = "★";
-                s.style.color = "#fbbf24";
-              } else {
-                s.textContent = "☆";
-                s.style.color = "#d1d5db";
-              }
-            });
-          });
-
-          star.addEventListener("mouseenter", function () {
-            const rating = this.getAttribute("data-rating");
-            starInputs.forEach((s) => {
-              if (s.getAttribute("data-rating") <= rating) {
-                s.textContent = "★";
-                s.style.color = "#fbbf24";
-              }
-            });
-          });
-        });
-
-        const starContainer = modal.querySelector(".star-rating-input");
-        starContainer.addEventListener("mouseleave", function () {
-          starInputs.forEach((s) => {
-            const rating = s.getAttribute("data-rating");
-            if (rating <= selectedRating) {
-              s.textContent = "★";
-              s.style.color = "#fbbf24";
-            } else {
-              s.textContent = "☆";
-              s.style.color = "#d1d5db";
-            }
-          });
-        });
-
-        // Form submission
-        modal.querySelector("#reviewForm").addEventListener("submit", (e) => {
-          e.preventDefault();
-          alert(
-            "Thank you for your review! It will be published after moderation."
-          );
-          modal.style.display = "none";
-          e.target.reset();
-          selectedRating = 0;
-          starInputs.forEach((s) => {
-            s.textContent = "☆";
-            s.style.color = "#d1d5db";
-          });
-        });
+      if (openFormBtn) {
+        openFormBtn.addEventListener("click", () => this.openReviewModal());
       }
-
-      document.getElementById("reviewModal").style.display = "flex";
     },
 
     initImageLightbox() {
+      // Nhóm 9: Click vào review image để xem fullscreen
       const reviewImages = document.querySelectorAll(".review-img");
 
       reviewImages.forEach((img) => {
@@ -1175,7 +1076,464 @@
   };
 
   // =========================================================
-  // 14. PRODUCT SLIDER (OLD SECTION)
+  // Nhóm 9: REVIEW FORM SUBMIT - Xử lý submit form review
+  // =========================================================
+
+  const ReviewFormSubmit = {
+    selectedPhotos: [],
+
+    init() {
+      const form = document.getElementById("reviewForm");
+      const modal = document.getElementById("reviewModal");
+      const closeBtn = document.getElementById("closeReviewModal");
+      const cancelBtn = document.getElementById("cancelReviewBtn");
+      const openBtn = document.getElementById("openReviewFormBtn");
+      const writeReviewBtn = document.querySelector(".write-review-btn-modern");
+
+      if (!form || !modal) {
+        console.error("❌ Review form or modal not found!");
+        return;
+      }
+
+      // Nhóm 9: Open modal handlers
+      if (openBtn) {
+        openBtn.addEventListener("click", () => this.openModal());
+      }
+      if (writeReviewBtn) {
+        writeReviewBtn.addEventListener("click", () => this.openModal());
+      }
+
+      // Nhóm 9: Close modal function
+      const closeModal = () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      };
+
+      closeBtn?.addEventListener("click", closeModal);
+      cancelBtn?.addEventListener("click", closeModal);
+
+      // Nhóm 9: Click outside modal để đóng
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Nhóm 9: ESC key để đóng modal
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+
+      this.initStarRating();
+      this.initCharCounters();
+      this.initPhotoUpload();
+      this.initFormSubmit(form, closeModal);
+
+      console.log("✅ Review Form Submit initialized");
+    },
+
+    openModal() {
+      // Nhóm 9: Mở review modal
+      const modal = document.getElementById("reviewModal");
+      if (modal) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+    },
+
+    initStarRating() {
+      // Nhóm 9: Star rating input với message
+      const starInputs = document.querySelectorAll(
+        '.star-rating-input input[name="rating"]'
+      );
+      const ratingMessage = document.getElementById("ratingMessage");
+
+      const messages = {
+        5: "Excellent! 😍",
+        4: "Good! 👍",
+        3: "Average 😐",
+        2: "Poor 👎",
+        1: "Terrible 😞",
+      };
+
+      starInputs.forEach((input) => {
+        input.addEventListener("change", function () {
+          const rating = this.value;
+          if (ratingMessage) {
+            ratingMessage.textContent = messages[rating] || "Select a rating";
+          }
+        });
+      });
+    },
+
+    initCharCounters() {
+      // Nhóm 9: Character counter cho title và review text
+      const titleInput = document.getElementById("reviewTitle");
+      const reviewText = document.getElementById("reviewText");
+      const titleCount = document.getElementById("titleCharCount");
+      const reviewCount = document.getElementById("reviewCharCount");
+
+      titleInput?.addEventListener("input", function () {
+        const count = this.value.length;
+        if (titleCount) {
+          titleCount.textContent = `${count}/100`;
+          titleCount.style.color = count > 100 ? "#ef4444" : "#9ca3af";
+        }
+      });
+
+      reviewText?.addEventListener("input", function () {
+        const count = this.value.length;
+        if (reviewCount) {
+          reviewCount.textContent = `${count}/1000`;
+          reviewCount.style.color = count > 1000 ? "#ef4444" : "#9ca3af";
+        }
+      });
+    },
+
+    initPhotoUpload() {
+      // Nhóm 9: Upload photos (tối đa 3 ảnh, mỗi ảnh max 5MB)
+      const photoInput = document.getElementById("reviewPhotos");
+      const previewGrid = document.getElementById("photoPreviewGrid");
+
+      photoInput?.addEventListener("change", (e) => {
+        const files = Array.from(e.target.files);
+
+        if (this.selectedPhotos.length + files.length > 3) {
+          Utils.showNotification("Maximum 3 photos allowed", "warning");
+          return;
+        }
+
+        files.forEach((file) => {
+          if (file.size > 5 * 1024 * 1024) {
+            Utils.showNotification(
+              `${file.name} is too large (max 5MB)`,
+              "warning"
+            );
+            return;
+          }
+
+          this.selectedPhotos.push(file);
+          this.addPhotoPreview(file);
+        });
+      });
+    },
+
+    addPhotoPreview(file) {
+      // Nhóm 9: Thêm photo preview với nút remove
+      const previewGrid = document.getElementById("photoPreviewGrid");
+      if (!previewGrid) return;
+
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        const div = document.createElement("div");
+        div.className = "photo-preview-item";
+        div.style.cssText = `
+          position: relative; display: inline-block;
+          margin: 5px; width: 80px; height: 80px;
+        `;
+
+        div.innerHTML = `
+          <img src="${e.target.result}" alt="Preview" style="
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: 8px; border: 2px solid #3b6d54;
+          ">
+          <button type="button" class="photo-remove-btn" data-file="${file.name}" style="
+            position: absolute; top: -8px; right: -8px;
+            width: 24px; height: 24px; border-radius: 50%;
+            background: #ef4444; color: white; border: none;
+            cursor: pointer; font-size: 16px; line-height: 1;
+          ">×</button>
+        `;
+
+        div.querySelector(".photo-remove-btn").addEventListener("click", () => {
+          this.removePhoto(file.name);
+          div.remove();
+        });
+
+        previewGrid.appendChild(div);
+      };
+
+      reader.readAsDataURL(file);
+    },
+
+    removePhoto(fileName) {
+      // Nhóm 9: Xóa photo khỏi selected list
+      this.selectedPhotos = this.selectedPhotos.filter(
+        (f) => f.name !== fileName
+      );
+    },
+
+    initFormSubmit(form, closeModal) {
+      // Nhóm 9: Xử lý submit form review
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const agreeTerms = document.getElementById("agreeTerms");
+        if (agreeTerms && !agreeTerms.checked) {
+          Utils.showNotification(
+            "Please agree to the review guidelines",
+            "warning"
+          );
+          return;
+        }
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        // Nhóm 9: Lấy dữ liệu từ form
+        const formData = {
+          name: document.getElementById("reviewerName")?.value || "Anonymous",
+          email: document.getElementById("reviewerEmail")?.value || "",
+          title: document.getElementById("reviewTitle")?.value || "",
+          review: document.getElementById("reviewText")?.value || "",
+          rating:
+            document.querySelector('input[name="rating"]:checked')?.value ||
+            "5",
+          verified:
+            document.getElementById("verifiedPurchase")?.checked || false,
+          recommend:
+            document.querySelector('input[name="recommend"]:checked')?.value ||
+            "yes",
+          date: "Just now",
+          images: this.selectedPhotos.map((file) => URL.createObjectURL(file)),
+        };
+
+        // Nhóm 9: Loading state cho submit button
+        const submitBtn = form.querySelector(".btn-submit");
+        if (submitBtn) {
+          const originalText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = "<span>⏳ Submitting...</span>";
+
+          setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }, 1500);
+        }
+
+        // Nhóm 9: Lưu vào localStorage
+        try {
+          let reviews = JSON.parse(localStorage.getItem("userReviews")) || [];
+          reviews.push(formData);
+          localStorage.setItem("userReviews", JSON.stringify(reviews));
+        } catch (error) {
+          console.error("Error saving to localStorage:", error);
+        }
+
+        // Nhóm 9: Thêm review vào trang
+        this.addReviewToPage(formData);
+        Utils.showNotification("✅ Review submitted successfully!", "success");
+
+        // Nhóm 9: Reset form
+        form.reset();
+        this.selectedPhotos = [];
+        const previewGrid = document.getElementById("photoPreviewGrid");
+        if (previewGrid) previewGrid.innerHTML = "";
+
+        const ratingMessage = document.getElementById("ratingMessage");
+        if (ratingMessage) ratingMessage.textContent = "Select a rating";
+
+        const titleCount = document.getElementById("titleCharCount");
+        const reviewCount = document.getElementById("reviewCharCount");
+        if (titleCount) titleCount.textContent = "0/100";
+        if (reviewCount) reviewCount.textContent = "0/1000";
+
+        closeModal();
+
+        // Nhóm 9: Scroll đến reviews section
+        setTimeout(() => {
+          const reviewsSection = document.querySelector(".reviews-grid");
+          if (reviewsSection) {
+            reviewsSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        }, 500);
+
+        console.log("✅ Review submitted:", formData);
+      });
+    },
+
+    addReviewToPage(reviewData) {
+      // Nhóm 9: Thêm review card mới vào đầu reviews grid
+      const reviewsGrid = document.querySelector(".reviews-grid");
+
+      if (!reviewsGrid) {
+        console.error("❌ Reviews grid not found!");
+        return;
+      }
+
+      // Nhóm 9: Tạo stars HTML
+      const starsHTML = Array(5)
+        .fill(0)
+        .map((_, i) => {
+          const isFilled = i < parseInt(reviewData.rating);
+          return `<span class="star${isFilled ? " filled" : ""}">★</span>`;
+        })
+        .join("");
+
+      // Nhóm 9: Tạo avatar initials
+      const initials = reviewData.name
+        .split(" ")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+        .slice(0, 2);
+
+      // Nhóm 9: Tạo review card element
+      const reviewCard = document.createElement("div");
+      reviewCard.className = "review-card";
+      reviewCard.setAttribute("data-scroll", "scale-up");
+      reviewCard.setAttribute("data-rating", reviewData.rating);
+
+      reviewCard.innerHTML = `
+        <div class="review-header">
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">${initials}</div>
+            <div class="reviewer-details">
+              <h4 class="reviewer-name">${reviewData.name}</h4>
+              <div class="review-meta">
+                ${
+                  reviewData.verified
+                    ? '<span class="verified-badge">✓ Verified Purchase</span>'
+                    : ""
+                }
+                <span class="review-date">${reviewData.date}</span>
+              </div>
+            </div>
+          </div>
+          <div class="review-rating">
+            ${starsHTML}
+          </div>
+        </div>
+
+        <div class="review-content">
+          <h5 class="review-title">${reviewData.title}</h5>
+          <p class="review-text">
+            ${reviewData.review}
+          </p>
+        </div>
+
+        ${
+          reviewData.images && reviewData.images.length > 0
+            ? `
+          <div class="review-images">
+            ${reviewData.images
+              .map(
+                (img) => `
+              <img src="${img}" alt="Customer photo" class="review-img" />
+            `
+              )
+              .join("")}
+          </div>
+        `
+            : ""
+        }
+
+        <div class="review-footer">
+          <button class="helpful-btn">
+            <span class="icon">👍</span>
+            Helpful (0)
+          </button>
+          <button class="report-btn">Report</button>
+        </div>
+      `;
+
+      // Nhóm 9: Insert vào đầu grid
+      reviewsGrid.insertBefore(reviewCard, reviewsGrid.firstChild);
+
+      // Nhóm 9: Animation khi thêm mới
+      reviewCard.style.opacity = "0";
+      reviewCard.style.transform = "translateY(-20px)";
+
+      setTimeout(() => {
+        reviewCard.style.transition = "all 0.5s ease";
+        reviewCard.style.opacity = "1";
+        reviewCard.style.transform = "translateY(0)";
+      }, 10);
+
+      // Nhóm 9: Attach event listeners cho review card mới
+      this.attachReviewCardEvents(reviewCard);
+
+      console.log("✅ Review added to page:", reviewData);
+    },
+
+    attachReviewCardEvents(reviewCard) {
+      // Nhóm 9: Attach helpful button event
+      const helpfulBtn = reviewCard.querySelector(".helpful-btn");
+      if (helpfulBtn) {
+        helpfulBtn.addEventListener("click", function () {
+          if (this.classList.contains("voted")) {
+            this.classList.remove("voted");
+            this.style.background = "";
+            this.style.color = "";
+            const currentCount = parseInt(this.textContent.match(/\d+/)[0]);
+            this.innerHTML = `<span class="icon">👍</span> Helpful (${
+              currentCount - 1
+            })`;
+          } else {
+            this.classList.add("voted");
+            this.style.background = "#3b6d54";
+            this.style.color = "white";
+            const currentCount = parseInt(this.textContent.match(/\d+/)[0]);
+            this.innerHTML = `<span class="icon">👍</span> Helpful (${
+              currentCount + 1
+            })`;
+          }
+        });
+      }
+
+      // Nhóm 9: Attach report button event
+      const reportBtn = reviewCard.querySelector(".report-btn");
+      if (reportBtn) {
+        reportBtn.addEventListener("click", function () {
+          if (confirm("Report this review as inappropriate?")) {
+            Utils.showNotification(
+              "Review has been reported. Thank you!",
+              "info"
+            );
+            this.disabled = true;
+            this.textContent = "Reported";
+            this.style.opacity = "0.5";
+          }
+        });
+      }
+
+      // Nhóm 9: Attach lightbox cho review images
+      const reviewImages = reviewCard.querySelectorAll(".review-img");
+      reviewImages.forEach((img) => {
+        img.addEventListener("click", function () {
+          const overlay = document.createElement("div");
+          overlay.style.cssText = `
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); display: flex;
+            align-items: center; justify-content: center;
+            z-index: 10000; cursor: pointer;
+          `;
+
+          const fullImg = document.createElement("img");
+          fullImg.src = this.src;
+          fullImg.style.cssText = `
+            max-width: 90%; max-height: 90%; border-radius: 8px;
+          `;
+
+          overlay.appendChild(fullImg);
+          document.body.appendChild(overlay);
+
+          overlay.addEventListener("click", () => {
+            document.body.removeChild(overlay);
+          });
+        });
+      });
+    },
+  };
+
+  // =========================================================
+  // Nhóm 9: PRODUCT SLIDER - Slider cho old product section (nếu có)
   // =========================================================
 
   const ProductSlider = {
@@ -1214,6 +1572,7 @@
       this.img = img;
       this.price = price;
 
+      // Nhóm 9: Previous button
       if (prev) {
         prev.addEventListener("click", () => {
           this.index =
@@ -1222,6 +1581,7 @@
         });
       }
 
+      // Nhóm 9: Next button
       if (next) {
         next.addEventListener("click", () => {
           this.index = (this.index + 1) % this.products.length;
@@ -1234,6 +1594,7 @@
     },
 
     updateProduct() {
+      // Nhóm 9: Update image và price
       if (this.img && this.price) {
         this.img.src = this.products[this.index].img;
         this.price.textContent = this.products[this.index].price;
@@ -1242,7 +1603,7 @@
   };
 
   // =========================================================
-  // 15. SIMPLE SLIDER (DOTS)
+  // Nhóm 9: SIMPLE SLIDER - Slider với dots navigation
   // =========================================================
 
   const SimpleSlider = {
@@ -1257,7 +1618,7 @@
       this.slides = slides;
       this.dotsContainer = dotsContainer;
 
-      // Create dots
+      // Nhóm 9: Tạo dots
       slides.forEach((_, i) => {
         const dot = document.createElement("span");
         dot.style.cssText = `
@@ -1271,19 +1632,20 @@
 
       this.dots = dotsContainer.querySelectorAll("span");
 
-      // Auto play
+      // Nhóm 9: Auto play
       setInterval(() => this.changeSlide(1), 4000);
 
-      // Show first slide
+      // Nhóm 9: Show first slide
       this.showSlide(0);
 
-      // Make changeSlide available globally
+      // Nhóm 9: Expose global function
       window.changeSlide = (n) => this.changeSlide(n);
 
       console.log("✅ Simple Slider initialized");
     },
 
     showSlide(i) {
+      // Nhóm 9: Show slide và update dots
       this.slides.forEach((s) => s.classList.remove("active"));
       this.dots.forEach((d) => {
         d.classList.remove("active");
@@ -1297,13 +1659,14 @@
     },
 
     changeSlide(n) {
+      // Nhóm 9: Thay đổi slide
       this.index = (this.index + n + this.slides.length) % this.slides.length;
       this.showSlide(this.index);
     },
   };
 
   // =========================================================
-  // 16. INJECT GLOBAL STYLES
+  // Nhóm 9: INJECT GLOBAL STYLES - Inject CSS animations và styles
   // =========================================================
 
   const InjectStyles = {
@@ -1336,7 +1699,7 @@
   };
 
   // =========================================================
-  // MASTER INITIALIZATION
+  // Nhóm 9: MASTER INITIALIZATION - Khởi tạo tất cả modules
   // =========================================================
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -1358,492 +1721,8 @@
     ReviewsManager.init();
     ProductSlider.init();
     SimpleSlider.init();
+    ReviewFormSubmit.init();
 
     console.log("✅ Modern Product Page Fully Initialized!");
   });
 })();
-// =========================================================
-// 17. REVIEW FORM MANAGER
-// =========================================================
-
-const ReviewFormManager = {
-  selectedPhotos: [],
-
-  init() {
-    const openBtn = document.getElementById("openReviewFormBtn");
-    const modal = document.getElementById("reviewModal");
-    const closeBtn = document.getElementById("closeReviewModal");
-    const cancelBtn = document.getElementById("cancelReviewBtn");
-    const form = document.getElementById("reviewForm");
-
-    if (!modal || !form) return;
-
-    // Open modal
-    openBtn?.addEventListener("click", () => {
-      modal.classList.add("active");
-      document.body.style.overflow = "hidden";
-    });
-
-    // Close modal
-    const closeModal = () => {
-      modal.classList.remove("active");
-      document.body.style.overflow = "";
-    };
-
-    closeBtn?.addEventListener("click", closeModal);
-    cancelBtn?.addEventListener("click", closeModal);
-
-    // Close on outside click
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    // Close on ESC
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("active")) {
-        closeModal();
-      }
-    });
-
-    // Initialize form features
-    this.initStarRating();
-    this.initCharCounters();
-    this.initPhotoUpload();
-    this.initFormSubmit();
-
-    console.log("✅ Review Form Manager initialized");
-  },
-
-  initStarRating() {
-    const starInputs = document.querySelectorAll(".star-rating-input input");
-    const ratingMessage = document.getElementById("ratingMessage");
-
-    const messages = {
-      5: "Excellent! 😍",
-      4: "Good! 👍",
-      3: "Average 😐",
-      2: "Poor 👎",
-      1: "Terrible 😞",
-    };
-
-    starInputs.forEach((input) => {
-      input.addEventListener("change", function () {
-        const rating = this.value;
-        if (ratingMessage) {
-          ratingMessage.textContent = messages[rating] || "Select a rating";
-        }
-      });
-    });
-  },
-
-  initCharCounters() {
-    const titleInput = document.getElementById("reviewTitle");
-    const reviewText = document.getElementById("reviewText");
-    const titleCount = document.getElementById("titleCharCount");
-    const reviewCount = document.getElementById("reviewCharCount");
-
-    titleInput?.addEventListener("input", function () {
-      const count = this.value.length;
-      titleCount.textContent = `${count}/100`;
-      titleCount.style.color = count > 100 ? "#ef4444" : "#9ca3af";
-    });
-
-    reviewText?.addEventListener("input", function () {
-      const count = this.value.length;
-      reviewCount.textContent = `${count}/1000`;
-      reviewCount.style.color = count > 1000 ? "#ef4444" : "#9ca3af";
-    });
-  },
-
-  initPhotoUpload() {
-    const photoInput = document.getElementById("reviewPhotos");
-    const previewGrid = document.getElementById("photoPreviewGrid");
-
-    photoInput?.addEventListener("change", (e) => {
-      const files = Array.from(e.target.files);
-
-      // Max 3 photos
-      if (this.selectedPhotos.length + files.length > 3) {
-        alert("Maximum 3 photos allowed");
-        return;
-      }
-
-      files.forEach((file) => {
-        if (file.size > 5 * 1024 * 1024) {
-          alert(`${file.name} is too large (max 5MB)`);
-          return;
-        }
-
-        this.selectedPhotos.push(file);
-        this.addPhotoPreview(file);
-      });
-    });
-  },
-
-  addPhotoPreview(file) {
-    const previewGrid = document.getElementById("photoPreviewGrid");
-    const reader = new FileReader();
-
-    reader.onload = (e) => {
-      const div = document.createElement("div");
-      div.className = "photo-preview-item";
-      div.innerHTML = `
-        <img src="${e.target.result}" alt="Preview">
-        <button type="button" class="photo-remove-btn" data-file="${file.name}">×</button>
-      `;
-
-      div.querySelector(".photo-remove-btn").addEventListener("click", () => {
-        this.removePhoto(file.name);
-        div.remove();
-      });
-
-      previewGrid.appendChild(div);
-    };
-
-    reader.readAsDataURL(file);
-  },
-
-  removePhoto(fileName) {
-    this.selectedPhotos = this.selectedPhotos.filter(
-      (f) => f.name !== fileName
-    );
-  },
-
-  initFormSubmit() {
-    const form = document.getElementById("reviewForm");
-
-    form?.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      // Validate
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      // Get form data
-      const formData = new FormData(form);
-      const reviewData = {
-        rating: formData.get("rating"),
-        name: formData.get("name"),
-        email: formData.get("email"),
-        title: formData.get("title"),
-        review: formData.get("review"),
-        verified: formData.get("verified") === "on",
-        recommend: formData.get("recommend"),
-        photos: this.selectedPhotos,
-        productId: "sofa-001",
-        date: new Date().toISOString(),
-      };
-
-      // Show loading
-      const submitBtn = form.querySelector(".btn-submit");
-      const btnText = submitBtn.querySelector(".btn-text");
-      const btnLoader = submitBtn.querySelector(".btn-loader");
-
-      submitBtn.disabled = true;
-      btnText.style.display = "none";
-      btnLoader.style.display = "inline";
-
-      try {
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-
-        // Save to localStorage (for demo)
-        let reviews = JSON.parse(localStorage.getItem("userReviews")) || [];
-        reviews.push(reviewData);
-        localStorage.setItem("userReviews", JSON.stringify(reviews));
-
-        // Add to page
-        this.addReviewToPage(reviewData);
-
-        // Success
-        alert(
-          "Thank you for your review! It will be published after moderation."
-        );
-
-        // Reset form
-        form.reset();
-        this.selectedPhotos = [];
-        document.getElementById("photoPreviewGrid").innerHTML = "";
-        document.getElementById("reviewModal").classList.remove("active");
-        document.body.style.overflow = "";
-
-        console.log("✅ Review submitted:", reviewData);
-      } catch (error) {
-        alert("Error submitting review. Please try again.");
-        console.error("Review submission error:", error);
-      } finally {
-        submitBtn.disabled = false;
-        btnText.style.display = "inline";
-        btnLoader.style.display = "none";
-      }
-    });
-  },
-
-  addReviewToPage(reviewData) {
-    const reviewsGrid = document.querySelector(".reviews-grid");
-    if (!reviewsGrid) return;
-
-    const reviewCard = document.createElement("div");
-    reviewCard.className = "review-card";
-    reviewCard.setAttribute("data-rating", reviewData.rating);
-
-    const initials = reviewData.name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase();
-    const stars =
-      "★".repeat(parseInt(reviewData.rating)) +
-      "☆".repeat(5 - parseInt(reviewData.rating));
-
-    reviewCard.innerHTML = `
-      <div class="review-header">
-        <div class="reviewer-info">
-          <div class="reviewer-avatar">${initials}</div>
-          <div class="reviewer-details">
-            <h4 class="reviewer-name">${reviewData.name}</h4>
-            <div class="review-meta">
-              ${
-                reviewData.verified
-                  ? '<span class="verified-badge">✓ Verified Purchase</span>'
-                  : ""
-              }
-              <span class="review-date">Just now</span>
-            </div>
-          </div>
-        </div>
-        <div class="review-rating">
-          ${stars
-            .split("")
-            .map(
-              (s) =>
-                `<span class="star ${s === "★" ? "filled" : ""}">${s}</span>`
-            )
-            .join("")}
-        </div>
-      </div>
-      <div class="review-content">
-        <h5 class="review-title">${reviewData.title}</h5>
-        <p class="review-text">${reviewData.review}</p>
-      </div>
-      <div class="review-footer">
-        <button class="helpful-btn">
-          <span class="icon">👍</span> Helpful (0)
-        </button>
-        <button class="report-btn">Report</button>
-      </div>
-    `;
-
-    reviewsGrid.insertBefore(reviewCard, reviewsGrid.firstChild);
-  },
-};
-
-// Add to initialization
-document.addEventListener("DOMContentLoaded", () => {
-  // ... existing code ...
-  ReviewFormManager.init();
-});
-// =========================================================
-// ✅ REVIEW FORM - SUBMIT & DISPLAY
-const ReviewFormSubmit = {
-  init() {
-    const form = document.getElementById("reviewForm");
-    const modal = document.getElementById("reviewModal");
-    const closeBtn = document.getElementById("closeReviewModal");
-    const cancelBtn = document.getElementById("cancelReviewBtn");
-
-    if (!form || !modal) {
-      console.error("❌ Review form or modal not found!");
-      return;
-    }
-
-    // Close modal function
-    const closeModal = () => {
-      modal.classList.remove("active");
-      document.body.style.overflow = "";
-    };
-
-    // Close button click
-    closeBtn?.addEventListener("click", closeModal);
-    cancelBtn?.addEventListener("click", closeModal);
-
-    // Close on outside click
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    // Close on ESC
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("active")) {
-        closeModal();
-      }
-    });
-
-    // ✅ FORM SUBMIT
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      // Check if checkbox is checked
-      const agreeTerms = document.getElementById("agreeTerms");
-      if (!agreeTerms.checked) {
-        Utils.showNotification(
-          "❌ Please agree to the review guidelines",
-          "warning"
-        );
-        return;
-      }
-
-      // Validate form
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      // Get form data
-      const formData = {
-        name: document.getElementById("reviewerName")?.value || "Anonymous",
-        email: document.getElementById("reviewerEmail")?.value || "",
-        title: document.getElementById("reviewTitle")?.value || "",
-        review: document.getElementById("reviewText")?.value || "",
-        rating:
-          document.querySelector('input[name="rating"]:checked')?.value || "5",
-        verified: document.getElementById("verifiedPurchase")?.checked || false,
-        recommend:
-          document.querySelector('input[name="recommend"]:checked')?.value ||
-          "yes",
-        date: new Date().toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        }),
-      };
-
-      // ✅ ADD REVIEW TO PAGE NGAY LẬP TỨC
-      this.addReviewToPage(formData);
-
-      // Show success notification
-      Utils.showNotification("✅ Review submitted successfully!", "success");
-
-      // Reset form
-      form.reset();
-
-      // Close modal
-      closeModal();
-
-      // Scroll to reviews section
-      const reviewsSection = document.querySelector(".reviews-grid");
-      if (reviewsSection) {
-        setTimeout(() => {
-          reviewsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 500);
-      }
-
-      console.log("✅ Review submitted:", formData);
-    });
-
-    console.log("✅ Review Form Submit initialized");
-  },
-
-  addReviewToPage(reviewData) {
-    const reviewsGrid = document.querySelector(".reviews-grid");
-
-    if (!reviewsGrid) {
-      console.error("❌ Reviews grid not found!");
-      return;
-    }
-
-    // Create stars
-    const starsHTML = Array(5)
-      .fill(0)
-      .map((_, i) => {
-        const isFilled = i < parseInt(reviewData.rating);
-        return `<span class="star${isFilled ? " filled" : ""}">★</span>`;
-      })
-      .join("");
-
-    // Get initials
-    const initials = reviewData.name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2);
-
-    // Create review card
-    const reviewCard = document.createElement("div");
-    reviewCard.className = "review-card";
-    reviewCard.setAttribute("data-rating", reviewData.rating);
-
-    reviewCard.innerHTML = `
-            <div class="review-header">
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar">${initials}</div>
-                    <div>
-                        <h4 class="reviewer-name">${reviewData.name}</h4>
-                        <div style="font-size: 12px; color: #9ca3af;">
-                            ${
-                              reviewData.verified
-                                ? "<span>✓ Verified Purchase</span>"
-                                : ""
-                            }
-                            <span>${reviewData.date}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-rating">
-                    ${starsHTML}
-                </div>
-            </div>
-            <h5 class="review-title">${reviewData.title}</h5>
-            <p class="review-text">${reviewData.review}</p>
-            <div style="margin-top: 15px; font-size: 14px; color: #3b6d54; font-weight: 600;">
-                ✓ Recommend: ${reviewData.recommend === "yes" ? "Yes" : "No"}
-            </div>
-        `;
-
-    // Add to top
-    reviewsGrid.insertBefore(reviewCard, reviewsGrid.firstChild);
-
-    // Animate entrance
-    reviewCard.style.opacity = "0";
-    reviewCard.style.transform = "translateY(-20px)";
-
-    setTimeout(() => {
-      reviewCard.style.transition = "all 0.5s ease";
-      reviewCard.style.opacity = "1";
-      reviewCard.style.transform = "translateY(0)";
-    }, 10);
-
-    console.log("✅ Review added to page:", reviewData);
-  },
-};
-
-// ✅ Initialize
-document.addEventListener("DOMContentLoaded", () => {
-  ReviewFormSubmit.init();
-});
-
-// Form submit
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  // Check if checkbox is checked
-  const agreeTerms = document.getElementById("agreeTerms");
-  if (!agreeTerms.checked) {
-    Utils.showNotification(
-      "❌ Please agree to the review guidelines",
-      "warning"
-    );
-    return;
-  }
-
-  // Validate form
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
-
-  // ... rest of submit code
-});
