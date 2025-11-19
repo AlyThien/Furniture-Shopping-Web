@@ -70,7 +70,7 @@ nav a:link, a:visited, li {
     border-radius: 15px;
 }
 
-nav a:active {
+nav a.active {
     color: #1D382C;
     background-color: #E8F3DE;
 }
@@ -775,3 +775,4 @@ RESPONSIVE - MOBILE (max-width: 480px)
         right: 15px;
     }
 }
+
