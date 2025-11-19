@@ -29,7 +29,7 @@ Vì vậy, nhóm quyết định chọn đề tài "Thiết kế trang web bán 
 | ID | Tên chức năng | Tác nhân | Tiến độ hoàn thành |
 |:---:|:-------------:|:-----:|:--------------------:|
 | A1 | Đăng nhập tài khoản | 01 | 100% |
-| A2 | Tìm kiếm sản phẩm | 01, 02 | 50% |
+| A2 | Tìm kiếm sản phẩm | 01, 02 | 30% |
 | A3 | Xem danh sách sản phẩm | 01, 02 | 100% |
 | A4 | Xem chi tiết sản phẩm | 01, 02 | 100% |
 | A5 | Sử dụng bộ lọc | 01, 02 | 0% |
