@@ -102,8 +102,8 @@
     </header>
 
     <!--Nhóm 9: Phần Wishlist form -->
-    <section data-scroll="fade-up" id="wishlist-form">
-      <div data-scroll="fade-up" class="container">
+    <section id="wishlist-form">
+      <div class="container">
         <h1 data-i18n="wishlist-title">Wishlist</h1>
         <h2 data-i18n="send-wishlist-title">Send Wishlist to Haguchi</h2>
         <p class="subtitle" data-i18n="send-subtitle">
@@ -115,8 +115,8 @@
           <span data-i18n="required-note-2">are required</span>)
         </p>
 
-        <form data-scroll="fade-up" id="paymentForm">
-          <section data-scroll="fade-up" id="contact-info" class="form-section">
+        <form id="paymentForm">
+          <section id="contact-info" class="form-section">
             <h3 data-i18n="contact-info-title">Contact Information:</h3>
             <div class="form-row">
               <div class="form-group">
@@ -132,7 +132,7 @@
                 <input type="text" name="surname" />
               </div>
             </div>
-            <div data-scroll="fade-up" class="form-row">
+            <div class="form-row">
               <div class="form-group">
                 <label data-i18n="phone-label"
                   >Phone <span class="required">*</span></label
@@ -148,11 +148,7 @@
             </div>
           </section>
 
-          <section
-            data-scroll="fade-up"
-            id="delivery-info"
-            class="form-section"
-          >
+          <section id="delivery-info" class="form-section">
             <h3 data-i18n="delivery-info-title">Delivery Information:</h3>
             <div class="form-group full-width">
               <label data-i18n="country-label"
@@ -169,13 +165,13 @@
                 </option>
               </select>
             </div>
-            <div data-scroll="fade-up" class="form-group full-width">
+            <div class="form-group full-width">
               <label data-i18n="address-label"
                 >Address <span class="required">*</span></label
               >
               <input type="text" name="address" />
             </div>
-            <div data-scroll="fade-up" class="form-row">
+            <div class="form-row">
               <div class="form-group">
                 <label data-i18n="province-label"
                   >Province <span class="required">*</span></label
@@ -195,7 +191,7 @@
                 </select>
               </div>
             </div>
-            <div data-scroll="fade-up" class="checkbox-group">
+            <div class="checkbox-group">
               <input type="checkbox" id="save-info" name="saveInfo" />
               <label for="save-info" data-i18n="save-info-label"
                 >Save this information for next time</label
@@ -203,24 +199,20 @@
             </div>
           </section>
           <!--Nhóm 9: Phần Payment -->
-          <section
-            data-scroll="fade-up"
-            id="payment-section"
-            class="form-section"
-          >
+          <section id="payment-section" class="form-section">
             <h3 data-i18n="payment-title">Payment:</h3>
             <p class="payment-note" data-i18n="payment-note">
               All transactions are secure and encrypted.
             </p>
 
-            <div data-scroll="fade-up" class="radio-option" id="cod-option">
+            <div class="radio-option" id="cod-option">
               <input type="radio" name="payment" id="cod" value="cod" />
               <label for="cod" data-i18n="payment-cod"
                 >Cash on Delivery (COD)</label
               >
             </div>
 
-            <div data-scroll="fade-up" class="radio-option" id="bank-option">
+            <div class="radio-option" id="bank-option">
               <input
                 type="radio"
                 name="payment"
@@ -231,7 +223,7 @@
               <label for="bank" data-i18n="payment-bank">Bank Transfer</label>
             </div>
 
-            <div data-scroll="fade-up" class="qr-section" id="qr-section">
+            <div class="qr-section" id="qr-section">
               <div class="qr-code">
                 <img src="images/image 2.png" alt="QR Code" />
                 <p class="qr-amount">50,000 VND</p>
@@ -240,12 +232,7 @@
             </div>
           </section>
 
-          <button
-            data-scroll="fade-up"
-            type="submit"
-            class="continue-bu"
-            data-i18n="continue-btn"
-          >
+          <button type="submit" class="continue-bu" data-i18n="continue-btn">
             Continue
           </button>
         </form>
@@ -253,15 +240,10 @@
     </section>
 
     <!--Nhóm 9: Phần quay lại đầu trang-->
-    <img
-      data-scroll="fade-up"
-      id="btn-top"
-      src="images/return_to_top.png"
-      alt="Return to top"
-    />
+    <img id="btn-top" src="images/return_to_top.png" alt="Return to top" />
 
     <!--Nhóm 9: Phần footer-->
-    <footer data-scroll="fade-up">
+    <footer>
       <div class="footer-logo">
         <div><em>Haguchi</em></div>
         <div>葉具家</div>

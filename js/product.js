@@ -115,7 +115,6 @@
     updateImage() {
       // Nhóm 9: Fade effect khi chuyển ảnh
       this.mainImage.style.opacity = "0";
-
       setTimeout(() => {
         this.mainImage.src = this.images[this.currentIndex];
         this.mainImage.style.opacity = "1";
@@ -125,6 +124,7 @@
       this.thumbnails.forEach((thumb, index) => {
         thumb.classList.toggle("active", index === this.currentIndex);
       });
+      ColorManager.setActiveColorByThumbnailIndex(this.currentIndex);
     },
 
     zoom() {
@@ -195,6 +195,40 @@
       });
 
       console.log("✅ Color Manager initialized");
+    },
+
+    // Nhóm 9: HÀM MỚI - Cập nhật active color khi click vào hình (thumbnail)
+    setActiveColorByThumbnailIndex(thumbnailIndex) {
+      const colorSwatches = document.querySelectorAll(".color-swatch");
+      const selectedColor = document.getElementById("selectedColor");
+
+      colorSwatches.forEach((swatch) => {
+        const dataIndex = parseInt(swatch.getAttribute("data-thumbnail-index"));
+
+        if (dataIndex === thumbnailIndex) {
+          // Xóa active state từ tất cả color swatches
+          colorSwatches.forEach((s) => {
+            s.classList.remove("active");
+            s.setAttribute("aria-checked", "false");
+          });
+
+          // Kích hoạt swatch tương ứng
+          swatch.classList.add("active");
+          swatch.setAttribute("aria-checked", "true");
+
+          // Cập nhật text màu
+          const color = swatch.getAttribute("data-color");
+          if (selectedColor) {
+            selectedColor.textContent = color;
+          }
+
+          // Animation effect
+          swatch.style.transform = "scale(1.15)";
+          setTimeout(() => {
+            swatch.style.transform = "";
+          }, 200);
+        }
+      });
     },
   };
 
