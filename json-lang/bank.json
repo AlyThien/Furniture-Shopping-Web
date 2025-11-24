@@ -1,0 +1,21 @@
+{
+  "en": {
+    "bank-wishlist": "Wishlist",
+    "bank-payment-title": "Payment to Haguchi",
+    "bank-subtitle": "Please send your payment details so Haguchi can verify them.",
+    "bank-detail-title": "Payment detail:",
+    "bank-detail-note": "Please send a picture of the bank transfer details.",
+    "bank-import-image": "Import Image",
+    "bank-continue": "Continue"
+  },
+  
+  "vi": {
+    "bank-wishlist": "Danh sách yêu thích",
+    "bank-payment-title": "Thanh toán cho Haguchi",
+    "bank-subtitle": "Vui lòng gửi thông tin thanh toán để Haguchi có thể xác minh.",
+    "bank-detail-title": "Chi tiết thanh toán:",
+    "bank-detail-note": "Vui lòng gửi hình ảnh chi tiết chuyển khoản ngân hàng.",
+    "bank-import-image": "Tải ảnh lên",
+    "bank-continue": "Tiếp tục"
+  }
+}

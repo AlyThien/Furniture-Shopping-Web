@@ -1,0 +1,25 @@
+{
+  "en": {
+    "typologies-title": "TYPOLOGIES",
+    "typology-bed": "Bed",
+    "typology-armchair": "Armchair",
+    "typology-couch": "Couch",
+    "typology-wardrobe": "Wardrobe",
+    "typology-chair": "Chair",
+    "typology-storage": "Storage & shelving",
+    "typology-dining": "Dining table",
+    "typology-sidetable": "Side - coffee table"
+  },
+
+  "vi": {
+    "typologies-title": "DANH MỤC SẢN PHẨM",
+    "typology-bed": "Giường",
+    "typology-armchair": "Ghế bành",
+    "typology-couch": "Sofa",
+    "typology-wardrobe": "Tủ quần áo",
+    "typology-chair": "Ghế",
+    "typology-storage": "Tủ & Kệ",
+    "typology-dining": "Bàn ăn",
+    "typology-sidetable": "Bàn phụ - Bàn cà phê"
+  }
+}

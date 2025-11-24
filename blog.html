@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fresh Posts - Blog</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/blog.css" />
+  </head>
+  <body data-page="blog">
+    <!--Nhóm 9: Phần Header-->
+    <header>
+      <div class="Logo">
+        <p>
+          <a href="index.html"
+            ><em>Haguchi</em><br />
+            葉具家</a
+          >
+        </p>
+      </div>
+      <nav class="Main-Menu">
+        <!--Nhóm 9: Thanh điều hướng chính-->
+        <ul>
+          <li>
+            <a href="typologies.html" data-i18n="nav-products">Products</a>
+          </li>
+          <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
+          <li>
+            <a href="blog.html" class="active" data-i18n="nav-blog">Blog</a>
+          </li>
+          <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
+        </ul>
+      </nav>
+      <nav class="Sub-Menu">
+        <!--Nhóm 9: Thanh điều hướng phụ-->
+        <ul>
+          <li>
+            <form id="search-box">
+              <!--Nhóm 9: Nút tìm kiếm-->
+              <input
+                type="text"
+                id="search-text"
+                placeholder="Search..."
+                data-i18n="search-placeholder"
+              />
+              <button id="search-btn">
+                <span class="fluent--search-12-filled"></span>
+              </button>
+            </form>
+          </li>
+          <li id="Wishlist">
+            <!--Nhóm 9: Giỏ yêu thích-->
+            <a href="wishlist_index.html">
+              <span class="solar--heart-bold"></span>
+              <span class="wishlist-count">0</span>
+            </a>
+          </li>
+          <li id="User">
+            <!--Nhóm 9: Tài khoản người dùng-->
+            <!--Nhóm 9: Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa-->
+            <a href="personal-info.html" id="user-avatar-link">
+              <img
+                id="header-user-avatar"
+                class="header-avatar"
+                src="images/image 2.png"
+                alt="User Avatar"
+                style="display: none"
+              />
+              <span id="header-default-icon" class="solar--user-bold"></span>
+            </a>
+          </li>
+          <li class="lang-switcher">
+            <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
+            <div class="lang-toggle">
+              <input
+                type="radio"
+                id="lang-en"
+                name="site-lang"
+                checked
+                onchange="changeLanguage('en')"
+              />
+              <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
+              <input
+                type="radio"
+                id="lang-vi"
+                name="site-lang"
+                onchange="changeLanguage('vi')"
+              />
+              <div class="lang-track">
+                <!--Nhóm 9: Thanh trượt ngôn ngữ-->
+                <label for="lang-en" class="lang-opt lang-en">EN</label>
+                <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                <div class="lang-knob" aria-hidden="true"></div>
+                <!--Nhóm 9: Nút trượt ngôn ngữ-->
+              </div>
+            </div>
+          </li>
+          <li><span class="icomoon-free--leaf"></span></li>
+          <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
+        </ul>
+      </nav>
+    </header>
+
+    <div data-scroll="fade-up" class="container">
+      <h1 data-scroll="fade-up" data-i18n="blog-title">FRESH POSTS</h1>
+
+      <div data-scroll="fade-up" class="blog-grid">
+        <!-- Nhóm 9: Featured Post -->
+        <div data-scroll="fade-up" class="blog-card featured">
+          <div data-scroll="fade-up" class="card-content">
+            <div class="date" data-i18n="date1">Oct 21, 2025</div>
+            <h2 class="blog-title" data-i18n="name1">CASE STUDY: IMPRONTA</h2>
+            <div class="blog-brand">
+              <span class="brand-icon"></span>
+              <span>awwwards.</span>
+            </div>
+            <p class="blog-excerpt" data-i18n="preview1">
+              IMPRONTA: Architecture, Product, and Digital in a Single Gesture A
+              lightweight interface for dense content...
+            </p>
+            <a href="blog-mau.html" class="read-more" data-i18n="call-to-action"
+              >→Read Article</a
+            >
+          </div>
+          <img
+            data-scroll="fade-up"
+            src="images/blog/impronta.png"
+            alt="Impronta"
+            class="blog-image"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Nhóm 9: Two Column Row -->
+        <div data-scroll="fade-up" class="blog-card two-column">
+          <div data-scroll="fade-up" class="card-content">
+            <div class="date" data-i18n="date2">Oct 8, 2025</div>
+            <h2 class="blog-title" data-i18n="name2">
+              Immersive Experience for Cartier Spencer
+            </h2>
+            <div class="blog-brand">
+              <span class="brand-icon"></span>
+              <span>Zajno</span>
+            </div>
+            <img
+              src="images/blog/immersive expensive.png"
+              alt="Cartier"
+              class="blog-image"
+              loading="lazy"
+            />
+            <p class="blog-excerpt" data-i18n="preview2">
+              Introduction For the 2025 edition of Watches and Wonders in
+              Geneva, Cartier entrusted us with reimagining their digital
+              storytelling...
+            </p>
+            <a href="#" class="read-more" data-i18n="call-to-action"
+              >→Read Article</a
+            >
+          </div>
+
+          <div data-scroll="fade-up" class="card-content">
+            <div class="date" data-i18n="date3">Sep 3, 2025</div>
+            <h2 class="blog-title" data-i18n="name3">
+              A fancy lifestyle in creating living space
+            </h2>
+            <div class="blog-brand">
+              <span class="brand-icon"></span>
+              <span>Zajno</span>
+            </div>
+            <img
+              src="images/blog/a fancy livestyle.png"
+              alt="Living Space"
+              class="blog-image"
+              loading="lazy"
+            />
+            <p class="blog-excerpt" data-i18n="preview3">
+              Introduction Robot is a South African production agency with a
+              talent for breaking rules and making it look effortless...
+            </p>
+            <a href="#" class="read-more" data-i18n="call-to-action"
+              >→Read Article</a
+            >
+          </div>
+        </div>
+
+        <!-- Nhóm 9: Single Column Row -->
+        <div data-scroll="fade-up" class="blog-card featured">
+          <div data-scroll="fade-up" class="card-content">
+            <div class="date" data-i18n="date4">Jun 17, 2025</div>
+            <h2 class="blog-title" data-i18n="name4">
+              A digital canvas for Palmer Dinnerware
+            </h2>
+            <div class="blog-brand">
+              <span class="brand-icon"></span>
+              <span>awwwards.</span>
+            </div>
+            <p class="blog-excerpt" data-i18n="preview4">
+              Introduction Palmer Dinnerware creates ceramic pieces that bring
+              life to dining tables around the world...
+            </p>
+            <a href="#" class="read-more" data-i18n="call-to-action"
+              >→Read Article</a
+            >
+          </div>
+          <img
+            src="images/blog/a digital canvas.png"
+            alt="Palmer Dinnerware"
+            class="blog-image"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Nhóm 9: Two Column Row -->
+        <div data-scroll="fade-up" class="blog-card two-column">
+          <div data-scroll="fade-up" class="card-content">
+            <div class="date" data-i18n="date5">Aug 12, 2025</div>
+            <h2 class="blog-title" data-i18n="name5">
+              Why do we want to call ourselves Haguchi
+            </h2>
+            <div class="blog-brand">
+              <span class="brand-icon"></span>
+              <span>Zajno</span>
+            </div>
+            <img
+              src="images/blog/why do we call.png"
+              alt="Haguchi"
+              class="blog-image"
+              loading="lazy"
+            />
+            <p class="blog-excerpt" data-i18n="preview5">
+              "Please Call Us Haguchi" is a freelancer who created the IP of the
+              same name under the identity of a studio...
+            </p>
+            <a href="#" class="read-more" data-i18n="call-to-action"
+              >→Read Article</a
+            >
+          </div>
+
+          <div data-scroll="fade-up" class="card-content">
+            <div class="date" data-i18n="date6">Aug 8, 2025</div>
+            <h2 class="blog-title" data-i18n="name6">
+              Balancing our Livestyle & Living space
+            </h2>
+            <div class="blog-brand">
+              <span class="brand-icon"></span>
+              <span>Zajno</span>
+            </div>
+            <img
+              src="images/blog/Balacing our livestyle.png"
+              alt="Living Space Balance"
+              class="blog-image"
+              loading="lazy"
+            />
+            <p class="blog-excerpt" data-i18n="preview6">
+              Telling Their History Through Design Our long-standing partner, an
+              organization challenging injustice through media,...
+            </p>
+            <a href="#" class="read-more" data-i18n="call-to-action"
+              >→Read Article</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Nhóm 9: Pagination -->
+      <div data-scroll="fade-up" class="pagination">
+        <a data-scroll="fade-up" href="blog.html" class="arrow">←</a>
+
+        <span data-scroll="fade-up" class="dot active"></span>
+        <span data-scroll="fade-up" class="dot"></span>
+        <span data-scroll="fade-up" class="dot"></span>
+        <span data-scroll="fade-up" class="dot"></span>
+        <span data-scroll="fade-up" class="dot"></span>
+
+        <a data-scroll="fade-up" href="blog-2.html" class="arrow">→</a>
+      </div>
+
+      <!--Nhóm 9: Phần quay lại đầu trang-->
+      <img
+        data-scroll="fade-up"
+        id="btn-top"
+        src="images/return_to_top.png"
+        alt="Return to top"
+      />
+    </div>
+
+    <!--Nhóm 9: Phần footer-->
+    <footer data-scroll="fade-up">
+      <div class="footer-logo">
+        <div><em>Haguchi</em></div>
+        <div>葉具家</div>
+      </div>
+      <div class="footer-content">
+        <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
+        <div class="footer-section">
+          <h3 data-i18n="nav-about">About Us</h3>
+          <ul>
+            <li data-i18n="footer-aboutus">
+              Bringing elegance and comfort to your home with high-quality
+              furniture designed for modern living
+            </li>
+            <li data-i18n="footer-aboutus-add">
+              📍 123 Harmony Street, District 1, Ho Chi Minh City
+            </li>
+            <li>📞 (+84) 123 456 789</li>
+            <li>📧 support@haguchi.com</li>
+            <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-categories">Shop by Category</h3>
+          <ul>
+            <li>
+              <a href="couch.html" data-i18n="footer-categories-sofa"
+                >Sofas & Armchairs</a
+              >
+            </li>
+            <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
+            <li>
+              <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
+            </li>
+            <li>
+              <a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
+            </li>
+            <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+            <li>
+              <a data-i18n="footer-categories-new">New Arrivals / Promotions</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-policies">Policies & Support</h3>
+          <ul>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-warranty"
+                >Warranty Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-return"
+                >Return & Exchange</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-shipping"
+                >Shipping Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-order"
+                >How to Order</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-privacy"
+                >Privacy Policy</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 HAGUCHI – All rights reserved.</span>
+        <div class="social-icons">
+          <div class="social-icon">f</div>
+          <div class="social-icon">in</div>
+          <div class="social-icon">t</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/lang-change.js"></script>
+    <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ-->
+    <script src="js/common.js"></script>
+    <!--Nhóm 9: Liên kết file JS chung-->
+    <script src="js/blog.js"></script>
+    <!--Nhóm 9: Liên kết file JS riêng cho blog-->
+    <script src="js/animations.js"></script>
+  </body>
+</html>

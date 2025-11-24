@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Case study of Impronta website - Architecture, Product, and Digital in a Single Gesture"
+    />
+    <title>Case Study: Impronta - Blog</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/blog-mau.css" />
+  </head>
+  <body data-page="blog-mau">
+    <!--Nhóm 9: Phần Header-->
+    <header>
+      <div class="Logo">
+        <p>
+          <a href="index.html"
+            ><em>Haguchi</em><br />
+            葉具家</a
+          >
+        </p>
+      </div>
+      <nav class="Main-Menu">
+        <!--Nhóm 9: Thanh điều hướng chính-->
+        <ul>
+          <li>
+            <a href="typologies.html" data-i18n="nav-products">Products</a>
+          </li>
+          <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
+          <li>
+            <a href="blog.html" class="active" data-i18n="nav-blog">Blog</a>
+          </li>
+          <li>
+            <a href="policy_index.html" data-i18n="nav-policies">Policies</a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="Sub-Menu">
+        <!--Nhóm 9: Thanh điều hướng phụ-->
+        <ul>
+          <li>
+            <form id="search-box">
+              <!--Nhóm 9: Nút tìm kiếm-->
+              <input
+                type="text"
+                id="search-text"
+                placeholder="Search..."
+                data-i18n="search-placeholder"
+              />
+              <button id="search-btn">
+                <span class="fluent--search-12-filled"></span>
+              </button>
+            </form>
+          </li>
+          <li id="Wishlist">
+            <!--Nhóm 9: Giỏ yêu thích-->
+            <a href="wishlist_index.html">
+              <span class="solar--heart-bold"></span>
+              <span class="wishlist-count">0</span>
+            </a>
+          </li>
+          <li id="User">
+            <!--Nhóm 9: Tài khoản người dùng-->
+            <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
+            <a href="personal-info.html" id="user-avatar-link">
+              <img
+                id="header-user-avatar"
+                class="header-avatar"
+                src=""
+                alt="User Avatar"
+                style="display: none"
+              />
+              <span id="header-default-icon" class="solar--user-bold"></span>
+            </a>
+          </li>
+          <li class="lang-switcher">
+            <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
+            <div class="lang-toggle">
+              <input
+                type="radio"
+                id="lang-en"
+                name="site-lang"
+                checked
+                onchange="changeLanguage('en')"
+              />
+              <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
+              <input
+                type="radio"
+                id="lang-vi"
+                name="site-lang"
+                onchange="changeLanguage('vi')"
+              />
+              <div class="lang-track">
+                <!--Nhóm 9: Thanh trượt ngôn ngữ-->
+                <label for="lang-en" class="lang-opt lang-en">EN</label>
+                <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                <div class="lang-knob" aria-hidden="true"></div>
+                <!--Nhóm 9: Nút trượt ngôn ngữ-->
+              </div>
+            </div>
+          </li>
+          <li><span class="icomoon-free--leaf"></span></li>
+          <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
+        </ul>
+      </nav>
+    </header>
+
+    <!--Nhóm 9: Phần nội dung chính của trang case study-->
+    <main data-scroll="fade-up" class="case-study-page">
+      <main data-scroll="fade-up" class="page-header">
+        <div data-scroll="fade-up" class="header__title-block">
+          <time class="header__date" datetime="2025-10-21" data-i18n="date"
+            >Oct 21, 2025<br
+          /></time>
+          <h1 class="header__main-title" data-i18n="case-study-title">
+            CASE STUDY: IMPRONTA
+          </h1>
+        </div>
+        <img
+          data-scroll="fade-up"
+          class="header__logo"
+          src="images/blog-mau/logo.png"
+          alt="Company Logo"
+        />
+      </main>
+
+      <article data-scroll="fade-up" class="page-content">
+        <img
+          data-scroll="fade-up"
+          class="content__hero-image"
+          src="images/blog-mau/hình 1.png"
+          alt="Impronta website hero image"
+        />
+
+        <section data-scroll="fade-up" class="content__intro-section">
+          <h2
+            data-scroll="fade-up"
+            class="intro-section__heading"
+            data-i18n="intro-heading"
+          >
+            IMPRONTA: Architecture, Product, and Digital in a Single Gesture
+          </h2>
+
+          <p
+            data-scroll="fade-up"
+            class="content__sub-paragraph"
+            data-i18n="intro-paragraph"
+          >
+            A lightweight interface for dense content. Impronta's
+            <a
+              href="https://www.awwwards.com/sites/impronta"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="content__inline-link"
+            >
+              website</a
+            >
+            turns a complex technical world into a digital experience that is
+            orderly, fluid, and measured —where every visual detail serves
+            clarity.
+          </p>
+        </section>
+
+        <img
+          data-scroll="fade-up"
+          class="content__standard-image"
+          src="images/blog-mau/hình 2.png"
+          alt="Impronta interior design showcase"
+        />
+
+        <section data-scroll="fade-up" class="content__quote-section">
+          <blockquote
+            data-scroll="fade-up"
+            class="quote-section__text"
+            data-i18n="quote-text"
+          >
+            "The elegance of an interface lies in its transparency — when it's
+            there, but not seen"
+          </blockquote>
+          <h2
+            data-scroll="fade-up"
+            class="quote-section__heading"
+            data-i18n="section-1-heading"
+          >
+            Making the Whole Feel Simple Without <br />Oversimplifying the
+            Content
+          </h2>
+          <p
+            data-scroll="fade-up"
+            class="content__sub-paragraph"
+            data-i18n="section-1-paragraph"
+          >
+            The project began with a clear challenge: making highly technical
+            content intuitive — opening systems, finishes, options, materials.
+            We created a clear visual hierarchy, a lightweight interface, and a
+            modular navigation logic that guides users without overwhelming
+            them.
+          </p>
+        </section>
+
+        <img
+          data-scroll="fade-up"
+          class="content__standard-image"
+          src="images/blog-mau/hình 3.png"
+          alt="Modular design system visualization"
+        />
+
+        <section data-scroll="fade-up" class="content__main-text-block">
+          <h2 data-scroll="fade-up" data-i18n="section-2-heading">
+            Modular Structure, Coherent Voice
+          </h2>
+          <p data-scroll="fade-up" data-i18n="section-2-paragraph-1">
+            We started with structure: a fully modular, configurable system that
+            allows the Impronta team to build and update content independently,
+            while maintaining consistency and precision. This approach enabled
+            us to manage a large amount of information and shape it into an
+            essential digital narrative. Every section, every component has a
+            clear purpose. Nothing is ornamental, nothing is random. Even the
+            animations — subtle, purposeful, never intrusive — follow this
+            logic: not made to impress, but to guide. The result is a website
+            that doesn't show off — it shows method.
+          </p>
+          <h3 data-scroll="fade-up" data-i18n="section-3-heading">
+            Technologies and development
+          </h3>
+          <p data-i18n="section-3-paragraph">
+            We chose
+            <a
+              data-scroll="fade-up"
+              href="https://nuxt.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Nuxt.js</a
+            >, a Vue.js-based framework, for its performance and reliability.
+            Content is managed with
+            <a
+              data-scroll="fade-up"
+              href="https://strapi.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Strapi</a
+            >, an open-source headless CMS connected via GraphQL APIs — a setup
+            that ensures flexibility and consistency in how information is
+            delivered. The website is structured around reusable modular blocks,
+            designed to be freely combined while maintaining visual coherence.
+            For animations, we used GSAP, specifically the Flip and SplitText
+            plugins, to achieve smooth transitions and refined
+            micro-interactions.
+          </p>
+          <h3 data-scroll="fade-up" data-i18n="section-4-heading">
+            Company Info
+          </h3>
+          <p data-scroll="fade-up" data-i18n="section-4-paragraph">
+            ET Studio is an independent creative studio driven by beauty and
+            meaning. It designs custom digital experiences — websites, visual
+            identities, branding strategies, and content — for brands of all
+            kinds, from established companies to emerging projects. Each work is
+            a carefully designed narrative system, where aesthetics and meaning
+            stay in balance. Design, copywriting, and education are the tools it
+            uses to build experiences that inspire, clarify, and improve
+            everyday.
+          </p>
+          <h3 data-scroll="fade-up" data-i18n="section-5-heading">
+            What was the biggest challenge about making this website?
+          </h3>
+          <p data-scroll="fade-up" data-i18n="section-5-paragraph">
+            Handling a large volume of technical content without making the
+            experience feel heavy. Every element had to be informative but also
+            lightweight, modular, and easy to explore. It was a constant
+            balancing act.
+          </p>
+          <h3 data-scroll="fade-up" data-i18n="section-6-heading">
+            Share a tip about making this website.
+          </h3>
+          <p data-scroll="fade-up" data-i18n="section-6-paragraph">
+            Start from structure. A solid modular system can simplify complexity
+            and give your content the space it needs.
+          </p>
+          <h3 data-scroll="fade-up" data-i18n="section-7-heading">
+            What did you learn when making this website?
+          </h3>
+          <p data-scroll="fade-up" data-i18n="section-7-paragraph">
+            That you can combine depth with clarity. And that working on
+            multiple brand touchpoints — like the website and catalogue — at the
+            same time strengthens consistency.
+          </p>
+        </section>
+      </article>
+
+      <!--Nhóm 9: Phần quay lại đầu trang-->
+      <img
+        data-scroll="fade-up"
+        id="btn-top"
+        src="images/return_to_top.png"
+        alt="Return to top"
+      />
+
+      <!--Nhóm 9: Phần footer-->
+      <footer data-scroll="fade-up">
+        <div class="footer-logo">
+          <div><em>Haguchi</em></div>
+          <div>葉具家</div>
+        </div>
+        <div class="footer-content">
+          <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
+          <div class="footer-section">
+            <h3 data-i18n="nav-about">About Us</h3>
+            <ul>
+              <li data-i18n="footer-aboutus">
+                Bringing elegance and comfort to your home with high-quality
+                furniture designed for modern living
+              </li>
+              <li data-i18n="footer-aboutus-add">
+                📍 123 Harmony Street, District 1, Ho Chi Minh City
+              </li>
+              <li>📞 (+84) 123 456 789</li>
+              <li>📧 support@haguchi.com</li>
+              <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3 data-i18n="footer-categories">Shop by Category</h3>
+            <ul>
+              <li>
+                <a href="couch.html" data-i18n="footer-categories-sofa"
+                  >Sofas & Armchairs</a
+                >
+              </li>
+              <li>
+                <a href="#" data-i18n="footer-categories-dining"
+                  >Dining Tables</a
+                >
+              </li>
+              <li>
+                <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
+              </li>
+              <li>
+                <a href="#" data-i18n="footer-categories-cabinet"
+                  >Cabinets & Shelves</a
+                >
+              </li>
+              <li>
+                <a href="#" data-i18n="footer-categories-decor"
+                  >Lighting & Decor</a
+                >
+              </li>
+              <li>
+                <a href="#" data-i18n="footer-categories-new"
+                  >New Arrivals / Promotions</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3 data-i18n="footer-policies">Policies & Support</h3>
+            <ul>
+              <li>
+                <a href="policy_index.html" data-i18n="footer-policies-warranty"
+                  >Warranty Policy</a
+                >
+              </li>
+              <li>
+                <a href="policy_index.html" data-i18n="footer-policies-return"
+                  >Return & Exchange</a
+                >
+              </li>
+              <li>
+                <a href="policy_index.html" data-i18n="footer-policies-shipping"
+                  >Shipping Policy</a
+                >
+              </li>
+              <li>
+                <a href="policy_index.html" data-i18n="footer-policies-order"
+                  >How to Order</a
+                >
+              </li>
+              <li>
+                <a href="policy_index.html" data-i18n="footer-policies-privacy"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 HAGUCHI – All rights reserved.</span>
+          <div class="social-icons">
+            <div class="social-icon">f</div>
+            <div class="social-icon">in</div>
+            <div class="social-icon">t</div>
+          </div>
+        </div>
+      </footer>
+
+      <script src="js/lang-change.js"></script>
+      <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+      <script src="js/common.js"></script>
+      <!--Nhóm 9:  Liên kết file JS chung -->
+      <script src="js/blog-mau.js"></script>
+      <script src="js/animations.js"></script>
+    </main>
+  </body>
+</html>

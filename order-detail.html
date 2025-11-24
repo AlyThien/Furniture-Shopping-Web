@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Details - Haguchi</title>
+    <link rel="stylesheet" href="css/order-detail.css" />
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+
+  <body data-page="order-detail">
+    <!--Nhóm 9: Phần Header-->
+    <header>
+      <div class="Logo">
+        <p>
+          <a href="index.html"
+            ><em>Haguchi</em><br />
+            葉具家</a
+          >
+        </p>
+      </div>
+      <nav class="Main-Menu">
+        <!--Nhóm 9: Thanh điều hướng chính-->
+        <ul>
+          <li>
+            <a href="typologies.html" data-i18n="nav-products">Products</a>
+          </li>
+          <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
+          <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
+          <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
+        </ul>
+      </nav>
+
+      <nav class="Sub-Menu">
+        <!--Nhóm 9: Thanh điều hướng phụ-->
+        <ul>
+          <li>
+            <form id="search-box">
+              <!--Nhóm 9: Nút tìm kiếm-->
+              <input
+                type="text"
+                id="search-text"
+                placeholder="Search..."
+                data-i18n="search-placeholder"
+              />
+              <button id="search-btn">
+                <span class="fluent--search-12-filled"></span>
+              </button>
+            </form>
+          </li>
+          <li id="Wishlist">
+            <!--Nhóm 9: Giỏ yêu thích-->
+            <a href="wishlist_index.html">
+              <span class="solar--heart-bold"></span>
+              <span class="wishlist-count">0</span>
+            </a>
+          </li>
+          <li id="User">
+            <!--Nhóm 9: Tài khoản người dùng-->
+            <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
+            <a href="personal-info.html" id="user-avatar-link">
+              <img
+                id="header-user-avatar"
+                class="header-avatar"
+                src=""
+                alt="User Avatar"
+                style="display: none"
+              />
+              <span id="header-default-icon" class="solar--user-bold"></span>
+            </a>
+          </li>
+          <li class="lang-switcher">
+            <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
+            <div class="lang-toggle">
+              <input
+                type="radio"
+                id="lang-en"
+                name="site-lang"
+                checked
+                onchange="changeLanguage('en')"
+              />
+              <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
+              <input
+                type="radio"
+                id="lang-vi"
+                name="site-lang"
+                onchange="changeLanguage('vi')"
+              />
+              <div class="lang-track">
+                <!--Nhóm 9: Thanh trượt ngôn ngữ-->
+                <label for="lang-en" class="lang-opt lang-en">EN</label>
+                <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                <div class="lang-knob" aria-hidden="true"></div>
+                <!--Nhóm 9: Nút trượt ngôn ngữ-->
+              </div>
+            </div>
+          </li>
+          <li><span class="icomoon-free--leaf"></span></li>
+          <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
+        </ul>
+      </nav>
+    </header>
+
+    <!--Nhóm 9: Phần khung chính -->
+    <section data-scroll="fade-up" class="container">
+      <!--Nhóm 9: Tình trạng sản phẩm -->
+      <div data-scroll="fade-up" class="order-status-container">
+        <div class="status-header">
+          <div class="status-icon">
+            <svg
+              width="120"
+              height="120"
+              viewBox="0 0 120 120"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="60" cy="60" r="60" fill="#0B2D21" />
+              <path
+                d="M35 60L52 77L85 44"
+                stroke="white"
+                stroke-width="8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <h1 data-i18n="order-completed">Order Completed</h1>
+          <p class="order-id">
+            <span data-i18n="order-id-label">Order ID:</span> HG2024110001
+          </p>
+        </div>
+
+        <!--Nhóm 9: Theo dõi đơn hàng -->
+        <div data-scroll="fade-up" class="timeline">
+          <div class="timeline-item completed">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 data-i18n="status-placed">Order placed</h3>
+              <p class="timestamp">08-11-2025 18:42</p>
+            </div>
+          </div>
+
+          <div class="timeline-item inactive">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 data-i18n="status-processing">Order is being processed</h3>
+            </div>
+          </div>
+
+          <div class="timeline-item inactive">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 data-i18n="status-packed">Order has been packed</h3>
+            </div>
+          </div>
+
+          <div class="timeline-item inactive">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 data-i18n="status-shipping">Order is on the way</h3>
+            </div>
+          </div>
+
+          <div class="timeline-item inactive">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 data-i18n="status-delivered">Order successfully delivered</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Nhóm 9: Xem sản phẩm -->
+      <div data-scroll="fade-up" class="products-section">
+        <h2 class="section-title" data-i18n="products-ordered">
+          Products Ordered
+        </h2>
+
+        <div class="product-list">
+          <div class="product-item">
+            <img
+              src="images/product/10.png"
+              alt="L-shaped Sofa NF201"
+              class="product-image"
+            />
+            <div class="product-info">
+              <p class="product-name">L-shaped Sofa NF201</p>
+              <p class="product-specs">
+                <span data-i18n="color-label">Color:</span> White |
+                <span data-i18n="quantity-label">Quantity:</span> 1
+              </p>
+            </div>
+            <div class="product-price">11,000,000 VND</div>
+          </div>
+        </div>
+
+        <!--Nhóm 9: Hoá đơn -->
+        <div data-scroll="fade-up" class="price-summary">
+          <div class="price-row">
+            <span data-i18n="subtotal-label">Subtotal</span>
+            <span>11.000.000 VND</span>
+          </div>
+          <div class="price-row">
+            <span data-i18n="taxes-label">Taxes</span>
+            <span>1.000.000 VND</span>
+          </div>
+          <div class="price-row total">
+            <span data-i18n="total-label">Total</span>
+            <span>12.000.000 VND</span>
+          </div>
+        </div>
+      </div>
+
+      <!--Nhóm 9: Địa chỉ giao hàng -->
+      <div data-scroll="fade-up" class="delivery-section">
+        <h2 class="section-title" data-i18n="delivery-address">
+          Delivery Address
+        </h2>
+        <div class="address-card">
+          <p class="address-name">Vân Nguyễn</p>
+          <p class="address-phone">09123456789</p>
+          <p class="address-detail">
+            Tân Đồng, Thành phố Đồng Xoài, Tỉnh Bình Phước
+          </p>
+        </div>
+      </div>
+
+      <!--Nhóm 9: Thông tin giao dịch và vận chuyển -->
+      <div data-scroll="fade-up" class="payment-shipping-section">
+        <h2 class="section-title" data-i18n="payment-shipping">
+          Payment & Shipping Method
+        </h2>
+
+        <div class="payment-shipping-grid">
+          <div class="info-card">
+            <p class="info-label" data-i18n="payment-method-label">
+              PAYMENT METHOD
+            </p>
+            <p class="info-value">
+              🏦
+              <span data-i18n="payment-method-bank"
+                >Bank Transfer (VietQR)</span
+              >
+            </p>
+          </div>
+          <div class="info-card">
+            <p class="info-label" data-i18n="shipping-method-label">
+              SHIPPING METHOD
+            </p>
+            <p class="info-value">
+              🚚
+              <span data-i18n="shipping-method-standard"
+                >Standard Delivery</span
+              >
+            </p>
+          </div>
+        </div>
+
+        <div data-scroll="fade-up" class="payment-shipping-grid">
+          <div class="info-card">
+            <p class="info-label" data-i18n="payment-status-label">
+              PAYMENT STATUS
+            </p>
+            <p class="info-value">
+              ✓ <span data-i18n="payment-status-paid">Paid</span>
+            </p>
+          </div>
+          <div class="info-card">
+            <p class="info-label" data-i18n="order-time-label">ORDER TIME</p>
+            <p class="info-value">08-11-2025 18:42</p>
+          </div>
+        </div>
+      </div>
+      <!--Nhóm 9: Call to action -->
+      <div data-scroll="fade-up" class="actions-section">
+        <button
+          id="contactSellerBtn"
+          class="btn btn-outline"
+          data-i18n="contact-seller-btn"
+        >
+          CONTACT SELLER
+        </button>
+        <button
+          id="buyAgainBtn"
+          class="btn btn-primary"
+          data-i18n="buy-again-btn"
+        >
+          BUY AGAIN
+        </button>
+      </div>
+    </section>
+
+    <!--Nhóm 9: Phần quay lại đầu trang-->
+    <img
+      data-scroll="fade-up"
+      id="btn-top"
+      src="images/return_to_top.png"
+      alt="Return to top"
+    />
+
+    <!--Nhóm 9: Phần footer-->
+    <footer data-scroll="fade-up">
+      <div class="footer-logo">
+        <div><em>Haguchi</em></div>
+        <div>葉具家</div>
+      </div>
+      <div class="footer-content">
+        <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
+        <div class="footer-section">
+          <h3 data-i18n="nav-about">About Us</h3>
+          <ul>
+            <li data-i18n="footer-aboutus">
+              Bringing elegance and comfort to your home with high-quality
+              furniture designed for modern living
+            </li>
+            <li data-i18n="footer-aboutus-add">
+              📍 123 Harmony Street, District 1, Ho Chi Minh City
+            </li>
+            <li>📞 (+84) 123 456 789</li>
+            <li>📧 support@haguchi.com</li>
+            <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-categories">Shop by Category</h3>
+          <ul>
+            <li>
+              <a href="couch.html" data-i18n="footer-categories-sofa"
+                >Sofas & Armchairs</a
+              >
+            </li>
+            <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
+            <li>
+              <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
+            </li>
+            <li>
+              <a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
+            </li>
+            <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+            <li>
+              <a data-i18n="footer-categories-new">New Arrivals / Promotions</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-policies">Policies & Support</h3>
+          <ul>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-warranty"
+                >Warranty Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-return"
+                >Return & Exchange</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-shipping"
+                >Shipping Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-order"
+                >How to Order</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-privacy"
+                >Privacy Policy</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 HAGUCHI – All rights reserved.</span>
+        <div class="social-icons">
+          <div class="social-icon">f</div>
+          <div class="social-icon">in</div>
+          <div class="social-icon">t</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/lang-change.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="js/common.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="js/order-detail.js"></script>
+    <script src="js/animations.js"></script>
+  </body>
+</html>

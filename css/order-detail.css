@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+/* ===== NHOM 9 - CSS VARIABLES ===== */
+:root {
+    --font-primary: 'Roboto Serif', serif;
+    --font-secondary: 'Nunito', sans-serif;
+}
+
+/* ===== NHOM 9 - RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== NHOM 9 - BODY ===== */
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(to bottom, #EEF9E5, #61A38C);
+    color: #1D3227;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ===== NHOM 9 - CONTAINER ===== */
+.container {
+    max-width: 900px;
+    margin: 80px auto 0;
+    padding: 20px;
+}
+
+/* ===== NHOM 9 - SHARED CARD STYLES ===== */
+.order-status-container,
+.products-section,
+.payment-shipping-section,
+.delivery-section {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    font-size: 20px;
+    color: #0B2D21;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-bottom: 2px solid #0B2D21;
+    padding-bottom: 12px;
+}
+
+/* ===== NHOM 9 - ORDER STATUS SECTION ===== */
+.status-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.status-icon {
+    margin-bottom: 20px;
+    animation: statusPulse 0.6s ease-out;
+}
+
+.status-icon svg {
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0 4px 12px rgba(11, 45, 33, 0.2));
+}
+
+@keyframes statusPulse {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.status-header h1 {
+    font-size: 32px;
+    color: #0B2D21;
+    margin-bottom: 8px;
+}
+
+.order-id {
+    color: #999999;
+    font-size: 16px;
+}
+
+/* ===== NHOM 9 - TIMELINE ===== */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border-left: 3px solid #E0E0E0;
+    position: relative;
+    align-items: flex-start;
+}
+
+.timeline-item.completed {
+    border-left-color: #0B2D21;
+    background-color: rgba(11, 45, 33, 0.03);
+}
+
+.timeline-item.completed .timeline-marker {
+    background: #0B2D21;
+    border-color: #0B2D21;
+}
+
+.timeline-item.completed h3,
+.timeline-item.completed .timestamp {
+    color: #0B2D21;
+}
+
+.timeline-item.inactive {
+    opacity: 0.4;
+}
+
+.timeline-marker {
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    border: 3px solid #E0E0E0;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.timeline-content h3 {
+    font-size: 16px;
+    color: #1D3227;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.timeline-content .timestamp {
+    font-size: 14px;
+    color: #999999;
+    font-weight: 500;
+}
+
+/* ===== NHOM 9 - PRODUCTS SECTION ===== */
+.product-list {
+    margin-bottom: 30px;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-image {
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-name {
+    font-size: 16px;
+    color: #1D3227;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.product-specs {
+    font-size: 13px;
+    color: #999999;
+    margin: 0;
+}
+
+.product-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0B2D21;
+    text-align: right;
+    min-width: 150px;
+    flex-shrink: 0;
+}
+
+/* ===== NHOM 9 - PRICE SUMMARY ===== */
+.price-summary {
+    background: #F5F5F5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 15px;
+    color: #999999;
+}
+
+.price-row.total {
+    font-weight: 700;
+    font-size: 18px;
+    color: #0B2D21;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #E0E0E0;
+}
+
+/* ===== NHOM 9 - DELIVERY SECTION ===== */
+.address-card {
+    border-left: 4px solid #0B2D21;
+    padding: 20px;
+    background: #F9F9F9;
+    border-radius: 6px;
+}
+
+.address-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0B2D21;
+    margin-bottom: 8px;
+}
+
+.address-phone {
+    font-size: 13px;
+    color: #0B2D21;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.address-detail {
+    font-size: 14px;
+    color: #999999;
+    line-height: 1.6;
+}
+
+/* ===== NHOM 9 - PAYMENT & SHIPPING SECTION ===== */
+.payment-shipping-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    padding: 15px;
+    background: #F5F5F5;
+    border-radius: 6px;
+}
+
+.info-label {
+    font-size: 12px;
+    color: #999999;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0B2D21;
+    margin: 0;
+}
+
+/* ===== NHOM 9 - ACTIONS SECTION ===== */
+.actions-section {
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 14px 40px;
+    border: 2px solid #0B2D21;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-family: var(--font-secondary);
+}
+
+.btn-outline {
+    background: #ffffff;
+    color: #0B2D21;
+}
+
+.btn-outline:hover {
+    background: #0B2D21;
+    color: #ffffff;
+}
+
+.btn-primary {
+    background: #0B2D21;
+    color: #ffffff;
+    border-color: #0B2D21;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(11, 45, 33, 0.2);
+}
+/* ==================== NHOM 9 - RESPONSIVE: TABLET (768px - 1024px) ==================== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 30px 15px;
+        margin-top: 70px;
+    }
+
+    .order-status-container,
+    .products-section,
+    .payment-shipping-section,
+    .delivery-section,
+    .actions-section {
+        padding: 30px;
+    }
+
+    .status-header h1 {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .timeline-item {
+        padding: 18px;
+        gap: 18px;
+    }
+
+    .timeline-content h3 {
+        font-size: 15px;
+    }
+
+    .product-name {
+        font-size: 15px;
+    }
+
+    .product-specs {
+        font-size: 12px;
+    }
+
+    .product-price {
+        font-size: 16px;
+        min-width: 130px;
+    }
+
+    .price-row {
+        font-size: 14px;
+    }
+
+    .price-row.total {
+        font-size: 16px;
+    }
+
+    .address-name {
+        font-size: 16px;
+    }
+
+    .address-phone {
+        font-size: 14px;
+    }
+
+    .address-detail {
+        font-size: 13px;
+    }
+
+    .btn {
+        padding: 12px 35px;
+        font-size: 14px;
+    }
+
+    .payment-shipping-grid {
+        gap: 15px;
+    }
+
+    .info-card {
+        padding: 12px;
+    }
+
+    .info-label {
+        font-size: 11px;
+    }
+
+    .info-value {
+        font-size: 14px;
+    }
+}
+
+/* ==================== NHOM 9 - RESPONSIVE: MOBILE (480px - 768px) ==================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 12px;
+        margin-top: 60px;
+    }
+
+    .order-status-container,
+    .products-section,
+    .payment-shipping-section,
+    .delivery-section,
+    .actions-section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .status-icon svg {
+        width: 90px;
+        height: 90px;
+    }
+
+    .status-header h1 {
+        font-size: 22px;
+    }
+
+    .order-id {
+        font-size: 13px;
+    }
+
+    .section-title {
+        font-size: 16px;
+        margin-bottom: 18px;
+        padding-bottom: 10px;
+    }
+
+    .timeline-item {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .timeline-marker {
+        width: 18px;
+        height: 18px;
+        border-width: 2px;
+    }
+
+    .timeline-content h3 {
+        font-size: 13px;
+    }
+
+    .timeline-content .timestamp {
+        font-size: 11px;
+    }
+
+    .product-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 15px 0;
+    }
+
+    .product-image {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+    }
+
+    .product-info {
+        width: 100%;
+    }
+
+    .product-name {
+        font-size: 14px;
+    }
+
+    .product-specs {
+        font-size: 11px;
+    }
+
+    .product-price {
+        font-size: 15px;
+        min-width: auto;
+        text-align: left;
+        margin-top: 5px;
+    }
+
+    .price-summary {
+        padding: 15px;
+    }
+
+    .price-row {
+        padding: 8px 0;
+        font-size: 13px;
+    }
+
+    .price-row.total {
+        font-size: 15px;
+        padding-top: 8px;
+    }
+
+    .address-card {
+        padding: 15px;
+    }
+
+    .address-name {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .address-phone {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .address-detail {
+        font-size: 12px;
+    }
+
+    .actions-section {
+        padding: 20px 15px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .payment-shipping-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .info-card {
+        padding: 12px;
+    }
+
+    .info-label {
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+
+    .info-value {
+        font-size: 13px;
+    }
+
+}

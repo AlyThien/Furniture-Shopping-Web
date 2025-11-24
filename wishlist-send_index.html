@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Wishlist - Haguchi</title>
+    <link rel="stylesheet" href="css/wishlist-send.css" />
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+
+  <body data-page="wishlist-send">
+    <!--Nhóm 9: Phần Header-->
+    <header>
+      <div class="Logo">
+        <p>
+          <a href="index.html"
+            ><em>Haguchi</em><br />
+            葉具家</a
+          >
+        </p>
+      </div>
+      <nav class="Main-Menu">
+        <!--Nhóm 9: Thanh điều hướng chính-->
+        <ul>
+          <li>
+            <a href="typologies.html" data-i18n="nav-products">Products</a>
+          </li>
+          <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
+          <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
+          <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
+        </ul>
+      </nav>
+
+      <nav class="Sub-Menu">
+        <!--Nhóm 9: Thanh điều hướng phụ-->
+        <ul>
+          <li>
+            <form id="search-box">
+              <!--Nhóm 9: Nút tìm kiếm-->
+              <input
+                type="text"
+                id="search-text"
+                placeholder="Search..."
+                data-i18n="search-placeholder"
+              />
+              <button id="search-btn">
+                <span class="fluent--search-12-filled"></span>
+              </button>
+            </form>
+          </li>
+          <li id="Wishlist">
+            <!--Nhóm 9: Giỏ yêu thích-->
+            <a href="wishlist_index.html">
+              <span class="solar--heart-bold"></span>
+              <span class="wishlist-count">0</span>
+            </a>
+          </li>
+          <li id="User">
+            <!--Nhóm 9: Tài khoản người dùng-->
+            <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
+            <a href="personal-info.html" id="user-avatar-link">
+              <img
+                id="header-user-avatar"
+                class="header-avatar"
+                src=""
+                alt="User Avatar"
+                style="display: none"
+              />
+              <span id="header-default-icon" class="solar--user-bold"></span>
+            </a>
+          </li>
+          <li class="lang-switcher">
+            <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
+            <div class="lang-toggle">
+              <input
+                type="radio"
+                id="lang-en"
+                name="site-lang"
+                checked
+                onchange="changeLanguage('en')"
+              />
+              <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
+              <input
+                type="radio"
+                id="lang-vi"
+                name="site-lang"
+                onchange="changeLanguage('vi')"
+              />
+              <div class="lang-track">
+                <!--Nhóm 9: Thanh trượt ngôn ngữ-->
+                <label for="lang-en" class="lang-opt lang-en">EN</label>
+                <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                <div class="lang-knob" aria-hidden="true"></div>
+                <!--Nhóm 9: Nút trượt ngôn ngữ-->
+              </div>
+            </div>
+          </li>
+          <li><span class="icomoon-free--leaf"></span></li>
+          <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
+        </ul>
+      </nav>
+    </header>
+
+    <!--Nhóm 9: Phần Wishlist form -->
+    <section data-scroll="fade-up" id="wishlist-form">
+      <div data-scroll="fade-up" class="container">
+        <h1 data-i18n="wishlist-title">Wishlist</h1>
+        <h2 data-i18n="send-wishlist-title">Send Wishlist to Haguchi</h2>
+        <p class="subtitle" data-i18n="send-subtitle">
+          Please fill in this form to send your wishlist
+        </p>
+        <p class="required-note">
+          (<span data-i18n="required-note">Fields marked with</span>
+          <span style="color: #d44">*</span>
+          <span data-i18n="required-note-2">are required</span>)
+        </p>
+
+        <form data-scroll="fade-up" id="paymentForm">
+          <section data-scroll="fade-up" id="contact-info" class="form-section">
+            <h3 data-i18n="contact-info-title">Contact Information:</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label data-i18n="name-label"
+                  >Name <span class="required">*</span></label
+                >
+                <input type="text" name="name" />
+              </div>
+              <div class="form-group">
+                <label data-i18n="surname-label"
+                  >Surname <span class="required">*</span></label
+                >
+                <input type="text" name="surname" />
+              </div>
+            </div>
+            <div data-scroll="fade-up" class="form-row">
+              <div class="form-group">
+                <label data-i18n="phone-label"
+                  >Phone <span class="required">*</span></label
+                >
+                <input type="tel" name="phone" />
+              </div>
+              <div class="form-group">
+                <label data-i18n="email-label"
+                  >Email <span class="required">*</span></label
+                >
+                <input type="email" name="email" />
+              </div>
+            </div>
+          </section>
+
+          <section
+            data-scroll="fade-up"
+            id="delivery-info"
+            class="form-section"
+          >
+            <h3 data-i18n="delivery-info-title">Delivery Information:</h3>
+            <div class="form-group full-width">
+              <label data-i18n="country-label"
+                >Country/Region <span class="required">*</span></label
+              >
+              <select name="country">
+                <option value="" data-i18n="select-country">
+                  Select country
+                </option>
+                <option value="vn" data-i18n="country-vietnam">Vietnam</option>
+                <option value="us" data-i18n="country-us">United States</option>
+                <option value="uk" data-i18n="country-uk">
+                  United Kingdom
+                </option>
+              </select>
+            </div>
+            <div data-scroll="fade-up" class="form-group full-width">
+              <label data-i18n="address-label"
+                >Address <span class="required">*</span></label
+              >
+              <input type="text" name="address" />
+            </div>
+            <div data-scroll="fade-up" class="form-row">
+              <div class="form-group">
+                <label data-i18n="province-label"
+                  >Province <span class="required">*</span></label
+                >
+                <select name="province" id="province">
+                  <option value="" data-i18n="select-province">
+                    Select province
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label data-i18n="city-label"
+                  >City <span class="required">*</span></label
+                >
+                <select name="city" id="city">
+                  <option value="" data-i18n="select-city">Select city</option>
+                </select>
+              </div>
+            </div>
+            <div data-scroll="fade-up" class="checkbox-group">
+              <input type="checkbox" id="save-info" name="saveInfo" />
+              <label for="save-info" data-i18n="save-info-label"
+                >Save this information for next time</label
+              >
+            </div>
+          </section>
+          <!--Nhóm 9: Phần Payment -->
+          <section
+            data-scroll="fade-up"
+            id="payment-section"
+            class="form-section"
+          >
+            <h3 data-i18n="payment-title">Payment:</h3>
+            <p class="payment-note" data-i18n="payment-note">
+              All transactions are secure and encrypted.
+            </p>
+
+            <div data-scroll="fade-up" class="radio-option" id="cod-option">
+              <input type="radio" name="payment" id="cod" value="cod" />
+              <label for="cod" data-i18n="payment-cod"
+                >Cash on Delivery (COD)</label
+              >
+            </div>
+
+            <div data-scroll="fade-up" class="radio-option" id="bank-option">
+              <input
+                type="radio"
+                name="payment"
+                id="bank"
+                value="bank"
+                checked
+              />
+              <label for="bank" data-i18n="payment-bank">Bank Transfer</label>
+            </div>
+
+            <div data-scroll="fade-up" class="qr-section" id="qr-section">
+              <div class="qr-code">
+                <img src="images/image 2.png" alt="QR Code" />
+                <p class="qr-amount">50,000 VND</p>
+                <p class="qr-name">mas</p>
+              </div>
+            </div>
+          </section>
+
+          <button
+            data-scroll="fade-up"
+            type="submit"
+            class="continue-bu"
+            data-i18n="continue-btn"
+          >
+            Continue
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!--Nhóm 9: Phần quay lại đầu trang-->
+    <img
+      data-scroll="fade-up"
+      id="btn-top"
+      src="images/return_to_top.png"
+      alt="Return to top"
+    />
+
+    <!--Nhóm 9: Phần footer-->
+    <footer data-scroll="fade-up">
+      <div class="footer-logo">
+        <div><em>Haguchi</em></div>
+        <div>葉具家</div>
+      </div>
+      <div class="footer-content">
+        <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
+        <div class="footer-section">
+          <h3 data-i18n="nav-about">About Us</h3>
+          <ul>
+            <li data-i18n="footer-aboutus">
+              Bringing elegance and comfort to your home with high-quality
+              furniture designed for modern living
+            </li>
+            <li data-i18n="footer-aboutus-add">
+              📍 123 Harmony Street, District 1, Ho Chi Minh City
+            </li>
+            <li>📞 (+84) 123 456 789</li>
+            <li>📧 support@haguchi.com</li>
+            <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-categories">Shop by Category</h3>
+          <ul>
+            <li>
+              <a href="couch.html" data-i18n="footer-categories-sofa"
+                >Sofas & Armchairs</a
+              >
+            </li>
+            <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
+            <li>
+              <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
+            </li>
+            <li>
+              <a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
+            </li>
+            <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+            <li>
+              <a data-i18n="footer-categories-new">New Arrivals / Promotions</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-policies">Policies & Support</h3>
+          <ul>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-warranty"
+                >Warranty Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-return"
+                >Return & Exchange</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-shipping"
+                >Shipping Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-order"
+                >How to Order</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-privacy"
+                >Privacy Policy</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 HAGUCHI – All rights reserved.</span>
+        <div class="social-icons">
+          <div class="social-icon">f</div>
+          <div class="social-icon">in</div>
+          <div class="social-icon">t</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/lang-change.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="js/common.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="js/VNcity.js"></script>
+    <script src="js/wishlist-send.js"></script>
+    <!--Nhóm 9: Import file JS xử lý thanh toán-->
+    <script src="js/animations.js"></script>
+  </body>
+</html>

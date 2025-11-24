@@ -1,0 +1,323 @@
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
+}
+
+/* ==============================================
+Nhóm 9: HOẠT ẢNH JAVASCRIPT
+============================================== */
+/* Thanh tiến độ đọc */
+.reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #cc6847;
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Hiệu ứng Reveal (Ẩn/Hiện) */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-hidden.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hiệu ứng Parallax cho ảnh */
+.main-image-container img {
+    transition: transform 0.1s cubic-bezier(0,0,0.2,1);
+    will-change: transform;
+}
+
+/* ==============================================
+Nhóm 9: STYLE CHUNG
+============================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==============================================
+Nhóm 9: LAYOUT
+============================================== */
+.case-study-page {
+  background: linear-gradient(
+    180deg,
+    rgba(238, 249, 229, 1) 0%,
+    rgba(97, 163, 140, 1) 100%
+  );
+  width: 100%;
+  min-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+/* Page Header */
+.case-study-page .page-header {
+  width: 100%;
+  max-width: 1350px;
+  margin-top: 142px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.case-study-page .header__title-block {
+  width: 100%;
+  font-family: 'Roboto Serif', serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.case-study-page .header__date {
+  font-weight: 300;
+  color: #000000;
+}
+
+.case-study-page .header__main-title {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 600;
+  color: #1c3227;
+  font-size: 110px;
+  line-height: 1.2;
+}
+
+.case-study-page .header__logo {
+  width: 203.93px;
+  height: 53.29px;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+/* Page Content */
+.case-study-page .page-content {
+  width: 100%;
+  max-width: 1252px;
+  margin: 80px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==============================================
+Nhóm 9: COMPONENTS
+============================================== */
+/* Hero Image */
+.case-study-page .content__hero-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.15;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* Intro Section */
+.case-study-page .content__intro-section {
+  width: 100%;
+  max-width: 1055px;
+  margin-top: 60px;
+  font-family: 'Roboto Serif', serif;
+  font-weight: 500;
+  color: #000000;
+  font-size: 70px;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.case-study-page .intro-section__heading {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 400;
+  color: #000000;
+  font-size: 35px;
+  letter-spacing: 0;
+  display: block;
+  margin: 0;
+}
+
+/* Sub Paragraph */
+.case-study-page .content__sub-paragraph {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 200;
+  font-size: 23px;
+  line-height: 1.7;
+}
+
+/* Inline Link */
+.case-study-page .content__inline-link {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 200;
+  font-size: 23px;
+  text-decoration: underline;
+  color: #000000;
+}
+
+/* Standard Image */
+.case-study-page .content__standard-image {
+  width: 100%;
+  max-width: 1020px;
+  height: 600px;
+  object-fit: cover;
+  margin-top: 50px;
+}
+
+/* Quote Section */
+.case-study-page .content__quote-section {
+  width: 100%;
+  max-width: 1020px;
+  margin-top: 60px;
+  font-family: 'Roboto Serif', serif;
+  font-weight: 400;
+  color: #000000;
+  font-size: 35px;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.case-study-page .quote-section__text {
+  font-weight: 500;
+  display: block;
+  margin: 0 0 2em 0;
+  font-style: italic;
+}
+
+.case-study-page .quote-section__heading {
+  font-family: 'Roboto Serif', serif;
+  display: block;
+  margin: 2em 0 1em 0;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* Main Text Block */
+.case-study-page .content__main-text-block {
+  width: 100%;
+  max-width: 1020px;
+  margin-top: 60px;
+  margin-bottom: 80px;
+  font-family: 'Roboto Serif', serif;
+  font-weight: 200;
+  color: #000000;
+  font-size: 23px;
+  letter-spacing: 0;
+  line-height: 1.7;
+}
+
+.case-study-page .content__main-text-block h2 {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 500;
+  color: #000000;
+  font-size: 32px;
+  margin: 2em 0 1em 0;
+}
+
+.case-study-page .content__main-text-block h3 {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 500;
+  color: #000000;
+  font-size: 28px;
+  margin: 2em 0 1em 0;
+}
+
+.case-study-page .content__main-text-block p {
+  margin: 0 0 1.5em 0;
+}
+
+.case-study-page .content__main-text-block p a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - TABLET (max-width: 768px)
+============================================== */
+@media (max-width: 768px) {
+    /*Case Study Page*/
+    .case-study-page {
+        min-width: auto;
+        padding-top: 45px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    /*Page Header*/
+    .case-study-page .page-header {
+        margin-top: 4rem;
+    }
+
+    /*Main Image Container*/
+    .case-study-page .main-image-container {
+        height: 400px;
+    }
+
+    /*Main Text Block*/
+    .case-study-page .content__main-text-block {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-top: 40px;
+    }
+
+    /*Quote Section*/
+    .case-study-page .quote-section {
+        font-size: 24px;
+    }
+
+    /*Quote Heading & H2*/
+    .case-study-page .quote-section__heading,
+    .case-study-page .content__main-text-block h2 {
+        font-size: 26px;
+    }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE (max-width: 480px)
+============================================== */
+@media (max-width: 480px) {
+    /*Case Study Page*/
+    .case-study-page {
+        padding-top: 60px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /*Page Header*/
+    .case-study-page .page-header {
+        margin-top: 2rem;
+    }
+
+    /*Main Image Container*/
+    .case-study-page .main-image-container {
+        height: 250px;
+    }
+
+    /*Main Text Block*/
+    .case-study-page .content__main-text-block {
+        font-size: 16px;
+        margin-top: 30px;
+    }
+
+    /*Quote Section*/
+    .case-study-page .quote-section {
+        font-size: 20px;
+    }
+
+    /*Quote Heading & H2*/
+    .case-study-page .quote-section__heading,
+    .case-study-page .content__main-text-block h2 {
+        font-size: 22px;
+    }
+}

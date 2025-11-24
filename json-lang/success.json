@@ -1,0 +1,11 @@
+{
+  "en": {
+    "success-message": "Your order has been successfully placed. Thank you for choosing Haguchi!",
+    "view-order-btn": "View Order Details"
+  },
+  
+  "vi": {
+    "success-message": "Đơn hàng của bạn đã được đặt thành công. Cảm ơn bạn đã chọn Haguchi!",
+    "view-order-btn": "Xem Chi tiết Đơn hàng"
+  }
+}

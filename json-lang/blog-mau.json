@@ -1,0 +1,45 @@
+{
+  "en": {
+    "date": "Oct 21, 2025",
+    "case-study-title": "CASE STUDY: IMPRONTA",
+    "intro-heading": "IMPRONTA: Architecture, Product, and Digital in a Single Gesture",
+    "intro-paragraph": "A lightweight interface for dense content. Impronta's website turns a complex technical world into a digital experience that is orderly, fluid, and measured —where every visual detail serves clarity.",
+    "quote-text": "\"The elegance of an interface lies in its transparency — when it's there, but not seen\"",
+    "section-1-heading": "Making the Whole Feel Simple Without Oversimplifying the Content",
+    "section-1-paragraph": "The project began with a clear challenge: making highly technical content intuitive — opening systems, finishes, options, materials. We created a clear visual hierarchy, a lightweight interface, and a modular navigation logic that guides users without overwhelming them.",
+    "section-2-heading": "Modular Structure, Coherent Voice",
+    "section-2-paragraph-1": "We started with structure: a fully modular, configurable system that allows the Impronta team to build and update content independently, while maintaining consistency and precision. This approach enabled us to manage a large amount of information and shape it into an essential digital narrative. Every section, every component has a clear purpose. Nothing is ornamental, nothing is random. Even the animations — subtle, purposeful, never intrusive — follow this logic: not made to impress, but to guide. The result is a website that doesn't show off — it shows method.",
+    "section-3-heading": "Technologies and development",
+    "section-3-paragraph": "We chose Nuxt.js, a Vue.js-based framework, for its performance and reliability. Content is managed with Strapi, an open-source headless CMS connected via GraphQL APIs — a setup that ensures flexibility and consistency in how information is delivered. The website is structured around reusable modular blocks, designed to be freely combined while maintaining visual coherence. For animations, we used GSAP, specifically the Flip and SplitText plugins, to achieve smooth transitions and refined micro-interactions.",
+    "section-4-heading": "Company Info",
+    "section-4-paragraph": "ET Studio is an independent creative studio driven by beauty and meaning. It designs custom digital experiences — websites, visual identities, branding strategies, and content — for brands of all kinds, from established companies to emerging projects. Each work is a carefully designed narrative system, where aesthetics and meaning stay in balance. Design, copywriting, and education are the tools it uses to build experiences that inspire, clarify, and improve everyday.",
+    "section-5-heading": "What was the biggest challenge about making this website?",
+    "section-5-paragraph": "Handling a large volume of technical content without making the experience feel heavy. Every element had to be informative but also lightweight, modular, and easy to explore. It was a constant balancing act.",
+    "section-6-heading": "Share a tip about making this website.",
+    "section-6-paragraph": "Start from structure. A solid modular system can simplify complexity and give your content the space it needs.",
+    "section-7-heading": "What did you learn when making this website?",
+    "section-7-paragraph": "That you can combine depth with clarity. And that working on multiple brand touchpoints — like the website and catalogue — at the same time strengthens consistency."
+  },
+  
+  "vi": {
+    "date": "21 Tháng Mười, 2025",
+    "case-study-title": "NGHIÊN CỨU TRƯỜNG HỢP: IMPRONTA",
+    "intro-heading": "IMPRONTA: Kiến trúc, Sản phẩm và Kỹ thuật số trong một Cử chỉ duy nhất",
+    "intro-paragraph": "Một giao diện nhẹ nhàng cho nội dung phong phú. Trang web của Impronta biến một thế giới kỹ thuật phức tạp thành trải nghiệm kỹ thuật số có trật tự, mượt mà và cân đối — nơi mọi chi tiết trực quan đều phục vụ cho sự rõ ràng.",
+    "quote-text": "\"Sự thanh lịch của một giao diện nằm ở tính minh bạch của nó — khi nó có mặt nhưng không được nhìn thấy\"",
+    "section-1-heading": "Làm cho Toàn bộ Cảm thấy Đơn giản mà không Đơn giản hóa quá mức Nội dung",
+    "section-1-paragraph": "Dự án bắt đầu với một thách thức rõ ràng: làm cho nội dung kỹ thuật cao trở nên trực quan — hệ thống mở, hoàn thiện, tùy chọn, vật liệu. Chúng tôi đã tạo ra một hệ thống phân cấp trực quan rõ ràng, giao diện nhẹ nhàng và logic điều hướng mô-đun hướng dẫn người dùng mà không làm họ choáng ngợp.",
+    "section-2-heading": "Cấu trúc Mô-đun, Giọng nói Mạch lạc",
+    "section-2-paragraph-1": "Chúng tôi bắt đầu với cấu trúc: một hệ thống mô-đun, có thể cấu hình hoàn toàn cho phép nhóm Impronta xây dựng và cập nhật nội dung độc lập, trong khi vẫn duy trì tính nhất quán và chính xác. Cách tiếp cận này cho phép chúng tôi quản lý một lượng lớn thông tin và định hình nó thành một câu chuyện kỹ thuật số thiết yếu. Mọi phần, mọi thành phần đều có mục đích rõ ràng. Không có gì trang trí, không có gì ngẫu nhiên. Ngay cả các hoạt ảnh — tinh tế, có mục đích, không bao giờ xâm phạm — cũng tuân theo logic này: không được tạo ra để gây ấn tượng mà để hướng dẫn. Kết quả là một trang web không khoe khoang — nó thể hiện phương pháp.",
+    "section-3-heading": "Công nghệ và phát triển",
+    "section-3-paragraph": "Chúng tôi đã chọn Nuxt.js, một framework dựa trên Vue.js, vì hiệu suất và độ tin cậy của nó. Nội dung được quản lý bằng Strapi, một CMS headless mã nguồn mở được kết nối qua GraphQL APIs — một thiết lập đảm bảo tính linh hoạt và nhất quán trong cách thông tin được phân phối. Trang web được cấu trúc xung quanh các khối mô-đun có thể tái sử dụng, được thiết kế để kết hợp tự do trong khi vẫn duy trì sự mạch lạc trực quan. Đối với hoạt ảnh, chúng tôi đã sử dụng GSAP, cụ thể là các plugin Flip và SplitText, để đạt được các chuyển tiếp mượt mà và tương tác vi mô tinh tế.",
+    "section-4-heading": "Thông tin Công ty",
+    "section-4-paragraph": "ET Studio là một studio sáng tạo độc lập được thúc đẩy bởi vẻ đẹp và ý nghĩa. Nó thiết kế các trải nghiệm kỹ thuật số tùy chỉnh — trang web, bản sắc thị giác, chiến lược thương hiệu và nội dung — cho các thương hiệu thuộc mọi loại, từ các công ty đã thành lập đến các dự án mới nổi. Mỗi công việc là một hệ thống tường thuật được thiết kế cẩn thận, nơi thẩm mỹ và ý nghĩa giữ thăng bằng. Thiết kế, copywriting và giáo dục là những công cụ nó sử dụng để xây dựng những trải nghiệm truyền cảm hứng, làm rõ và cải thiện hàng ngày.",
+    "section-5-heading": "Thách thức lớn nhất khi tạo trang web này là gì?",
+    "section-5-paragraph": "Xử lý một khối lượng lớn nội dung kỹ thuật mà không làm cho trải nghiệm trở nên nặng nề. Mọi yếu tố phải cung cấp thông tin nhưng cũng phải nhẹ nhàng, mô-đun và dễ khám phá. Đó là một hành động cân bằng liên tục.",
+    "section-6-heading": "Chia sẻ một mẹo về việc tạo trang web này.",
+    "section-6-paragraph": "Bắt đầu từ cấu trúc. Một hệ thống mô-đun vững chắc có thể đơn giản hóa sự phức tạp và cung cấp cho nội dung của bạn không gian cần thiết.",
+    "section-7-heading": "Bạn đã học được gì khi tạo trang web này?",
+    "section-7-paragraph": "Rằng bạn có thể kết hợp chiều sâu với sự rõ ràng. Và việc làm việc trên nhiều điểm tiếp xúc thương hiệu — như trang web và catalogue — cùng một lúc sẽ tăng cường tính nhất quán."
+  }
+}

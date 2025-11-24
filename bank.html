@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Details - Haguchi</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/bank.css" />
+  </head>
+  <body data-page="bank">
+    <!--Nhóm 9: Phần Header-->
+    <header>
+      <div class="Logo">
+        <p>
+          <a href="index.html"
+            ><em>Haguchi</em><br />
+            葉具家</a
+          >
+        </p>
+      </div>
+      <nav class="Main-Menu">
+        <!--Nhóm 9: Thanh điều hướng chính-->
+        <ul>
+          <li>
+            <a href="typologies.html" data-i18n="nav-products">Products</a>
+          </li>
+          <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
+          <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
+          <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
+        </ul>
+      </nav>
+
+      <nav class="Sub-Menu">
+        <!--Nhóm 9: Thanh điều hướng phụ-->
+        <ul>
+          <li>
+            <form id="search-box">
+              <!--Nhóm 9: Nút tìm kiếm-->
+              <input
+                type="text"
+                id="search-text"
+                placeholder="Search..."
+                data-i18n="search-placeholder"
+              />
+              <button id="search-btn">
+                <span class="fluent--search-12-filled"></span>
+              </button>
+            </form>
+          </li>
+          <li id="Wishlist">
+            <!--Nhóm 9: Giỏ yêu thích-->
+            <a href="wishlist_index.html">
+              <span class="solar--heart-bold"></span>
+              <span class="wishlist-count">0</span>
+            </a>
+          </li>
+          <li id="User">
+            <!--Nhóm 9: Tài khoản người dùng-->
+            <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
+            <a href="personal-info.html" id="user-avatar-link">
+              <img
+                id="header-user-avatar"
+                class="header-avatar"
+                src=""
+                alt="User Avatar"
+                style="display: none"
+              />
+              <span id="header-default-icon" class="solar--user-bold"></span>
+            </a>
+          </li>
+          <li class="lang-switcher">
+            <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
+            <div class="lang-toggle">
+              <input
+                type="radio"
+                id="lang-en"
+                name="site-lang"
+                checked
+                onchange="changeLanguage('en')"
+              />
+              <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
+              <input
+                type="radio"
+                id="lang-vi"
+                name="site-lang"
+                onchange="changeLanguage('vi')"
+              />
+              <div class="lang-track">
+                <!--Nhóm 9: Thanh trượt ngôn ngữ-->
+                <label for="lang-en" class="lang-opt lang-en">EN</label>
+                <label for="lang-vi" class="lang-opt lang-vi">VI</label>
+                <div class="lang-knob" aria-hidden="true"></div>
+                <!--Nhóm 9: Nút trượt ngôn ngữ-->
+              </div>
+            </div>
+          </li>
+          <li><span class="icomoon-free--leaf"></span></li>
+          <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Nhóm 9: Phần Payment Detail -->
+    <section data-scroll="blur" id="payment">
+      <div data-scroll="blur" class="container">
+        <h1 data-scroll="blur" data-i18n="bank-wishlist">Wishlist</h1>
+        <h2 data-scroll="blur" data-i18n="bank-payment-title">
+          Payment to Haguchi
+        </h2>
+        <p data-scroll="blur" class="subtitle" data-i18n="bank-subtitle">
+          Please send your payment details so Haguchi can verify them.
+        </p>
+
+        <div data-scroll="blur" class="payment-detail-container">
+          <h3 data-scroll="blur" data-i18n="bank-detail-title">
+            Payment detail:
+          </h3>
+          <p
+            data-scroll="blur"
+            class="detail-note"
+            data-i18n="bank-detail-note"
+          >
+            Please send a picture of the bank transfer details.
+          </p>
+
+          <!-- Nhóm 9: Upload Image Section -->
+          <div data-scroll="blur" class="upload-section">
+            <label data-scroll="blur" for="file-upload" class="upload-btn">
+              <span data-scroll="blur" data-i18n="bank-import-image"
+                >Import Image</span
+              >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 15V5M10 5L6 9M10 5L14 9"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3 13V16C3 16.5304 3.21071 17.0391 3.58579 17.4142C3.96086 17.7893 4.46957 18 5 18H15C15.5304 18 16.0391 17.7893 16.4142 17.4142C16.7893 17.0391 17 16.5304 17 16V13"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </label>
+            <input
+              type="file"
+              id="file-upload"
+              accept="image/*"
+              style="display: none"
+            />
+
+            <!-- Nhóm 9: Preview Area -->
+            <div
+              data-scroll="blur"
+              id="preview-area"
+              class="preview-area"
+              style="display: none"
+            >
+              <img id="preview-image" src="" alt="Preview" />
+              <button type="button" id="remove-image" class="remove-btn">
+                ×
+              </button>
+            </div>
+          </div>
+        </div>
+        <button
+          class="continue-bu"
+          onclick="window.location.href='success_index.html'"
+          data-i18n="bank-continue"
+        >
+          Continue
+        </button>
+      </div>
+      <span data-scroll="blur" class="scollToTop"></span>
+    </section>
+
+    <!--Nhóm 9: Phần quay lại đầu trang-->
+    <img
+      data-scroll="blur"
+      id="btn-top"
+      src="images/return_to_top.png"
+      alt="Return to top"
+    />
+
+    <!--Nhóm 9: Phần footer-->
+    <footer data-scroll="blur">
+      <div class="footer-logo">
+        <div><em>Haguchi</em></div>
+        <div>葉具家</div>
+      </div>
+      <div class="footer-content">
+        <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
+        <div class="footer-section">
+          <h3 data-i18n="nav-about">About Us</h3>
+          <ul>
+            <li data-i18n="footer-aboutus">
+              Bringing elegance and comfort to your home with high-quality
+              furniture designed for modern living
+            </li>
+            <li data-i18n="footer-aboutus-add">
+              📍 123 Harmony Street, District 1, Ho Chi Minh City
+            </li>
+            <li>📞 (+84) 123 456 789</li>
+            <li>📧 support@haguchi.com</li>
+            <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-categories">Shop by Category</h3>
+          <ul>
+            <li>
+              <a href="couch.html" data-i18n="footer-categories-sofa"
+                >Sofas & Armchairs</a
+              >
+            </li>
+            <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
+            <li>
+              <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
+            </li>
+            <li>
+              <a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
+            </li>
+            <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+            <li>
+              <a data-i18n="footer-categories-new">New Arrivals / Promotions</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-policies">Policies & Support</h3>
+          <ul>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-warranty"
+                >Warranty Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-return"
+                >Return & Exchange</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-shipping"
+                >Shipping Policy</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-order"
+                >How to Order</a
+              >
+            </li>
+            <li>
+              <a href="policies.html" data-i18n="footer-policies-privacy"
+                >Privacy Policy</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 HAGUCHI – All rights reserved.</span>
+        <div class="social-icons">
+          <div class="social-icon">f</div>
+          <div class="social-icon">in</div>
+          <div class="social-icon">t</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/lang-change.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="js/common.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="js/bank.js"></script>
+    <script src="js/animations.js"></script>
+  </body>
+</html>

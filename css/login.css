@@ -1,0 +1,400 @@
+/* ==============================================
+Nhóm 9: PHẦN CHÍNH
+============================================== */
+body {
+    background-image: linear-gradient(to bottom, #A8C6AE 0%, #689F73 50%, #1D523C 100%);
+    font-family: 'Roboto Serif', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 100px;
+    color: #333;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0 100px 0;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN KHUNG ĐĂNG NHẬP
+============================================== */
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.step {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN TYPOGRAPHY - HEADING & TEXT
+============================================== */
+h2 {
+    color: #1A5240;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 2em;
+    font-weight: 600;
+    font-family: 'Roboto Serif', serif;
+}
+
+.login-container p {
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    font-family: 'Roboto Serif', serif;
+    font-size: 15px;
+}
+
+#display-email {
+    color: #1A5240;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN FORM INPUTS
+============================================== */
+input[type="email"],
+input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 25px;
+    border: 1px solid #B0C4B1;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 17px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+    font-family: 'Roboto Serif', serif;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+    border-color: #1A5240;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 82, 64, 0.2);
+}
+
+/* ==============================================
+Nhóm 9: PHẦN BUTTONS
+============================================== */
+button {
+    background-color: #1A5240;
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    font-family: 'Roboto Serif', serif;
+    margin-bottom: 15px;
+}
+
+button:hover {
+    background-color: #123C2F;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ==============================================
+Nhóm 9: PHẦN BACK LINK
+============================================== */
+.login-container a {
+    display: inline-block;
+    color: #1A5240;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+    position: relative;
+    margin-top: 10px;
+}
+
+.login-container a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 50%;
+    background-color: #1A5240;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.login-container a:hover {
+    color: #0d3a2e;
+}
+
+.login-container a:hover::after {
+    width: 100%;
+}
+
+/* Đảm bảo link luôn có màu xanh đậm */
+#otp-step a {
+    color: #1A5240 !important;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN ERROR MESSAGE
+============================================== */
+.error {
+    color: #dc3545;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* ==============================================
+Nhóm 9: PHẦN SUCCESS MESSAGE
+============================================== */
+.success-message {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #c3e6cb;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - TABLET (max-width: 1024px)
+============================================== */
+@media (max-width: 1024px) {
+    /*Phần Body*/
+    body {
+        padding-top: 80px;
+    }
+
+    main {
+        padding: 20px 30px 80px 30px;
+    }
+
+    /*Phần Login Container*/
+    .login-container {
+        padding: 50px 40px;
+        max-width: 420px;
+    }
+
+    /*Phần Typography*/
+    h2 {
+        font-size: 1.9em;
+        margin-bottom: 15px;
+    }
+
+    .login-container p {
+        font-size: 16px;
+        margin-bottom: 22px;
+    }
+
+    /*Phần Form & Button*/
+    input[type="email"],
+    input[type="text"] {
+        padding: 13px;
+        font-size: 16px;
+        margin-bottom: 22px;
+    }
+
+    button {
+        padding: 13px 22px;
+        font-size: 16px;
+    }
+
+    /*Phần Error*/
+    .error {
+        font-size: 14px;
+        margin-top: 18px;
+    }
+
+    /*Phần Success Message*/
+    .success-message {
+        font-size: 13px;
+        padding: 10px 16px;
+    }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
+============================================== */
+@media (max-width: 768px) {
+    /*Phần Body*/
+    body {
+        padding-top: 0;
+        align-items: center;
+    }
+
+    main {
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    /*Phần Login Container*/
+    .login-container {
+        padding: 40px 30px;
+        max-width: 100%;
+        width: 90%;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+    }
+
+    /*Phần Typography*/
+    h2 {
+        font-size: 1.75em;
+        margin-bottom: 12px;
+    }
+
+    .login-container p {
+        font-size: 15px;
+        margin-bottom: 22px;
+        line-height: 1.5;
+    }
+
+    /*Phần Form & Button*/
+    input[type="email"],
+    input[type="text"] {
+        padding: 12px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    /*Phần Link*/
+    .login-container a {
+        font-size: 13px;
+    }
+
+    /*Phần Error*/
+    .error {
+        font-size: 14px;
+        margin-top: 16px;
+    }
+
+    /*Phần Success Message*/
+    .success-message {
+        position: static;
+        margin-bottom: 20px;
+        font-size: 13px;
+        padding: 10px 15px;
+    }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE NHỎ (max-width: 480px)
+============================================== */
+@media (max-width: 480px) {
+    /*Phần Body*/
+    body {
+        padding: 0;
+    }
+
+    main {
+        padding: 15px 0;
+    }
+
+    /*Phần Login Container*/
+    .login-container {
+        padding: 30px 20px;
+        width: 92%;
+        margin: 15px;
+        border-radius: 12px;
+    }
+
+    /*Phần Typography*/
+    h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .login-container p {
+        font-size: 14px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+
+    /*Phần Form & Button*/
+    input[type="email"],
+    input[type="text"] {
+        padding: 11px;
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+
+    button {
+        padding: 11px 18px;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+
+    button:hover {
+        transform: none;
+    }
+
+    /*Phần Link*/
+    .login-container a {
+        font-size: 12px;
+    }
+
+    /*Phần Error*/
+    .error {
+        font-size: 13px;
+        margin-top: 14px;
+    }
+
+    /*Phần Success Message*/
+    .success-message {
+        font-size: 12px;
+        padding: 8px 12px;
+        margin-bottom: 15px;
+    }
+}

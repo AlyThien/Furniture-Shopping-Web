@@ -1,0 +1,496 @@
+@font-face {
+    font-family: 'Roboto Serif';
+    src: url('Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
+}
+
+/* ==============================================
+Nhóm 9: HOẠT ẢNH JAVASCRIPT
+============================================== */
+/* Trạng thái ẨN ban đầu */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Trạng thái HIỆN (JavaScript sẽ thêm class này) */
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==============================================
+Nhóm 9: STYLE CHUNG
+============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==============================================
+Nhóm 9: LAYOUT
+============================================== */
+.sofa-gallery {
+    font-family: "Roboto Serif", serif;
+    background: linear-gradient(
+      180deg,
+      rgba(238, 249, 229, 1) 0%,
+      rgba(97, 163, 140, 1) 100%
+    );
+    overflow: hidden;
+    width: 100%;
+    min-width: 1433px;
+    min-height: auto;
+}
+
+/* Container chính - Grid 3 cột */
+.sofa-gallery .sofa-container {
+    width: 100%;
+    max-width: 1325px;
+    margin: 40px auto 60px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 30px;
+    padding: 0 20px;
+    position: relative;
+    height: auto;
+    left: auto;
+}
+
+.sofa-gallery .sofa-grid {
+    display: contents; 
+}
+
+/* ==============================================
+Nhóm 9: COMPONENTS
+============================================== */
+/* Sofa Card */
+.sofa-gallery .sofa-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    background-color: rgba(210, 234, 216, 0.6);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(73, 48, 3, 0.8);
+    transition: all 0.3s ease;
+}
+
+.sofa-gallery .sofa-card:hover {
+    transform: translateY(-10px);
+    background-color: rgb(175, 203, 193);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Sofa Image */
+.sofa-gallery .sofa-card__image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2; 
+    object-fit: contain; 
+    top: auto !important;
+    left: auto !important;
+}
+
+/* Caption Box */
+.sofa-gallery .sofa-card__caption-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    height: auto;
+    top: auto !important;
+    left: auto !important;
+    margin-left: 0 !important;
+}
+
+/* Product Name */
+.sofa-gallery .sofa-card__name {
+    font-family: "Roboto Serif", serif;
+    font-weight: 400;
+    color: #221515;
+    font-size: 20px;
+    line-height: normal;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 0;          
+}
+
+/* Product Price */
+.sofa-gallery .sofa-card__price {
+    font-family: "Roboto Serif", serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #13451d;
+    text-align: right;
+    margin: 0;
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+/* Underline Effect */
+.sofa-gallery .sofa-card__underline {
+    background-color: #000000;
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.sofa-gallery .sofa-card:hover .sofa-card__underline {
+    width: 100%;
+}
+
+/* Product Category Navigation */
+.product-category-nav {
+    width: 100%;
+    padding-top: 70px; 
+    padding-bottom: 13px;
+    background-color: #164a30;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-category-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+}
+
+.product-category-nav li {
+    padding: 0; 
+}
+
+.product-category-nav a:link,
+.product-category-nav a:visited {
+    font-family: "Roboto Serif", serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #A8C4B5;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.product-category-nav a:hover {
+    background-color: #3B6D54;
+    color: #E8F3DE;
+}
+
+.product-category-nav a.active {
+    font-weight: 700;
+    background-color: #598572;
+    color: #E8F3DE;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- Thanh Filter --- */
+/* --- 1. Thanh Filter (Thanh chứa nhỏ gọn) --- */
+.filter-bar {
+    display: flex;
+    justify-content: center; /* Căn giữa */
+    gap: 50px; /* Khoảng cách giữa các mục */
+    padding: 15px 0; /* Độ dày thanh filter vừa phải */
+    border-bottom: 1px solid #eee; /* Đường kẻ mờ ngăn cách với sản phẩm */
+    position: relative; 
+    z-index: 100; /* Đảm bảo thanh này nằm trên các layer khác */
+    background-color: #e2f4d9;
+}
+
+/* --- 2. Item Lọc (Chữ "Material", "Color"...) --- */
+.filter-item {
+    position: relative; /* QUAN TRỌNG: Làm điểm neo cho menu con */
+    cursor: pointer;
+    font-family: "Roboto Serif", serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #1f5d3c;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Chiều cao bằng thanh cha */
+}
+
+/* Hiệu ứng màu khi di chuột vào chữ */
+.filter-item:hover .filter-title {
+    color: #356508;
+}
+
+.arrow {
+    margin-left: 6px;
+    font-size: 0.7em;
+    transition: transform 0.3s ease;
+}
+
+/* Xoay mũi tên khi hover */
+.filter-item:hover .arrow {
+    transform: rotate(180deg);
+}
+
+/* --- 3. Menu Con (Dropdown - Phần quan trọng nhất) --- */
+.filter-dropdown {
+    display: none; /* Mặc định ẩn */
+    
+    /* Cấu hình vị trí tuyệt đối để "đè" lên nội dung bên dưới */
+    position: absolute; 
+    top: 100%; /* Nằm ngay dưới mép của chữ */
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa menu so với chữ */
+    
+    /* Giao diện menu */
+    background-color: #b7ddb1;
+    min-width: 200px; /* Độ rộng tối thiểu */
+    padding: 5px;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Đổ bóng mạnh để tạo cảm giác nổi */
+    
+    /* Đảm bảo nó luôn nằm trên cùng */
+    z-index: 999; 
+    
+    /* Hiệu ứng xuất hiện */
+    animation: slideUpFade 0.2s ease-out;
+
+
+}
+
+/* Hiện menu khi hover vào item cha */
+.filter-item:hover .filter-dropdown {
+    display: flex;
+}
+
+/* --- 4. Nội dung bên trong Dropdown --- */
+.filter-dropdown label {
+    display: flex;
+    align-items: center;
+    
+    /* --- SỬA Ở ĐÂY --- */
+    width: auto; /* Để tự động, không ép cứng */
+    white-space: nowrap; /* Đảm bảo chữ luôn nằm trên 1 dòng, không xuống dòng bậy */
+    padding: 8px 15px 8px 10px; /* Tăng padding bên phải (15px) để chữ thoáng hơn */
+    
+    margin-bottom: 4px; 
+    font-family: 'Roboto Serif', serif;
+    font-size: 0.95rem;
+    color: #356508;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 20px; 
+}
+
+.filter-dropdown input[type="checkbox"] {
+    margin-right: 12px;
+    accent-color: #3B6D54;
+    transform: scale(1.1); /* Phóng to checkbox một chút */
+}
+
+/* --- Animation --- */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 10px); /* Trượt từ dưới lên 1 chút */
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* --- Mobile Responsive (Giữ nguyên để không bị vỡ trên điện thoại) --- */
+@media (max-width: 768px) {
+    .filter-bar {
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+    .filter-item {
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    .filter-dropdown {
+        position: static; /* Trên mobile thì quay về xếp dọc */
+        transform: none;
+        box-shadow: none;
+        border: none;
+        padding-left: 20px;
+        display: none;
+        background-color: #fafafa;
+        width: 100%;
+    }
+    /* Trên mobile: Click mới hiện (cần thêm JS nếu muốn xịn, nhưng CSS hover vẫn tạm ổn) */
+    .filter-item:hover .filter-dropdown {
+        display: block;
+    }
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+.pagination .arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #2d5f4a;
+    background: transparent;
+    color: #2d5f4a;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination .arrow:hover {
+    background: #2d5f4a;
+    color: white;
+}
+
+.pagination .arrow.disabled {
+    border-color: #6b9080;
+    color: #6b9080;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.pagination .arrow.disabled:hover {
+    background: transparent;
+    color: #6b9080;
+}
+
+.pagination .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #6b9080;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination .dot.active {
+    background: #2d5f4a;
+    transform: scale(1.3);
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - TABLET (max-width: 768px)
+============================================== */
+@media (max-width: 768px) {
+    /*Sofa Gallery*/
+    .sofa-gallery {
+        min-width: auto;
+        padding-top: 80px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        overflow: visible;
+    }
+
+    /*Sofa Container - Grid 2 cột*/
+    .sofa-gallery .sofa-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: auto;
+        left: auto;
+        bottom: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    /*Reset Sofa*/
+    .sofa-gallery [class*="sofa-"] {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+        left: auto !important;
+    }
+
+    /*Sofa Image*/
+    .sofa-gallery .sofa-card__image {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1;
+        top: auto !important;
+        left: auto !important;
+    }
+
+    /*Caption Box*/
+    .sofa-gallery .sofa-card__caption-box {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+        left: auto !important;
+        padding-top: 0.5rem;
+    }
+
+    .sofa-gallery .sofa-card__caption {
+        font-size: 16px;
+    }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE (max-width: 480px)
+============================================== */
+@media (max-width: 480px) {
+    /*Sofa Gallery*/
+    .sofa-gallery {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /*Sofa Container - Grid 1 cột*/
+    .sofa-gallery .sofa-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    /*Product Category Nav*/
+    .product-category-nav {
+        padding-top: 55px;
+    }
+
+    .product-category-nav ul {
+        gap: 5px;
+    }
+
+    .product-category-nav a:link,
+    .product-category-nav a:visited {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+}
