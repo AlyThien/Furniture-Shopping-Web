@@ -5,46 +5,70 @@ document.addEventListener('DOMContentLoaded', function() {
     /* ************************************** */
 
     const accordionContainer = document.getElementById('accordion-container');
+    
     if (accordionContainer) {
-        const triggers = accordionContainer.querySelectorAll('.accordion-trigger');
         const items = accordionContainer.querySelectorAll('.accordion-item');
-        const contents = accordionContainer.querySelectorAll('.accordion-content');
 
-        // Mở mục đầu tiên làm mặc định
-        const firstItem = items[0];
-        const firstContent = firstItem.querySelector('.accordion-content');
-        if (firstItem && firstContent) {
-            firstItem.classList.add('active');
-            firstContent.classList.add('active');
-            firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
+        // Hàm cập nhật chiều cao cho một item cụ thể
+        const updateContentHeight = (item) => {
+            const content = item.querySelector('.accordion-content');
+            if (item.classList.contains('active') && content) {
+                // Reset lại max-height để đo chiều cao thực tế mới nhất
+                content.style.maxHeight = 'none'; 
+                // Tính toán và gán lại (cộng 20px dư giả để an toàn)
+                const newHeight = content.scrollHeight + 20;
+                content.style.maxHeight = newHeight + 'px';
+            }
+        };
+
+        // 1. Xử lý sự kiện click (Cơ bản)
+        accordionContainer.addEventListener('click', function(e) {
+            const trigger = e.target.closest('.accordion-trigger');
+            if (!trigger) return;
+
+            const targetItem = trigger.closest('.accordion-item');
+            const isActive = targetItem.classList.contains('active');
+
+            // Đóng tất cả các mục khác
+            items.forEach(item => {
+                item.classList.remove('active');
+                const content = item.querySelector('.accordion-content');
+                if (content) content.style.maxHeight = null;
+            });
+
+            // Nếu mục đó chưa mở thì mở ra
+            if (!isActive) {
+                targetItem.classList.add('active');
+                updateContentHeight(targetItem); // Gọi hàm tính chiều cao
+            }
+        });
+
+        // 2. Mở mục đầu tiên mặc định khi load trang
+        if (items.length > 0) {
+            items[0].classList.add('active');
+            updateContentHeight(items[0]);
         }
 
-        triggers.forEach(trigger => {
-            trigger.addEventListener('click', function() {
-                const targetId = this.dataset.trigger;
-                const targetContent = document.getElementById(targetId);
-                const targetItem = this.closest('.accordion-item');
-
-                if (!targetContent || !targetItem) return;
-
-                const isActive = targetItem.classList.contains('active');
-
-                // Đóng tất cả các mục
-                items.forEach(item => item.classList.remove('active'));
-                contents.forEach(content => {
-                    content.classList.remove('active');
-                    content.style.maxHeight = '0px';
-                });
-
-                // Nếu mục được nhấp *không* phải là mục đang hoạt động, hãy mở nó
-                if (!isActive) {
-                    targetItem.classList.add('active');
-                    targetContent.classList.add('active');
-                    targetContent.style.maxHeight = targetContent.scrollHeight + 'px'; 
+        // 3. ROOT CAUSE FIX: "Camera giám sát" thay đổi nội dung
+        // Bất cứ khi nào text thay đổi (do đổi ngôn ngữ), tự động tính lại chiều cao
+        const observer = new MutationObserver(() => {
+            // Tìm mục nào đang mở (active) thì tính lại chiều cao cho mục đó
+            items.forEach(item => {
+                if (item.classList.contains('active')) {
+                    updateContentHeight(item);
                 }
             });
         });
+
+        // Bắt đầu giám sát toàn bộ container accordion
+        observer.observe(accordionContainer, {
+            childList: true,  // Theo dõi thêm/bớt phần tử con
+            subtree: true,    // Theo dõi sâu vào bên trong các thẻ con
+            characterData: true, // Theo dõi thay đổi ký tự text
+            attributes: false 
+        });
     }
+
 
     /* ***************************************** */
     /* *** Nhóm 9: 2. Logic cho Scroll Reveal (MỚI) *** */

@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <title>Sofa Collection Gallery</title>
     <meta name="description" content="Browse our collection of modern and traditional couches" />
-    <link rel="stylesheet" href="css/common.css"/>
-    <link rel="stylesheet" href="css/couch.css"/>
+    <link rel="stylesheet" href="/css/common.css"/>
+    <link rel="stylesheet" href="/css/couch.css"/>
   </head>
 
   <body data-page="couch">
@@ -67,24 +67,66 @@
     <!--Nhóm 9: Thanh điều hướng các sản phẩm khác-->
     <nav class="product-category-nav">
         <ul>
-            <li><a href="couch.html" class="active" data-i18n="category-sofa">Sofa</a></li>
+            <li><a href="couch.html" class="active" data-i18n="category-sofa">Couch</a></li>
             <li><a href="bed.html" data-i18n="category-bed">Bed</a></li>
-            <li><a href="#" data-i18n="category-armchair">Armchair</a></li>
-            <li><a href="#" data-i18n="category-wardrobe">Wardrobe</a></li>
-            <li><a href="#" data-i18n="category-chair">Chair</a></li>
-            <li><a href="#" data-i18n="category-storage">Storage & Shelving</a></li>
-            <li><a href="#" data-i18n="category-dining">Dining table</a></li>
-            <li><a href="#" data-i18n="category-sidetable">Side - coffee table</a></li>
+            <li><a href="armchair.html" data-i18n="category-armchair">Armchair</a></li>
+            <li><a href="wardrobe.html" data-i18n="category-wardrobe">Wardrobe</a></li>
+            <li><a href="chair.html" data-i18n="category-chair">Chair</a></li>
+            <li><a href="shelving.html" data-i18n="category-storage">Storage & Shelving</a></li>
+            <li><a href="dining-table.html" data-i18n="category-dining">Dining table</a></li>
+            <li><a href="side-table.html" data-i18n="category-sidetable">Side - coffee table</a></li>
         </ul>
     </nav>
+
+    <!--Nhóm 9: Phần lọc sản phẩm-->
+    <div class="filter-bar">
+        
+        <div class="filter-item">
+            <div class="filter-title">Material <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="material" value="leather"> Leather</label>
+                <label><input type="checkbox" name="material" value="fabric"> Fabric</label>
+                <label><input type="checkbox" name="material" value="velvet"> Velvet</label>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="filter-title">Color <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="color" value="grey"> Grey</label>
+                <label><input type="checkbox" name="color" value="beige"> Beige</label>
+                <label><input type="checkbox" name="color" value="brown"> Brown</label>
+                <label><input type="checkbox" name="color" value="green"> Green</label>
+                <label><input type="checkbox" name="color" value="yellow"> Yellow</label>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="filter-title">Price <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="price" value="low"> Under 4.000.000 đ</label>
+                <label><input type="checkbox" name="price" value="mid"> 4.000.000 đ - 5.000.000 đ</label>
+                <label><input type="checkbox" name="price" value="high"> Over 5.000.000 đ</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sofa-container">
+        </div>
+</div>
+
 
     <main class="sofa-gallery">
     <div class="background" role="presentation"></div>
     <section class="sofa-container">
     <div class="sofa-grid">
         
-        <a href="product_index.html" class="sofa-card sofa-1">
-         <img class="sofa-card__image" src="images/couch/Sofa mẫu.png" alt="E7 Fabric Couch - pink sectional sofa" loading="lazy" />
+        <a href="product_index.html" class="sofa-card sofa-1" 
+        data-material="fabric" 
+        data-color="beige" 
+        data-price="mid">
+         <img class="sofa-card__image" src="/images/couch/Sofa mẫu.png" alt="E7 Fabric Couch - pink sectional sofa" loading="lazy" />
          <figure class="sofa-card__caption-box">
          <div class="sofa-card__price">4.200.000 đ</div>
          <figcaption class="sofa-card__name" data-i18n="product-e7-fabric">E7 Fabric Couch</figcaption>
@@ -92,8 +134,11 @@
         </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-2">
-         <img class="sofa-card__image" src="images/couch/2.png" alt="N9 Fabric Couch - brown contemporary sofa" loading="lazy" />
+        <a href="#" class="sofa-card sofa-2"
+        data-material="fabric" 
+        data-color="beige" 
+        data-price="mid">
+         <img class="sofa-card__image" src="/images/couch/2.png" alt="N9 Fabric Couch - brown contemporary sofa" loading="lazy" />
          <figure class="sofa-card__caption-box">
          <div class="sofa-card__price">5.000.000 đ</div>
          <figcaption class="sofa-card__name" data-i18n="product-n9-fabric">N9 Fabric Couch</figcaption>
@@ -101,8 +146,11 @@
         </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-3">
-         <img class="sofa-card__image" src="images/couch/3.png" alt="Bred Couch - pink modern sofa" loading="lazy" />
+        <a href="#" class="sofa-card sofa-3"
+        data-material="velvet" 
+        data-color="green" 
+        data-price="low">
+         <img class="sofa-card__image" src="/images/couch/3.png" alt="Bred Couch - pink modern sofa" loading="lazy" />
          <figure class="sofa-card__caption-box">
           <div class="sofa-card__price">3.200.000 đ</div>
          <figcaption class="sofa-card__name" data-i18n="product-bred">Bred Couch</figcaption>
@@ -110,8 +158,11 @@
         </figure>
         </a>
 
-         <a href="#" class="sofa-card sofa-4">
-         <img class="sofa-card__image" src="images/couch/4.png" alt="Cloud Couch - white minimalist sofa" loading="lazy" />
+         <a href="#" class="sofa-card sofa-4"
+         data-material="fabric" 
+        data-color="brown" 
+        data-price="mid">
+         <img class="sofa-card__image" src="/images/couch/4.png" alt="Cloud Couch - white minimalist sofa" loading="lazy" />
          <figure class="sofa-card__caption-box">
           <div class="sofa-card__price">4.000.000 đ</div>
          <figcaption class="sofa-card__name" data-i18n="product-cloud">Cloud Couch</figcaption>
@@ -119,8 +170,11 @@
         </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-5">
-            <img class="sofa-card__image" src="images/couch/5.png" alt="Saphire Couch - navy blue fabric sofa" loading="lazy" />
+        <a href="#" class="sofa-card sofa-5"
+        data-material="leather" 
+        data-color="brown" 
+        data-price="mid">
+            <img class="sofa-card__image" src="/images/couch/5.png" alt="Saphire Couch - navy blue fabric sofa" loading="lazy" />
             <figure class="sofa-card__caption-box">
               <div class="sofa-card__price">4.500.000 đ</div>
               <figcaption class="sofa-card__name" data-i18n="product-saphire">Saphire Couch</figcaption>
@@ -128,8 +182,11 @@
             </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-6">
-            <img class="sofa-card__image" src="images/couch/6.png" alt="Moka Couch - gray modern sectional" loading="lazy" />
+        <a href="#" class="sofa-card sofa-6"
+        data-material="fabric" 
+        data-color="beige" 
+        data-price="low">
+            <img class="sofa-card__image" src="/images/couch/6.png" alt="Moka Couch - gray modern sectional" loading="lazy" />
             <figure class="sofa-card__caption-box">
               <div class="sofa-card__price">3.800.000 đ</div>
               <figcaption class="sofa-card__name" data-i18n="product-moka">Moka Couch</figcaption>
@@ -137,8 +194,11 @@
             </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-7">
-            <img class="sofa-card__image" src="images/couch/7.png" alt="Wave Couch - white contemporary sofa" loading="lazy" />
+        <a href="#" class="sofa-card sofa-7"
+        data-material="fabric" 
+        data-color="green" 
+        data-price="mid">
+            <img class="sofa-card__image" src="/images/couch/7.png" alt="Wave Couch - white contemporary sofa" loading="lazy" />
             <figure class="sofa-card__caption-box">
               <div class="sofa-card__price">4.000.000 đ</div>
               <figcaption class="sofa-card__name" data-i18n="product-wave">Wave Couch</figcaption>
@@ -146,8 +206,11 @@
             </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-8">
-            <img class="sofa-card__image" src="images/couch/8.png" alt="Cotton Candi Couch - white modern sofa" loading="lazy" />
+        <a href="#" class="sofa-card sofa-8"
+        data-material="velet" 
+        data-color="green" 
+        data-price="mid">
+            <img class="sofa-card__image" src="/images/couch/8.png" alt="Cotton Candi Couch - white modern sofa" loading="lazy" />
             <figure class="sofa-card__caption-box">
               <div class="sofa-card__price">4.200.000 đ</div>
               <figcaption class="sofa-card__name" data-i18n="product-cotton-candi">Cotton Candi Couch</figcaption>
@@ -155,8 +218,11 @@
             </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-9">
-            <img class="sofa-card__image" src="images/couch/9.png" alt="Sandi Couch - beige modular sofa" loading="lazy" />
+        <a href="#" class="sofa-card sofa-9"
+        data-material="leather" 
+        data-color="brown" 
+        data-price="low">
+            <img class="sofa-card__image" src="/images/couch/9.png" alt="Sandi Couch - beige modular sofa" loading="lazy" />
             <figure class="sofa-card__caption-box">
               <div class="sofa-card__price">3.500.000 đ</div>
               <figcaption class="sofa-card__name" data-i18n="product-sandi">Sandi Couch</figcaption>
@@ -164,8 +230,11 @@
             </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-10">
-            <img class="sofa-card__image" src="images/couch/10.png" alt="Haven Couch - navy blue contemporary sofa" loading="lazy" />
+        <a href="#" class="sofa-card sofa-10"
+        data-material="fabric" 
+        data-color="gray" 
+        data-price="high">
+            <img class="sofa-card__image" src="/images/couch/10.png" alt="Haven Couch - navy blue contemporary sofa" loading="lazy" />
             <figure class="sofa-card__caption-box">
               <div class="sofa-card__price">5.200.000 đ</div>
               <figcaption class="sofa-card__name" data-i18n="product-haven">Haven Couch</figcaption>
@@ -173,8 +242,11 @@
             </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-11">
-            <img class="sofa-card__image" src="images/couch/11.png" alt="Nemesis Couch - modern beige sectional" loading="lazy" />
+        <a href="#" class="sofa-card sofa-11"
+        data-material="fabric" 
+        data-color="brown" 
+        data-price="mid">
+            <img class="sofa-card__image" src="/images/couch/11.png" alt="Nemesis Couch - modern beige sectional" loading="lazy" />
             <figure class="sofa-card__caption-box">
               <div class="sofa-card__price">4.800.000 đ</div>
               <figcaption class="sofa-card__name" data-i18n="product-nemesis">Nemesis Couch</figcaption>
@@ -182,8 +254,11 @@
             </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-12">
-            <img class="sofa-card__image" src="images/couch/12.png" alt="Nuclear Couch - contemporary brown sofa" loading="lazy" />
+        <a href="#" class="sofa-card sofa-12"
+        data-material="velvet" 
+        data-color="brown" 
+        data-price="low">
+            <img class="sofa-card__image" src="/images/couch/12.png" alt="Nuclear Couch - contemporary brown sofa" loading="lazy" />
             <figure class="sofa-card__caption-box">
               <div class="sofa-card__price">3.900.000 đ</div>
               <figcaption class="sofa-card__name" data-i18n="product-nuclear">Nuclear Couch</figcaption>
@@ -191,8 +266,11 @@
             </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-13">
-            <img class="sofa-card__image" src="images/couch/13.png" alt="Traditional Couch - classic beige sofa" loading="lazy" />
+        <a href="#" class="sofa-card sofa-13"
+        data-material="fabric" 
+        data-color="green" 
+        data-price="mid">
+            <img class="sofa-card__image" src="/images/couch/13.png" alt="Traditional Couch - classic beige sofa" loading="lazy" />
             <figure class="sofa-card__caption-box">
               <div class="sofa-card__price">4.100.000 đ</div>
               <figcaption class="sofa-card__name" data-i18n="product-traditional">Traditional Couch</figcaption>
@@ -200,8 +278,11 @@
             </figure>
         </a>
 
-        <a href="#" class="sofa-card sofa-14">
-            <img class="sofa-card__image" src="images/couch/14.png" alt="N7 Cloth Couch - beige fabric sofa" loading="lazy" />
+        <a href="#" class="sofa-card sofa-14"
+        data-material="fabric" 
+        data-color="beige" 
+        data-price="low">
+            <img class="sofa-card__image" src="/images/couch/14.png" alt="N7 Cloth Couch - beige fabric sofa" loading="lazy" />
             <figure class="sofa-card__caption-box">
               <div class="sofa-card__price">3.600.000 đ</div>
               <figcaption class="sofa-card__name" data-i18n="product-n7-cloth">N7 Cloth Couch</figcaption>
@@ -209,8 +290,11 @@
             </figure>
         </a>
 
-      <a href="#" class="sofa-card sofa-15">
-        <img class="sofa-card__image" src="images/couch/15.png" alt="Rubi Rues Couch - modern dark green sofa" loading="lazy" />
+      <a href="#" class="sofa-card sofa-15"
+      data-material="fabric" 
+        data-color="beige" 
+        data-price="mid">
+        <img class="sofa-card__image" src="/images/couch/15.png" alt="Rubi Rues Couch - modern dark green sofa" loading="lazy" />
         <figure class="sofa-card__caption-box">
           <div class="sofa-card__price">4.300.000 đ</div>
           <figcaption class="sofa-card__name" data-i18n="product-rubi-rues">Rubi Rues Couch</figcaption>
@@ -233,7 +317,7 @@
         </div>
 
         <!--Nhóm 9: Phần quay lại đầu trang-->
-        <img id="btn-top" src="images/return_to_top.png" alt="Return to top">
+        <img id="btn-top" src="/images/return_to_top.png" alt="Return to top">
 
     </main>
 
@@ -286,9 +370,9 @@
             </div>
     </footer>
     
-    <script src="js/lang-change.js"></script> <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ -->
-    <script src="js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
-    <script src="js/couch.js"></script> <!--Nhóm 9: Liên kết file JS riêng cho couch-->
+    <script src="/js/lang-change.js"></script> <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="/js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="/js/couch.js"></script> <!--Nhóm 9: Liên kết file JS riêng cho couch-->
     
   </body>
 </html>

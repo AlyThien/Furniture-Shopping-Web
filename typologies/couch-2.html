@@ -8,8 +8,8 @@
       name="description"
       content="Browse our collection of modern and traditional couches"
     />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/couch.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/couch.css" />
   </head>
   <body data-page="couch">
     <!--Nhóm 9: Phần Header-->
@@ -106,33 +106,70 @@
       </nav>
     </header>
 
-    <!--Nhóm 9: Thanh điều hướng các sản phẩm khác-->
+   <!--Nhóm 9: Thanh điều hướng các sản phẩm khác-->
     <nav class="product-category-nav">
-      <ul>
-        <li>
-          <a href="couch.html" class="active" data-i18n="category-sofa">Sofa</a>
-        </li>
-        <li><a href="bed.html" data-i18n="category-bed">Bed</a></li>
-        <li><a href="#" data-i18n="category-armchair">Armchair</a></li>
-        <li><a href="#" data-i18n="category-wardrobe">Wardrobe</a></li>
-        <li><a href="#" data-i18n="category-chair">Chair</a></li>
-        <li><a href="#" data-i18n="category-storage">Storage & Shelving</a></li>
-        <li><a href="#" data-i18n="category-dining">Dining table</a></li>
-        <li>
-          <a href="#" data-i18n="category-sidetable">Side - coffee table</a>
-        </li>
-      </ul>
+        <ul>
+            <li><a href="couch.html" class="active" data-i18n="category-sofa">Couch</a></li>
+            <li><a href="bed.html" data-i18n="category-bed">Bed</a></li>
+            <li><a href="armchair.html" class="active" data-i18n="category-armchair">Armchair</a></li>
+            <li><a href="wardrobe.html" data-i18n="category-wardrobe">Wardrobe</a></li>
+            <li><a href="chair.html" data-i18n="category-chair">Chair</a></li>
+            <li><a href="shelving.html" data-i18n="category-storage">Storage & Shelving</a></li>
+            <li><a href="dining-table.html" data-i18n="category-dining">Dining table</a></li>
+            <li><a href="side-table.html" data-i18n="category-sidetable">Side - coffee table</a></li>
+        </ul>
     </nav>
+
+    <!--Nhóm 9: Phần lọc sản phẩm-->
+    <div class="filter-bar">
+        
+        <div class="filter-item">
+            <div class="filter-title">Material <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="material" value="leather"> Leather</label>
+                <label><input type="checkbox" name="material" value="fabric"> Fabric</label>
+                <label><input type="checkbox" name="material" value="velvet"> Velvet</label>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="filter-title">Color <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="color" value="grey"> Grey</label>
+                <label><input type="checkbox" name="color" value="beige"> Beige</label>
+                <label><input type="checkbox" name="color" value="brown"> Brown</label>
+                <label><input type="checkbox" name="color" value="green"> Green</label>
+                <label><input type="checkbox" name="color" value="yellow"> Yellow</label>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="filter-title">Price <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="price" value="low"> Under 4.000.000 đ</label>
+                <label><input type="checkbox" name="price" value="mid"> 4.000.000 đ - 5.000.000 đ</label>
+                <label><input type="checkbox" name="price" value="high"> Over 5.000.000 đ</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sofa-container">
+        </div>
+</div>
 
     <!--Nhóm 9: Phần trưng bày sản phẩm-->
     <main class="sofa-gallery">
       <div class="background" role="presentation"></div>
       <section class="sofa-container">
         <div class="sofa-grid">
-          <a href="product_index.html" class="sofa-card sofa-1">
+          <a href="" class="sofa-card sofa-1"
+          data-material="velvet" 
+          data-color="brown" 
+          data-price="mid">
             <img
               class="sofa-card__image"
-              src="images/couch/16.png"
+              src="/images/couch/16.png"
               alt="B3 Couch"
               loading="lazy"
             />
@@ -145,10 +182,13 @@
             </figure>
           </a>
 
-          <a href="#" class="sofa-card sofa-2">
+          <a href="#" class="sofa-card sofa-2"
+          data-material="leather" 
+          data-color="brown" 
+          data-price="low">
             <img
               class="sofa-card__image"
-              src="images/couch/17.png"
+              src="/images/couch/17.png"
               alt="Niacinamide Couch"
               loading="lazy"
             />
@@ -164,10 +204,13 @@
             </figure>
           </a>
 
-          <a href="#" class="sofa-card sofa-3">
+          <a href="#" class="sofa-card sofa-3"
+          data-material="leather" 
+          data-color="brown" 
+          data-price="mid">
             <img
               class="sofa-card__image"
-              src="images/couch/18.png"
+              src="/images/couch/18.png"
               alt="Betty Couch"
               loading="lazy"
             />
@@ -180,10 +223,13 @@
             </figure>
           </a>
 
-          <a href="#" class="sofa-card sofa-4">
+          <a href="#" class="sofa-card sofa-4"
+          data-material="leather" 
+          data-color="green" 
+          data-price="high">
             <img
               class="sofa-card__image"
-              src="images/couch/19.png"
+              src="/images/couch/19.png"
               alt="Semei Couch"
               loading="lazy"
             />
@@ -196,10 +242,13 @@
             </figure>
           </a>
 
-          <a href="#" class="sofa-card sofa-5">
+          <a href="#" class="sofa-card sofa-5"
+          data-material="velvet" 
+          data-color="yellow" 
+          data-price="mid">
             <img
               class="sofa-card__image"
-              src="images/couch/20.png"
+              src="/images/couch/20.png"
               alt="Kadarshian Couch"
               loading="lazy"
             />
@@ -215,10 +264,13 @@
             </figure>
           </a>
 
-          <a href="#" class="sofa-card sofa-6">
+          <a href="#" class="sofa-card sofa-6"
+          data-material="fabric" 
+          data-color="brown" 
+          data-price="low">
             <img
               class="sofa-card__image"
-              src="images/couch/21.png"
+              src="/images/couch/21.png"
               alt="Emmee Couch"
               loading="lazy"
             />
@@ -231,10 +283,13 @@
             </figure>
           </a>
 
-          <a href="#" class="sofa-card sofa-7">
+          <a href="#" class="sofa-card sofa-7"
+          data-material="velvet" 
+          data-color="green" 
+          data-price="mid">
             <img
               class="sofa-card__image"
-              src="images/couch/22.png"
+              src="/images/couch/22.png"
               alt="Maide Couch"
               loading="lazy"
             />
@@ -247,10 +302,13 @@
             </figure>
           </a>
 
-          <a href="#" class="sofa-card sofa-8">
+          <a href="#" class="sofa-card sofa-8"
+          data-material="fabric" 
+          data-color="yellow" 
+          data-price="mid">
             <img
               class="sofa-card__image"
-              src="images/couch/23.png"
+              src="/images/couch/23.png"
               alt="Naimee Couch"
               loading="lazy"
             />
@@ -263,10 +321,13 @@
             </figure>
           </a>
 
-          <a href="#" class="sofa-card sofa-9">
+          <a href="#" class="sofa-card sofa-9"
+          data-material="fabric" 
+          data-color="beige" 
+          data-price="low">
             <img
               class="sofa-card__image"
-              src="images/couch/24.png"
+              src="/images/couch/24.png"
               alt="Houdini Couch"
               loading="lazy"
             />
@@ -279,10 +340,13 @@
             </figure>
           </a>
 
-          <a href="#" class="sofa-card sofa-10">
+          <a href="#" class="sofa-card sofa-10"
+          data-material="fabric" 
+          data-color="green" 
+          data-price="high">
             <img
               class="sofa-card__image"
-              src="images/couch/25.png"
+              src="/images/couch/25.png"
               alt="Grande Couch"
               loading="lazy"
             />
@@ -295,10 +359,13 @@
             </figure>
           </a>
 
-          <a href="#" class="sofa-card sofa-11">
+          <a href="#" class="sofa-card sofa-11"
+          data-material="fabric" 
+          data-color="beige" 
+          data-price="mid">
             <img
               class="sofa-card__image"
-              src="images/couch/26.png"
+              src="/images/couch/26.png"
               alt="Lucian Couch"
               loading="lazy"
             />
@@ -324,7 +391,7 @@
       </div>
 
       <!--Nhóm 9: Phần quay lại đầu trang-->
-      <img id="btn-top" src="images/return_to_top.png" alt="Return to top" />
+      <img id="btn-top" src="/images/return_to_top.png" alt="Return to top" />
     </main>
 
     <!--Nhóm 9: Phần footer-->
@@ -412,11 +479,12 @@
       </div>
     </footer>
 
-    <script src="js/lang-change.js"></script>
+    <script src="/js/lang-change.js"></script>
     <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ-->
-    <script src="js/common.js"></script>
+    <script src="/js/common.js"></script>
     <!--Nhóm 9: Liên kết file JS chung-->
-    <script src="js/couch.js"></script>
+    <script src="/js/couch.js"></script>
     <!--Nhóm 9: Liên kết file JS riêng cho couch-->
   </body>
 </html>
+

@@ -3,13 +3,13 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <title>Bed Collection Gallery</title>
+    <title>Bed Collection Gallery - Page 2</title>
     <meta
       name="description"
       content="Browse our collection of modern and traditional beds"
     />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/couch.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/couch.css" />
   </head>
   <body data-page="bed">
     <!--Nhóm 9: Phần Header-->
@@ -107,80 +107,161 @@
     </header>
 
     <!--Nhóm 9: Thanh điều hướng các sản phẩm khác-->
-    <nav data-scroll="fade-up" class="product-category-nav">
-      <ul>
-        <li>
-          <a data-scroll="fade-up" href="couch.html" data-i18n="category-sofa"
-            >Sofa</a
-          >
-        </li>
-        <li>
-          <a
-            data-scroll="fade-up"
-            href="bed.html"
-            class="active"
-            data-i18n="category-bed"
-            >Bed</a
-          >
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-armchair"
-            >Armchair</a
-          >
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-wardrobe"
-            >Wardrobe</a
-          >
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-chair">Chair</a>
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-storage"
-            >Storage & Shelving</a
-          >
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-dining"
-            >Dining table</a
-          >
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-sidetable"
-            >Side - coffee table</a
-          >
-        </li>
-      </ul>
+    <nav class="product-category-nav">
+        <ul>
+            <li><a href="couch.html" data-i18n="category-sofa">Couch</a></li>
+            <li><a href="bed.html" class="active" data-i18n="category-bed">Bed</a></li>
+            <li><a href="armchair.html" data-i18n="category-armchair">Armchair</a></li>
+            <li><a href="wardrobe.html" data-i18n="category-wardrobe">Wardrobe</a></li>
+            <li><a href="chair.html" data-i18n="category-chair">Chair</a></li>
+            <li><a href="shelving.html" data-i18n="category-storage">Storage & Shelving</a></li>
+            <li><a href="dining-table.html" data-i18n="category-dining">Dining table</a></li>
+            <li><a href="side-table.html" data-i18n="category-sidetable">Side - coffee table</a></li>
+        </ul>
     </nav>
+
+    <!--Nhóm 9: Phần lọc sản phẩm-->
+    <div class="filter-bar">
+        
+        <div class="filter-item">
+            <div class="filter-title">Material <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="material" value="up"> Upholstered</label>
+                <label><input type="checkbox" name="material" value="fabric"> Fabric</label>
+                <label><input type="checkbox" name="material" value="metal"> Metal</label>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="filter-title">Color <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="color" value="beige"> Brown</label>
+                <label><input type="checkbox" name="color" value="brown"> Grey</label>
+                <label><input type="checkbox" name="color" value="beige"> Beige</label>
+                <label><input type="checkbox" name="color" value="white"> White</label>
+                <label><input type="checkbox" name="color" value="others"> Others</label>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="filter-title">Price <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="price" value="low"> Under 6.000.000 đ</label>
+            <label><input type="checkbox" name="price" value="mid"> 6.000.000 đ - 8.000.000 đ</label>
+            <label><input type="checkbox" name="price" value="high"> Over 8.000.000 đ</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sofa-container">
+        </div>
+</div>
 
     <!--Nhóm 9: Phần trưng bày sản phẩm-->
     <main data-scroll="fade-up" class="sofa-gallery">
       <div data-scroll="fade-up" class="background" role="presentation"></div>
       <section data-scroll="fade-up" class="sofa-container">
         <div data-scroll="fade-up" class="sofa-grid">
-          <a
-            data-scroll="fade-up"
-            href="product_index.html"
-            class="sofa-card sofa-1"
-          >
+          <a data-scroll="fade-up" href="product_index.html" class="sofa-card sofa-1"
+            data-material="metal" 
+            data-color="beige" 
+            data-price="low">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/1.png"
-              alt="Venti Bed"
+              src="/images/bed/16.png"
+              alt="Haddie Bed"
               loading="lazy"
             />
             <figure data-scroll="fade-up" class="sofa-card__caption-box">
               <div data-scroll="fade-up" class="sofa-card__price">
-                8.200.000 đ
+                4.800.000 đ
               </div>
               <figcaption
                 data-scroll="fade-up"
                 class="sofa-card__name"
-                data-i18n="product-venti"
+                data-i18n="product-haddie"
               >
-                Venti Bed
+                Haddie Bed
+              </figcaption>
+              <span class="sofa-card__underline" role="presentation"></span>
+            </figure>
+          </a>
+
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-2"
+            data-material="up" 
+            data-color="beige" 
+            data-price="low">
+            <img
+              data-scroll="fade-up"
+              class="sofa-card__image"
+              src="/images/bed/17.png"
+              alt="Nightie Bed"
+              loading="lazy"
+            />
+            <figure data-scroll="fade-up" class="sofa-card__caption-box">
+              <div data-scroll="fade-up" class="sofa-card__price">
+                5.100.000 đ
+              </div>
+              <figcaption
+                data-scroll="fade-up"
+                class="sofa-card__name"
+                data-i18n="product-nightie"
+              >
+                Nightie Bed
+              </figcaption>
+              <span class="sofa-card__underline" role="presentation"></span>
+            </figure>
+          </a>
+
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-3"
+            data-material="up" 
+            data-color="green" 
+            data-price="mid">
+            <img
+              data-scroll="fade-up"
+              class="sofa-card__image"
+              src="/images/bed/18.png"
+              alt="Lucene Bed"
+              loading="lazy"
+            />
+            <figure data-scroll="fade-up" class="sofa-card__caption-box">
+              <div data-scroll="fade-up" class="sofa-card__price">
+                7.200.000 đ
+              </div>
+              <figcaption
+                data-scroll="fade-up"
+                class="sofa-card__name"
+                data-i18n="product-lucene"
+              >
+                Lucene Bed
+              </figcaption>
+              <span class="sofa-card__underline" role="presentation"></span>
+            </figure>
+          </a>
+
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-4"
+            data-material="fabric" 
+            data-color="beige" 
+            data-price="mid">
+            <img
+              data-scroll="fade-up"
+              class="sofa-card__image"
+              src="/images/bed/19.png"
+              alt="Cyrene Bed"
+              loading="lazy"
+            />
+            <figure data-scroll="fade-up" class="sofa-card__caption-box">
+              <div data-scroll="fade-up" class="sofa-card__price">
+                8.000.000 đ
+              </div>
+              <figcaption
+                data-scroll="fade-up"
+                class="sofa-card__name"
+                data-i18n="product-cyrene"
+              >
+                Cyrene Bed
               </figcaption>
               <span
                 data-scroll="fade-up"
@@ -190,262 +271,85 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-2">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-5"
+            data-material="fabric" 
+            data-color="others" 
+            data-price="low">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/2.png"
-              alt="Janette Bed"
+              src="/images/bed/20.png"
+              alt="Syhere Bed"
               loading="lazy"
             />
             <figure data-scroll="fade-up" class="sofa-card__caption-box">
               <div data-scroll="fade-up" class="sofa-card__price">
-                6.000.000 đ
+                5.500.000 đ
               </div>
               <figcaption
                 data-scroll="fade-up"
                 class="sofa-card__name"
-                data-i18n="product-janette"
+                data-i18n="product-syhere"
               >
-                Janette Bed
+                Syhere Bed
+              </figcaption>
+              <span class="sofa-card__underline" role="presentation"></span>
+            </figure>
+          </a>
+
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-6"
+            data-material="metal" 
+            data-color="green" 
+            data-price="mid">
+            <img
+              data-scroll="fade-up"
+              class="sofa-card__image"
+              src="/images/bed/21.png"
+              alt="Merde Bed"
+              loading="lazy"
+            />
+            <figure data-scroll="fade-up" class="sofa-card__caption-box">
+              <div data-scroll="fade-up" class="sofa-card__price">
+                6.800.000 đ
+              </div>
+              <figcaption
+                data-scroll="fade-up"
+                class="sofa-card__name"
+                data-i18n="product-merde"
+              >
+                Merde Bed
+              </figcaption>
+              <span class="sofa-card__underline" role="presentation"></span>
+            </figure>
+          </a>
+
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-7"
+          data-material="metal" 
+            data-color="green" 
+            data-price="mid">
+            <img
+              data-scroll="fade-up"
+              class="sofa-card__image"
+              src="/images/bed/22.png"
+              alt="Putain Bed"
+              loading="lazy"
+            />
+            <figure data-scroll="fade-up" class="sofa-card__caption-box">
+              <div data-scroll="fade-up" class="sofa-card__price">
+                7.000.000 đ
+              </div>
+              <figcaption
+                data-scroll="fade-up"
+                class="sofa-card__name"
+                data-i18n="product-putain"
+              >
+                Putain Bed
               </figcaption>
               <span
                 data-scroll="fade-up"
                 class="sofa-card__underline"
                 role="presentation"
               ></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-3">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/3.png"
-              alt="Brimless Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">8.200.000 đ</div>
-              <figcaption class="sofa-card__name" data-i18n="product-brimless">
-                Brimless Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-4">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/4.png"
-              alt="Cloud Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">8.000.000 đ</div>
-              <figcaption class="sofa-card__name" data-i18n="product-cloud-bed">
-                Cloud Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-5">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/5.png"
-              alt="Saphire Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div data-scroll="fade-up" class="sofa-card__price">
-                7.500.000 đ
-              </div>
-              <figcaption
-                data-scroll="fade-up"
-                class="sofa-card__name"
-                data-i18n="product-saphire-bed"
-              >
-                Saphire Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-6">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/6.png"
-              alt="Moka Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">6.800.000 đ</div>
-              <figcaption class="sofa-card__name" data-i18n="product-moka-bed">
-                Moka Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-7">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/7.png"
-              alt="Nami Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">5.000.000 đ</div>
-              <figcaption class="sofa-card__name" data-i18n="product-nami">
-                Nami Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-8">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/8.png"
-              alt="Cotton Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">8.200.000 đ</div>
-              <figcaption
-                class="sofa-card__name"
-                data-i18n="product-cotton-bed"
-              >
-                Cotton Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-9">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/9.png"
-              alt="Souths Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">7.500.000 đ</div>
-              <figcaption class="sofa-card__name" data-i18n="product-souths">
-                Souths Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-10">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/10.png"
-              alt="Haven Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">8.200.000 đ</div>
-              <figcaption class="sofa-card__name" data-i18n="product-haven-bed">
-                Haven Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-11">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/11.png"
-              alt="Hambri Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">5.800.000 đ</div>
-              <figcaption class="sofa-card__name" data-i18n="product-hambri">
-                Hambri Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-12">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/12.png"
-              alt="Nammee Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div data-scroll="fade-up" class="sofa-card__price">
-                8.900.000 đ
-              </div>
-              <figcaption class="sofa-card__name" data-i18n="product-nammee">
-                Nammee Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-13">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/13.png"
-              alt="Kiley Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">8.100.000 đ</div>
-              <figcaption class="sofa-card__name" data-i18n="product-kiley">
-                Kiley Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-14">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/14.png"
-              alt="Jex Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">5.600.000 đ</div>
-              <figcaption class="sofa-card__name" data-i18n="product-jex">
-                Jex Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
-            </figure>
-          </a>
-
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-15">
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/15.png"
-              alt="Rubi Bed"
-              loading="lazy"
-            />
-            <figure data-scroll="fade-up" class="sofa-card__caption-box">
-              <div class="sofa-card__price">9.300.000 đ</div>
-              <figcaption class="sofa-card__name" data-i18n="product-rubi-bed">
-                Rubi Bed
-              </figcaption>
-              <span class="sofa-card__underline" role="presentation"></span>
             </figure>
           </a>
         </div>
@@ -453,19 +357,19 @@
 
       <!--Nhóm 9: Phần phân trang-->
       <div data-scroll="fade-up" class="pagination">
-        <a href="#" class="arrow">←</a>
+        <a href="bed.html" class="arrow">←</a>
 
-        <span class="dot active"></span>
-        <span class="dot"></span>
+        <span data-scroll="fade-up" class="dot"></span>
+        <span data-scroll="fade-up" class="dot active"></span>
 
-        <a href="bed-2.html" class="arrow">→</a>
+        <a data-scroll="fade-up" href="#" class="arrow">→</a>
       </div>
 
       <!--Nhóm 9: Phần quay lại đầu trang-->
       <img
         data-scroll="fade-up"
         id="btn-top"
-        src="images/return_to_top.png"
+        src="/images/return_to_top.png"
         alt="Return to top"
       />
     </main>
@@ -501,16 +405,26 @@
                 >Sofas & Armchairs</a
               >
             </li>
-            <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
+            <li>
+              <a href="#" data-i18n="footer-categories-dining">Dining Tables</a>
+            </li>
             <li>
               <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
             </li>
             <li>
-              <a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
+              <a href="#" data-i18n="footer-categories-cabinet"
+                >Cabinets & Shelves</a
+              >
             </li>
-            <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
             <li>
-              <a data-i18n="footer-categories-new">New Arrivals / Promotions</a>
+              <a href="#" data-i18n="footer-categories-decor"
+                >Lighting & Decor</a
+              >
+            </li>
+            <li>
+              <a href="#" data-i18n="footer-categories-new"
+                >New Arrivals / Promotions</a
+              >
             </li>
           </ul>
         </div>
@@ -555,12 +469,10 @@
       </div>
     </footer>
 
-    <script src="js/lang-change.js"></script>
-    <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ-->
-    <script src="js/common.js"></script>
-    <!--Nhóm 9: Liên kết file JS chung-->
-    <script src="js/couch.js"></script>
-    <!--Nhóm 9: Liên kết file JS riêng cho bed-->
-    <script src="js/animations.js"></script>
+    <script src="/js/lang-change.js"></script> <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="/js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="/js/couch.js"></script> <!--Nhóm 9: Liên kết file JS riêng cho couch-->
+
   </body>
 </html>
+

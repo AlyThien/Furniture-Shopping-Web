@@ -3,12 +3,15 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <title>Typologies - Haguchi</title>
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/typologies.css" />
+    <title>Bed Collection Gallery</title>
+    <meta
+      name="description"
+      content="Browse our collection of modern and traditional beds"
+    />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/couch.css" />
   </head>
-
-  <body data-page="typologies">
+  <body data-page="bed">
     <!--Nhóm 9: Phần Header-->
     <header>
       <div class="Logo">
@@ -103,86 +106,148 @@
       </nav>
     </header>
 
-    <!--Nhóm 9: Nội dung chính trang Typologies-->
-    <main data-scroll="fade-up" class="typologies-page">
-      <section data-scroll="fade-up" class="page-title">
-        <h1 data-scroll="fade-up" data-i18n="typologies-title">TYPOLOGIES</h1>
+    <!--Nhóm 9: Thanh điều hướng các sản phẩm khác-->
+    <nav class="product-category-nav">
+        <ul>
+            <li><a href="couch.html" data-i18n="category-sofa">Couch</a></li>
+            <li><a href="bed.html" data-i18n="category-bed">Bed</a></li>
+            <li><a href="armchair.html" data-i18n="category-armchair">Armchair</a></li>
+            <li><a href="wardrobe.html" data-i18n="category-wardrobe">Wardrobe</a></li>
+            <li><a href="chair.html" data-i18n="category-chair">Chair</a></li>
+            <li><a href="shelving.html" class="active" data-i18n="category-storage">Storage & Shelving</a></li>
+            <li><a href="dining-table.html" data-i18n="category-dining">Dining table</a></li>
+            <li><a href="side-table.html" data-i18n="category-sidetable">Side - coffee table</a></li>
+        </ul>
+    </nav>
+
+    <!--Nhóm 9: Phần lọc sản phẩm-->
+    <div class="filter-bar">
+        
+        <div class="filter-item">
+            <div class="filter-title">Material <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="material" value="oak"> Oak</label>
+                <label><input type="checkbox" name="material" value="walnut"> Walnut</label>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="filter-title">Price <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="price" value="low"> Under 6.000.000 đ</label>
+            <label><input type="checkbox" name="price" value="mid"> 6.000.000 đ - 8.000.000 đ</label>
+            <label><input type="checkbox" name="price" value="high"> Over 8.000.000 đ</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sofa-container">
+        </div>
+</div>
+
+    <!--Nhóm 9: Phần trưng bày sản phẩm-->
+    <main data-scroll="fade-up" class="sofa-gallery">
+      <div data-scroll="fade-up" class="background" role="presentation"></div>
+      <section data-scroll="fade-up" class="sofa-container">
+        <div data-scroll="fade-up" class="sofa-grid">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-1"
+            data-material="oak" 
+            data-price="high">
+            <img 
+            data-scroll="fade-up" 
+            class="sofa-card__image" 
+            src="/images/hình shelving/1.png"
+              alt="Kunty Shelf" 
+              loading="lazy"/>
+            <figure data-scroll="fade-up" class="sofa-card__caption-box">
+              <div data-scroll="fade-up" class="sofa-card__price">
+                8.200.000 đ
+              </div>
+              <figcaption
+                data-scroll="fade-up"
+                class="sofa-card__name"
+                data-i18n="product-kunty-shelf"
+              >
+                Kunty Shelf
+              </figcaption>
+              <span
+                data-scroll="fade-up"
+                class="sofa-card__underline"
+                role="presentation"
+              ></span>
+            </figure>
+          </a>
+
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-2"
+            data-material="walnut" 
+            data-price="mid">
+            <img
+              data-scroll="fade-up"
+              class="sofa-card__image"
+              src="/images/hình shelving/2.png"
+              alt="Mesmo Shelf"
+              loading="lazy"
+            />
+            <figure data-scroll="fade-up" class="sofa-card__caption-box">
+              <div data-scroll="fade-up" class="sofa-card__price">
+                6.000.000 đ
+              </div>
+              <figcaption
+                data-scroll="fade-up"
+                class="sofa-card__name"
+                data-i18n="product-mesmo-shelf"
+              >
+                Mesmo Shelf
+              </figcaption>
+              <span
+                data-scroll="fade-up"
+                class="sofa-card__underline"
+                role="presentation"
+              ></span>
+            </figure>
+          </a>
+
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-3"
+            data-material="oak"  
+            data-price="high">
+            <img
+              data-scroll="fade-up"
+              class="sofa-card__image"
+              src="/images/hình shelving/3.png"
+              alt="Brimmunch Shelf"
+              loading="lazy"
+            />
+            <figure data-scroll="fade-up" class="sofa-card__caption-box">
+              <div class="sofa-card__price">9.100.000 đ</div>
+              <figcaption class="sofa-card__name" data-i18n="product-brimmunch-shelf">
+                Brimmunch Shelf
+              </figcaption>
+              <span class="sofa-card__underline" role="presentation"></span>
+            </figure>
+          </a>
+    
+        </div>
       </section>
 
-      <!--Nhóm 9: Lưới hiển thị các danh mục sản phẩm-->
-      <nav data-scroll="fade-up" class="typology-grid">
-        <!--Nhóm 9: Danh mục Giường-->
-        <a data-scroll="fade-up" href="bed.html" class="typology-item">
-          <img src="images/hình typologies/bed.png" alt="Bed" />
-          <span class="item-label" data-i18n="typology-bed">Bed</span>
-        </a>
+      <!--Nhóm 9: Phần phân trang-->
+      <div data-scroll="fade-up" class="pagination">
+        <a href="#" class="arrow">←</a>
 
-        <!--Nhóm 9: Danh mục Ghế bành-->
-        <a data-scroll="fade-up" href="#" class="typology-item">
-          <img src="images/hình typologies/armchair.png" alt="Armchair" />
-          <span class="item-label" data-i18n="typology-armchair">Armchair</span>
-        </a>
+        <span class="dot active"></span>
+        
 
-        <!--Nhóm 9: Danh mục Sofa-->
-        <a data-scroll="fade-up" href="couch.html" class="typology-item">
-          <img src="images/hình typologies/couch.png" alt="Couch" />
-          <span class="item-label" data-i18n="typology-couch">Couch</span>
-        </a>
+        <a href="#" class="arrow">→</a>
+      </div>
 
-        <!--Nhóm 9: Danh mục Tủ quần áo-->
-        <a data-scroll="fade-up" href="#" class="typology-item">
-          <img src="images/hình typologies/wardrobe.png" alt="Wardrobe" />
-          <span class="item-label" data-i18n="typology-wardrobe">Wardrobe</span>
-        </a>
-
-        <!--Nhóm 9: Danh mục Ghế-->
-        <a data-scroll="fade-up" href="#" class="typology-item">
-          <img src="images/hình typologies/chair.png" alt="Chair" />
-          <span class="item-label" data-i18n="typology-chair">Chair</span>
-        </a>
-
-        <!--Nhóm 9: Danh mục Tủ & Kệ-->
-        <a data-scroll="fade-up" href="#" class="typology-item">
-          <img
-            src="images/hình typologies/storage & shelving.png"
-            alt="Storage & shelving"
-          />
-          <span class="item-label" data-i18n="typology-storage"
-            >Storage & shelving</span
-          >
-        </a>
-
-        <!--Nhóm 9: Danh mục Bàn ăn-->
-        <a data-scroll="fade-up" href="#" class="typology-item">
-          <img
-            src="images/hình typologies/dining table.png"
-            alt="Dining table"
-          />
-          <span class="item-label" data-i18n="typology-dining"
-            >Dining table</span
-          >
-        </a>
-
-        <!--Nhóm 9: Danh mục Bàn phụ - Bàn cà phê-->
-        <a data-scroll="fade-up" href="#" class="typology-item">
-          <img
-            src="images/hình typologies/side(coffee) table.png"
-            alt="Side - coffee table"
-          />
-          <span class="item-label" data-i18n="typology-sidetable"
-            >Side - coffee table</span
-          >
-        </a>
-      </nav>
+      <!--Nhóm 9: Phần quay lại đầu trang-->
+      <img
+        data-scroll="fade-up"
+        id="btn-top"
+        src="/images/return_to_top.png"
+        alt="Return to top"
+      />
     </main>
-
-    <!--Nhóm 9: Phần quay lại đầu trang-->
-    <img
-      data-scroll="fade-up"
-      id="btn-top"
-      src="images/return_to_top.png"
-      alt="Return to top"
-    />
 
     <!--Nhóm 9: Phần footer-->
     <footer data-scroll="fade-up">
@@ -269,10 +334,10 @@
       </div>
     </footer>
 
-    <script src="js/lang-change.js"></script>
-    <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
-    <script src="js/common.js"></script>
-    <!--Nhóm 9:  Liên kết file JS chung -->
-    <script src="js/animations.js"></script>
+    <script src="/js/lang-change.js"></script> <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="/js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="/js/couch.js"></script> <!--Nhóm 9: Liên kết file JS riêng cho couch-->
+
   </body>
 </html>
+
