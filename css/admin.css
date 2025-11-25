@@ -582,101 +582,130 @@ Nhóm 9: HỘP THOẠI
 /* ==============================================
 Nhóm 9: RESPONSIVE - TABLET & MOBILE
 ============================================== */
-@media (max-width: 800px) {
+
+/* ==============================================
+   RESPONSIVE - 1024px
+============================================== */
+@media (max-width: 1024px) {
+    .admin-sidebar {
+        width: 200px;
+    }
+    .admin-main {
+        margin-left: 200px;
+        padding: 20px;
+    }
+    .admin-header h1 {
+        font-size: 24px;
+    }
+    .table thead th,
+    .table tbody td {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+    .summary-card .value {
+        font-size: 32px;
+    }
+}
+
+/* ==============================================
+   RESPONSIVE - 768px (Tablet)
+============================================== */
+@media (max-width: 768px) {
     .admin-sidebar {
         position: relative;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        border-right: none;
-        border-bottom: 2px solid rgba(45, 74, 62, 0.2);
+        height: auto;
+        display: block;
     }
-    
     .admin-sidebar h2 {
-        padding: 20px 15px 15px;
-        font-size: 22px;
+        padding: 20px 15px;
+        font-size: 24px;
     }
-    
-    .admin-sidebar nav {
-        padding: 10px 0 15px;
-    }
-    
     .admin-sidebar nav ul {
         flex-direction: row;
-        gap: 8px;
         overflow-x: auto;
-        padding: 0 15px 10px;
+        padding: 0 15px 15px;
+        gap: 10px;
     }
-    
     .admin-sidebar nav button {
-        flex-shrink: 0;
-        padding: 10px 16px;
+        padding: 10px 14px;
         font-size: 14px;
         white-space: nowrap;
+        min-width: 120px;
     }
-    
-    .admin-sidebar nav button:hover {
-        transform: translateX(0);
-        transform: translateY(-2px);
-    }
-    
     .admin-main {
         margin-left: 0;
         padding: 15px;
     }
-    
     .admin-header {
         flex-direction: column;
-        align-items: flex-start;
+        text-align: center;
         gap: 15px;
-        padding: 15px 20px;
     }
-    
-    .admin-header h1 {
-        font-size: 24px;
+    .header-controls {
+        width: 100%;
+        display: flex;
+        gap: 10px;
     }
-    
-    .table-responsive-container {
-        border-radius: 8px;
+    .header-controls button {
+        flex: 1;
     }
-    
-    .table-responsive-container table {
-        width: max-content; 
-        min-width: 100%;
-    }
-    
-    .table thead th, 
-    .table tbody td {
-        font-size: 13px;
-        padding: 12px 10px;
-    }
-
-    .header-controls button, 
-    .inventory-controls button,
-    .action-btn {
-        padding: 8px 14px;
-        font-size: 13px;
-    }
-    
     .inventory-controls {
-        flex-direction: column; 
-        align-items: stretch;
-        padding: 15px;
+        flex-direction: column;
     }
-    
+    #prod-filter {
+        width: 100%;
+    }
+    .report-controls {
+        flex-direction: column;
+    }
     .report-summary {
         grid-template-columns: 1fr;
-        gap: 15px;
     }
-    
-    .summary-card .value {
-        font-size: 30px;
-    }
-    
     .modal-content {
+        width: 95%;
         padding: 20px;
-        max-width: 95%;
     }
-
 }
 
+/* ==============================================
+   RESPONSIVE - 480px (Mobile)
+============================================== */
+@media (max-width: 480px) {
+    .admin-header h1 {
+        font-size: 20px;
+    }
+    .admin-sidebar nav button {
+        font-size: 13px;
+        padding: 8px 12px;
+        min-width: 100px;
+    }
+    .table thead th,
+    .table tbody td {
+        font-size: 12px;
+        padding: 10px 6px;
+    }
+    .action-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    .summary-card {
+        padding: 15px;
+    }
+    .summary-card h3 {
+        font-size: 12px;
+    }
+    .summary-card .value {
+        font-size: 28px;
+    }
+    .modal-content {
+        padding: 15px;
+        max-height: 95vh;
+    }
+    .modal-sub-title {
+        font-size: 16px;
+    }
+    .detail-total {
+        font-size: 18px;
+    }
+}
