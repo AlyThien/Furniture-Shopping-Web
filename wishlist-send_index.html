@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Wishlist - Haguchi</title>
+    <link rel="stylesheet" href="css/wishlist-send.css" />
+    <link rel="stylesheet" href="css/common.css" />
+  </head>
+
+  <body data-page="wishlist-send">
+    <!--Nhóm 9: Phần Header-->
+    <div data-include="partials/header.html"></div>
+
+    <!--Nhóm 9: Phần Wishlist form -->
+    <section data-scroll="fade-up" id="wishlist-form">
+      <h1 data-i18n="wishlist-title">Wishlist</h1>
+      <div data-scroll="fade-up" class="container">
+        <h2 data-i18n="send-wishlist-title">Send Wishlist to Haguchi</h2>
+        <p class="subtitle" data-i18n="send-subtitle">
+          Please fill in this form to send your wishlist
+        </p>
+        <p class="required-note">
+          (<span data-i18n="required-note">Fields marked with</span>
+          <span style="color: #d44">*</span>
+          <span data-i18n="required-note-2">are required</span>)
+        </p>
+
+        <form data-scroll="fade-up" id="paymentForm">
+          <section data-scroll="fade-up" id="contact-info" class="form-section">
+            <h3 data-i18n="contact-info-title">Contact Information:</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label data-i18n="name-label" data-i18n-html="true" >Name <span class="required">*</span></label>
+                <input type="text" name="name" />
+              </div>
+              <div class="form-group">
+                <label data-i18n="surname-label" data-i18n-html="true" >Surname <span class="required">*</span></label>
+                <input type="text" name="surname" />
+              </div>
+            </div>
+            <div data-scroll="fade-up" class="form-row">
+              <div class="form-group">
+                <label data-i18n="phone-label" data-i18n-html="true">Phone <span class="required">*</span></label>
+                <input type="tel" name="phone" />
+              </div>
+              <div class="form-group">
+                <label data-i18n="email-label" data-i18n-html="true" >Email <span class="required">*</span></label>
+                <input type="email" name="email" />
+              </div>
+            </div>
+          </section>
+
+          <section
+            data-scroll="fade-up"
+            id="delivery-info"
+            class="form-section">
+            <h3 data-i18n="delivery-info-title">Delivery Information:</h3>
+            <div class="form-group full-width">
+              <label data-i18n="country-label" data-i18n-html="true">Country/Region <span class="required">*</span></label>
+              <select name="country">
+                <option value="" data-i18n="select-country">
+                  Select country
+                </option>
+                <option value="vn" data-i18n="country-vietnam">Vietnam</option>
+                <option value="us" data-i18n="country-us">United States</option>
+                <option value="uk" data-i18n="country-uk">
+                  United Kingdom
+                </option>
+              </select>
+            </div>
+            <div data-scroll="fade-up" class="form-group full-width">
+              <label data-i18n="address-label" data-i18n-html="true">Address <span class="required">*</span></label>
+              <input type="text" name="address" />
+            </div>
+            <div data-scroll="fade-up" class="form-row">
+              <div class="form-group">
+                <label data-i18n="province-label" data-i18n-html="true">Province <span class="required">*</span></label>
+                <select name="province" id="province">
+                  <option value="" data-i18n="select-province">
+                    Select province
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label data-i18n="city-label" data-i18n-html="true">City <span class="required">*</span></label>
+                <select name="city" id="city">
+                  <option value="" data-i18n="select-city">Select city</option>
+                </select>
+              </div>
+            </div>
+            <div data-scroll="fade-up" class="checkbox-group">
+              <input type="checkbox" id="save-info" name="saveInfo" />
+              <label for="save-info" data-i18n="save-info-label"
+                >Save this information for next time</label>
+            </div>
+          </section>
+          <!--Nhóm 9: Phần Payment -->
+          <section
+            data-scroll="fade-up"
+            id="payment-section"
+            class="form-section"
+          >
+            <h3 data-i18n="payment-title">Payment:</h3>
+            <p class="payment-note" data-i18n="payment-note">
+              All transactions are secure and encrypted.
+            </p>
+
+            <div data-scroll="fade-up" class="radio-option" id="cod-option">
+              <input type="radio" name="payment" id="cod" value="cod" />
+              <label for="cod" data-i18n="payment-cod"
+                >Cash on Delivery (COD)</label
+              >
+            </div>
+
+            <div data-scroll="fade-up" class="radio-option" id="bank-option">
+              <input
+                type="radio"
+                name="payment"
+                id="bank"
+                value="bank"
+                checked
+              />
+              <label for="bank" data-i18n="payment-bank">Bank Transfer</label>
+            </div>
+
+            <div data-scroll="fade-up" class="qr-section" id="qr-section">
+              <div class="qr-code">
+                <img src="images/image 2.png" alt="QR Code" />
+                <p class="qr-amount">50,000 VND</p>
+                <p class="qr-name">mas</p>
+              </div>
+            </div>
+          </section>
+
+          <button
+            data-scroll="fade-up"
+            type="submit"
+            class="continue-bu"
+            data-i18n="continue-btn"
+          >
+            Continue
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!--Nhóm 9: Phần quay lại đầu trang-->
+    <img
+      data-scroll="fade-up"
+      id="btn-top"
+      src="images/return_to_top.png"
+      alt="Return to top"
+    />
+
+    <!--Nhóm 9: Phần footer-->
+    <div data-include="partials/footer.html"></div>
+     <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+     <script src="js/lang-change.js"></script>
+    <!--Nhóm 9: Liên kết file js chung -->
+    <script src="js/common.js"></script>
+    <!--Nhóm 9:  Liên kết file JS các thành phố/ tỉnh thành -->
+    <script src="js/VNcity.js"></script>
+    <!--Nhóm 9: Import file JS xử lý thanh toán-->
+    <script src="js/wishlist-send.js"></script>
+    <!--Nhóm 9: Liên kết file JS riêng cho partials-->
+    <script src="partials/js/partials.js"></script>
+  </body>
+</html>

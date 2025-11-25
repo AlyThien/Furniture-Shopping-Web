@@ -3,32 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haguchi-Homepage</title>
-    <link rel="stylesheet" href="/css/success.css">
-    <link rel="stylesheet" href="/css/component.css">
+    <title>Payment Confirmation - Haguchi</title>
+    <link rel="stylesheet" href="css/success.css">
+    <link rel="stylesheet" href="css/common.css">
 </head>
-<body>
-    <!--Phần Header-->
-    <header>
-        <div class="Logo">
-            <p>
-                <a href="index.html"><em>Haguchi</em><br>葉具家</a>
-            </p>
-        </div>
-        <nav class="Main-Menu">
-            <ul>
-                <li><a href="">Products</a></li>
-                <li><a href="">About us</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="/policy_index.html">Policies</a></li>
-            </ul>
-        </nav>
-        <nav class="Sub-Menu">
-            <ul>
-                <li><span class="fluent--search-12-filled"></span></li>
-                <li><a href="Wishlist_index.html"><span class="solar--heart-bold"></span></a></li>
-            </ul>
-    </header>
+
+<body data-page="success">
+    <!--Nhóm 9: Phần Header-->
+    <div data-include="partials/header.html"></div>
     <!-- Phần Success -->
     <section id="success">
             <!-- Success Icon -->
@@ -39,59 +21,24 @@
                 </svg>
             </div>
 
-            <h2 class="success-title">Your order has been successfully placed. Thank you for choosing Haguchi!</h2>
+            <h2 class="success-title" data-i18n="success-message">Your order has been successfully placed. Thank you for choosing Haguchi!</h2>
 
-            <button type="button" class="view-order-btn" onclick="window.location.href='order-detail.html'">View Order Details</button>
-        <span class="scollToTop"></span>
+            <button type="button" class="view-order-btn" onclick="window.location.href='order-detail.html'" data-i18n="view-order-btn">View Order Details</button>
+        
     </section>
-    <!--Phần footer-->
-<footer>
-    <div class="footer-logo">
-        <div>Haguchi</div>
-        <div>葉具家</div>
-    </div>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>About Us</h3>
-            <ul>
-                <li> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
-                <li>📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
-                <li>📞 (+84) 123 456 789</li>
-                <li>📧 support@HAGUCHI.com</li>
-                <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
-            </ul>
-        </div>
-    <div class="footer-section">
-        <h3>Shop by Category</h3>
-        <ul>
-            <li>Sofas & Armchairs</li>
-            <li>Dining Tables</li>
-            <li>Beds</li>
-            <li>Cabinets & Shelves</li>
-            <li>Lighting & Decor</li>
-            <li>New Arrivals / Promotions</li>
-        </ul>
-    </div>
-    <div class="footer-section">
-        <h3>Policies & Support</h3>
-        <ul>
-            <li>Warranty Policy</li>
-            <li>Return & Exchange</li>
-            <li>Shipping Policy</li>
-            <li>How to Order</li>
-            <li>Privacy Policy</li>
-        </ul>
-    </div>
-</div>
-    <div class="footer-bottom">
-        <span>© 2025 HAGUCHI – All rights reserved.</span>
-        <div class="social-icons">
-            <div class="social-icon">f</div>
-            <div class="social-icon">in</div>
-            <div class="social-icon">t</div>
-        </div>
-    </div>
-</footer>
-<script src="/scoll-to-top.js"></script>
+
+    <!--Nhóm 9: Phần quay lại đầu trang-->
+    <img id="btn-top" src="images/return_to_top.png" alt="Return to top">
+
+    <!--Nhóm 9: Phần footer-->
+    <div data-include="partials/footer.html"></div>
+   
+    <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="js/lang-change.js"></script> 
+    <!--Nhóm 9: Liên kết file JS riêng cho partials-->
+    <script src="partials/js/partials.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="js/common.js"></script> 
+
 </body>
 </html>

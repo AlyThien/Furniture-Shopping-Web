@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haguchi-Homepage</title>
-    <link rel="stylesheet" href="css/bank.css">
-    <link rel="stylesheet" href="/css/component.css">
-</head>
-<body>
-    <!--Phần Header-->
-    <header>
-        <div class="Logo">
-            <p>
-                <a href="index.html"><em>Haguchi</em><br>葉具家</a>
-            </p>
-        </div>
-        <nav class="Main-Menu">
-            <ul>
-                <li><a href="">Products</a></li>
-                <li><a href="">About us</a></li>
-                <li><a href="">Blog</a></li>
-                <li><a href="/policy_index.html">Policies</a></li>
-            </ul>
-        </nav>
-        <nav class="Sub-Menu">
-            <ul>
-                <li><span class="fluent--search-12-filled"></span></li>
-                <li><a href="Wishlist_index.html"><span class="solar--heart-bold"></span></a></li>
-            </ul>
-    </header>
-    <!-- Phần Payment Detail -->
-    <section id="payment">
-        <div class="container">
-            <h1>Wishlist</h1>
-            <h2>Payment to Haguchi</h2>
-            <p class="subtitle">Please send your payment details so Haguchi can verify them.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Details - Haguchi</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/bank.css" />
+  </head>
+  <body data-page="bank">
+    <!--Nhóm 9: Phần Header-->
+    <div data-include="partials/header.html"></div>
 
-            <div class="payment-detail-container">
-                <h3>Payment detail:</h3>
-                <p class="detail-note">Please send a picture of the bank transfer details.</p>
+    <!-- Nhóm 9: Phần Payment Detail -->
+    <section data-scroll="blur" id="payment">
+      <h1 data-scroll="blur" data-i18n="bank-wishlist">Wishlist</h1>
+      <div data-scroll="blur" class="container">
+        <h2 data-scroll="blur" data-i18n="bank-payment-title">
+          Payment to Haguchi
+        </h2>
+        <p data-scroll="blur" class="subtitle" data-i18n="bank-subtitle">
+          Please send your payment details so Haguchi can verify them.
+        </p>
 
-                <!-- Upload Image Section -->
-                <div class="upload-section">
-                    <label for="file-upload" class="upload-btn">
-                        <span>Import Image</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 15V5M10 5L6 9M10 5L14 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M3 13V16C3 16.5304 3.21071 17.0391 3.58579 17.4142C3.96086 17.7893 4.46957 18 5 18H15C15.5304 18 16.0391 17.7893 16.4142 17.4142C16.7893 17.0391 17 16.5304 17 16V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </label>
-                    <input type="file" id="file-upload" accept="image/*" style="display: none;">
-                    
-                    <!-- Preview Area -->
-                    <div id="preview-area" class="preview-area" style="display: none;">
-                        <img id="preview-image" src="" alt="Preview">
-                        <button type="button" id="remove-image" class="remove-btn">×</button>
-                    </div>
-                </div>
+        <div data-scroll="blur" class="payment-detail-container">
+          <h3 data-scroll="blur" data-i18n="bank-detail-title">
+            Payment detail:
+          </h3>
+          <p
+            data-scroll="blur"
+            class="detail-note"
+            data-i18n="bank-detail-note"
+          >
+            Please send a picture of the bank transfer details.
+          </p>
+
+          <!-- Nhóm 9: Upload Image Section -->
+          <div data-scroll="blur" class="upload-section">
+            <label data-scroll="blur" for="file-upload" class="upload-btn">
+              <span data-scroll="blur" data-i18n="bank-import-image"
+                >Import Image</span
+              >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 15V5M10 5L6 9M10 5L14 9"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3 13V16C3 16.5304 3.21071 17.0391 3.58579 17.4142C3.96086 17.7893 4.46957 18 5 18H15C15.5304 18 16.0391 17.7893 16.4142 17.4142C16.7893 17.0391 17 16.5304 17 16V13"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </label>
+            <input
+              type="file"
+              id="file-upload"
+              accept="image/*"
+              style="display: none"
+            />
+
+            <!-- Nhóm 9: Preview Area -->
+            <div
+              data-scroll="blur"
+              id="preview-area"
+              class="preview-area"
+              style="display: none"
+            >
+              <img id="preview-image" src="" alt="Preview" />
+              <button type="button" id="remove-image" class="remove-btn">
+                ×
+              </button>
             </div>
-            <button class="continue-bu" onclick="window.location.href='success_index.html'">Continue</button>
+          </div>
         </div>
-        <span class="scollToTop"></span>
+        <button
+          class="continue-bu"
+          onclick="window.location.href='success_index.html'"
+          data-i18n="bank-continue"
+        >
+          Continue
+        </button>
+      </div>
+      <span data-scroll="blur" class="scollToTop"></span>
     </section>
-    <!--Phần footer-->
-<footer>
-    <div class="footer-logo">
-        <div>Haguchi</div>
-        <div>葉具家</div>
-    </div>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>About Us</h3>
-            <ul>
-                <li> Bringing elegance and comfort to your home with high-quality furniture designed for modern living</li>
-                <li>📍 123 Harmony Street, District 1, Ho Chi Minh City</li>
-                <li>📞 (+84) 123 456 789</li>
-                <li>📧 support@HAGUCHI.com</li>
-                <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
-            </ul>
-        </div>
-    <div class="footer-section">
-        <h3>Shop by Category</h3>
-        <ul>
-            <li>Sofas & Armchairs</li>
-            <li>Dining Tables</li>
-            <li>Beds</li>
-            <li>Cabinets & Shelves</li>
-            <li>Lighting & Decor</li>
-            <li>New Arrivals / Promotions</li>
-        </ul>
-    </div>
-    <div class="footer-section">
-        <h3>Policies & Support</h3>
-        <ul>
-            <li>Warranty Policy</li>
-            <li>Return & Exchange</li>
-            <li>Shipping Policy</li>
-            <li>How to Order</li>
-            <li>Privacy Policy</li>
-        </ul>
-    </div>
-</div>
-    <div class="footer-bottom">
-        <span>© 2025 HAGUCHI – All rights reserved.</span>
-        <div class="social-icons">
-            <div class="social-icon">f</div>
-            <div class="social-icon">in</div>
-            <div class="social-icon">t</div>
-        </div>
-    </div>
-</footer>
-<script src="/js/bank.js"></script>
-<script src="/scoll-to-top.js"></script>
-</body>
+
+    <!--Nhóm 9: Phần quay lại đầu trang-->
+    <img
+      data-scroll="blur"
+      id="btn-top"
+      src="images/return_to_top.png"
+      alt="Return to top"
+    />
+
+    <!--Nhóm 9: Phần footer-->
+    <div data-include="partials/footer.html"></div>
+    <script src="js/lang-change.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="js/common.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="js/bank.js"></script>
+    <!--Nhóm 9: Liên kết file JS riêng cho partials-->
+    <script src="partials/js/partials.js"></script>
+  </body>
 </html>
