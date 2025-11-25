@@ -375,33 +375,24 @@ Nhóm 9: COMPONENTS
     transform: scale(1.3);
 }
 
-/* ==============================================
-Nhóm 9: RESPONSIVE - TABLET (max-width: 768px)
+/* ==============================
+Nhóm 9: RESPONSIVE - TABLET (max-width: 1024px)
 ============================================== */
-@media (max-width: 768px) {
-    /*Sofa Gallery*/
+@media (max-width: 1024px) {
     .sofa-gallery {
         min-width: auto;
-        padding-top: 80px;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        overflow: visible;
+        padding: 40px 2rem;
+        background-size: cover;
     }
 
-    /*Sofa Container - Grid 2 cột*/
     .sofa-gallery .sofa-container {
-        position: relative;
-        width: 100%;
-        height: auto;
-        top: auto;
-        left: auto;
-        bottom: auto;
-        display: grid;
+        max-width: 1100px;
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        gap: 36px 20px;
+        margin: 30px auto;
+        padding: 0 16px;
     }
 
-    /*Reset Sofa*/
     .sofa-gallery [class*="sofa-"] {
         position: relative !important;
         width: 100% !important;
@@ -410,88 +401,198 @@ Nhóm 9: RESPONSIVE - TABLET (max-width: 768px)
         left: auto !important;
     }
 
-    /*Sofa Image*/
     .sofa-gallery .sofa-card__image {
-        position: relative !important;
+        aspect-ratio: 4 / 3;
         width: 100% !important;
         height: auto !important;
-        aspect-ratio: 1 / 1;
-        top: auto !important;
-        left: auto !important;
+        object-fit: cover;
     }
 
-    /*Caption Box*/
-    .sofa-gallery .sofa-card__caption-box {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        top: auto !important;
-        left: auto !important;
-        padding-top: 0.5rem;
+    .sofa-gallery .sofa-card__name { font-size: 18px; }
+    .sofa-gallery .sofa-card__price { font-size: 16px; margin-left: 10px; }
+
+    .filter-bar {
+        gap: 28px;
+        padding: 12px 12px;
+        background-color: #e7f7e6;
     }
 
-    .sofa-gallery .sofa-card__caption {
-        font-size: 16px;
+    .filter-item { font-size: 0.95rem; }
+
+    /* Tablet: cho phép hover và keyboard focus hiển thị dropdown.
+       Đồng thời hỗ trợ class .open (JS) để toggle trên touch */
+    .filter-dropdown {
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 180px;
+        position: absolute;
+        top: 100%;
+        display: none;
+        flex-direction: column;
+        padding: 6px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        z-index: 999;
+        background-color: #b7ddb1;
     }
+
+    .filter-item:hover .filter-dropdown,
+    .filter-item:focus-within .filter-dropdown,
+    .filter-item.open .filter-dropdown {
+        display: flex;
+    }
+
+    .pagination { margin-top: 40px; margin-bottom: 60px; gap: 12px; }
+    .pagination .arrow { width: 36px; height: 36px; font-size: 16px; }
 }
 
 /* ==============================================
-Nhóm 9: RESPONSIVE - MOBILE (max-width: 480px)
+Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
 ============================================== */
-@media (max-width: 480px) {
-    /*Sofa Gallery*/
+@media (max-width: 768px) {
     .sofa-gallery {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding: 30px 1.5rem;
     }
 
-    /*Sofa Container - Grid 1 cột*/
     .sofa-gallery .sofa-container {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        padding: 0 12px;
+        margin: 20px auto;
     }
 
-    /*Product Category Nav*/
-    .product-category-nav {
-        padding-top: 55px;
+    .sofa-gallery .sofa-card {
+        padding: 16px;
+        border-radius: 12px;
     }
 
-    .product-category-nav ul {
-        gap: 5px;
+    .sofa-gallery .sofa-card__image {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 8px;
     }
 
-    .product-category-nav a:link,
-    .product-category-nav a:visited {
-        font-size: 12px;
-        padding: 5px 8px;
+    .sofa-gallery .sofa-card__name { font-size: 16px; }
+    .sofa-gallery .sofa-card__price { font-size: 15px; margin-left: 8px; }
+
+    .filter-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 10px;
+        position: relative;
+        background-color: #e7f7e6;
     }
+
+    /* Mobile: không phụ thuộc hover — dropdown hiển thị bằng .open hoặc keyboard focus.
+       Đặt dropdown absolute nhưng đủ rộng; JS nên toggle .open trên .filter-item khi người dùng chạm. */
+    .filter-dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 160px;
+        padding: 6px;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+        display: none;
+        flex-direction: column;
+        background-color: #b7ddb1;
+        border-radius: 8px;
+        z-index: 999;
+    }
+
+    .filter-item:focus-within .filter-dropdown,
+    .filter-item.open .filter-dropdown {
+        display: flex;
+    }
+
+    /* Tắt hover rule (nếu có) để tránh mâu thuẫn */
+    /* .filter-item:hover .filter-dropdown { display: none; }  -- removed */
+
+    .pagination { gap: 10px; margin-top: 36px; margin-bottom: 48px; }
+    .pagination .arrow { width: 34px; height: 34px; font-size: 15px; }
+    .pagination .dot { width: 9px; height: 9px; }
 }
 
-/* --- Mobile Responsive (Giữ nguyên để không bị vỡ trên điện thoại) --- */
-@media (max-width: 768px) {
+/* ==============================================
+Nhóm 9: RESPONSIVE - VERY SMALL (max-width: 480px)
+============================================== */
+@media (max-width: 480px) {
+    .sofa-gallery {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .sofa-gallery .sofa-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 8px;
+    }
+
+    .sofa-gallery .sofa-card {
+        align-items: stretch;
+        padding: 12px;
+    }
+
+    .sofa-gallery .sofa-card__image {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .sofa-gallery .sofa-card__caption-box {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 8px;
+        margin-top: 10px;
+        padding-bottom: 6px;
+    }
+
+    .sofa-gallery .sofa-card__name {
+        font-size: 14px;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+
+    .sofa-gallery .sofa-card__price { font-size: 14px; }
+
+    .product-category-nav { padding-top: 48px; padding-left: 8px; padding-right: 8px; }
+    .product-category-nav a { font-size: 13px; padding: 6px 8px; }
+
     .filter-bar {
         flex-direction: column;
-        gap: 0;
-        align-items: flex-start;
-        padding: 10px 20px;
+        gap: 8px;
+        align-items: stretch;
+        padding: 8px 6px;
     }
+
     .filter-item {
         width: 100%;
-        padding: 10px 0;
-        border-bottom: 1px solid #f5f5f5;
+        padding: 8px 6px;
+        border-bottom: 1px solid rgba(0,0,0,0.04);
     }
+
+    /* Very small: dropdown trở về flow để không bị cắt; JS toggle .open để expand */
     .filter-dropdown {
-        position: static; /* Trên mobile thì quay về xếp dọc */
+        position: static;
         transform: none;
         box-shadow: none;
-        border: none;
-        padding-left: 20px;
-        display: none;
-        background-color: #fafafa;
+        background-color: transparent;
+        padding-left: 12px;
         width: 100%;
+        display: none;
     }
-    /* Trên mobile: Click mới hiện (cần thêm JS nếu muốn xịn, nhưng CSS hover vẫn tạm ổn) */
-    .filter-item:hover .filter-dropdown {
-        display: block;
+
+    .filter-item.open .filter-dropdown {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 8px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.08);
     }
+
+    .pagination .arrow { width: 44px; height: 44px; font-size: 18px; }
+    .pagination { gap: 12px; margin-bottom: 40px; }
 }

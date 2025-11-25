@@ -242,82 +242,158 @@ Nhóm 9: COMPONENTS
   text-decoration: underline;
 }
 
-/* ==============================================
-Nhóm 9: RESPONSIVE - TABLET (max-width: 768px)
-============================================== */
+/* ================================
+   RESPONSIVE - TABLET (max-width: 1024px)
+   ================================ */
+@media (max-width: 1024px) {
+  /* Page container */
+  .case-study-page {
+    min-width: auto;
+    padding-top: 80px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* Header: dùng flex để logo & search không chồng nhau */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .Logo {
+    flex: 0 0 auto;
+    max-width: 160px;
+    min-width: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  /* Search box co dãn đúng, cho phép input co nhỏ */
+  #search-box {
+    flex: 1 1 auto;
+    min-width: 0; /* cho phép con co lại */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+  #search-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+  }
+  #search-btn { display: inline-flex; }
+
+  /* Header title / logo sizing */
+  .case-study-page .page-header { margin-top: 3.5rem; }
+  .case-study-page .header__main-title { font-size: 70px; line-height: 1.15; }
+  .case-study-page .header__logo { width: 180px; height: auto; margin-top: 16px; }
+
+  /* Hero image / content */
+  .case-study-page .content__hero-image { aspect-ratio: 2.2; border-radius: 16px; }
+  .case-study-page .content__intro-section { font-size: 40px; max-width: 960px; }
+  .case-study-page .content__standard-image { height: auto; max-width: 100%; }
+
+  /* Text blocks */
+  .case-study-page .content__main-text-block { font-size: 20px; line-height: 1.6; margin-top: 48px; }
+  .case-study-page .content__sub-paragraph { font-size: 18px; }
+}
+
+/* ================================
+   RESPONSIVE - MOBILE (max-width: 768px)
+   ================================ */
 @media (max-width: 768px) {
-    /*Case Study Page*/
-    .case-study-page {
-        min-width: auto;
-        padding-top: 45px;
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
+  .case-study-page {
+    min-width: auto;
+    padding-top: 60px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 
-    /*Page Header*/
-    .case-study-page .page-header {
-        margin-top: 4rem;
-    }
+  /* Header: giảm kích thước logo, ẩn input text để tránh chồng */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .Logo {
+    max-width: 140px;
+    min-width: 56px;
+  }
+  /* Trên mobile ẩn input text để logo không che, chỉ hiển thị nút tìm kiếm */
+  #search-text { display: none; }
+  #search-btn { display: inline-flex; }
+  #search-box { justify-content: flex-end; flex: 0 0 auto; min-width: 0; }
 
-    /*Main Image Container*/
-    .case-study-page .main-image-container {
-        height: 400px;
-    }
+  /* Page header / title */
+  .case-study-page .page-header { margin-top: 2.5rem; }
+  .case-study-page .header__main-title { font-size: 48px; line-height: 1.12; }
 
-    /*Main Text Block*/
-    .case-study-page .content__main-text-block {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-top: 40px;
-    }
+  /* Hero and content sizing */
+  .case-study-page .main-image-container { height: 320px; }
+  .case-study-page .content__hero-image { aspect-ratio: 1.9; border-radius: 12px; }
+  .case-study-page .content__intro-section { font-size: 28px; max-width: 100%; margin-top: 28px; }
+  .case-study-page .content__main-text-block { font-size: 18px; margin-top: 32px; line-height: 1.6; }
 
-    /*Quote Section*/
-    .case-study-page .quote-section {
-        font-size: 24px;
-    }
+  /* Standard images responsive */
+  .case-study-page .content__standard-image { height: auto; max-width: 100%; }
+  #search-box.open {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #search-box.open #search-text {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+  }
 
-    /*Quote Heading & H2*/
-    .case-study-page .quote-section__heading,
-    .case-study-page .content__main-text-block h2 {
-        font-size: 26px;
-    }
 }
 
-/* ==============================================
-Nhóm 9: RESPONSIVE - MOBILE (max-width: 480px)
-============================================== */
+/* ================================
+   RESPONSIVE - VERY SMALL (max-width: 480px)
+   ================================ */
 @media (max-width: 480px) {
-    /*Case Study Page*/
-    .case-study-page {
-        padding-top: 60px;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+  .case-study-page {
+    padding-top: 50px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
 
-    /*Page Header*/
-    .case-study-page .page-header {
-        margin-top: 2rem;
-    }
+  /* Logo nhỏ hơn, search icon lớn hơn để dễ chạm */
+  .Logo { max-width: 110px; }
+  #search-text { display: none; }
+  #search-btn { display: inline-flex; width: 40px; height: 40px; }
 
-    /*Main Image Container*/
-    .case-study-page .main-image-container {
-        height: 250px;
-    }
+  /* Title and typography */
+  .case-study-page .header__main-title { font-size: 36px; line-height: 1.15; }
+  .case-study-page .header__logo { width: 140px; }
 
-    /*Main Text Block*/
-    .case-study-page .content__main-text-block {
-        font-size: 16px;
-        margin-top: 30px;
-    }
+  /* Images and text */
+  .case-study-page .main-image-container { height: 220px; }
+  .case-study-page .content__hero-image { aspect-ratio: 1.6; border-radius: 10px; }
+  .case-study-page .content__intro-section { font-size: 20px; }
+  .case-study-page .content__main-text-block { font-size: 16px; margin-top: 20px; line-height: 1.6; }
 
-    /*Quote Section*/
-    .case-study-page .quote-section {
-        font-size: 20px;
-    }
-
-    /*Quote Heading & H2*/
-    .case-study-page .quote-section__heading,
-    .case-study-page .content__main-text-block h2 {
-        font-size: 22px;
-    }
+  /* Reduce heavy spacing */
+  .case-study-page .page-header { margin-top: 1.5rem; }
 }
+
+/* ================================
+   Accessibility: prefers-reduced-motion
+   ================================ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hidden, .reveal-hidden.visible, .main-image-container img {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  
+}
+
