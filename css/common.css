@@ -189,6 +189,32 @@ nav.Sub-Menu li {
   vertical-align: middle;
 }
 
+/*Avatar người dùng trong header*/
+.header-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #E8F3DE;
+  display: none;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+.header-avatar:hover {
+  border-color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(232, 243, 222, 0.5);
+}
+
+#User a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+}
+
 #Wishlist {
     position: relative;
 }
@@ -325,7 +351,7 @@ footer::before {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
-    font-family: var(--font-secondary);
+    font-family: 'Nunito', sans-serif;
 }
    
 .footer-content {
@@ -510,6 +536,18 @@ RESPONSIVE - TABLET (max-width: 1024px)
     .icomoon-free--leaf {
         width: 20px;
         height: 20px;
+    }
+
+    /* User Avatar */
+    .header-avatar {
+        width: 28px;
+        height: 28px;
+        border-width: 1.5px;
+    }
+
+    #User a {
+        min-width: 28px;
+        min-height: 28px;
     }
 
     /* Language Toggle */
@@ -723,6 +761,18 @@ RESPONSIVE - MOBILE (max-width: 480px)
         height: 18px;
     }
 
+    /* User Avatar */
+    .header-avatar {
+        width: 24px;
+        height: 24px;
+        border-width: 1px;
+    }
+
+    #User a {
+        min-width: 24px;
+        min-height: 24px;
+    }
+
     /* Footer */
     footer {
        padding: 0 15px 15px;
@@ -775,4 +825,5 @@ RESPONSIVE - MOBILE (max-width: 480px)
         right: 15px;
     }
 }
+
 
