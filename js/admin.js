@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Nhóm 9: Khai báo các phần tử DOM liên quan đến modal sản phẩm
     const addProdBtn = document.getElementById('addProdBtn');
     const prodModalOverlay = document.getElementById('product-modal-overlay');
-    const prodModalCloseBtns = prodModalOverlay ? prodModalOverlay.querySelectorAll('.close-btn, .btn-close-modal') : [];
+    const prodModalCloseBtns = document.querySelectorAll('#product-modal-overlay .close-btn, #product-modal-overlay .btn-close-modal');
     const prodForm = document.getElementById('product-form');
     const saveProdBtn = document.getElementById('save-prod-btn');
     const prodIdInput = document.getElementById('prod-id');
@@ -600,4 +600,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentView && currentView.id === 'view-inventory') {
         renderInventory();
     }
+
+    // Đóng modal sản phẩm khi click ra ngoài
+    document.getElementById('product-modal-overlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.add('hidden');
+        }
+        });
 });
