@@ -38,16 +38,24 @@ async function loadTranslation(page, lang) {
 function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
+        
         if (translations[key] !== undefined) {
-            // Kiểm tra nếu element có placeholder (cho input)
+            // Input placeholder
             if (el.hasAttribute('placeholder')) {
                 el.setAttribute('placeholder', translations[key]);
-            } else {
+            } 
+            // Kiểm tra nếu có data-i18n-html="true"
+            else if (el.getAttribute('data-i18n-html') === 'true') {
+                el.innerHTML = translations[key];  // ← Giữ HTML
+            }
+            // Text thuần
+            else {
                 el.textContent = translations[key];
             }
         }
     });
 }
+
 
 //Nhóm 9: Hàm thay đổi ngôn ngữ khi người dùng chọn radio button
 function changeLanguage(lang) {
