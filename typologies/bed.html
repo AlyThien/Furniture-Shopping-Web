@@ -8,15 +8,15 @@
       name="description"
       content="Browse our collection of modern and traditional beds"
     />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/couch.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/couch.css" />
   </head>
   <body data-page="bed">
     <!--Nhóm 9: Phần Header-->
     <header>
       <div class="Logo">
         <p>
-          <a href="index.html"
+          <a href="/index.html"
             ><em>Haguchi</em><br />
             葉具家</a
           >
@@ -26,13 +26,10 @@
         <!--Nhóm 9: Thanh điều hướng chính-->
         <ul>
           <li>
-            <a href="typologies.html" class="active" data-i18n="nav-products"
-              >Products</a
-            >
-          </li>
-          <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
-          <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
-          <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
+            <a href="typologies.html" class="active" data-i18n="nav-products">Products</a></li>
+          <li><a href="/about-us/about-us.html" data-i18n="nav-about">About us</a></li>
+          <li><a href="/blog/blog.html" data-i18n="nav-blog">Blog</a></li>
+          <li><a href="/policies/policies.html" data-i18n="nav-policies">Policies</a></li>
         </ul>
       </nav>
 
@@ -107,70 +104,72 @@
     </header>
 
     <!--Nhóm 9: Thanh điều hướng các sản phẩm khác-->
-    <nav data-scroll="fade-up" class="product-category-nav">
-      <ul>
-        <li>
-          <a data-scroll="fade-up" href="couch.html" data-i18n="category-sofa"
-            >Sofa</a
-          >
-        </li>
-        <li>
-          <a
-            data-scroll="fade-up"
-            href="bed.html"
-            class="active"
-            data-i18n="category-bed"
-            >Bed</a
-          >
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-armchair"
-            >Armchair</a
-          >
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-wardrobe"
-            >Wardrobe</a
-          >
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-chair">Chair</a>
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-storage"
-            >Storage & Shelving</a
-          >
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-dining"
-            >Dining table</a
-          >
-        </li>
-        <li>
-          <a data-scroll="fade-up" href="#" data-i18n="category-sidetable"
-            >Side - coffee table</a
-          >
-        </li>
-      </ul>
+    <nav class="product-category-nav">
+        <ul>
+            <li><a href="couch.html" data-i18n="category-sofa">Couch</a></li>
+            <li><a href="bed.html" class="active" data-i18n="category-bed">Bed</a></li>
+            <li><a href="armchair.html" data-i18n="category-armchair">Armchair</a></li>
+            <li><a href="wardrobe.html" data-i18n="category-wardrobe">Wardrobe</a></li>
+            <li><a href="chair.html" data-i18n="category-chair">Chair</a></li>
+            <li><a href="shelving.html" data-i18n="category-storage">Storage & Shelving</a></li>
+            <li><a href="dining-table.html" data-i18n="category-dining">Dining table</a></li>
+            <li><a href="side-table.html" data-i18n="category-sidetable">Side - coffee table</a></li>
+        </ul>
     </nav>
+
+    <!--Nhóm 9: Phần lọc sản phẩm-->
+    <div class="filter-bar">
+        
+        <div class="filter-item">
+            <div class="filter-title">Material <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="material" value="up"> Upholstered</label>
+                <label><input type="checkbox" name="material" value="fabric"> Fabric</label>
+                <label><input type="checkbox" name="material" value="metal"> Metal</label>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="filter-title">Color <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="color" value="beige"> Brown</label>
+                <label><input type="checkbox" name="color" value="brown"> Grey</label>
+                <label><input type="checkbox" name="color" value="beige"> Beige</label>
+                <label><input type="checkbox" name="color" value="white"> White</label>
+                <label><input type="checkbox" name="color" value="others"> Others</label>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="filter-title">Price <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="price" value="low"> Under 6.000.000 đ</label>
+            <label><input type="checkbox" name="price" value="mid"> 6.000.000 đ - 8.000.000 đ</label>
+            <label><input type="checkbox" name="price" value="high"> Over 8.000.000 đ</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sofa-container">
+        </div>
+</div>
 
     <!--Nhóm 9: Phần trưng bày sản phẩm-->
     <main data-scroll="fade-up" class="sofa-gallery">
       <div data-scroll="fade-up" class="background" role="presentation"></div>
       <section data-scroll="fade-up" class="sofa-container">
         <div data-scroll="fade-up" class="sofa-grid">
-          <a
-            data-scroll="fade-up"
-            href="product_index.html"
-            class="sofa-card sofa-1"
-          >
-            <img
-              data-scroll="fade-up"
-              class="sofa-card__image"
-              src="images/bed/1.png"
-              alt="Venti Bed"
-              loading="lazy"
-            />
+          <a data-scroll="fade-up" href="product_index.html" class="sofa-card sofa-1"
+            data-material="up" 
+            data-color="beige" 
+            data-price="high">
+            <img 
+            data-scroll="fade-up" 
+            class="sofa-card__image" 
+            src="/images/bed/1.png"
+              alt="Venti Bed" 
+              loading="lazy"/>
             <figure data-scroll="fade-up" class="sofa-card__caption-box">
               <div data-scroll="fade-up" class="sofa-card__price">
                 8.200.000 đ
@@ -190,11 +189,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-2">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-2"
+            data-material="fabric" 
+            data-color="green" 
+            data-price="mid">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/2.png"
+              src="/images/bed/2.png"
               alt="Janette Bed"
               loading="lazy"
             />
@@ -217,11 +219,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-3">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-3"
+            data-material="up" 
+            data-color="beige" 
+            data-price="high">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/3.png"
+              src="/images/bed/3.png"
               alt="Brimless Bed"
               loading="lazy"
             />
@@ -234,11 +239,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-4">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-4"
+            data-material="up" 
+            data-color="others" 
+            data-price="mid">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/4.png"
+              src="/images/bed/4.png"
               alt="Cloud Bed"
               loading="lazy"
             />
@@ -251,11 +259,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-5">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-5"
+            data-material="fabric" 
+            data-color="beige" 
+            data-price="mid">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/5.png"
+              src="/images/bed/5.png"
               alt="Saphire Bed"
               loading="lazy"
             />
@@ -274,11 +285,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-6">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-6"
+            data-material="fabric" 
+            data-color="beige" 
+            data-price="mid">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/6.png"
+              src="/images/bed/6.png"
               alt="Moka Bed"
               loading="lazy"
             />
@@ -291,11 +305,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-7">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-7"
+            data-material="up" 
+            data-color="others" 
+            data-price="low">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/7.png"
+              src="/images/bed/7.png"
               alt="Nami Bed"
               loading="lazy"
             />
@@ -308,11 +325,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-8">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-8"
+            data-material="fabric" 
+            data-color="green" 
+            data-price="high">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/8.png"
+              src="/images/bed/8.png"
               alt="Cotton Bed"
               loading="lazy"
             />
@@ -328,11 +348,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-9">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-9"
+            data-material="up" 
+            data-color="beige" 
+            data-price="mid">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/9.png"
+              src="/images/bed/9.png"
               alt="Souths Bed"
               loading="lazy"
             />
@@ -345,11 +368,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-10">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-10"
+            data-material="fabric" 
+            data-color="others" 
+            data-price="high">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/10.png"
+              src="/images/bed/10.png"
               alt="Haven Bed"
               loading="lazy"
             />
@@ -362,11 +388,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-11">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-11"
+            data-material="up" 
+            data-color="others" 
+            data-price="low">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/11.png"
+              src="/images/bed/11.png"
               alt="Hambri Bed"
               loading="lazy"
             />
@@ -379,11 +408,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-12">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-12"
+            data-material="fabric" 
+            data-color="others" 
+            data-price="high">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/12.png"
+              src="/images/bed/12.png"
               alt="Nammee Bed"
               loading="lazy"
             />
@@ -398,11 +430,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-13">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-13"
+            data-material="fabric" 
+            data-color="green" 
+            data-price="high">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/13.png"
+              src="/images/bed/13.png"
               alt="Kiley Bed"
               loading="lazy"
             />
@@ -415,11 +450,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-14">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-14"
+            data-material="metal" 
+            data-color="beige" 
+            data-price="low">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/14.png"
+              src="/images/bed/14.png"
               alt="Jex Bed"
               loading="lazy"
             />
@@ -432,11 +470,14 @@
             </figure>
           </a>
 
-          <a data-scroll="fade-up" href="#" class="sofa-card sofa-15">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-15"
+            data-material="up" 
+            data-color="beige" 
+            data-price="high">
             <img
               data-scroll="fade-up"
               class="sofa-card__image"
-              src="images/bed/15.png"
+              src="/images/bed/15.png"
               alt="Rubi Bed"
               loading="lazy"
             />
@@ -465,13 +506,13 @@
       <img
         data-scroll="fade-up"
         id="btn-top"
-        src="images/return_to_top.png"
+        src="/images/return_to_top.png"
         alt="Return to top"
       />
     </main>
 
     <!--Nhóm 9: Phần footer-->
-    <footer>
+    <footer data-scroll="fade-up">
       <div class="footer-logo">
         <div><em>Haguchi</em></div>
         <div>葉具家</div>
@@ -501,16 +542,16 @@
                 >Sofas & Armchairs</a
               >
             </li>
-            <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
+            <li><a href="/404.html" data-i18n="footer-categories-dining">Dining Tables</a></li>
             <li>
               <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
             </li>
             <li>
-              <a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
+              <a href="/404.html" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
             </li>
-            <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+            <li><a href="/404.html" data-i18n="footer-categories-decor">Lighting & Decor</a></li>
             <li>
-              <a data-i18n="footer-categories-new">New Arrivals / Promotions</a>
+              <a href="/404.html" data-i18n="footer-categories-new">New Arrivals / Promotions</a>
             </li>
           </ul>
         </div>
@@ -555,12 +596,9 @@
       </div>
     </footer>
 
-    <script src="js/lang-change.js"></script>
-    <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ-->
-    <script src="js/common.js"></script>
-    <!--Nhóm 9: Liên kết file JS chung-->
-    <script src="js/couch.js"></script>
-    <!--Nhóm 9: Liên kết file JS riêng cho bed-->
-    <script src="js/animations.js"></script>
+    <script src="/js/lang-change.js"></script> <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="/js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="/js/couch.js"></script> <!--Nhóm 9: Liên kết file JS riêng cho couch-->
+
   </body>
 </html>
