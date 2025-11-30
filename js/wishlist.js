@@ -103,10 +103,10 @@ class Wishlist {
   getColorImage(colorName) {
     // Map color names to images
     const imageMap = {
-      'Brown': 'images/product-detail/13.png',
-      'Navy': 'images/product-detail/12.png',
-      'Olive': 'images/product-detail/11.png',
-      'Gray': 'images/product-detail/10.png'
+      'Brown': '../images/product-detail/13.png',
+      'Navy': '../images/product-detail/12.png',
+      'Olive': '../images/product-detail/11.png',
+      'Gray': '../images/product-detail/10.png'
     };
     return imageMap[colorName] || 'images/product-detail/9.png';
   }
