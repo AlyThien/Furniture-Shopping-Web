@@ -181,7 +181,6 @@ Nhóm 9: PHẦN SẢN PHẨM MỚI
     cursor: pointer;
     left: 50%;
     margin-bottom: 120px;
-    border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -245,7 +244,6 @@ Nhóm 9: PHẦN SẢN PHẨM MỚI
     overflow: hidden;
     max-height: 0;
     backdrop-filter: blur(10px);
-    border-radius: 0 0 12px 12px;
 }
 
 .item:hover .overview-content {
