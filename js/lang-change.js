@@ -2,26 +2,13 @@
 let currentLang = 'en';
 let translations = {};
 
-// Tự động phát hiện đường dẫn gốc dựa trên vị trí file HTML
-function getBasePath() {
-    // Đếm số thư mục từ file HTML hiện tại đến root
-    // Bằng cách đếm số lần "../" trong đường dẫn script
-    const scriptTags = document.querySelectorAll('script[src*="lang-change.js"]');
-    if (scriptTags.length > 0) {
-        const scriptSrc = scriptTags[0].getAttribute('src');
-        const depth = (scriptSrc.match(/\.\.\//g) || []).length;
-        return depth > 0 ? '../'.repeat(depth) : '';
-    }
-    return '';
-}
-
 async function loadTranslation(page, lang) {
     try {
-        const basePath = getBasePath();
-        // Tải đồng thời file common,json và file json của trang hiện tại
+        // Sử dụng đường dẫn tuyệt đối từ root
+        // Tải đồng thời file common.json và file json của trang hiện tại
         const [commonRes, pageRes] = await Promise.all([
-            fetch(`${basePath}json-lang/common.json`),
-            fetch(`${basePath}json-lang/${page}.json`)
+            fetch(`/json-lang/common.json`),
+            fetch(`/json-lang/${page}.json`)
         ]);
 
         if (!commonRes.ok || !pageRes.ok) throw new Error("File not found");
