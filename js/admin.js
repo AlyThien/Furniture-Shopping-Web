@@ -381,37 +381,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Nhóm 9: MODAL CHI TIẾT ĐƠN HÀNG
     // ============================================
     
-    // Hàm đóng modal cho chi tiết đơn hàng và thêm/sửa sản phẩm
-    function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) modal.classList.add('hidden');
-    }
+    // Nhóm 9: Khai báo các phần tử DOM liên quan đến modal chi tiết đơn hàng
+    const modalOverlay = document.getElementById('order-detail-modal');
+    const closeModalBtn = modalOverlay ? modalOverlay.querySelector('.close-btn') : null;
+    const ordersBody = document.getElementById('orders-body');
 
-    // Gắn sự kiện đóng cho tất cả nút close trong 2 modal
-    document.querySelectorAll('#order-detail-modal .close-btn, #order-detail-modal .order-details-close-btn, #product-modal-overlay .close-btn, #product-modal-overlay .btn-close-modal').forEach(btn => {
-        btn.addEventListener('click', () => {
-            btn.closest('.modal, #product-modal-overlay').classList.add('hidden');
-        });
-    });
-
-    // Đóng modal khi click ra ngoài overlay
-    ['order-detail-modal', 'product-modal-overlay'].forEach(id => {
-        const modal = document.getElementById(id);
-        if (modal) {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.add('hidden');
-                }
-            });
-        }
-    });
-
+    // Nhóm 9: Hàm điền dữ liệu đơn hàng vào modal chi tiết
     function populateModal(orderId) {
         const order = mockOrders.find(o => o.id === orderId);
         if (!order) {
             console.error("Không tìm thấy đơn hàng với ID:", orderId);
             return;
         }
+
         const calculatedTotal = calculateOrderTotal(order.items);
         const statusVi = translateStatus(order.status);
         const statusClass = getStatusClass(order.status);
@@ -434,6 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const product = mockInventory.find(p => p.name === item.name);
             const price = product ? product.price : 0;
             const subtotal = price * (parseInt(item.qty) || 0);
+
             return `
                 <tr>
                     <td style="text-align:left;">${item.name}</td>
@@ -462,10 +445,10 @@ document.addEventListener('DOMContentLoaded', () => {
             btnCancel.style.display = 'none';
         }
 
-        document.getElementById('order-detail-modal').classList.remove('hidden');
+        modalOverlay.classList.remove('hidden');
     }
 
-    const ordersBody = document.getElementById('orders-body');
+    // Nhóm 9: Xử lý khi click nút "Chi tiết" trên bảng đơn hàng
     if (ordersBody) {
         ordersBody.addEventListener('click', (e) => {
             if (e.target.classList.contains('view-detail')) {
@@ -475,11 +458,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Nhóm 9: Xử lý đóng modal chi tiết đơn hàng
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.add('hidden');
+        });
+    }
+
+    // Nhóm 9: Đóng modal khi click ra ngoài overlay
+    if (modalOverlay) {
+        window.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.add('hidden');
+            }
+        });
+    }
+
+    // Nhóm 9: Xử lý cập nhật trạng thái đơn hàng (pending → shipped → success)
     const btnUpdateStatus = document.getElementById('btn-update-status');
     if (btnUpdateStatus) {
         btnUpdateStatus.addEventListener('click', function() {
             const orderId = this.dataset.orderId;
             const orderIndex = mockOrders.findIndex(o => o.id === orderId);
+
             if (orderIndex !== -1) {
                 if (mockOrders[orderIndex].status === 'pending') {
                     mockOrders[orderIndex].status = 'shipped';
@@ -487,17 +488,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     mockOrders[orderIndex].status = 'success';
                 }
             }
-            document.getElementById('order-detail-modal').classList.add('hidden');
+            modalOverlay.classList.add('hidden');
             renderOrders();
             alert(`Đơn hàng #${orderId} đã được cập nhật trạng thái thành công!`);
         });
     }
 
+    // Nhóm 9: Xử lý hủy đơn hàng (chỉ cho phép hủy khi trạng thái là pending)
     const btnCancelOrder = document.getElementById('btn-cancel-order');
     if (btnCancelOrder) {
         btnCancelOrder.addEventListener('click', function() {
             const orderId = this.dataset.orderId;
             const orderIndex = mockOrders.findIndex(o => o.id === orderId);
+
             if (orderIndex !== -1) {
                 if (mockOrders[orderIndex].status === 'pending') {
                     mockOrders[orderIndex].status = 'cancelled';
@@ -506,7 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
             }
-            document.getElementById('order-detail-modal').classList.add('hidden');
+            modalOverlay.classList.add('hidden');
             renderOrders();
             alert(`Đơn hàng #${orderId} đã được HỦY thành công!`);
         });
@@ -592,5 +595,18 @@ document.addEventListener('DOMContentLoaded', () => {
     renderOrders();
     const initialReportData = calculateReportData();
     updateReportSummary(initialReportData);
+    
+    const currentView = document.querySelector('.admin-view.active-view');
+    if (currentView && currentView.id === 'view-inventory') {
+        renderInventory();
+    }
+
+    // Đóng modal sản phẩm khi click ra ngoài
+    document.getElementById('product-modal-overlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.add('hidden');
+        }
+        });
 });
+
 
