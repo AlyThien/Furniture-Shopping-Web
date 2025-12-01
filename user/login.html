@@ -9,58 +9,7 @@
 </head>
 <body data-page="login">
     <!--Nhóm 9: Phần Header-->
-    <header>
-        <div class="Logo">
-            <p>
-                <a href="../index.html"><em>Haguchi</em><br>
-                葉具家</a>
-            </p>
-        </div>
-        <nav class="Main-Menu"> <!--Nhóm 9: Thanh điều hướng chính-->
-            <ul>
-                <li><a href="../typologies/typologies.html" data-i18n="nav-products">Products</a></li>
-                <li><a href="../about-us/about-us.html" data-i18n="nav-about">About us</a></li>
-                <li><a href="../blog/blog.html" data-i18n="nav-blog">Blog</a></li>
-                <li><a href="../policies.html" data-i18n="nav-policies">Policies</a></li>
-            </ul>
-        </nav>
-
-        <nav class="Sub-Menu"> <!--Nhóm 9: Thanh điều hướng phụ-->
-            <ul>
-                <li>
-                    <form id="search-box"> <!--Nhóm 9: Nút tìm kiếm-->
-                        <input type="text" id="search-text" placeholder="Search..." data-i18n="search-placeholder">
-                        <button id="search-btn"><span class="fluent--search-12-filled"></span></button>
-                    </form>
-                </li>
-                <li id="Wishlist"> <!--Nhóm 9: Giỏ yêu thích-->
-                    <a href="../wishlist-and-payment/wishlist_index.html">
-                        <span class="solar--heart-bold"></span>
-                        <span class="wishlist-count">0</span>
-                    </a>
-                </li>
-                <li id="User">  <!--Nhóm 9: Tài khoản người dùng-->
-                    <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
-                    <a href="personal-info.html" id="user-avatar-link">
-                        <img id="header-user-avatar" class="header-avatar" src="" alt="User Avatar" style="display: none;">
-                        <span id="header-default-icon" class="solar--user-bold"></span>
-                    </a>
-                </li>
-                <li class="lang-switcher"> <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
-                    <div class="lang-toggle">
-                        <input type="radio" id="lang-en" name="site-lang" checked onchange="changeLanguage('en')"> <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
-                        <input type="radio" id="lang-vi" name="site-lang" onchange="changeLanguage('vi')">
-                        <div class="lang-track"> <!--Nhóm 9: Thanh trượt ngôn ngữ-->
-                            <label for="lang-en" class="lang-opt lang-en">EN</label>
-                            <label for="lang-vi" class="lang-opt lang-vi">VI</label>
-                            <div class="lang-knob" aria-hidden="true"></div> <!--Nhóm 9: Nút trượt ngôn ngữ-->
-                        </div>
-                    </div>
-                </li>
-                <li><span class="icomoon-free--leaf"></span></li> <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
-            </ul>
-        </nav>
-    </header>
+    <div data-include="../partials/header.html"></div>
 
     <!--Nhóm 9: Phần chính của trang đăng nhập-->
     <main>
