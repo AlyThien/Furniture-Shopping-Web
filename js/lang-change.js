@@ -1,4 +1,4 @@
-//Nhóm 9: Phần thay đổi ngôn ngữ
+﻿//Nhóm 9: Phần thay đổi ngôn ngữ
 let currentLang = 'en';
 let translations = {};
 
