@@ -177,7 +177,7 @@ class Wishlist {
       
       //Lưu khi thay đổi số lượng
       this.saveCartToLocalStorage();
-      console.log(`✅ Đã cập nhật số lượng: ${product.name} - Quantity: ${newQuantity}`);
+      console.log(`Đã cập nhật số lượng: ${product.name} - Quantity: ${newQuantity}`);
     }
   }
 
@@ -218,7 +218,7 @@ class Wishlist {
     
     //Lưu khi thay đổi màu sắc
     this.saveCartToLocalStorage();
-    console.log(`✅ Đã chọn màu "${selectedColorData?.name}" cho sản phẩm "${product.name}"`);
+    console.log(`Đã chọn màu "${selectedColorData?.name}" cho sản phẩm "${product.name}"`);
   }
 
   //calculateTotal() - Tính tổng tiền giỏ hàng
@@ -291,7 +291,7 @@ class Wishlist {
       colorCell.appendChild(errorMsg);
     }
     
-    console.log('❗️ Error: Chưa chọn màu cho sản phẩm');
+    console.log('Error: Chưa chọn màu cho sản phẩm');
   }
 
   //clearAllColorErrors() - Xóa tất cả color error messages
@@ -434,13 +434,13 @@ class Wishlist {
               block: 'center'
             });
           }
-          // ❌ Validation failed - Dừng chuyển trang
-          console.log('❌ Validation failed');
+          // Validation failed - Dừng chuyển trang
+          console.log('Validation failed');
           return;
         }
         
-        // ✅ Validation passed - Chuyển sang trang tiếp theo
-        console.log('✅ Validation passed');
+        // Validation passed - Chuyển sang trang tiếp theo
+        console.log('Validation passed');
         window.location.href = 'wishlist-send_index.html';
       });
     }

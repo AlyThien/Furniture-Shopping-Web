@@ -2,52 +2,82 @@
 <html lang="en">
   <head>
     <!-- Nhóm 9: Meta tags và thiết lập cơ bản -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L-shaped Sofa - Haguchi Furniture</title>
-    <link rel="stylesheet" href="css/Product.css" />
-    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/Product.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/loading.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
       rel="stylesheet"
     />
   </head>
 
-  <body>
-<!-- Nhóm 9: Header -->
+  <body data-page="product">
+<!--Nhóm 9: Phần Header-->
     <header>
       <div class="Logo">
         <p>
-          <a href="index.html"><em>Haguchi</em><br />葉具家</a>
+          <a href="index.html"
+            ><em>Haguchi</em><br />
+            葉具家</a
+          >
         </p>
       </div>
       <nav class="Main-Menu">
-        <ul>
-          <li><a href="" data-i18n="nav-products">Products</a></li>
-          <li><a href="" data-i18n="nav-about">About us</a></li>
-          <li><a href="" data-i18n="nav-blog">Blog</a></li>
-          <li><a href="" data-i18n="nav-policies">Policies</a></li>
-        </ul>
-      </nav>
-      <nav class="Sub-Menu">
+        <!--Nhóm 9: Thanh điều hướng chính-->
         <ul>
           <li>
-            <form id="search-box" action="">
-              <input type="text" id="search-text" placeholder="Search..." />
+            <a href="typologies.html" class="active" data-i18n="nav-products">Products</a>
+          </li>
+          <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
+          <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
+          <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
+        </ul>
+      </nav>
+
+      <nav class="Sub-Menu">
+        <!--Nhóm 9: Thanh điều hướng phụ-->
+        <ul>
+          <li>
+            <form id="search-box">
+              <!--Nhóm 9: Nút tìm kiếm-->
+              <input
+                type="text"
+                id="search-text"
+                placeholder="Search..."
+                data-i18n="search-placeholder"
+              />
               <button id="search-btn">
                 <span class="fluent--search-12-filled"></span>
               </button>
             </form>
           </li>
           <li id="Wishlist">
-            <a href="">
+            <!--Nhóm 9: Giỏ yêu thích-->
+            <a href="wishlist_index.html">
               <span class="solar--heart-bold"></span>
               <span class="wishlist-count">0</span>
             </a>
           </li>
-          <li><span class="solar--user-bold"></span></li>
+          <li id="User">
+            <!--Nhóm 9: Tài khoản người dùng-->
+            <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
+            <a href="personal-info.html" id="user-avatar-link">
+              <img
+                id="header-user-avatar"
+                class="header-avatar"
+                src=""
+                alt="User Avatar"
+                style="display: none"
+              />
+              <span id="header-default-icon" class="solar--user-bold"></span>
+            </a>
+          </li>
           <li class="lang-switcher">
-            <div class="lang-toggle" aria-label="Language switcher">
+            <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
+            <div class="lang-toggle">
               <input
                 type="radio"
                 id="lang-en"
@@ -55,6 +85,7 @@
                 checked
                 onchange="changeLanguage('en')"
               />
+              <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
               <input
                 type="radio"
                 id="lang-vi"
@@ -62,12 +93,16 @@
                 onchange="changeLanguage('vi')"
               />
               <div class="lang-track">
+                <!--Nhóm 9: Thanh trượt ngôn ngữ-->
                 <label for="lang-en" class="lang-opt lang-en">EN</label>
                 <label for="lang-vi" class="lang-opt lang-vi">VI</label>
                 <div class="lang-knob" aria-hidden="true"></div>
+                <!--Nhóm 9: Nút trượt ngôn ngữ-->
               </div>
             </div>
           </li>
+          <li><span class="icomoon-free--leaf"></span></li>
+          <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
         </ul>
       </nav>
     </header>
@@ -94,8 +129,8 @@
 
             <!-- Badges -->
             <div class="product-badges">
-              <span class="badge badge-new">New Arrival</span>
-              <span class="badge badge-sale">Free Shipping</span>
+              <span class="badge badge-new" data-i18n="badge-new">New Arrival</span>
+              <span class="badge badge-sale" data-i18n="badge-sale">Free Shipping</span>
             </div>
           </div>
 
@@ -136,7 +171,7 @@
         <div class="product-details-section" data-scroll="fade-up">
           <!-- Product Title & Rating -->
           <div class="product-title-section">
-            <h1 class="product-title">L-shaped Sofa</h1>
+            <h1 class="product-title" data-i18n="product-title">L-shaped Sofa</h1>
             <div class="product-rating-line">
               <div class="stars-inline">
                 <span class="star filled">★</span>
@@ -147,9 +182,9 @@
                 <span class="rating-text">4.8</span>
               </div>
               <span class="divider">|</span>
-              <a href="#reviews" class="reviews-link">127 Reviews</a>
+              <a href="#reviews" class="reviews-link">127 <span data-i18n="rating-text">Reviews</span></a>
               <span class="divider">|</span>
-              <span class="stock-status in-stock">✓ In Stock</span>
+              <span class="stock-status in-stock">✓ <span data-i18n="stock-in">In Stock</span></span>
             </div>
           </div>
 
@@ -157,27 +192,27 @@
           <div class="price-section-modern">
             <div class="price-main">4.200.000 đ</div>
             <div class="price-old">5.500.000 đ</div>
-            <div class="price-save">Save 24%</div>
+            <div class="price-save"><span data-i18n="price-save">Save</span> 24%</div>
           </div>
           <p class="shipping-note">
             <span class="icon">🚚</span>
-            Free shipping for orders over 5M VND • Ships within 3-5 business
-            days
+            <span data-i18n="shipping-note">Free shipping for orders over 5M VND • Ships within 3-5 business
+            days</span>
           </p>
 
           <!-- Quick Features -->
           <div class="quick-features">
             <div class="feature-badge">
               <span class="feature-icon">✓</span>
-              <span>2-Year Warranty</span>
+              <span data-i18n="feature-warranty">2-Year Warranty</span>
             </div>
             <div class="feature-badge">
               <span class="feature-icon">✓</span>
-              <span>30-Day Return</span>
+              <span data-i18n="feature-return">30-Day Return</span>
             </div>
             <div class="feature-badge">
               <span class="feature-icon">✓</span>
-              <span>Free Assembly</span>
+              <span data-i18n="feature-assembly">Free Assembly</span>
             </div>
           </div>
 
@@ -186,7 +221,7 @@
             <!-- Color Selection -->
             <div class="variant-group-modern">
               <label class="variant-label">
-                Color:
+                <span data-i18n="variant-color">Color:</span>
                 <span class="selected-value" id="selectedColor">Grey</span>
               </label>
               <div class="color-swatches">
@@ -224,23 +259,23 @@
             <!-- Size Selection -->
             <div class="variant-group-modern">
               <label class="variant-label">
-                Size:
+                <span data-i18n="variant-size">Size:</span>
                 <span class="selected-value" id="selectedSize"
                   >Medium (250cm)</span
                 >
               </label>
               <div class="size-buttons">
                 <button class="size-btn" data-size="Small (220cm)">
-                  <span class="size-name">Small</span>
+                  <span class="size-name" data-i18n="size-small">Small</span>
                   <span class="size-detail">220cm</span>
                 </button>
                 <button class="size-btn active" data-size="Medium (250cm)">
-                  <span class="size-name">Medium</span>
+                  <span class="size-name" data-i18n="size-medium">Medium</span>
                   <span class="size-detail">250cm</span>
-                  <span class="recommended">Popular</span>
+                  <span class="recommended" data-i18n="size-popular">Popular</span>
                 </button>
                 <button class="size-btn" data-size="Large (290cm)">
-                  <span class="size-name">Large</span>
+                  <span class="size-name" data-i18n="size-large">Large</span>
                   <span class="size-detail">290cm</span>
                 </button>
               </div>
@@ -248,7 +283,7 @@
             <!-- Material Selection -->
             <div class="variant-group-modern">
               <label class="variant-label">
-                Material:
+                <span data-i18n="variant-material">Material:</span>
                 <span class="selected-value" id="selectedMaterial"
                   >Polyester</span
                 >
@@ -262,24 +297,24 @@
                     checked
                   />
                   <div class="material-content">
-                    <div class="material-name">Polyester</div>
-                    <div class="material-desc">Durable & Easy Care</div>
-                    <div class="material-price">Standard</div>
+                    <div class="material-name" data-i18n="material-polyester">Polyester</div>
+                    <div class="material-desc" data-i18n="material-polyester-desc">Durable & Easy Care</div>
+                    <div class="material-price" data-i18n="material-polyester-price">Standard</div>
                   </div>
                 </label>
                 <label class="material-card">
                   <input type="radio" name="material" value="Leather" />
                   <div class="material-content">
-                    <div class="material-name">Leather</div>
-                    <div class="material-desc">Premium Luxury</div>
+                    <div class="material-name" data-i18n="material-leather">Leather</div>
+                    <div class="material-desc" data-i18n="material-leather-desc">Premium Luxury</div>
                     <div class="material-price">+2.000.000 đ</div>
                   </div>
                 </label>
                 <label class="material-card">
                   <input type="radio" name="material" value="Linen" />
                   <div class="material-content">
-                    <div class="material-name">Linen</div>
-                    <div class="material-desc">Natural & Breathable</div>
+                    <div class="material-name" data-i18n="material-linen">Linen</div>
+                    <div class="material-desc" data-i18n="material-linen-desc">Natural & Breathable</div>
                     <div class="material-price">+800.000 đ</div>
                   </div>
                 </label>
@@ -290,7 +325,7 @@
           <!-- Quantity & Actions -->
           <div class="purchase-actions">
             <div class="quantity-selector-modern">
-              <label>Quantity:</label>
+              <label data-i18n="quantity-label">Quantity:</label>
               <div class="quantity-control">
                 <button class="qty-btn minus">−</button>
                 <input
@@ -308,7 +343,7 @@
             <div class="action-buttons-grid">
               <button class="btn-add-wishlist" id="addToWishlistBtn">
                 <span class="btn-icon"></span>
-                <span>Add to wishlist</span>
+                <span data-i18n="btn-add-wishlist">Add to wishlist</span>
               </button>
             </div>
           </div>
@@ -319,29 +354,29 @@
             <div class="trust-item">
               <span class="trust-icon">🔒</span>
               <div>
-                <strong>Secure Payment</strong>
-                <p>SSL Encrypted</p>
+                <strong data-i18n="trust-secure">Secure Payment</strong>
+                <p data-i18n="trust-secure-desc">SSL Encrypted</p>
               </div>
             </div>
             <div class="trust-item">
               <span class="trust-icon">📦</span>
               <div>
-                <strong>Free Shipping</strong>
-                <p>Orders over 5M</p>
+                <strong data-i18n="trust-shipping">Free Shipping</strong>
+                <p data-i18n="trust-shipping-desc">Orders over 5M</p>
               </div>
             </div>
             <div class="trust-item">
               <span class="trust-icon">↩️</span>
               <div>
-                <strong>Easy Returns</strong>
-                <p>30-day policy</p>
+                <strong data-i18n="trust-return">Easy Returns</strong>
+                <p data-i18n="trust-return-desc">30-day policy</p>
               </div>
             </div>
             <div class="trust-item">
               <span class="trust-icon">💬</span>
               <div>
-                <strong>24/7 Support</strong>
-                <p>Always here</p>
+                <strong data-i18n="trust-support">24/7 Support</strong>
+                <p data-i18n="trust-support-desc">Always here</p>
               </div>
             </div>
           </div>
@@ -349,7 +384,7 @@
           <!-- Share & More -->
           <div class="product-footer-actions">
             <div class="share-section">
-              <span class="share-label">Share:</span>
+              <span class="share-label" data-i18n="share-label">Share:</span>
               <div class="share-buttons">
                 <button class="share-btn" title="Facebook">f</button>
                 <button class="share-btn" title="Twitter">𝕏</button>
@@ -365,11 +400,11 @@
           <div class="wishlist-popup" id="wishlistPopup">
             <div class="wishlist-content">
               <span class="popup-close" id="closePopup">&times;</span>
-              <h2>✓ Added to Wishlist!</h2>
-              <p>Your item has been saved to your wishlist.</p>
+              <h2 data-i18n="popup-title">✓ Added to Wishlist!</h2>
+              <p data-i18n="popup-message">Your item has been saved to your wishlist.</p>
 
-              <button class="view-btn">View Wishlist</button>
-              <button class="keep-btn">Keep Shopping</button>
+              <button class="view-btn" data-i18n="popup-view">View Wishlist</button>
+              <button class="keep-btn" data-i18n="popup-keep">Keep Shopping</button>
             </div>
           </div>
     <!-- ===================== PRODUCT DETAILS TABS ===================== -->
@@ -377,14 +412,14 @@
       <div class="tabs-container">
         <!-- Tab Navigation -->
         <div class="tab-nav">
-          <button class="tab-btn active" data-tab="description">
+          <button class="tab-btn active" data-tab="description" data-i18n="tab-description">
             Description
           </button>
-          <button class="tab-btn" data-tab="specifications">
+          <button class="tab-btn" data-tab="specifications" data-i18n="tab-specifications">
             Specifications
           </button>
-          <button class="tab-btn" data-tab="care">Care Instructions</button>
-          <button class="tab-btn" data-tab="shipping">
+          <button class="tab-btn" data-tab="care" data-i18n="tab-care">Care Instructions</button>
+          <button class="tab-btn" data-tab="shipping" data-i18n="tab-shipping">
             Shipping & Returns
           </button>
         </div>
@@ -393,8 +428,8 @@
         <div class="tab-content-wrapper" data-scroll="fade-up">
           <!-- Description Tab -->
           <div id="description" class="tab-content active">
-            <h3>About This Product</h3>
-            <p>
+            <h3 data-i18n="desc-title">About This Product</h3>
+            <p data-i18n="desc-content">
               The L-shaped sofa is designed to embrace your living space with
               versatility and comfort. Perfect for families who love spending
               time together or anyone who enjoys stretching out after a long
@@ -404,24 +439,24 @@
             <div class="features-grid" data-scroll="fade-up">
               <div class="feature-item">
                 <span class="feature-icon">🛋️</span>
-                <h4>Modular Design</h4>
-                <p>
+                <h4 data-i18n="feature-modular">Modular Design</h4>
+                <p data-i18n="feature-modular-desc">
                   Easily reconfigure sections to fit your space and lifestyle
                   needs.
                 </p>
               </div>
               <div class="feature-item" data-scroll="fade-up">
                 <span class="feature-icon">✨</span>
-                <h4>Premium Comfort</h4>
-                <p>
+                <h4 data-i18n="feature-comfort">Premium Comfort</h4>
+                <p data-i18n="feature-comfort-desc">
                   Generous cushioning with high-density foam for deep
                   relaxation.
                 </p>
               </div>
               <div class="feature-item" data-scroll="fade-up">
                 <span class="feature-icon">🎨</span>
-                <h4>Elegant Style</h4>
-                <p>
+                <h4 data-i18n="feature-style">Elegant Style</h4>
+                <p data-i18n="feature-style-desc">
                   Sleek silhouette that keeps any room feeling open and modern.
                 </p>
               </div>
@@ -430,52 +465,52 @@
 
           <!-- Specifications Tab -->
           <div id="specifications" class="tab-content" data-scroll="fade-up">
-            <h3>Technical Specifications</h3>
+            <h3 data-i18n="spec-title">Technical Specifications</h3>
             <table class="specs-table">
               <tr>
-                <td class="spec-label">Dimensions (L × W × H)</td>
-                <td class="spec-value">250cm × 180cm × 85cm</td>
+                <td class="spec-label" data-i18n="spec-dimensions">Dimensions (L × W × H)</td>
+                <td class="spec-value" data-i18n="spec-dimensions-value">250cm × 180cm × 85cm</td>
               </tr>
               <tr>
-                <td class="spec-label">Seat Depth</td>
-                <td class="spec-value">95cm</td>
+                <td class="spec-label" data-i18n="spec-seat-depth">Seat Depth</td>
+                <td class="spec-value" data-i18n="spec-seat-depth-value">95cm</td>
               </tr>
               <tr>
-                <td class="spec-label">Frame Material</td>
-                <td class="spec-value">Solid oak wood</td>
+                <td class="spec-label" data-i18n="spec-frame">Frame Material</td>
+                <td class="spec-value" data-i18n="spec-frame-value">Solid oak wood</td>
               </tr>
               <tr>
-                <td class="spec-label">Upholstery</td>
-                <td class="spec-value">Premium polyester fabric</td>
+                <td class="spec-label" data-i18n="spec-upholstery">Upholstery</td>
+                <td class="spec-value" data-i18n="spec-upholstery-value">Premium polyester fabric</td>
               </tr>
               <tr>
-                <td class="spec-label">Cushion Fill</td>
-                <td class="spec-value">High-density foam padding</td>
+                <td class="spec-label" data-i18n="spec-cushion">Cushion Fill</td>
+                <td class="spec-value" data-i18n="spec-cushion-value">High-density foam padding</td>
               </tr>
               <tr>
-                <td class="spec-label">Weight</td>
-                <td class="spec-value">85kg</td>
+                <td class="spec-label" data-i18n="spec-weight">Weight</td>
+                <td class="spec-value" data-i18n="spec-weight-value">85kg</td>
               </tr>
               <tr>
-                <td class="spec-label">Weight Capacity</td>
-                <td class="spec-value">300kg (total)</td>
+                <td class="spec-label" data-i18n="spec-capacity">Weight Capacity</td>
+                <td class="spec-value" data-i18n="spec-capacity-value">300kg (total)</td>
               </tr>
               <tr>
-                <td class="spec-label">Assembly Required</td>
-                <td class="spec-value">Yes (tools included)</td>
+                <td class="spec-label" data-i18n="spec-assembly">Assembly Required</td>
+                <td class="spec-value" data-i18n="spec-assembly-value">Yes (tools included)</td>
               </tr>
             </table>
           </div>
 
           <!-- Care Instructions Tab -->
           <div id="care" class="tab-content" data-scroll="fade-up">
-            <h3>Care & Maintenance</h3>
+            <h3 data-i18n="care-title">Care & Maintenance</h3>
             <div class="care-instructions">
               <div class="care-item">
                 <span class="care-icon"></span>
                 <div>
-                  <h4>Regular Cleaning</h4>
-                  <p>
+                  <h4 data-i18n="care-clean">Regular Cleaning</h4>
+                  <p data-i18n="care-clean-desc">
                     Vacuum weekly with soft brush attachment. Rotate cushions
                     regularly for even wear.
                   </p>
@@ -484,8 +519,8 @@
               <div class="care-item">
                 <span class="care-icon"></span>
                 <div>
-                  <h4>Stain Removal</h4>
-                  <p>
+                  <h4 data-i18n="care-stain">Stain Removal</h4>
+                  <p data-i18n="care-stain-desc">
                     Blot spills immediately. Use mild soap with water. Avoid
                     harsh chemicals.
                   </p>
@@ -494,8 +529,8 @@
               <div class="care-item">
                 <span class="care-icon"></span>
                 <div>
-                  <h4>Sunlight Protection</h4>
-                  <p>
+                  <h4 data-i18n="care-sun">Sunlight Protection</h4>
+                  <p data-i18n="care-sun-desc">
                     Avoid direct sunlight to prevent fading. Use curtains or
                     blinds during peak hours.
                   </p>
@@ -504,8 +539,8 @@
               <div class="care-item">
                 <span class="care-icon"></span>
                 <div>
-                  <h4>Professional Care</h4>
-                  <p>
+                  <h4 data-i18n="care-professional">Professional Care</h4>
+                  <p data-i18n="care-professional-desc">
                     Deep clean professionally every 12-18 months for best
                     results.
                   </p>
@@ -516,34 +551,34 @@
 
           <!-- Shipping & Returns Tab -->
           <div id="shipping" class="tab-content" data-scroll="fade-up">
-            <h3>Shipping & Returns Policy</h3>
+            <h3 data-i18n="shipping-title">Shipping & Returns Policy</h3>
             <div class="policy-section">
-              <h4>Shipping Information</h4>
+              <h4>📦 <span data-i18n="shipping-info">Shipping Information</span></h4>
               <ul>
-                <li>Free shipping on orders over 5,000,000 VND</li>
-                <li>Delivery within 3-5 business days in Ho Chi Minh City</li>
-                <li>7-10 business days for other provinces</li>
-                <li>Free assembly service included (HCM area)</li>
-                <li>Tracking number provided via email</li>
+                <li data-i18n="shipping-info-1">Free shipping on orders over 5,000,000 VND</li>
+                <li data-i18n="shipping-info-2">Delivery within 3-5 business days in Ho Chi Minh City</li>
+                <li data-i18n="shipping-info-3">7-10 business days for other provinces</li>
+                <li data-i18n="shipping-info-4">Free assembly service included (HCM area)</li>
+                <li data-i18n="shipping-info-5">Tracking number provided via email</li>
               </ul>
             </div>
             <div class="policy-section">
-              <h4>Return Policy</h4>
+              <h4>↩️ <span data-i18n="return-policy">Return Policy</span></h4>
               <ul>
-                <li>30-day return period from delivery date</li>
-                <li>Item must be in original condition</li>
-                <li>Free return shipping for manufacturing defects</li>
-                <li>Customer pays return shipping for change of mind</li>
-                <li>Refund processed within 7-10 business days</li>
+                <li data-i18n="return-policy-1">30-day return period from delivery date</li>
+                <li data-i18n="return-policy-2">Item must be in original condition</li>
+                <li data-i18n="return-policy-3">Free return shipping for manufacturing defects</li>
+                <li data-i18n="return-policy-4">Customer pays return shipping for change of mind</li>
+                <li data-i18n="return-policy-5">Refund processed within 7-10 business days</li>
               </ul>
             </div>
             <div class="policy-section">
-              <h4>Warranty</h4>
+              <h4>🛡️ <span data-i18n="warranty">Warranty</span></h4>
               <ul>
-                <li>2-year warranty on frame and structure</li>
-                <li>1-year warranty on fabric and cushioning</li>
-                <li>Free repair service during warranty period</li>
-                <li>Lifetime customer support</li>
+                <li data-i18n="warranty-1">2-year warranty on frame and structure</li>
+                <li data-i18n="warranty-2">1-year warranty on fabric and cushioning</li>
+                <li data-i18n="warranty-3">Free repair service during warranty period</li>
+                <li data-i18n="warranty-4">Lifetime customer support</li>
               </ul>
             </div>
           </div>
@@ -554,8 +589,8 @@
     <!-- ===================== GALLERY SECTION ===================== -->
     <section class="gallery-section" data-scroll="fade-up">
       <div class="gallery-header">
-        <h2>Lifestyle Gallery</h2>
-        <p>Discover how our L-shaped sofa transforms living spaces</p>
+        <h2 data-i18n="gallery-title">Lifestyle Gallery</h2>
+        <p data-i18n="gallery-subtitle">Discover how our L-shaped sofa transforms living spaces</p>
       </div>
 
       <!-- Main Gallery Slider -->
@@ -567,10 +602,10 @@
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
-            <span class="slide-label">Style Inspiration</span>
-            <h3 class="slide-title">TROPICAL CALM</h3>
-            <p class="slide-subtitle">Botanical Whisper</p>
-            <button class="slide-cta">View Details</button>
+            <span class="slide-label" data-i18n="gallery-label">Style Inspiration</span>
+            <h3 class="slide-title" data-i18n="gallery-1-title">TROPICAL CALM</h3>
+            <p class="slide-subtitle" data-i18n="gallery-1-subtitle">Botanical Whisper</p>
+            <button class="slide-cta" data-i18n="gallery-btn">View Details</button>
           </div>
         </div>
 
@@ -581,10 +616,10 @@
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
-            <span class="slide-label">Style Inspiration</span>
-            <h3 class="slide-title">SCANDINAVIAN BRIGHT</h3>
-            <p class="slide-subtitle">Minimalist Warmth</p>
-            <button class="slide-cta">View Details</button>
+            <span class="slide-label" data-i18n="gallery-label">Style Inspiration</span>
+            <h3 class="slide-title" data-i18n="gallery-2-title">SCANDINAVIAN BRIGHT</h3>
+            <p class="slide-subtitle" data-i18n="gallery-2-subtitle">Minimalist Warmth</p>
+            <button class="slide-cta" data-i18n="gallery-btn">View Details</button>
           </div>
         </div>
 
@@ -595,10 +630,10 @@
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
-            <span class="slide-label">Style Inspiration</span>
-            <h3 class="slide-title">MODERN ZEN</h3>
-            <p class="slide-subtitle">Airy Elegance</p>
-            <button class="slide-cta">View Details</button>
+            <span class="slide-label" data-i18n="gallery-label">Style Inspiration</span>
+            <h3 class="slide-title" data-i18n="gallery-3-title">MODERN ZEN</h3>
+            <p class="slide-subtitle" data-i18n="gallery-3-subtitle">Airy Elegance</p>
+            <button class="slide-cta" data-i18n="gallery-btn">View Details</button>
           </div>
         </div>
 
@@ -609,10 +644,10 @@
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
-            <span class="slide-label">Style Inspiration</span>
-            <h3 class="slide-title">URBAN NEUTRAL</h3>
-            <p class="slide-subtitle">Sleek Storage Solution</p>
-            <button class="slide-cta">View Details</button>
+            <span class="slide-label" data-i18n="gallery-label">Style Inspiration</span>
+            <h3 class="slide-title" data-i18n="gallery-4-title">URBAN NEUTRAL</h3>
+            <p class="slide-subtitle" data-i18n="gallery-4-subtitle">Sleek Storage Solution</p>
+            <button class="slide-cta" data-i18n="gallery-btn">View Details</button>
           </div>
         </div>
 
@@ -623,10 +658,10 @@
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
-            <span class="slide-label">Style Inspiration</span>
-            <h3 class="slide-title">SYMMETRY LUXE</h3>
-            <p class="slide-subtitle">Balanced Grandeur</p>
-            <button class="slide-cta">View Details</button>
+            <span class="slide-label" data-i18n="gallery-label">Style Inspiration</span>
+            <h3 class="slide-title" data-i18n="gallery-5-title">SYMMETRY LUXE</h3>
+            <p class="slide-subtitle" data-i18n="gallery-5-subtitle">Balanced Grandeur</p>
+            <button class="slide-cta" data-i18n="gallery-btn">View Details</button>
           </div>
         </div>
 
@@ -649,23 +684,23 @@
       <div class="gallery-thumbnails" data-scroll="fade-up">
         <div class="thumbnail-item active" onclick="galleryGoToSlide(0)">
           <img src="images/product-detail/1.png" alt="Tropical Calm" />
-          <span class="thumbnail-label">Tropical</span>
+          <span class="thumbnail-label" data-i18n="gallery-thumb-1">Tropical</span>
         </div>
         <div class="thumbnail-item" onclick="galleryGoToSlide(1)">
           <img src="images/product-detail/2.png" alt="Scandinavian Bright" />
-          <span class="thumbnail-label">Scandinavian</span>
+          <span class="thumbnail-label" data-i18n="gallery-thumb-2">Scandinavian</span>
         </div>
         <div class="thumbnail-item" onclick="galleryGoToSlide(2)">
           <img src="images/product-detail/3.png" alt="Modern Zen" />
-          <span class="thumbnail-label">Modern Zen</span>
+          <span class="thumbnail-label" data-i18n="gallery-thumb-3">Modern Zen</span>
         </div>
         <div class="thumbnail-item" onclick="galleryGoToSlide(3)">
           <img src="images/product-detail/4.png" alt="Urban Neutral" />
-          <span class="thumbnail-label">Urban</span>
+          <span class="thumbnail-label" data-i18n="gallery-thumb-4">Urban</span>
         </div>
         <div class="thumbnail-item" onclick="galleryGoToSlide(4)">
           <img src="images/product-detail/5.png" alt="Symmetry Luxe" />
-          <span class="thumbnail-label">Luxury</span>
+          <span class="thumbnail-label" data-i18n="gallery-thumb-5">Luxury</span>
         </div>
       </div>
 
@@ -680,8 +715,8 @@
       <div class="reviews-container">
         <!-- Section Header -->
         <div class="reviews-header" data-scroll="fade-up">
-          <h2>What Our Customers Say</h2>
-          <p>Trusted by thousands of satisfied furniture lovers</p>
+          <h2 data-i18n="reviews-title">What Our Customers Say</h2>
+          <p data-i18n="reviews-subtitle">Trusted by thousands of satisfied furniture lovers</p>
         </div>
 
         <!-- Rating Summary Card -->
@@ -695,7 +730,7 @@
               <span class="star filled">★</span>
               <span class="star half">★</span>
             </div>
-            <div class="rating-count">Based on 127 reviews</div>
+            <div class="rating-count"><span data-i18n="reviews-overall">Based on</span> 127 <span data-i18n="reviews-overall-count">reviews</span></div>
           </div>
 
           <!-- Rating Breakdown -->
@@ -741,7 +776,7 @@
         <!-- Filter & Sort -->
         <div class="reviews-controls" data-scroll="fade-up">
           <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">
+            <button class="filter-btn active" data-filter="all" data-i18n="reviews-filter-all">
               All Reviews
             </button>
             <button class="filter-btn" data-filter="5">5 Stars</button>
@@ -749,15 +784,15 @@
             <button class="filter-btn" data-filter="3">3 Stars</button>
             <button class="filter-btn" data-filter="2">2 Stars</button>
             <button class="filter-btn" data-filter="1">1 Stars</button>
-            <button class="filter-btn" data-filter="verified">
+            <button class="filter-btn" data-filter="verified" data-i18n="reviews-filter-verified">
               Verified Purchase
             </button>
           </div>
           <select class="sort-select" data-scroll="fade-up">
-            <option value="recent">Most Recent</option>
-            <option value="helpful">Most Helpful</option>
-            <option value="highest">Highest Rating</option>
-            <option value="lowest">Lowest Rating</option>
+            <option value="recent" data-i18n="reviews-sort-recent">Most Recent</option>
+            <option value="helpful" data-i18n="reviews-sort-helpful">Most Helpful</option>
+            <option value="highest" data-i18n="reviews-sort-highest">Highest Rating</option>
+            <option value="lowest" data-i18n="reviews-sort-lowest">Lowest Rating</option>
           </select>
         </div>
 
@@ -771,7 +806,7 @@
                 <div class="reviewer-details">
                   <h4 class="reviewer-name">Mai Peterson</h4>
                   <div class="review-meta">
-                    <span class="verified-badge">✓ Verified Purchase</span>
+                    <span class="verified-badge" data-i18n="reviews-verified">✓ Verified Purchase</span>
                     <span class="review-date">2 weeks ago</span>
                   </div>
                 </div>
@@ -786,8 +821,8 @@
             </div>
 
             <div class="review-content">
-              <h5 class="review-title">Absolutely Love It!</h5>
-              <p class="review-text">
+              <h5 class="review-title" data-i18n="review-1-title">Absolutely Love It!</h5>
+              <p class="review-text" data-i18n="review-1-text">
                 Very comfortable and modern design. The fabric is high quality
                 and the color looks exactly like the photos. Delivery was super
                 fast and the assembly team was professional. Highly recommend
@@ -811,9 +846,9 @@
             <div class="review-footer">
               <button class="helpful-btn">
                 <span class="icon">👍</span>
-                Helpful (24)
+                <span data-i18n="reviews-helpful">Helpful</span> (24)
               </button>
-              <button class="report-btn">Report</button>
+              <button class="report-btn" data-i18n="reviews-report">Report</button>
             </div>
           </div>
 
@@ -1168,7 +1203,7 @@
       <div class="write-review-section" data-scroll="fade-up">
         <button class="write-review-btn" data-scroll="slide-up" id="openReviewFormBtn">
           <span class="btn-icon">✍️</span>
-          Write a Review
+          <span data-i18n="write-review-btn">Write a Review</span>
         </button>
       </div>
 
@@ -1178,14 +1213,14 @@
           <span class="review-modal-close" id="closeReviewModal">&times;</span>
 
           <div class="review-modal-header" data-scroll="fade-up">
-            <h2>Share Your Experience</h2>
-            <p>Help others make informed decisions</p>
+            <h2 data-i18n="review-modal-title">Share Your Experience</h2>
+            <p data-i18n="review-modal-subtitle">Help others make informed decisions</p>
           </div>
 
           <form id="reviewForm" class="review-form">
             <!-- Rating Section -->
             <div class="form-group rating-group" data-scroll="fade-up">
-              <label class="form-label required">Overall Rating</label>
+              <label class="form-label required" data-i18n="review-form-rating">Overall Rating</label>
               <div class="star-rating-input" id="starRatingInput">
                 <input
                   type="radio"
@@ -1210,50 +1245,53 @@
                 <input type="radio" id="star1" name="rating" value="1" />
                 <label for="star1" class="star-input" title="Terrible">★</label>
               </div>
-              <span class="rating-message" data-scroll="fade-up" id="ratingMessage"
+              <span class="rating-message" data-scroll="fade-up" id="ratingMessage" data-i18n="review-form-rating-msg"
                 >Select a rating</span
               >
             </div>
 
             <!-- Name -->
             <div class="form-group" data-scroll="fade-up">
-              <label class="form-label required">Your Name</label>
+              <label class="form-label required" data-i18n="review-form-name">Your Name</label>
               <input
                 type="text"
                 id="reviewerName"
                 name="name"
                 class="form-input"
                 placeholder="Enter your name"
+                data-i18n="review-form-name-placeholder"
                 required
                 minlength="2"
                 maxlength="50"
               />
-              <span class="form-hint">This will be displayed publicly</span>
+              <span class="form-hint" data-i18n="review-form-name-hint">This will be displayed publicly</span>
             </div>
 
             <!-- Email -->
             <div class="form-group" data-scroll="fade-up">
-              <label class="form-label required">Email Address</label>
+              <label class="form-label required" data-i18n="review-form-email">Email Address</label>
               <input
                 type="email"
                 id="reviewerEmail"
                 name="email"
                 class="form-input"
                 placeholder="your.email@example.com"
+                data-i18n="review-form-email-placeholder"
                 required
               />
-              <span class="form-hint">We'll never share your email</span>
+              <span class="form-hint" data-i18n="review-form-email-hint">We'll never share your email</span>
             </div>
 
             <!-- Review Title -->
             <div class="form-group" data-scroll="fade-up">
-              <label class="form-label required">Review Title</label>
+              <label class="form-label required" data-i18n="review-form-title">Review Title</label>
               <input
                 type="text"
                 id="reviewTitle"
                 name="title"
                 class="form-input"
                 placeholder="Sum up your experience in a few words"
+                data-i18n="review-form-title-placeholder"
                 required
                 minlength="5"
                 maxlength="100"
@@ -1263,12 +1301,13 @@
 
             <!-- Review Text -->
             <div class="form-group" data-scroll="fade-up">
-              <label class="form-label required">Your Review</label>
+              <label class="form-label required" data-i18n="review-form-review">Your Review</label>
               <textarea
                 id="reviewText"
                 name="review"
                 class="form-textarea"
                 placeholder="Share your thoughts about this product. What did you like or dislike? How does it compare to your expectations?"
+                data-i18n="review-form-review-placeholder"
                 required
                 minlength="20"
                 maxlength="1000"
@@ -1279,7 +1318,7 @@
 
             <!-- Photo Upload -->
             <div class="form-group" data-scroll="fade-up">
-              <label class="form-label">Add Photos (Optional)</label>
+              <label class="form-label" data-i18n="review-form-photos">Add Photos (Optional)</label>
               <div class="photo-upload-area" id="photoUploadArea">
                 <input
                   type="file"
@@ -1291,10 +1330,10 @@
                 />
                 <label for="reviewPhotos" class="upload-label">
                   <span class="upload-icon">📷</span>
-                  <span class="upload-text"
+                  <span class="upload-text" data-i18n="review-form-photos-text"
                     >Click to upload or drag and drop</span
                   >
-                  <span class="upload-hint"
+                  <span class="upload-hint" data-i18n="review-form-photos-hint"
                     >PNG, JPG up to 5MB (Max 3 photos)</span
                   >
                 </label>
@@ -1307,13 +1346,13 @@
               <label class="checkbox-label">
                 <input type="checkbox" id="verifiedPurchase" name="verified" />
                 <span class="checkmark"></span>
-                <span>I purchased this product from Haguchi</span>
+                <span data-i18n="review-form-verified">I purchased this product from Haguchi</span>
               </label>
             </div>
 
             <!-- Recommend -->
             <div class="form-group" data-scroll="fade-up">
-              <label class="form-label"
+              <label class="form-label" data-i18n="review-form-recommend"
                 >Would you recommend this product?</label
               >
               <div class="recommend-buttons">
@@ -1321,14 +1360,14 @@
                   <input type="radio" name="recommend" value="yes" required />
                   <span class="btn-content">
                     <span class="icon">👍</span>
-                    <span>Yes</span>
+                    <span data-i18n="review-form-recommend-yes">Yes</span>
                   </span>
                 </label>
                 <label class="recommend-btn">
                   <input type="radio" name="recommend" value="no" />
                   <span class="btn-content">
                     <span class="icon">👎</span>
-                    <span>No</span>
+                    <span data-i18n="review-form-recommend-no">No</span>
                   </span>
                 </label>
               </div>
@@ -1338,16 +1377,16 @@
     <label class="checkbox-label">
         <input type="checkbox" id="agreeTerms" name="terms" required>
         <span class="checkmark"></span>
-        <span>I agree to the <a href="#" class="link">review guidelines</a></span>
+        <span><span data-i18n="review-form-terms">I agree to the</span> <a href="#" class="link" data-i18n="review-form-terms-link">review guidelines</a></span>
     </label>
 </div>
             <!-- Submit Button -->
             <div class="form-actions" data-scroll="fade-up">
-              <button type="button" class="btn-cancel" id="cancelReviewBtn">
+              <button type="button" class="btn-cancel" id="cancelReviewBtn" data-i18n="review-form-cancel">
                 Cancel
               </button>
               <button type="submit" class="btn-submit">
-                <span class="btn-text">Submit Review</span>
+                <span class="btn-text" data-i18n="review-form-submit">Submit Review</span>
                 <span class="btn-loader" style="display: none">⏳</span>
               </button>
             </div>
@@ -1356,13 +1395,22 @@
       </div>
     </section>
 
-    <!-- ===================== FOOTER ===================== -->
-    <footer>
+    <!--Nhóm 9: Phần quay lại đầu trang-->
+    <img
+      data-scroll="blur"
+      id="btn-top"
+      src="images/return_to_top.png"
+      alt="Return to top"
+    />
+
+    <!--Nhóm 9: Phần footer-->
+    <footer data-scroll="blur">
       <div class="footer-logo">
         <div><em>Haguchi</em></div>
         <div>葉具家</div>
       </div>
       <div class="footer-content">
+        <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
         <div class="footer-section">
           <h3 data-i18n="nav-about">About Us</h3>
           <ul>
@@ -1374,7 +1422,7 @@
               📍 123 Harmony Street, District 1, Ho Chi Minh City
             </li>
             <li>📞 (+84) 123 456 789</li>
-            <li>📧 support@noithatmaistudio.com</li>
+            <li>📧 support@haguchi.com</li>
             <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
           </ul>
         </div>
@@ -1382,28 +1430,20 @@
           <h3 data-i18n="footer-categories">Shop by Category</h3>
           <ul>
             <li>
-              <a href="" data-i18n="footer-categories-sofa"
+              <a href="couch.html" data-i18n="footer-categories-sofa"
                 >Sofas & Armchairs</a
               >
             </li>
+            <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
             <li>
-              <a href="" data-i18n="footer-categories-dining">Dining Tables</a>
-            </li>
-            <li><a href="" data-i18n="footer-categories-bed">Beds</a></li>
-            <li>
-              <a href="" data-i18n="footer-categories-cabinet"
-                >Cabinets & Shelves</a
-              >
+              <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
             </li>
             <li>
-              <a href="" data-i18n="footer-categories-decor"
-                >Lighting & Decor</a
-              >
+              <a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
             </li>
+            <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
             <li>
-              <a href="" data-i18n="footer-categories-new"
-                >New Arrivals / Promotions</a
-              >
+              <a data-i18n="footer-categories-new">New Arrivals / Promotions</a>
             </li>
           </ul>
         </div>
@@ -1411,25 +1451,29 @@
           <h3 data-i18n="footer-policies">Policies & Support</h3>
           <ul>
             <li>
-              <a href="" data-i18n="footer-policies-warranty"
+              <a href="policies.html" data-i18n="footer-policies-warranty"
                 >Warranty Policy</a
               >
             </li>
             <li>
-              <a href="" data-i18n="footer-policies-return"
+              <a href="policies.html" data-i18n="footer-policies-return"
                 >Return & Exchange</a
               >
             </li>
             <li>
-              <a href="" data-i18n="footer-policies-shipping"
+              <a href="policies.html" data-i18n="footer-policies-shipping"
                 >Shipping Policy</a
               >
             </li>
             <li>
-              <a href="" data-i18n="footer-policies-order">How to Order</a>
+              <a href="policies.html" data-i18n="footer-policies-order"
+                >How to Order</a
+              >
             </li>
             <li>
-              <a href="" data-i18n="footer-policies-privacy">Privacy Policy</a>
+              <a href="policies.html" data-i18n="footer-policies-privacy"
+                >Privacy Policy</a
+              >
             </li>
           </ul>
         </div>
@@ -1443,6 +1487,29 @@
         </div>
       </div>
     </footer>
+    <script type="module">
+      import { showLoading, hideLoading, updateProgress } from './js/loadingComponent.js';
+
+      // Hiển thị loading ngay
+      showLoading();
+
+      // Tăng progress bar
+      let progress = 0;
+      const progressInterval = setInterval(() => {
+        progress += Math.random() * 30;
+        if (progress > 100) progress = 100;
+        updateProgress(progress);
+      }, 300);
+
+      // Ẩn khi trang load xong
+      window.addEventListener('load', () => {
+        clearInterval(progressInterval);
+        updateProgress(100);
+        hideLoading(500);
+      });
+    </script>
+    <script src="js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
     <br /><br /><br /><br />
     <script src="js/animations.js"></script>
     <script src="js/product.js"></script>

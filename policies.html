@@ -9,91 +9,7 @@
   </head>
   <body data-page="policies">
     <!--Nhóm 9: Phần Header-->
-    <header>
-        <div class="Logo">
-            <p>
-                <a href="index.html"><em>Haguchi</em><br>
-                葉具家</a>
-            </p>
-        </div>
-        <nav class="Main-Menu"> <!--Nhóm 9: Thanh điều hướng chính-->
-            <ul>
-                <li><a href="typologies.html" data-i18n="nav-products">Products</a></li>
-                <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
-                <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
-                <li><a href="policies.html" class="active" data-i18n="nav-policies">Policies</a></li>
-            </ul>
-        </nav>
-
-      <nav class="Sub-Menu">
-        <!--Nhóm 9: Thanh điều hướng phụ-->
-        <ul>
-          <li>
-            <form id="search-box">
-              <!--Nhóm 9: Nút tìm kiếm-->
-              <input
-                type="text"
-                id="search-text"
-                placeholder="Search..."
-                data-i18n="search-placeholder"
-              />
-              <button id="search-btn">
-                <span class="fluent--search-12-filled"></span>
-              </button>
-            </form>
-          </li>
-          <li id="Wishlist">
-            <!--Nhóm 9: Giỏ yêu thích-->
-            <a href="wishlist_index.html">
-              <span class="solar--heart-bold"></span>
-              <span class="wishlist-count">0</span>
-            </a>
-          </li>
-          <li id="User">
-            <!--Nhóm 9: Tài khoản người dùng-->
-            <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
-            <a href="personal-info.html" id="user-avatar-link">
-              <img
-                id="header-user-avatar"
-                class="header-avatar"
-                src=""
-                alt="User Avatar"
-                style="display: none"
-              />
-              <span id="header-default-icon" class="solar--user-bold"></span>
-            </a>
-          </li>
-          <li class="lang-switcher">
-            <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
-            <div class="lang-toggle">
-              <input
-                type="radio"
-                id="lang-en"
-                name="site-lang"
-                checked
-                onchange="changeLanguage('en')"
-              />
-              <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
-              <input
-                type="radio"
-                id="lang-vi"
-                name="site-lang"
-                onchange="changeLanguage('vi')"
-              />
-              <div class="lang-track">
-                <!--Nhóm 9: Thanh trượt ngôn ngữ-->
-                <label for="lang-en" class="lang-opt lang-en">EN</label>
-                <label for="lang-vi" class="lang-opt lang-vi">VI</label>
-                <div class="lang-knob" aria-hidden="true"></div>
-                <!--Nhóm 9: Nút trượt ngôn ngữ-->
-              </div>
-            </div>
-          </li>
-          <li><span class="icomoon-free--leaf"></span></li>
-          <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
-        </ul>
-      </nav>
-    </header>
+    <div data-include="partials/header.html"></div>
 
     <!--Phần Policies-->
     <section data-scroll="fade-up" id="Policies">
@@ -136,96 +52,39 @@
       src="images/return_to_top.png"
       alt="Return to top"
     />
-
     <!--Nhóm 9: Phần footer-->
-    <footer>
-      <div class="footer-logo">
-        <div><em>Haguchi</em></div>
-        <div>葉具家</div>
-      </div>
-      <div class="footer-content">
-        <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
-        <div class="footer-section">
-          <h3 data-i18n="nav-about">About Us</h3>
-          <ul>
-            <li data-i18n="footer-aboutus">
-              Bringing elegance and comfort to your home with high-quality
-              furniture designed for modern living
-            </li>
-            <li data-i18n="footer-aboutus-add">
-              📍 123 Harmony Street, District 1, Ho Chi Minh City
-            </li>
-            <li>📞 (+84) 123 456 789</li>
-            <li>📧 support@haguchi.com</li>
-            <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3 data-i18n="footer-categories">Shop by Category</h3>
-          <ul>
-            <li>
-              <a href="couch.html" data-i18n="footer-categories-sofa"
-                >Sofas & Armchairs</a
-              >
-            </li>
-            <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
-            <li>
-              <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
-            </li>
-            <li>
-              <a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
-            </li>
-            <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
-            <li>
-              <a data-i18n="footer-categories-new">New Arrivals / Promotions</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3 data-i18n="footer-policies">Policies & Support</h3>
-          <ul>
-            <li>
-              <a href="policies.html" data-i18n="footer-policies-warranty"
-                >Warranty Policy</a
-              >
-            </li>
-            <li>
-              <a href="policies.html" data-i18n="footer-policies-return"
-                >Return & Exchange</a
-              >
-            </li>
-            <li>
-              <a href="policies.html" data-i18n="footer-policies-shipping"
-                >Shipping Policy</a
-              >
-            </li>
-            <li>
-              <a href="policies.html" data-i18n="footer-policies-order"
-                >How to Order</a
-              >
-            </li>
-            <li>
-              <a href="policies.html" data-i18n="footer-policies-privacy"
-                >Privacy Policy</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2025 HAGUCHI – All rights reserved.</span>
-        <div class="social-icons">
-          <div class="social-icon">f</div>
-          <div class="social-icon">in</div>
-          <div class="social-icon">t</div>
-        </div>
-      </div>
-    </footer>
+    <div data-include="partials/footer.html"></div>
+    <script type="module">
+      import {
+        showLoading,
+        hideLoading,
+        updateProgress,
+      } from "./js/loadingComponent.js";
 
+      // Hiển thị loading ngay
+      showLoading();
+
+      // Tăng progress bar
+      let progress = 0;
+      const progressInterval = setInterval(() => {
+        progress += Math.random() * 30;
+        if (progress > 100) progress = 100;
+        updateProgress(progress);
+      }, 300);
+
+      // Ẩn khi trang load xong
+      window.addEventListener("load", () => {
+        clearInterval(progressInterval);
+        updateProgress(100);
+        hideLoading(500);
+      });
+    </script>
     <script src="js/lang-change.js"></script>
     <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
     <script src="js/common.js"></script>
     <!--Nhóm 9:  Liên kết file JS chung -->
     <script src="js/animations.js"></script>
+    <!--Nhóm 9: Liên kết file JS riêng cho partials-->
+    <script src="partials/js/partials.js"></script>
   </body>
 </html>

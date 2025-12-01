@@ -2,12 +2,26 @@
 let currentLang = 'en';
 let translations = {};
 
+// Tự động phát hiện đường dẫn gốc dựa trên vị trí file HTML
+function getBasePath() {
+    // Đếm số thư mục từ file HTML hiện tại đến root
+    // Bằng cách đếm số lần "../" trong đường dẫn script
+    const scriptTags = document.querySelectorAll('script[src*="lang-change.js"]');
+    if (scriptTags.length > 0) {
+        const scriptSrc = scriptTags[0].getAttribute('src');
+        const depth = (scriptSrc.match(/\.\.\//g) || []).length;
+        return depth > 0 ? '../'.repeat(depth) : '';
+    }
+    return '';
+}
+
 async function loadTranslation(page, lang) {
     try {
+        const basePath = getBasePath();
         // Tải đồng thời file common,json và file json của trang hiện tại
         const [commonRes, pageRes] = await Promise.all([
-            fetch(`json-lang/common.json`),
-            fetch(`json-lang/${page}.json`)
+            fetch(`${basePath}json-lang/common.json`),
+            fetch(`${basePath}json-lang/${page}.json`)
         ]);
 
         if (!commonRes.ok || !pageRes.ok) throw new Error("File not found");
@@ -38,16 +52,24 @@ async function loadTranslation(page, lang) {
 function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
+        
         if (translations[key] !== undefined) {
-            // Kiểm tra nếu element có placeholder (cho input)
+            // Input placeholder
             if (el.hasAttribute('placeholder')) {
                 el.setAttribute('placeholder', translations[key]);
-            } else {
+            } 
+            // Kiểm tra nếu có data-i18n-html="true"
+            else if (el.getAttribute('data-i18n-html') === 'true') {
+                el.innerHTML = translations[key];  // ← Giữ HTML
+            }
+            // Text thuần
+            else {
                 el.textContent = translations[key];
             }
         }
     });
 }
+
 
 //Nhóm 9: Hàm thay đổi ngôn ngữ khi người dùng chọn radio button
 function changeLanguage(lang) {

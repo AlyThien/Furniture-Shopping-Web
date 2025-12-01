@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation - Haguchi</title>
+    <link rel="stylesheet" href="../css/success.css">
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body data-page="success">
+    <!--Nhóm 9: Phần Header-->
+    <div data-include="../partials/header.html"></div>
+    <!-- Phần Success -->
+    <section id="success">
+            <!-- Success Icon -->
+            <div class="success-icon">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="60" fill="#0B2D21"/>
+                    <path d="M35 60L52 77L85 44" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <h2 class="success-title" data-i18n="success-message">Your order has been successfully placed. Thank you for choosing Haguchi!</h2>
+
+            <button type="button" class="view-order-btn" onclick="window.location.href='order-detail.html'" data-i18n="view-order-btn">View Order Details</button>
+        
+    </section>
+
+    <!--Nhóm 9: Phần quay lại đầu trang-->
+    <img id="btn-top" src="../images/return_to_top.png" alt="Return to top">
+
+    <!--Nhóm 9: Phần footer-->
+    <div data-include="../partials/footer.html"></div>
+   
+    <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="../js/lang-change.js"></script> 
+    <!--Nhóm 9: Liên kết file JS riêng cho partials-->
+    <script src="../js/partials.js"></script>
+    <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="../js/common.js"></script> 
+
+</body>
+</html>

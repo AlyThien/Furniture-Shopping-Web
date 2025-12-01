@@ -54,11 +54,4 @@ Vì vậy, nhóm quyết định chọn đề tài "Thiết kế trang web bán 
 ```
 https://github.com/AlyThien/Furniture-Shopping-Web.git
 ```
-
-### Bước 2: Mở dự án mới clone về và thực hiện các lệnh sau
-```
-npm install
-```
-```
-npm start
-```
+### Bước 2: Bật và chạy web bằng live server

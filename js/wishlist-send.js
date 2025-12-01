@@ -9,6 +9,41 @@ class PaymentHandler {
     this.phoneInput = document.querySelector('input[name="phone"]');
     this.init();
   }
+  //Lấy ngôn ngữ hiện tại từ lang-change.js
+  getCurrentLanguage() {
+    // Kiểm tra xem lang-change.js đã load chưa
+    if (typeof currentLang !== 'undefined') {
+        return currentLang;
+    }
+    // Fallback: check localStorage
+    return localStorage.getItem('selectedLanguage') || 'en';
+  }
+
+  //Lấy translation từ lang-change.js (đã load JSON)
+  getTranslation(key) {
+    // Kiểm tra xem translations từ lang-change.js đã có chưa
+    if (typeof translations !== 'undefined' && translations[key]) {
+        return translations[key];
+    }
+    // Fallback: return key nếu không tìm thấy
+    console.warn(`Translation not found for key: ${key}`);
+    return key;
+  }
+
+  //Lấy error message theo ngôn ngữ hiện tại
+  getErrorMessage(fieldName) {
+    const pleaseEnterText = this.getTranslation('error-please-enter');
+    const fieldLabel = this.getTranslation(`error-field-${fieldName}`);
+    
+    return `${pleaseEnterText} ${fieldLabel}`;
+  } 
+
+  //Lấy error message cho phone validation
+  getPhoneErrorMessage() {
+    return this.getTranslation('error-invalid-phone');
+  }
+
+
 //Khởi tạo event listeners
   init() {
     // Gắn listener cho COD radio button - thay đổi phương thức thanh toán
@@ -128,7 +163,7 @@ class PaymentHandler {
     if (fieldWrapper) {
       fieldWrapper.appendChild(errorMsg);
     }
-    console.log(`⚠️ Error: ${message}`);
+    console.log(`Error: ${message}`);
   }
 
   //clearFieldError(input) - Xóa error message của input field
@@ -170,14 +205,13 @@ class PaymentHandler {
     requiredFields.forEach(fieldName => {
       const input = this.paymentForm.querySelector(`input[name="${fieldName}"], select[name="${fieldName}"]`);
       if (input && !input.value.trim()) {
-        const fieldLabel = this.getFieldLabel(fieldName);
-        const errorMessage = `Please enter your ${fieldLabel}`;
-        
+        // Sử dụng getErrorMessage() để lấy text từ JSON
+        const errorMessage = this.getErrorMessage(fieldName);
         this.showFieldError(input, errorMessage);
-        errors.push(fieldLabel);
+        errors.push(fieldName);
         
         if (!firstErrorInput) {
-          firstErrorInput = input;
+            firstErrorInput = input;
         }
       }
     });
@@ -187,7 +221,7 @@ class PaymentHandler {
     if (phoneInput && phoneInput.value) {
       const phoneDigits = phoneInput.value.replace(/\D/g, '');
       if (phoneDigits.length < 10) {
-        const errorMessage = 'Please enter a valid phone number (min 10 digits)';
+        const errorMessage = this.getPhoneErrorMessage();
         this.showFieldError(phoneInput, errorMessage);
         errors.push('phone (min 10 digits)');
         
@@ -243,7 +277,7 @@ class PaymentHandler {
     const validation = this.validateForm();
 
     if (!validation.isValid) {
-      console.error('❌ Validation errors:', validation.errors);
+      console.error('Validation errors:', validation.errors);
       
       if (validation.firstErrorInput) {
         validation.firstErrorInput.scrollIntoView({
@@ -259,12 +293,12 @@ class PaymentHandler {
         }
       }
       
-      console.log('❗️  Please fix the errors above');
+      console.log(' Please fix the errors above');
       console.log('='.repeat(50) + '\n');
       return;
     }
 
-    console.log('✅ Validation passed\n');
+    console.log('Validation passed\n');
     //Form hợp lệ --> Thu thập dữ liệu từ form
     const customerData = this.collectFormData();
 
@@ -272,10 +306,10 @@ class PaymentHandler {
     console.table(customerData);
 
     localStorage.setItem('customerInfo', JSON.stringify(customerData));
-    console.log('✅ Saved to localStorage\n');
+    console.log('Saved to localStorage\n');
     //Chuyển hướng dựa trên phương thức thanh toán
     const paymentMethod = customerData.payment;
-    console.log(`💸Redirecting to ${paymentMethod === 'cod' ? 'success' : 'bank'} page...`);
+    console.log(`Redirecting to ${paymentMethod === 'cod' ? 'success' : 'bank'} page...`);
     console.log('='.repeat(50) + '\n');
 
     if (paymentMethod === 'cod') {

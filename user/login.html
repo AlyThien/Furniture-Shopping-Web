@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Confirmation - Haguchi</title>
-    <link rel="stylesheet" href="css/success.css">
-    <link rel="stylesheet" href="css/common.css">
+    <title> Login </title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/common.css">
 </head>
-
-<body data-page="success">
+<body data-page="login">
     <!--Nhóm 9: Phần Header-->
     <header>
         <div class="Logo">
             <p>
-                <a href="index.html"><em>Haguchi</em><br>
+                <a href="../index.html"><em>Haguchi</em><br>
                 葉具家</a>
             </p>
         </div>
         <nav class="Main-Menu"> <!--Nhóm 9: Thanh điều hướng chính-->
             <ul>
-                <li><a href="typologies.html" data-i18n="nav-products">Products</a></li>
-                <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
-                <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
-                <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
+                <li><a href="../typologies.html" data-i18n="nav-products">Products</a></li>
+                <li><a href="../about-us/about-us.html" data-i18n="nav-about">About us</a></li>
+                <li><a href="../blog/blog.html" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="../policies.html" data-i18n="nav-policies">Policies</a></li>
             </ul>
         </nav>
 
@@ -35,7 +34,7 @@
                     </form>
                 </li>
                 <li id="Wishlist"> <!--Nhóm 9: Giỏ yêu thích-->
-                    <a href="wishlist_index.html">
+                    <a href="../wishlist-and-payment/wishlist_index.html">
                         <span class="solar--heart-bold"></span>
                         <span class="wishlist-count">0</span>
                     </a>
@@ -63,24 +62,34 @@
         </nav>
     </header>
 
-    <!-- Phần Success -->
-    <section id="success">
-            <!-- Success Icon -->
-            <div class="success-icon">
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="60" cy="60" r="60" fill="#0B2D21"/>
-                    <path d="M35 60L52 77L85 44" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+    <!--Nhóm 9: Phần chính của trang đăng nhập-->
+    <main>
+        <div class="login-container">
+            <div id="email-step" class="step">
+                <h2 data-i18n="login-title">Login to Your Account</h2>
+                <p data-i18n="login-subtitle">Enter your email address</p>
+                <input type="email" id="email" data-i18n="email-placeholder" placeholder="Your Email Address" required>
+                <button type="button" onclick="sendCode()" data-i18n="send-code-btn">Send Login Code</button>
             </div>
 
-            <h2 class="success-title" data-i18n="success-message">Your order has been successfully placed. Thank you for choosing Haguchi!</h2>
-
-            <button type="button" class="view-order-btn" onclick="window.location.href='order-detail.html'" data-i18n="view-order-btn">View Order Details</button>
-        
-    </section>
+            <div id="otp-step" class="step hidden">
+                <h2 data-i18n="verify-title">Verify Your Code</h2>
+                <p>
+                    <span data-i18n="verify-subtitle-1">A 6-digit code has been sent to</span>
+                    <span id="display-email"></span>. 
+                    <span data-i18n="verify-subtitle-2">Please enter it below.</span>
+                </p>
+                <input type="text" id="otp" data-i18n="otp-placeholder" placeholder="Enter 6-Digit Code" maxlength="6" required>
+                <button type="button" onclick="verifyCode()" data-i18n="login-btn">Log In</button>
+                <a href="#" onclick="showEmailStep(); return false;" data-i18n="back-link">Not your email? Go back.</a>
+            </div>
+            
+            <p id="error-message" class="error hidden"></p>
+        </div>
+    </main>
 
     <!--Nhóm 9: Phần quay lại đầu trang-->
-    <img id="btn-top" src="images/return_to_top.png" alt="Return to top">
+    <img id="btn-top" src="../images/return_to_top.png" alt="Return to top">
 
     <!--Nhóm 9: Phần footer-->
     <footer>
@@ -102,9 +111,9 @@
         <div class="footer-section">
             <h3 data-i18n="footer-categories">Shop by Category</h3>
             <ul>
-                <li><a href="couch.html" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
+                <li><a href="../couch.html" data-i18n="footer-categories-sofa">Sofas & Armchairs</a></li>
                 <li><a data-i18n="footer-categories-dining">Dining Tables</a></li>
-                <li><a href="bed.html" data-i18n="footer-categories-bed">Beds</a></li>
+                <li><a href="../bed.html" data-i18n="footer-categories-bed">Beds</a></li>
                 <li><a data-i18n="footer-categories-cabinet">Cabinets & Shelves</a></li>
                 <li><a data-i18n="footer-categories-decor">Lighting & Decor</a></li>
                 <li><a data-i18n="footer-categories-new">New Arrivals / Promotions</a></li>
@@ -113,11 +122,11 @@
         <div class="footer-section">
             <h3 data-i18n="footer-policies">Policies & Support</h3>
             <ul>
-                <li><a href="policies.html" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-return">Return & Exchange</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-order">How to Order</a></li>
-                <li><a href="policies.html" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
+                <li><a href="../policies.html" data-i18n="footer-policies-warranty">Warranty Policy</a></li>
+                <li><a href="../policies.html" data-i18n="footer-policies-return">Return & Exchange</a></li>
+                <li><a="../policies.html" data-i18n="footer-policies-shipping">Shipping Policy</a></li>
+                <li><a href="../policies.html" data-i18n="footer-policies-order">How to Order</a></li>
+                <li><a href="../policies.html" data-i18n="footer-policies-privacy">Privacy Policy</a></li>
             </ul>
         </div>
         </div>
@@ -131,8 +140,8 @@
             </div>
     </footer>
     
-    <script src="js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
-    <script src="js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
-
+    <script src="../js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="../js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="../js/login.js"></script>
 </body>
 </html>
