@@ -312,7 +312,7 @@
               <h2 data-i18n="popup-title">✓ Added to Wishlist!</h2>
               <p data-i18n="popup-message">Your item has been saved to your wishlist.</p>
 
-              <button class="view-btn" data-i18n="popup-view">View Wishlist</button>
+              <button class="view-btn" onclick="window.location.href='../wishlist-and-payment/wishlist_index.html'" data-i18n="popup-view">View Wishlist</button>
               <button class="keep-btn" data-i18n="popup-keep">Keep Shopping</button>
             </div>
           </div>
@@ -507,7 +507,7 @@
         <!-- Slide 1 -->
         <div
           class="gallery-slide active"
-          style="background-image: url('/images/product-detail/1.png')"
+          style="background-image: url('../images/product-detail/1.png')"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
@@ -521,7 +521,7 @@
         <!-- Slide 2 -->
         <div
           class="gallery-slide" 
-          style="background-image: url('/images/product-detail/2.png')"
+          style="background-image: url('../images/product-detail/2.png')"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
@@ -535,7 +535,7 @@
         <!-- Slide 3 -->
         <div
           class="gallery-slide"
-          style="background-image: url('/images/product-detail/3.png')"
+          style="background-image: url('../images/product-detail/3.png')"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
@@ -549,7 +549,7 @@
         <!-- Slide 4 -->
         <div
           class="gallery-slide"
-          style="background-image: url('/images/product-detail/4.png')"
+          style="background-image: url('../images/product-detail/4.png')"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
@@ -563,7 +563,7 @@
         <!-- Slide 5 -->
         <div
           class="gallery-slide"
-          style="background-image: url('/images/product-detail/5.png')"
+          style="background-image: url('../images/product-detail/5.png')"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
@@ -1315,9 +1315,9 @@
     <!--Nhóm 9: Phần footer-->
     <div data-include="../partials/footer.html"></div>
 
+    <script src="../js/partials.js"></script> <!--Nhóm 9: Liên kết file JS partials để load header/footer -->
     <script src="../js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
     <script src="../js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
-    <br /><br /><br /><br />
     <script src="../js/animations.js"></script>
     <script src="../js/product.js"></script>
   </body>
