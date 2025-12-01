@@ -53,15 +53,11 @@
         <!--Nhóm 9: Phần nội dung cuộn theo trang (tức các phần sau sẽ có hiệu ứng khi cuộn trang thì ẩn phần Hero đi)-->
 
         <!--Nhóm 9: Phần sản phẩm mới-->
-        <section data-scroll="fade-up" id="New-Product">
-          <h1 data-scroll="fade-up" data-i18n="premium-title">
+        <section id="New-Product">
+          <h1 data-i18n="premium-title">
             Premium furniture - Elegant & Modern Living
           </h1>
-          <p
-            data-scroll="fade-up"
-            data-i18n="premium-content"
-            class="premium-content"
-          >
+          <p data-i18n="premium-content" class="premium-content">
             Transform your home into a sanctuary of comfort and style with our
             premium designs and exquisite craftsmanship — a true reflection of
             your personal taste.
@@ -104,7 +100,7 @@
                   background-image: url(../images/homepage/new-collections/overview3.jpg);
                 "
               >
-                <div data-scroll="fade-up" class="overview-content">
+                <div class="overview-content">
                   <p data-i18n="new3">
                     A focus space where plants bath in your "knowledge"
                   </p>
@@ -117,7 +113,7 @@
                   background-image: url(../images/homepage/new-collections/overview4.jpg);
                 "
               >
-                <div data-scroll="fade-up" class="overview-content">
+                <div class="overview-content">
                   <p data-i18n="new4">
                     Diner? Yes, it is the time for gathering and eat delicous
                     fresh food
@@ -126,15 +122,14 @@
               </div>
 
               <a
-                data-scroll="fade-up"
                 class="item"
                 style="
                   background-image: url(../images/homepage/new-collections/overview5.jpg);
                 "
                 href="../product_index.html"
               >
-                <div data-scroll="fade-up" class="overview-content">
-                  <p data-scroll="fade-up" data-i18n="new5">
+                <div class="overview-content">
+                  <p data-i18n="new5">
                     Surrounded by the color of nature, make you feel nothing
                     much than a jungle in your home
                   </p>
@@ -142,13 +137,12 @@
               </a>
 
               <div
-                data-scroll="fade-up"
                 class="item"
                 style="
                   background-image: url(../images/homepage/new-collections/overview6.jpg);
                 "
               >
-                <div data-scroll="fade-up" class="overview-content">
+                <div class="overview-content">
                   <p data-i18n="new6">
                     A simple reading table with comfort chair for you to explore
                     the world of advanture
@@ -157,12 +151,12 @@
               </div>
             </div>
 
-            <div data-scroll="fade-up" class="controls">
+            <div class="controls">
               <!--Nhóm 9: Nút điều khiển chuyển slide-->
-              <button data-scroll="fade-up" id="overview-prev">
+              <button id="overview-prev">
                 <span class="tabler--caret-left"></span>
               </button>
-              <button data-scroll="fade-up" id="overview-next">
+              <button id="overview-next">
                 <span class="tabler--caret-right"></span>
               </button>
             </div>
@@ -214,7 +208,7 @@
         </section>
 
         <!--Nhóm 9: Phần tại sao lại chọn chúng tôi-->
-        <section data-scroll="fade-up" id="Why-Choose-Us">
+        <section id="Why-Choose-Us">
           <div data-scroll="fade-up" class="abtus-header">
             <h1 data-scroll="fade-up" data-i18n="Why-Choose-Us">
               Why choose us
@@ -269,7 +263,7 @@
         </section>
 
         <!--Nhóm 9: Phần Product Categories-->
-        <section data-scroll="fade-up" class="Product-Categories">
+        <section class="Product-Categories">
           <h1 data-i18n="product">Explore Our Collections</h1>
           <p data-i18n="product-content">
             that reflects your personal style with our exclusive furniture
@@ -309,7 +303,7 @@
         </section>
 
         <!--Nhóm 9: Phần nhận xét khách hàng-->
-        <section data-scroll="fade-up" class="review-section">
+        <section class="review-section">
           <div class="section-title">
             <h2 data-i18n="reviews">our Customer Reviews</h2>
             <p data-i18n="reviews-content">
@@ -382,7 +376,7 @@
         </section>
 
         <!--Nhóm 9: Phần FAQ - Câu hỏi thường gặp-->
-        <section data-scroll="fade-up" id="FAQ">
+        <section id="FAQ">
           <div data-scroll="fade-up" class="faq-container">
             <!--Nhóm 9: Khung chứa phần FAQ-->
             <div class="faq-header">
@@ -487,13 +481,16 @@
     <!--Nhóm 9: Phần footer-->
     <div data-include="../partials/footer.html"></div>
 
-    <script src="../js/lang-change.js"></script>
     <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
-    <script src="../js/common.js"></script>
+    <script src="../js/lang-change.js"></script>
     <!--Nhóm 9:  Liên kết file JS chung -->
-    <script src="../js/index.js"></script>
+    <script src="../js/common.js"></script>
     <!--Nhóm 9:  Liên kết file JS riêng cho trang index -->
+    <script src="../js/index.js"></script>
+    <!--Nhóm 9: Liên kết file JS riêng cho partials-->
     <script src="../js/partials.js"></script>
+    <!--Nhóm 9: Liên kết file JS animation-->
+    <script src="../js/animations.js"></script>
     
   </body>
 </html>
