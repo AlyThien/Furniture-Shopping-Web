@@ -29,6 +29,30 @@
     });
 })();
 
+//Nhóm 9: Cập nhật đường dẫn logo về trang chủ
+(function() {
+    function updateLogoLink() {
+        const logoLink = document.getElementById('logo-home-link');
+        if (!logoLink) return;
+        
+        const path = window.location.pathname;
+        const depth = path.split('/').filter(x => x && x.indexOf('.html') === -1).length - 1;
+        const basePath = depth > 0 ? '../'.repeat(depth) : './';
+        
+        logoLink.href = basePath + 'index.html';
+    }
+    
+    // Chạy khi partials load xong
+    document.addEventListener('allPartialsLoaded', updateLogoLink);
+    
+    // Chạy ngay nếu đã load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateLogoLink);
+    } else {
+        updateLogoLink();
+    }
+})();
+
 //Nhóm 9: Phần thanh menu hamburger cho mobile
 (function(){
     const menuToggle = document.querySelector('.icomoon-free--leaf');
