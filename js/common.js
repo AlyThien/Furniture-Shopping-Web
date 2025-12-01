@@ -90,7 +90,7 @@
                 const userData = JSON.parse(storedData);
                 
                 // ĐÃ ĐĂNG NHẬP - Link đến personal-info
-                userAvatarLink.href = 'personal-info.html';
+                userAvatarLink.href = '../user/personal-info.html';
                 
                 // Nếu có avatar, hiển thị avatar
                 if (userData.avatarUrl && userData.avatarUrl.trim() !== '') {
@@ -132,7 +132,7 @@
         headerAvatar.style.display = 'none';
         headerAvatar.src = '';
         defaultIcon.style.display = 'inline-block';
-        userAvatarLink.href = 'login.html';
+        userAvatarLink.href = '../user/login.html';
         userAvatarLink.title = 'Login';
     }
 
@@ -142,6 +142,9 @@
     } else {
         updateHeaderAvatar();
     }
+
+    // Lắng nghe sự kiện khi tất cả partials đã load xong
+    document.addEventListener('allPartialsLoaded', updateHeaderAvatar);
 
     // Lắng nghe sự kiện khi localStorage thay đổi (từ tab khác)
     window.addEventListener('storage', function(e) {
@@ -170,7 +173,7 @@ function updateHeaderAvatar() {
             const userData = JSON.parse(storedData);
             
             // Đã đăng nhập - Link đến personal-info
-            userAvatarLink.href = 'personal-info.html';
+            userAvatarLink.href = '../user/personal-info.html';
             
             if (userData.avatarUrl) {
                 headerAvatar.src = userData.avatarUrl;
@@ -186,14 +189,14 @@ function updateHeaderAvatar() {
             console.error('Error parsing user data:', error);
             headerAvatar.style.display = 'none';
             defaultIcon.style.display = 'inline-block';
-            userAvatarLink.href = 'login.html';
+            userAvatarLink.href = '../user/login.html';
             userAvatarLink.title = 'Login';
         }
     } else {
         // chưa đăng nhập - Link đến login
         headerAvatar.style.display = 'none';
         defaultIcon.style.display = 'inline-block';
-        userAvatarLink.href = 'login.html';
+        userAvatarLink.href = '../user/login.html';
         userAvatarLink.title = 'Login';
     }
 }
