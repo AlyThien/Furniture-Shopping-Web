@@ -217,7 +217,7 @@ Nhóm 9: COMPONENTS
     border-bottom: 1px solid #eee; /* Đường kẻ mờ ngăn cách với sản phẩm */
     position: relative; 
     z-index: 100; /* Đảm bảo thanh này nằm trên các layer khác */
-    background-color: #e2f4d9;
+    background-color: #add996;
 }
 
 /* --- 2. Item Lọc (Chữ "Material", "Color"...) --- */
@@ -378,71 +378,139 @@ Nhóm 9: COMPONENTS
 /* ==============================
 Nhóm 9: RESPONSIVE - TABLET (max-width: 1024px)
 ============================================== */
+
 @media (max-width: 1024px) {
-    .sofa-gallery {
-        min-width: auto;
-        padding: 40px 2rem;
-        background-size: cover;
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+
+  .sofa-gallery {
+    min-width: 0;          
+    padding: 32px 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .sofa-gallery .sofa-container {
+    width: 100%;
+    max-width: calc(100% - 32px); 
+    margin: 24px auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 18px;
+    box-sizing: border-box;
+  }
+
+  .sofa-gallery .sofa-card {
+    padding: 18px;
+    border-radius: 12px;
+  }
+  .sofa-gallery .sofa-card__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .sofa-gallery .sofa-card__name { font-size: 17px; }
+  .sofa-gallery .sofa-card__price { font-size: 15px; margin-left: 8px; }
+
+  .product-category-nav {
+    padding-top: 48px;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+  }
+  .product-category-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+  }
+  .product-category-nav a {
+    font-size: 15px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  .filter-bar {
+    display: flex;
+    gap: 18px;
+    padding: 10px 12px;
+    background-color: #e7f7e6;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .filter-item {
+    min-width: 120px;
+    padding: 6px 8px;
+    position: relative; 
+  }
+  .filter-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 160px;
+    max-width: calc(100% - 40px); 
+    padding: 6px;
+    background-color: #b7ddb1;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    border-radius: 8px;
+    z-index: 999;
+    display: none;
+    box-sizing: border-box;
+  }
+
+  .filter-item:hover .filter-dropdown,
+  .filter-item:focus-within .filter-dropdown,
+  .filter-item.open .filter-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pagination {
+    margin-top: 32px;
+    margin-bottom: 56px;
+    gap: 12px;
+    justify-content: center;
+  }
+  .pagination .arrow { width: 36px; height: 36px; font-size: 16px; }
+
+  footer {
+    padding: 32px 16px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+  }
+  .footer-content {
+    width: calc(100% - 32px);
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 28px;
+    row-gap: 20px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-hidden, .reveal-visible {
+      transition: none !important;
+      animation: none !important;
     }
-
-    .sofa-gallery .sofa-container {
-        max-width: 1100px;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 36px 20px;
-        margin: 30px auto;
-        padding: 0 16px;
-    }
-
-    .sofa-gallery [class*="sofa-"] {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        top: auto !important;
-        left: auto !important;
-    }
-
-    .sofa-gallery .sofa-card__image {
-        aspect-ratio: 4 / 3;
-        width: 100% !important;
-        height: auto !important;
-        object-fit: cover;
-    }
-
-    .sofa-gallery .sofa-card__name { font-size: 18px; }
-    .sofa-gallery .sofa-card__price { font-size: 16px; margin-left: 10px; }
-
-    .filter-bar {
-        gap: 28px;
-        padding: 12px 12px;
-        background-color: #e7f7e6;
-    }
-
-    .filter-item { font-size: 0.95rem; }
-
-    /* Tablet: cho phép hover và keyboard focus hiển thị dropdown.
-       Đồng thời hỗ trợ class .open (JS) để toggle trên touch */
-    .filter-dropdown {
-        left: 50%;
-        transform: translateX(-50%);
-        min-width: 180px;
-        position: absolute;
-        top: 100%;
-        display: none;
-        flex-direction: column;
-        padding: 6px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        z-index: 999;
-        background-color: #b7ddb1;
-    }
-
-    .filter-item:hover .filter-dropdown,
-    .filter-item:focus-within .filter-dropdown,
-    .filter-item.open .filter-dropdown {
-        display: flex;
-    }
-
-    .pagination { margin-top: 40px; margin-bottom: 60px; gap: 12px; }
-    .pagination .arrow { width: 36px; height: 36px; font-size: 16px; }
+  }
 }
 
 /* ==============================================
@@ -482,9 +550,6 @@ Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
         position: relative;
         background-color: #e7f7e6;
     }
-
-    /* Mobile: không phụ thuộc hover — dropdown hiển thị bằng .open hoặc keyboard focus.
-       Đặt dropdown absolute nhưng đủ rộng; JS nên toggle .open trên .filter-item khi người dùng chạm. */
     .filter-dropdown {
         position: absolute;
         top: calc(100% + 8px);
@@ -504,9 +569,6 @@ Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
     .filter-item.open .filter-dropdown {
         display: flex;
     }
-
-    /* Tắt hover rule (nếu có) để tránh mâu thuẫn */
-    /* .filter-item:hover .filter-dropdown { display: none; }  -- removed */
 
     .pagination { gap: 10px; margin-top: 36px; margin-bottom: 48px; }
     .pagination .arrow { width: 34px; height: 34px; font-size: 15px; }
@@ -573,7 +635,6 @@ Nhóm 9: RESPONSIVE - VERY SMALL (max-width: 480px)
         border-bottom: 1px solid rgba(0,0,0,0.04);
     }
 
-    /* Very small: dropdown trở về flow để không bị cắt; JS toggle .open để expand */
     .filter-dropdown {
         position: static;
         transform: none;
@@ -595,4 +656,138 @@ Nhóm 9: RESPONSIVE - VERY SMALL (max-width: 480px)
 
     .pagination .arrow { width: 44px; height: 44px; font-size: 18px; }
     .pagination { gap: 12px; margin-bottom: 40px; }
+}
+
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - NEST HUB MAX
+============================================== */
+@media only screen and (max-width: 1280px) and (max-height: 800px) and (orientation: landscape) {
+  .sofa-gallery {
+    min-width: 0 !important;
+    width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden; /* scoped */
+    position: relative;
+  }
+
+  .sofa-gallery .sofa-container {
+    width: 100% !important;
+    max-width: calc(100% - 32px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    box-sizing: border-box !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px 12px !important;
+  }
+
+  .sofa-gallery img,
+  .sofa-gallery .sofa-card__image,
+  .sofa-gallery .sofa-card {
+    max-width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    display: block;
+  }
+
+  .sofa-gallery .background {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    pointer-events: none !important;
+    max-width: 100% !important;
+  }
+
+  .sofa-gallery .product-category-nav,
+  .sofa-gallery .filter-bar {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    box-sizing: border-box !important;
+  }
+  .sofa-gallery .product-category-nav ul,
+  .sofa-gallery .filter-bar {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+
+  .sofa-gallery .filter-dropdown {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    max-width: calc(100% - 48px) !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - SURFACE DUO
+============================================== */
+@media only screen and (min-width: 540px) and (max-width: 720px) and (orientation: portrait) {
+  .sofa-gallery {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  .sofa-gallery .sofa-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    max-width: 100%;
+    width: 100%;
+    margin: 16px auto;
+    box-sizing: border-box;
+  }
+
+  .sofa-gallery .sofa-card,
+  .sofa-gallery img {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .product-category-nav,
+  .filter-bar {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .filter-dropdown {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100% - 32px);
+  }
+
+  .sofa-gallery ~ footer,
+  footer {
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
+  }
+
+  .sofa-gallery .sofa-card {
+    overflow: visible !important;
+  }
+
+  .sofa-gallery .sofa-card__image{
+    width: 100% !important;
+    height: auto !important;
+    max-height: 48vh !important;   
+    object-fit: contain !important;   
+    aspect-ratio: auto !important;   
+    display: block !important;
+    box-sizing: border-box !important;
+  }
 }
