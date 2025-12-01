@@ -31,3 +31,42 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 });
+
+function initFilter() {
+    // SỬA DÒNG NÀY: đổi .filter-sidebar thành .filter-bar
+    const checkboxes = document.querySelectorAll('.filter-bar input[type="checkbox"]'); 
+    
+    const cards = document.querySelectorAll('.sofa-card');
+
+    function filterProducts() {
+        // ... (Phần logic bên trong giữ nguyên không đổi) ...
+        const activeFilters = { material: [], color: [], price: [] };
+        
+        checkboxes.forEach(cb => {
+            if (cb.checked) activeFilters[cb.name].push(cb.value);
+        });
+
+        cards.forEach(card => {
+            const material = card.getAttribute('data-material');
+            const color = card.getAttribute('data-color');
+            const price = card.getAttribute('data-price');
+
+            const matchMaterial = activeFilters.material.length === 0 || activeFilters.material.includes(material);
+            const matchColor = activeFilters.color.length === 0 || activeFilters.color.includes(color);
+            const matchPrice = activeFilters.price.length === 0 || activeFilters.price.includes(price);
+
+            if (matchMaterial && matchColor && matchPrice) {
+                card.style.display = 'block'; 
+                card.classList.add('reveal-visible'); 
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', filterProducts);
+    });
+}
+
+initFilter();
