@@ -6,7 +6,7 @@ let translations = {};
 function getBasePath() {
     const path = window.location.pathname;
     const depth = path.split('/').filter(x => x && x.indexOf('.html') === -1).length - 1;
-    return depth > 0 ? './'.repeat(depth) : './';
+    return depth > 0 ? '../'.repeat(depth) : './';
 }
 
 async function loadTranslation(page, lang) {
