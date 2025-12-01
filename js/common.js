@@ -72,6 +72,13 @@
 (function() {
     'use strict';
 
+    // Hàm xác định đường dẫn tương đối đến thư mục gốc
+    function getBasePath() {
+        const path = window.location.pathname;
+        const depth = path.split('/').filter(x => x && x.indexOf('.html') === -1).length - 1;
+        return depth > 0 ? '../'.repeat(depth) : './';
+    }
+
     // Hàm kiểm tra và hiển thị avatar
     function updateHeaderAvatar() {
         const headerAvatar = document.getElementById('header-user-avatar');
@@ -84,13 +91,15 @@
         const storedData = localStorage.getItem('userPersonalData');
         const userEmail = localStorage.getItem('userEmail');
         
+        const basePath = getBasePath();
+        
         // Kiểm tra xem user đã đăng nhập chưa
         if (storedData && userEmail) {
             try {
                 const userData = JSON.parse(storedData);
                 
                 // ĐÃ ĐĂNG NHẬP - Link đến personal-info
-                userAvatarLink.href = '../user/personal-info.html';
+                userAvatarLink.href = `${basePath}user/personal-info.html`;
                 
                 // Nếu có avatar, hiển thị avatar
                 if (userData.avatarUrl && userData.avatarUrl.trim() !== '') {
@@ -129,10 +138,12 @@
         
         if (!headerAvatar || !defaultIcon || !userAvatarLink) return;
         
+        const basePath = getBasePath();
+        
         headerAvatar.style.display = 'none';
         headerAvatar.src = '';
         defaultIcon.style.display = 'inline-block';
-        userAvatarLink.href = '../user/login.html';
+        userAvatarLink.href = `${basePath}user/login.html`;
         userAvatarLink.title = 'Login';
     }
 

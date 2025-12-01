@@ -2,13 +2,21 @@
 let currentLang = 'en';
 let translations = {};
 
+// Hàm xác định đường dẫn tương đối đến thư mục gốc
+function getBasePath() {
+    const path = window.location.pathname;
+    const depth = path.split('/').filter(x => x && x.indexOf('.html') === -1).length - 1;
+    return depth > 0 ? '../'.repeat(depth) : './';
+}
+
 async function loadTranslation(page, lang) {
     try {
-        // Sử dụng đường dẫn tuyệt đối từ root
+        // Xác định đường dẫn tương đối dựa vào vị trí trang
+        const basePath = getBasePath();
         // Tải đồng thời file common.json và file json của trang hiện tại
         const [commonRes, pageRes] = await Promise.all([
-            fetch(`/json-lang/common.json`),
-            fetch(`/json-lang/${page}.json`)
+            fetch(`${basePath}json-lang/common.json`),
+            fetch(`${basePath}json-lang/${page}.json`)
         ]);
 
         if (!commonRes.ok || !pageRes.ok) throw new Error("File not found");
