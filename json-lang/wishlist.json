@@ -19,7 +19,7 @@
     "order-estimate-title": "ORDER ESTIMATE",
     "total-label": "TOTAL",
     "note-title": "Note:",
-    "note-content": "This price list does not include shipping fee and taxes. The color chart is for reference only so that we can better understand the color tone that you are looking for. For more information on shipping and payment methods, please visit our <a href=\"policies.html\" style=\"color: #3B6D54; text-decoration: underline;\">Policies</a> page.",
+    "note-content": "This price list does not include shipping fee and taxes. The color chart is for reference only so that we can better understand the color tone that you are looking for. For more information on shipping and payment methods, please visit our <a href=\"../policies/policies.html\" style=\"color: #3B6D54; text-decoration: underline;\">Policies</a> page.",
     "continue-btn": "Continue"
   },
   
@@ -43,7 +43,7 @@
     "order-estimate-title": "ƯỚC TÍNH ĐƠN HÀNG",
     "total-label": "TỔNG CỘNG",
     "note-title": "Lưu ý:",
-    "note-content": "Bảng giá này không bao gồm phí vận chuyển và thuế. Bảng màu chỉ mang tính chất tham khảo để chúng tôi có thể hiểu rõ hơn về tông màu mà bạn đang tìm kiếm. Để biết thêm thông tin về vận chuyển và phương thức thanh toán, vui lòng truy cập trang <a href=\"policies.html\" style=\"color: #3B6D54; text-decoration: underline;\">Chính sách</a> của chúng tôi.",
+    "note-content": "Bảng giá này không bao gồm phí vận chuyển và thuế. Bảng màu chỉ mang tính chất tham khảo để chúng tôi có thể hiểu rõ hơn về tông màu mà bạn đang tìm kiếm. Để biết thêm thông tin về vận chuyển và phương thức thanh toán, vui lòng truy cập trang <a href=\"../policies/policies.html\" style=\"color: #3B6D54; text-decoration: underline;\">Chính sách</a> của chúng tôi.",
     "continue-btn": "Tiếp tục"
   }
 }
