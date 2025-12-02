@@ -264,23 +264,24 @@ Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
 @media (max-width: 768px) {
     /*Phần Body*/
     body {
-        padding-top: 0;
-        align-items: center;
+        padding-top: 80px !important;   
+        align-items: center;           
     }
 
     main {
-        padding: 20px 0;
-        width: 100%;
+        padding: 20px 0;                 
+        min-height: calc(100vh - 80px);  
     }
 
     /*Phần Login Container*/
     .login-container {
+        margin-top: 20px;                
         padding: 40px 30px;
         max-width: 100%;
         width: 90%;
         border-radius: 15px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        margin: 20px;
+        margin: 20px;                  
     }
 
     /*Phần Typography*/
