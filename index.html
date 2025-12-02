@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Haguchi-Homepage</title>
-    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="css/common.css" />
     <!--Nhóm 9: Liên kết file CSS chung-->
-    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <!--Nhóm 9: Liên kết file CSS riêng cho trang index-->
   </head>
 
   <body data-page="home">
     <!--Nhóm 9: Phần Header-->
-    <div data-include="../partials/header.html"></div>
+    <div data-include="partials/header.html"></div>
     <!--Nhóm 9: Phần nội dung-->
     <main>
       <!--Nhóm 9: Phần home, slogan-->
@@ -20,15 +20,15 @@
         <video autoplay muted loop>
           <!--Nhóm 9: Video chạy nền trang chủ với các sources khác nhau dành cho các trình duyệt khác hoặc sử dụng hình ảnh nếu không load được video-->
           <source
-            src="../images/homepage/video-opening-mp4.mp4"
+            src="images/homepage/video-opening-mp4.mp4"
             type="video/mp4"
           />
           <source
-            src="../images/homepage/video-opening-webm.webm"
+            src="images/homepage/video-opening-webm.webm"
             type="video/webm"
           />
           <img
-            src="../images/homepage/picture-opening.jpg"
+            src="images/homepage/picture-opening.jpg"
             alt="Furniture Image"
           />
         </video>
@@ -42,7 +42,7 @@
           </p>
           <button
             data-i18n="hero-button"
-            onclick="window.location.href='../typologies/typologies.html'"
+            onclick="window.location.href='typologies/typologies.html'"
           >
             Explore now
           </button>
@@ -68,7 +68,7 @@
               <div
                 class="item"
                 style="
-                  background-image: url(../images/homepage/new-collections/overview1.jpg);
+                  background-image: url(images/homepage/new-collections/overview1.jpg);
                 "
               >
                 <!--Nhóm 9: Hình ảnh nền cho từng slide: vì có nhiều sản phẩm nên không thể dồn qua CSS được nên các ảnh được chèn vào style ngay tại HTML-->
@@ -84,7 +84,7 @@
               <div
                 class="item"
                 style="
-                  background-image: url(../images/homepage/new-collections/overview2.jpg);
+                  background-image: url(images/homepage/new-collections/overview2.jpg);
                 "
               >
                 <div class="overview-content">
@@ -97,7 +97,7 @@
               <div
                 class="item"
                 style="
-                  background-image: url(../images/homepage/new-collections/overview3.jpg);
+                  background-image: url(images/homepage/new-collections/overview3.jpg);
                 "
               >
                 <div class="overview-content">
@@ -110,7 +110,7 @@
               <div
                 class="item"
                 style="
-                  background-image: url(../images/homepage/new-collections/overview4.jpg);
+                  background-image: url(images/homepage/new-collections/overview4.jpg);
                 "
               >
                 <div class="overview-content">
@@ -124,9 +124,9 @@
               <a
                 class="item"
                 style="
-                  background-image: url(../images/homepage/new-collections/overview5.jpg);
+                  background-image: url(images/homepage/new-collections/overview5.jpg);
                 "
-                href="../product_index.html"
+                href="wishlist-and-payment/product_index.html"
               >
                 <div class="overview-content">
                   <p data-i18n="new5">
@@ -139,7 +139,7 @@
               <div
                 class="item"
                 style="
-                  background-image: url(../images/homepage/new-collections/overview6.jpg);
+                  background-image: url(images/homepage/new-collections/overview6.jpg);
                 "
               >
                 <div class="overview-content">
@@ -273,28 +273,28 @@
             <!--Nhóm 9: Khung chứa các danh mục sản phẩm-->
             <a data-scroll="fade-up" class="Table">
               <img
-                src="../images/homepage/product-categories/coffee-table.jpeg"
+                src="images/homepage/product-categories/coffee-table.jpeg"
                 alt="Coffee Table"
               />
               <h2 data-i18n="table">Table</h2>
             </a>
-            <a data-scroll="fade-up" class="Bed" href="../typologies/bed.html">
+            <a data-scroll="fade-up" class="Bed" href="typologies/bed.html">
               <img
-                src="../images/homepage/product-categories/bed.jpeg"
+                src="images/homepage/product-categories/bed.jpeg"
                 alt="Bed"
               />
               <h2 data-i18n="bed">Bed</h2>
             </a>
-            <a data-scroll="fade-up" class="Couch" href="../typologies/couch.html">
+            <a data-scroll="fade-up" class="Couch" href="typologies/couch.html">
               <img
-                src="../images/homepage/product-categories/couch.jpeg"
+                src="images/homepage/product-categories/couch.jpeg"
                 alt="Couch"
               />
               <h2 data-i18n="couch">Couch</h2>
             </a>
             <a data-scroll="fade-up" class="Wardrobe">
               <img
-                src="../images/homepage/product-categories/wardrobe.jpeg"
+                src="images/homepage/product-categories/wardrobe.jpeg"
                 alt="Wardrobe"
               />
               <h2 data-i18n="wardrobe">Wardrobe</h2>
@@ -317,7 +317,7 @@
               <!--Nhóm 9: Thẻ nhận xét-->
               <div class="reviewer-info">
                 <img
-                  src="../images/homepage/review/user1.jpeg"
+                  src="images/homepage/review/user1.jpeg"
                   alt="Ariana Butera Grande"
                   class="reviewer-avatar"
                 />
@@ -336,7 +336,7 @@
             <div data-scroll="fade-up" class="review-card">
               <div class="reviewer-info">
                 <img
-                  src="../images/homepage/review/user2.jpeg"
+                  src="images/homepage/review/user2.jpeg"
                   alt="Taylor Alison Smith"
                   class="reviewer-avatar"
                 />
@@ -356,7 +356,7 @@
             <div data-scroll="fade-up" class="review-card">
               <div class="reviewer-info">
                 <img
-                  src="../images/homepage/review/user3.jpg"
+                  src="images/homepage/review/user3.jpg"
                   alt="Kevin John Calmente"
                   class="reviewer-avatar"
                 />
@@ -474,23 +474,24 @@
     <img
       data-scroll="fade-up"
       id="btn-top"
-      src="../images/return_to_top.png"
+      src="images/return_to_top.png"
       alt="Return to top"
     />
 
     <!--Nhóm 9: Phần footer-->
-    <div data-include="../partials/footer.html"></div>
+    <div data-include="partials/footer.html"></div>
 
     <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
-    <script src="../js/lang-change.js"></script>
+    <script src="js/lang-change.js"></script>
     <!--Nhóm 9:  Liên kết file JS chung -->
-    <script src="../js/common.js"></script>
+    <script src="js/common.js"></script>
     <!--Nhóm 9:  Liên kết file JS riêng cho trang index -->
-    <script src="../js/index.js"></script>
+    <script src="js/index.js"></script>
     <!--Nhóm 9: Liên kết file JS riêng cho partials-->
-    <script src="../js/partials.js"></script>
+    <script src="js/partials.js"></script>
     <!--Nhóm 9: Liên kết file JS animation-->
-    <script src="../js/animations.js"></script>
+    <script src="js/animations.js"></script>
     
   </body>
 </html>
+
