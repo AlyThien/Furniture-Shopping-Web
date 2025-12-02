@@ -98,11 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let mockOrders = [
         { id: '1007', customer: 'Nguyễn Trọng An', date: '2025-11-26', status: 'pending', phone: '0901 234 567', address: '25 Lô A, Đường Số 10, Quận 7, TP.HCM', payment: 'Chuyển khoản Ngân hàng', items: [{ name: 'Cloud Couch', qty: 1 }] },
         { id: '1006', customer: 'Lê Thị Mỹ Hạnh', date: '2025-11-21', status: 'shipped', phone: '0902 987 654', address: '123/45 Đường Quang Trung, Gò Vấp, TP.HCM', payment: 'Thanh toán khi nhận hàng (COD)', items: [{ name: 'Bàn Ăn Zenith', qty: 1 }] },
-        { id: '1005', customer: 'Trần Văn Quang', date: '2025-11-17', status: 'success', phone: '0903 111 222', address: 'Lầu 5, Tòa nhà Central Park, Hà Nội', payment: 'Thẻ tín dụng', items: [{ name: 'Tủ Quần Áo HDF', qty: 1 }, { name: 'Ghế Thư Giãn', qty: 1 }] }, 
-        { id: '1004', customer: 'Jessica M. Chen', date: '2025-11-12', status: 'success', phone: '+84 908 555 333', address: 'Apartment 102, 12 Sương Nguyệt Ánh, Q.1', payment: 'PayPal', items: [{ name: 'Wave Couch', qty: 2 }, { name: 'Bàn Trà Mặt Đá', qty: 1 }] }, 
+        { id: '1005', customer: 'Trần Văn Quang', date: '2025-11-17', status: 'success', phone: '0903 111 222', address: 'Lầu 5, Tòa nhà Central Park, Hà Nội', payment: 'Thẻ tín dụng', items: [{ name: 'Tủ Quần Áo HDF', qty: 1 }, { name: 'Ghế Thư Giãn', qty: 1 }] },
+        { id: '1004', customer: 'Jessica M. Chen', date: '2025-11-12', status: 'success', phone: '+84 908 555 333', address: 'Apartment 102, 12 Sương Nguyệt Ánh, Q.1', payment: 'PayPal', items: [{ name: 'Wave Couch', qty: 2 }, { name: 'Bàn Trà Mặt Đá', qty: 1 }] },
         { id: '1003', customer: 'Phạm Hồng Nhung', date: '2025-11-10', status: 'cancelled', phone: '0987 654 321', address: 'Khu đô thị Sala, Quận 2, TP.HCM', payment: 'Chuyển khoản', items: [{ name: 'Cotton Candi Couch', qty: 1 }] },
         { id: '1002', customer: 'David K. Johnson', date: '2025-11-09', status: 'success', phone: '+84 919 444 000', address: '100 Bà Triệu, Hà Nội', payment: 'Chuyển khoản', items: [{ name: 'Saphire Couch', qty: 2 }, { name: 'Kệ TV Gỗ Sồi', qty: 1 }] },
-        { id: '1001', customer: 'Hoàng Đình Phú', date: '2025-11-08', status: 'success', phone: '0978 999 888', address: '456 Trường Chinh, Q.Tân Bình, TP.HCM', payment: 'COD', items: [{ name: 'Haven Couch', qty: 1 }, { name: 'Wave Couch', qty: 2 }] }, 
+        { id: '1001', customer: 'Hoàng Đình Phú', date: '2025-11-08', status: 'success', phone: '0978 999 888', address: '456 Trường Chinh, Q.Tân Bình, TP.HCM', payment: 'COD', items: [{ name: 'Haven Couch', qty: 1 }, { name: 'Wave Couch', qty: 2 }] },
     ];
 
     // ============================================
@@ -114,13 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const ordersBody = document.getElementById('orders-body');
         if (!ordersBody) return;
         ordersBody.innerHTML = '';
-
         orders.forEach(order => {
             const calculatedTotal = calculateOrderTotal(order.items);
             const statusClass = getStatusClass(order.status);
             const statusVi = translateStatus(order.status);
             const formattedDate = formatDate(order.date);
-
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${order.id}</td>
@@ -139,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const inventoryBody = document.getElementById('inventory-body');
         if (!inventoryBody) return;
         inventoryBody.innerHTML = '';
-
         products.forEach(product => {
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -163,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Nhóm 9: Khai báo các phần tử DOM liên quan đến modal sản phẩm
     const addProdBtn = document.getElementById('addProdBtn');
     const prodModalOverlay = document.getElementById('product-modal-overlay');
-    const prodModalCloseBtns = document.querySelectorAll('#product-modal-overlay .close-btn, #product-modal-overlay .btn-close-modal');
     const prodForm = document.getElementById('product-form');
     const saveProdBtn = document.getElementById('save-prod-btn');
     const prodIdInput = document.getElementById('prod-id');
@@ -180,13 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
             prodModalOverlay.classList.remove('hidden');
         });
     }
-
-    // Nhóm 9: Xử lý đóng modal sản phẩm
-    prodModalCloseBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            prodModalOverlay.classList.add('hidden');
-        });
-    });
 
     // Nhóm 9: Lắng nghe sự kiện click trên bảng kho hàng để xử lý nút Sửa/Xóa
     const inventoryBody = document.getElementById('inventory-body');
@@ -268,7 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
                 mockInventory.push(newProd);
                 alert(`Đã thêm sản phẩm "${newProd.name}" thành công!`);
-
             } else if (mode === 'edit' && currentId) {
                 const prodIndex = mockInventory.findIndex(p => p.id === currentId);
                 if (prodIndex !== -1) {
@@ -306,14 +294,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Nhóm 9: Hàm tính toán dữ liệu báo cáo - tổng doanh thu, số đơn hoàn thành, sản phẩm bán chạy
     function calculateReportData() {
         const completedOrders = mockOrders.filter(o => o.status === 'success');
-
         let totalRevenue = completedOrders.reduce((sum, order) => {
             const totalNum = calculateOrderTotal(order.items);
             return sum + totalNum;
         }, 0);
-
         const orderCount = completedOrders.length;
-
         const itemSales = {};
         completedOrders.forEach(order => {
             order.items.forEach(item => {
@@ -322,7 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 itemSales[name] = (itemSales[name] || 0) + qty;
             });
         });
-
         let bestSeller = 'N/A';
         let maxQty = 0;
         
@@ -336,7 +320,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (bestSeller === 'N/A' && Object.keys(itemSales).length > 0) {
             bestSeller = Object.keys(itemSales)[0];
         }
-
         return { totalRevenue, orderCount, bestSeller, completedOrders };
     }
 
@@ -351,7 +334,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderReport(completedOrders) {
         const reportsBody = document.getElementById('reports-body');
         if (!reportsBody) return;
-
         reportsBody.innerHTML = completedOrders.map(order => {
             const itemNames = order.items.map(item => item.name).join(', ');
             const calculatedTotal = calculateOrderTotal(order.items);
@@ -378,28 +360,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================
-    // Nhóm 9: XỬ LÝ ĐÓNG MODAL
+    // Nhóm 9: XỬ LÝ ĐÓNG MODAL (dùng nút "Đóng" và "Hủy")
     // ============================================
 
-    // Nhóm 9: Dùng event delegation để tránh lỗi khi DOM chưa sẵn sàng
     document.addEventListener('click', (e) => {
         const target = e.target;
 
-        // Nhóm 9: Đóng modal sản phẩm
-        if (
-            target.closest('#product-modal-overlay .close-btn') ||
-            target.closest('#product-modal-overlay .btn-close-modal') ||
-            target.id === 'product-modal-overlay'
-        ) {
+        // Đóng modal sản phẩm
+        if (target.classList.contains('modal-close-btn') || 
+            target.classList.contains('btn-close-modal') ||
+            target.id === 'product-modal-overlay') {
             const modal = document.getElementById('product-modal-overlay');
             if (modal) modal.classList.add('hidden');
         }
 
-        // Nhóm 9: Đóng modal chi tiết đơn hàng
-        if (
-            target.closest('#order-detail-modal .close-btn') ||
-            target.id === 'order-detail-modal'
-        ) {
+        // Đóng modal chi tiết đơn hàng
+        if (target.classList.contains('modal-close-btn') || 
+            target.id === 'order-detail-modal') {
             const modal = document.getElementById('order-detail-modal');
             if (modal) modal.classList.add('hidden');
         }
@@ -408,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // Nhóm 9: MODAL CHI TIẾT ĐƠN HÀNG
     // ============================================
-    // Nhóm 9: Hàm điền dữ liệu đơn hàng vào modal chi tiết
+    
     function populateModal(orderId) {
         const order = mockOrders.find(o => o.id === orderId);
         if (!order) {
@@ -469,7 +446,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const ordersBody = document.getElementById('orders-body');
-    // Nhóm 9: Xử lý khi click nút "Chi tiết" trên bảng đơn hàng
     if (ordersBody) {
         ordersBody.addEventListener('click', (e) => {
             if (e.target.classList.contains('view-detail')) {
@@ -520,7 +496,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Nhóm 9: XỬ LÝ CÁC NÚT CHỨC NĂNG
     // ============================================
     
-    // Nhóm 9: Xử lý nút "Làm mới" - reload dữ liệu của view hiện tại
     document.getElementById('refreshBtn').addEventListener('click', () => {
         alert("Đang làm mới dữ liệu...");
         const activeView = document.querySelector('.admin-view.active-view');
@@ -535,7 +510,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Nhóm 9: Xử lý nút "Đăng xuất" - xóa thông tin đăng nhập và chuyển về trang login
     document.getElementById('logoutBtn').addEventListener('click', () => {
         alert("Đăng xuất thành công!");
         localStorage.removeItem('isLoggedIn');
@@ -547,7 +521,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Nhóm 9: ĐIỀU HƯỚNG GIỮA CÁC VIEW
     // ============================================
     
-    // Nhóm 9: Xử lý chuyển đổi giữa các tab (Đơn hàng, Kho, Báo cáo)
     const navButtons = document.querySelectorAll('.admin-sidebar nav button');
     const pageTitle = document.getElementById('page-title');
 
@@ -592,11 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Nhóm 9: KHỞI TẠO BAN ĐẦU
     // ============================================
     
-    // Nhóm 9: Render dữ liệu ban đầu khi trang load
     renderOrders();
     const initialReportData = calculateReportData();
     updateReportSummary(initialReportData);
 });
-
-
-
