@@ -2,22 +2,12 @@
 let currentLang = 'en';
 let translations = {};
 
-// Hàm xác định đường dẫn tương đối đến thư mục gốc
-function getBasePath() {
-    const path = window.location.pathname;
-    // Đếm số dấu / trong path (trừ dấu / đầu tiên)
-    const depth = (path.match(/\//g) || []).length - 1;
-    return depth > 0 ? '../'.repeat(depth) : './';
-}
-
 async function loadTranslation(page, lang) {
     try {
-        // Xác định đường dẫn tương đối dựa vào vị trí trang
-        const basePath = getBasePath();
-        // Tải đồng thời file common.json và file json của trang hiện tại
+        // Sử dụng đường dẫn tuyệt đối từ root
         const [commonRes, pageRes] = await Promise.all([
-            fetch(`${basePath}json-lang/common.json`),
-            fetch(`${basePath}json-lang/${page}.json`)
+            fetch('/json-lang/common.json'),
+            fetch(`/json-lang/${page}.json`)
         ]);
 
         if (!commonRes.ok || !pageRes.ok) {

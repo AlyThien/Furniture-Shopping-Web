@@ -31,29 +31,11 @@
 
 //Nhóm 9: Cập nhật đường dẫn logo về trang chủ và tất cả navigation links
 (function() {
-    function getBasePath() {
-        const path = window.location.pathname;
-        // Loại bỏ tên file HTML để chỉ lấy đường dẫn thư mục
-        const pathWithoutFile = path.replace(/\/[^\/]*\.html$/, '');
-        // Đếm số cấp thư mục
-        const parts = pathWithoutFile.split('/').filter(x => x);
-        const depth = parts.length;
-        return depth > 0 ? '../'.repeat(depth) : './';
-    }
-    
     function updateAllLinks() {
-        const basePath = getBasePath();
-        
         // Cập nhật logo link
         const logoLink = document.getElementById('logo-home-link');
         if (logoLink) {
-            logoLink.href = basePath + 'index.html';
-            // Thêm event listener để xử lý navigation
-            logoLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                window.location.href = this.href;
-            });
+            logoLink.href = '/index.html';
         }
         
         // Cập nhật tất cả navigation links
@@ -61,7 +43,7 @@
         navLinks.forEach(link => {
             const target = link.getAttribute('data-target');
             if (target) {
-                link.href = basePath + target;
+                link.href = '/' + target;
             }
         });
         
@@ -72,9 +54,9 @@
             const userEmail = localStorage.getItem('userEmail');
             
             if (storedData && userEmail) {
-                userAvatarLink.href = basePath + 'user/personal-info.html';
+                userAvatarLink.href = '/user/personal-info.html';
             } else {
-                userAvatarLink.href = basePath + 'user/login.html';
+                userAvatarLink.href = '/user/login.html';
             }
         }
     }
@@ -243,12 +225,6 @@ function updateHeaderAvatar() {
     
     if (!headerAvatar || !defaultIcon) return;
 
-    // Tính toán đường dẫn tương đối
-    const path = window.location.pathname;
-    // Đếm số dấu / trong path (trừ dấu / đầu tiên)
-    const depth = (path.match(/\//g) || []).length - 1;
-    const basePath = depth > 0 ? '../'.repeat(depth) : './';
-
     const storedData = localStorage.getItem('userPersonalData');
     
     if (storedData) {
@@ -256,7 +232,7 @@ function updateHeaderAvatar() {
             const userData = JSON.parse(storedData);
             
             // Đã đăng nhập - Link đến personal-info
-            userAvatarLink.href = basePath + 'user/personal-info.html';
+            userAvatarLink.href = '/user/personal-info.html';
             
             if (userData.avatarUrl) {
                 headerAvatar.src = userData.avatarUrl;
@@ -272,14 +248,14 @@ function updateHeaderAvatar() {
             console.error('Error parsing user data:', error);
             headerAvatar.style.display = 'none';
             defaultIcon.style.display = 'inline-block';
-            userAvatarLink.href = basePath + 'user/login.html';
+            userAvatarLink.href = '/user/login.html';
             userAvatarLink.title = 'Login';
         }
     } else {
         // chưa đăng nhập - Link đến login
         headerAvatar.style.display = 'none';
         defaultIcon.style.display = 'inline-block';
-        userAvatarLink.href = basePath + 'user/login.html';
+        userAvatarLink.href = '/user/login.html';
         userAvatarLink.title = 'Login';
     }
 }
