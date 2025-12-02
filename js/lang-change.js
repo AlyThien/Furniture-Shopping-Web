@@ -5,7 +5,8 @@ let translations = {};
 // Hàm xác định đường dẫn tương đối đến thư mục gốc
 function getBasePath() {
     const path = window.location.pathname;
-    const depth = path.split('/').filter(x => x && x.indexOf('.html') === -1).length - 1;
+    const parts = path.split('/').filter(x => x);
+    const depth = parts.length - 1; // Trừ đi tên file
     return depth > 0 ? '../'.repeat(depth) : './';
 }
 
