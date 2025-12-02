@@ -501,21 +501,28 @@ Nhóm 9: HỘP THOẠI
     border: 1px solid var(--border);
     max-height: 90vh;
     overflow-y: auto;
+    position: relative;
 }
 
-.close-btn {
-    float: right;
-    font-size: 32px;
-    font-weight: bold;
-    color: var(--muted); 
+/* Nút "Đóng" thay thế dấu × */
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #888;
     cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
-    line-height: 1;
+    font-weight: 500;
+    padding: 6px 12px;
+    transition: all 0.2s ease;
+    z-index: 10;
 }
 
-.close-btn:hover {
-    color: var(--danger);
-    transform: rotate(90deg);
+.modal-close-btn:hover {
+    color: #333;
+    font-weight: 700;
 }
 
 .modal-body {
@@ -578,7 +585,6 @@ Nhóm 9: HỘP THOẠI
     background: var(--accent-light) !important; 
     box-shadow: 0 4px 10px rgba(45, 74, 62, 0.3) !important;
 }
-
 /* ==============================================
 Nhóm 9: RESPONSIVE - TABLET & MOBILE
 ============================================== */
@@ -709,3 +715,4 @@ Nhóm 9: RESPONSIVE - TABLET & MOBILE
         font-size: 18px;
     }
 }
+
