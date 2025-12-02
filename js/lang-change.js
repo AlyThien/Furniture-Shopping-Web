@@ -5,12 +5,8 @@ let translations = {};
 // Hàm xác định đường dẫn tương đối đến thư mục gốc
 function getBasePath() {
     const path = window.location.pathname;
-    // Loại bỏ tên file HTML để chỉ lấy đường dẫn thư mục
-    // Xử lý cả trường hợp có và không có .html
-    const pathWithoutFile = path.replace(/\/[^\/]*\.html?$/, '').replace(/\/$/, '');
-    // Đếm số cấp thư mục
-    const parts = pathWithoutFile.split('/').filter(x => x);
-    const depth = parts.length;
+    // Đếm số dấu / trong path (trừ dấu / đầu tiên)
+    const depth = (path.match(/\//g) || []).length - 1;
     return depth > 0 ? '../'.repeat(depth) : './';
 }
 
