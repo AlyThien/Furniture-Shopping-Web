@@ -20,7 +20,19 @@ async function loadTranslation(page, lang) {
             fetch(`${basePath}json-lang/${page}.json`)
         ]);
 
-        if (!commonRes.ok || !pageRes.ok) throw new Error("File not found");
+        if (!commonRes.ok || !pageRes.ok) {
+            console.warn(`Translation file not found for page: ${page}`);
+            // Thử load chỉ common.json nếu page.json không tồn tại
+            if (commonRes.ok) {
+                const commonData = await commonRes.json();
+                translations = commonData[lang] || {};
+                applyTranslations();
+                currentLang = lang;
+                localStorage.setItem('selectedLanguage', lang);
+                return;
+            }
+            throw new Error("File not found");
+        }
 
         const [commonData, pageData] = await Promise.all([
             commonRes.json(),
