@@ -33,19 +33,19 @@
     <div class="filter-bar">
         
         <div class="filter-item">
-            <div class="filter-title">Material <span class="arrow">▼</span></div>
+            <div class="filter-title"><span data-i18n="filter-material">Material</span> <span class="arrow">▼</span></div>
             <div class="filter-dropdown">
-                <label><input type="checkbox" name="material" value="oak"> Oak</label>
-                <label><input type="checkbox" name="material" value="walnut"> Walnut</label>
+                <label><input type="checkbox" name="material" value="oak"> <span data-i18n="material-oak">Oak</span></label>
+                <label><input type="checkbox" name="material" value="walnut"> <span data-i18n="material-walnut">Walnut</span></label>
             </div>
         </div>
 
         <div class="filter-item">
-            <div class="filter-title">Price <span class="arrow">▼</span></div>
+            <div class="filter-title"><span data-i18n="filter-price">Price</span> <span class="arrow">▼</span></div>
             <div class="filter-dropdown">
-                <label><input type="checkbox" name="price" value="low"> Under 6.000.000 đ</label>
-            <label><input type="checkbox" name="price" value="mid"> 6.000.000 đ - 8.000.000 đ</label>
-            <label><input type="checkbox" name="price" value="high"> Over 8.000.000 đ</label>
+                <label><input type="checkbox" name="price" value="low"> <span data-i18n="price-low">Under 6.000.000 đ</span></label>
+            <label><input type="checkbox" name="price" value="mid"> <span data-i18n="price-mid">6.000.000 đ - 8.000.000 đ</span></label>
+            <label><input type="checkbox" name="price" value="high"> <span data-i18n="price-high">Over 8.000.000 đ</span></label>
             </div>
         </div>
 
@@ -159,94 +159,12 @@
     </main>
 
     <!--Nhóm 9: Phần footer-->
-    <footer data-scroll="fade-up">
-      <div class="footer-logo">
-        <div><em>Haguchi</em></div>
-        <div>葉具家</div>
-      </div>
-      <div class="footer-content">
-        <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
-        <div class="footer-section">
-          <h3 data-i18n="nav-about">About Us</h3>
-          <ul>
-            <li data-i18n="footer-aboutus">
-              Bringing elegance and comfort to your home with high-quality
-              furniture designed for modern living
-            </li>
-            <li data-i18n="footer-aboutus-add">
-              📍 123 Harmony Street, District 1, Ho Chi Minh City
-            </li>
-            <li>📞 (+84) 123 456 789</li>
-            <li>📧 support@haguchi.com</li>
-            <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3 data-i18n="footer-categories">Shop by Category</h3>
-          <ul>
-            <li>
-              <a href="couch.html" data-i18n="footer-categories-sofa"
-                >Sofas & Armchairs</a
-              >
-            </li>
-            <li><a href="../404.html" data-i18n="footer-categories-dining">Dining Tables</a></li>
-            <li>
-              <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
-            </li>
-            <li>
-              <a href="../404.html" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
-            </li>
-            <li><a href="../404.html" data-i18n="footer-categories-decor">Lighting & Decor</a></li>
-            <li>
-              <a href="../404.html" data-i18n="footer-categories-new">New Arrivals / Promotions</a>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3 data-i18n="footer-policies">Policies & Support</h3>
-          <ul>
-            <li>
-              <a href="../policies.html" data-i18n="footer-policies-warranty"
-                >Warranty Policy</a
-              >
-            </li>
-            <li>
-              <a href="../policies.html" data-i18n="footer-policies-return"
-                >Return & Exchange</a
-              >
-            </li>
-            <li>
-              <a href="../policies.html" data-i18n="footer-policies-shipping"
-                >Shipping Policy</a
-              >
-            </li>
-            <li>
-              <a href="../policies.html" data-i18n="footer-policies-order"
-                >How to Order</a
-              >
-            </li>
-            <li>
-              <a href="../policies.html" data-i18n="footer-policies-privacy"
-                >Privacy Policy</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2025 HAGUCHI – All rights reserved.</span>
-        <div class="social-icons">
-          <div class="social-icon">f</div>
-          <div class="social-icon">in</div>
-          <div class="social-icon">t</div>
-        </div>
-      </div>
-    </footer>
+    <div data-include="../partials/footer.html"></div>
 
     <script src="../js/lang-change.js"></script> <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ -->
     <script src="../js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
     <script src="../js/couch.js"></script> <!--Nhóm 9: Liên kết file JS riêng cho couch-->
+    <script src="../js/partials.js"></script>
 
   </body>
 </html>
-

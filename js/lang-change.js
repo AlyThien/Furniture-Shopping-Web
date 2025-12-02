@@ -5,7 +5,8 @@ let translations = {};
 // Hàm xác định đường dẫn tương đối đến thư mục gốc
 function getBasePath() {
     const path = window.location.pathname;
-    const depth = path.split('/').filter(x => x && x.indexOf('.html') === -1).length - 1;
+    // Đếm số dấu / trong path (trừ dấu / đầu tiên)
+    const depth = (path.match(/\//g) || []).length - 1;
     return depth > 0 ? '../'.repeat(depth) : './';
 }
 
@@ -19,7 +20,19 @@ async function loadTranslation(page, lang) {
             fetch(`${basePath}json-lang/${page}.json`)
         ]);
 
-        if (!commonRes.ok || !pageRes.ok) throw new Error("File not found");
+        if (!commonRes.ok || !pageRes.ok) {
+            console.warn(`Translation file not found for page: ${page}`);
+            // Thử load chỉ common.json nếu page.json không tồn tại
+            if (commonRes.ok) {
+                const commonData = await commonRes.json();
+                translations = commonData[lang] || {};
+                applyTranslations();
+                currentLang = lang;
+                localStorage.setItem('selectedLanguage', lang);
+                return;
+            }
+            throw new Error("File not found");
+        }
 
         const [commonData, pageData] = await Promise.all([
             commonRes.json(),

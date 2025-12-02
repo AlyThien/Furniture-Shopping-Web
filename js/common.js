@@ -33,7 +33,11 @@
 (function() {
     function getBasePath() {
         const path = window.location.pathname;
-        const depth = path.split('/').filter(x => x && x.indexOf('.html') === -1).length - 1;
+        // Loại bỏ tên file HTML để chỉ lấy đường dẫn thư mục
+        const pathWithoutFile = path.replace(/\/[^\/]*\.html$/, '');
+        // Đếm số cấp thư mục
+        const parts = pathWithoutFile.split('/').filter(x => x);
+        const depth = parts.length;
         return depth > 0 ? '../'.repeat(depth) : './';
     }
     
@@ -44,6 +48,12 @@
         const logoLink = document.getElementById('logo-home-link');
         if (logoLink) {
             logoLink.href = basePath + 'index.html';
+            // Thêm event listener để xử lý navigation
+            logoLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                window.location.href = this.href;
+            });
         }
         
         // Cập nhật tất cả navigation links
@@ -82,41 +92,53 @@
 
 //Nhóm 9: Phần thanh menu hamburger cho mobile
 (function(){
-    const menuToggle = document.querySelector('.icomoon-free--leaf');
-    const mainMenu = document.querySelector('nav.Main-Menu');
-    
-    if (!menuToggle || !mainMenu) return;
-
-    menuToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+    function initHamburgerMenu() {
+        const menuToggle = document.querySelector('.icomoon-free--leaf');
+        const mainMenu = document.querySelector('nav.Main-Menu');
         
-        // Toggle class cho menu và icon
-        mainMenu.classList.toggle('active');
-        this.classList.toggle('active');
-        
-        // Ngăn scroll khi menu mở
-        document.body.classList.toggle('menu-open');
-    });
+        if (!menuToggle || !mainMenu) return;
 
-    // Đóng menu khi click vào link
-    const menuLinks = mainMenu.querySelectorAll('a');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mainMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.classList.remove('menu-open');
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Toggle class cho menu và icon
+            mainMenu.classList.toggle('active');
+            this.classList.toggle('active');
+            
+            // Ngăn scroll khi menu mở
+            document.body.classList.toggle('menu-open');
         });
-    });
 
-    // Đóng menu khi click bên ngoài
-    document.addEventListener('click', (e) => {
-        if (!mainMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-            mainMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
-    });
+        // Đóng menu khi click vào link
+        const menuLinks = mainMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        // Đóng menu khi click bên ngoài
+        document.addEventListener('click', (e) => {
+            if (!mainMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                mainMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    }
+
+    // Chạy khi partials load xong
+    document.addEventListener('allPartialsLoaded', initHamburgerMenu);
+    
+    // Chạy ngay nếu đã load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHamburgerMenu);
+    } else {
+        initHamburgerMenu();
+    }
 })();
 
 //Nhóm 9: Phần hiển thị avatar người dùng trên header (lưu lại khi chuyển sang các trang khác)
@@ -126,7 +148,8 @@
     // Hàm xác định đường dẫn tương đối đến thư mục gốc
     function getBasePath() {
         const path = window.location.pathname;
-        const depth = path.split('/').filter(x => x && x.indexOf('.html') === -1).length - 1;
+        // Đếm số dấu / trong path (trừ dấu / đầu tiên)
+        const depth = (path.match(/\//g) || []).length - 1;
         return depth > 0 ? '../'.repeat(depth) : './';
     }
 
@@ -220,6 +243,12 @@ function updateHeaderAvatar() {
     
     if (!headerAvatar || !defaultIcon) return;
 
+    // Tính toán đường dẫn tương đối
+    const path = window.location.pathname;
+    // Đếm số dấu / trong path (trừ dấu / đầu tiên)
+    const depth = (path.match(/\//g) || []).length - 1;
+    const basePath = depth > 0 ? '../'.repeat(depth) : './';
+
     const storedData = localStorage.getItem('userPersonalData');
     
     if (storedData) {
@@ -227,7 +256,7 @@ function updateHeaderAvatar() {
             const userData = JSON.parse(storedData);
             
             // Đã đăng nhập - Link đến personal-info
-            userAvatarLink.href = '../user/personal-info.html';
+            userAvatarLink.href = basePath + 'user/personal-info.html';
             
             if (userData.avatarUrl) {
                 headerAvatar.src = userData.avatarUrl;
@@ -243,14 +272,14 @@ function updateHeaderAvatar() {
             console.error('Error parsing user data:', error);
             headerAvatar.style.display = 'none';
             defaultIcon.style.display = 'inline-block';
-            userAvatarLink.href = '../user/login.html';
+            userAvatarLink.href = basePath + 'user/login.html';
             userAvatarLink.title = 'Login';
         }
     } else {
         // chưa đăng nhập - Link đến login
         headerAvatar.style.display = 'none';
         defaultIcon.style.display = 'inline-block';
-        userAvatarLink.href = '../user/login.html';
+        userAvatarLink.href = basePath + 'user/login.html';
         userAvatarLink.title = 'Login';
     }
 }
