@@ -5,8 +5,11 @@ let translations = {};
 // Hàm xác định đường dẫn tương đối đến thư mục gốc
 function getBasePath() {
     const path = window.location.pathname;
-    const parts = path.split('/').filter(x => x);
-    const depth = parts.length - 1; // Trừ đi tên file
+    // Loại bỏ tên file HTML để chỉ lấy đường dẫn thư mục
+    const pathWithoutFile = path.replace(/\/[^\/]*\.html$/, '');
+    // Đếm số cấp thư mục
+    const parts = pathWithoutFile.split('/').filter(x => x);
+    const depth = parts.length;
     return depth > 0 ? '../'.repeat(depth) : './';
 }
 

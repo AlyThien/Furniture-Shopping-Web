@@ -33,9 +33,11 @@
 (function() {
     function getBasePath() {
         const path = window.location.pathname;
-        // Đếm số thư mục từ file hiện tại đến root
-        const parts = path.split('/').filter(x => x);
-        const depth = parts.length - 1; // Trừ đi tên file
+        // Loại bỏ tên file HTML để chỉ lấy đường dẫn thư mục
+        const pathWithoutFile = path.replace(/\/[^\/]*\.html$/, '');
+        // Đếm số cấp thư mục
+        const parts = pathWithoutFile.split('/').filter(x => x);
+        const depth = parts.length;
         return depth > 0 ? '../'.repeat(depth) : './';
     }
     
@@ -146,8 +148,11 @@
     // Hàm xác định đường dẫn tương đối đến thư mục gốc
     function getBasePath() {
         const path = window.location.pathname;
-        const parts = path.split('/').filter(x => x);
-        const depth = parts.length - 1;
+        // Loại bỏ tên file HTML để chỉ lấy đường dẫn thư mục
+        const pathWithoutFile = path.replace(/\/[^\/]*\.html$/, '');
+        // Đếm số cấp thư mục
+        const parts = pathWithoutFile.split('/').filter(x => x);
+        const depth = parts.length;
         return depth > 0 ? '../'.repeat(depth) : './';
     }
 
@@ -241,6 +246,13 @@ function updateHeaderAvatar() {
     
     if (!headerAvatar || !defaultIcon) return;
 
+    // Tính toán đường dẫn tương đối
+    const path = window.location.pathname;
+    const pathWithoutFile = path.replace(/\/[^\/]*\.html$/, '');
+    const parts = pathWithoutFile.split('/').filter(x => x);
+    const depth = parts.length;
+    const basePath = depth > 0 ? '../'.repeat(depth) : './';
+
     const storedData = localStorage.getItem('userPersonalData');
     
     if (storedData) {
@@ -248,7 +260,7 @@ function updateHeaderAvatar() {
             const userData = JSON.parse(storedData);
             
             // Đã đăng nhập - Link đến personal-info
-            userAvatarLink.href = '../user/personal-info.html';
+            userAvatarLink.href = basePath + 'user/personal-info.html';
             
             if (userData.avatarUrl) {
                 headerAvatar.src = userData.avatarUrl;
@@ -264,14 +276,14 @@ function updateHeaderAvatar() {
             console.error('Error parsing user data:', error);
             headerAvatar.style.display = 'none';
             defaultIcon.style.display = 'inline-block';
-            userAvatarLink.href = '../user/login.html';
+            userAvatarLink.href = basePath + 'user/login.html';
             userAvatarLink.title = 'Login';
         }
     } else {
         // chưa đăng nhập - Link đến login
         headerAvatar.style.display = 'none';
         defaultIcon.style.display = 'inline-block';
-        userAvatarLink.href = '../user/login.html';
+        userAvatarLink.href = basePath + 'user/login.html';
         userAvatarLink.title = 'Login';
     }
 }
