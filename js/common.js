@@ -149,7 +149,7 @@
     function getBasePath() {
         const path = window.location.pathname;
         // Loại bỏ tên file HTML để chỉ lấy đường dẫn thư mục
-        const pathWithoutFile = path.replace(/\/[^\/]*\.html$/, '');
+        const pathWithoutFile = path.replace(/\/[^\/]*\.html?$/, '').replace(/\/$/, '');
         // Đếm số cấp thư mục
         const parts = pathWithoutFile.split('/').filter(x => x);
         const depth = parts.length;
@@ -248,7 +248,7 @@ function updateHeaderAvatar() {
 
     // Tính toán đường dẫn tương đối
     const path = window.location.pathname;
-    const pathWithoutFile = path.replace(/\/[^\/]*\.html$/, '');
+    const pathWithoutFile = path.replace(/\/[^\/]*\.html?$/, '').replace(/\/$/, '');
     const parts = pathWithoutFile.split('/').filter(x => x);
     const depth = parts.length;
     const basePath = depth > 0 ? '../'.repeat(depth) : './';
