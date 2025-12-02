@@ -1,0 +1,687 @@
+@font-face {
+  font-family: 'Roboto Serif';
+  src: url('Roboto_Serif/RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf') format('truetype');
+}
+
+/* ==============================================
+Nhóm 9: HOẠT ẢNH JAVASCRIPT
+============================================== */
+/* Thanh tiến độ đọc */
+.reading-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #cc6847;
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Hiệu ứng Reveal (Ẩn/Hiện) */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-hidden.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hiệu ứng Parallax cho ảnh */
+.main-image-container img {
+    transition: transform 0.1s cubic-bezier(0,0,0.2,1);
+    will-change: transform;
+}
+
+/* ==============================================
+Nhóm 9: STYLE CHUNG
+============================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==============================================
+Nhóm 9: LAYOUT
+============================================== */
+.case-study-page {
+  background: linear-gradient(
+    180deg,
+    rgba(238, 249, 229, 1) 0%,
+    rgba(97, 163, 140, 1) 100%
+  );
+  width: 100%;
+  min-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+/* Page Header */
+.case-study-page .page-header {
+  width: 100%;
+  max-width: 1350px;
+  margin-top: 142px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.case-study-page .header__title-block {
+  width: 100%;
+  font-family: 'Roboto Serif', serif;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.case-study-page .header__date {
+  font-weight: 300;
+  color: #000000;
+}
+
+.case-study-page .header__main-title {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 600;
+  color: #1c3227;
+  font-size: 110px;
+  line-height: 1.2;
+}
+
+.case-study-page .header__logo {
+  width: 203.93px;
+  height: 53.29px;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+/* Page Content */
+.case-study-page .page-content {
+  width: 100%;
+  max-width: 1252px;
+  margin: 80px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==============================================
+Nhóm 9: COMPONENTS
+============================================== */
+/* Hero Image */
+.case-study-page .content__hero-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.15;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* Intro Section */
+.case-study-page .content__intro-section {
+  width: 100%;
+  max-width: 1055px;
+  margin-top: 60px;
+  font-family: 'Roboto Serif', serif;
+  font-weight: 500;
+  color: #000000;
+  font-size: 70px;
+  left: 40px;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.case-study-page .intro-section__heading {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 400;
+  color: #000000;
+  font-size: 35px;
+  letter-spacing: 0;
+  display: block;
+  margin: 0;
+}
+
+/* Sub Paragraph */
+.case-study-page .content__sub-paragraph {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 200;
+  font-size: 23px;
+  line-height: 1.7;
+}
+
+/* Inline Link */
+.case-study-page .content__inline-link {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 200;
+  font-size: 23px;
+  text-decoration: underline;
+  color: #000000;
+}
+
+/* Standard Image */
+.case-study-page .content__standard-image {
+  width: 100%;
+  max-width: 1020px;
+  height: 600px;
+  object-fit: cover;
+  margin-top: 50px;
+}
+
+/* Quote Section */
+.case-study-page .content__quote-section {
+  width: 100%;
+  max-width: 1020px;
+  margin-top: 60px;
+  font-family: 'Roboto Serif', serif;
+  font-weight: 400;
+  color: #000000;
+  font-size: 35px;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.case-study-page .quote-section__text {
+  font-weight: 500;
+  display: block;
+  margin: 0 0 2em 0;
+  font-style: italic;
+}
+
+.case-study-page .quote-section__heading {
+  font-family: 'Roboto Serif', serif;
+  display: block;
+  margin: 2em 0 1em 0;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* Main Text Block */
+.case-study-page .content__main-text-block {
+  width: 100%;
+  max-width: 1020px;
+  margin-top: 60px;
+  margin-bottom: 80px;
+  font-family: 'Roboto Serif', serif;
+  font-weight: 200;
+  color: #000000;
+  font-size: 23px;
+  letter-spacing: 0;
+  line-height: 1.7;
+}
+
+.case-study-page .content__main-text-block h2 {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 500;
+  color: #000000;
+  font-size: 32px;
+  margin: 2em 0 1em 0;
+}
+
+.case-study-page .content__main-text-block h3 {
+  font-family: 'Roboto Serif', serif;
+  font-weight: 500;
+  color: #000000;
+  font-size: 28px;
+  margin: 2em 0 1em 0;
+}
+
+.case-study-page .content__main-text-block p {
+  margin: 0 0 1.5em 0;
+}
+
+.case-study-page .content__main-text-block p a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+/* ================================
+   RESPONSIVE - TABLET (max-width: 1024px)
+   ================================ */
+/* ...existing code... */
+
+/* ==============================
+Nhóm 9: RESPONSIVE - TABLET (max-width: 1024px)
+============================================== */
+@media (max-width: 1024px) {
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .case-study-page {
+    min-width: 0;
+    padding-top: 80px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-sizing: border-box;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .Logo {
+    flex: 0 0 auto;
+    max-width: 160px;
+    min-width: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  #search-box {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  #search-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+  }
+
+  #search-btn { display: inline-flex; }
+
+  .case-study-page .page-header {
+    margin-top: 3.5rem;
+    max-width: 100%;
+  }
+
+  .case-study-page .header__main-title {
+    font-size: 70px;
+    line-height: 1.15;
+  }
+
+  .case-study-page .header__logo {
+    width: 180px;
+    height: auto;
+    margin-top: 16px;
+  }
+
+  .case-study-page .content__hero-image {
+    aspect-ratio: 2.2;
+    border-radius: 16px;
+  }
+
+  .case-study-page .content__intro-section {
+    font-size: 40px;
+    max-width: 960px;
+  }
+
+  .case-study-page .content__standard-image {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .case-study-page .content__main-text-block {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-top: 48px;
+  }
+
+  .case-study-page .content__sub-paragraph {
+    font-size: 18px;
+  }
+
+  /* reduce heavy spacing on tablet */
+  .case-study-page .page-content { margin-top: 40px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-hidden { transition: none !important; animation: none !important; }
+  }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
+============================================== */
+@media (max-width: 768px) {
+
+  .case-study-page {
+    padding-top: 60px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .Logo { max-width: 140px; min-width: 56px; }
+
+  /* hide long search input on small screens (JS can toggle .open) */
+  #search-text { display: none; }
+  #search-btn { display: inline-flex; }
+  #search-box { justify-content: flex-end; flex: 0 0 auto; min-width: 0; }
+
+  .case-study-page .page-header { margin-top: 2.5rem; }
+  .case-study-page .header__main-title { font-size: 48px; line-height: 1.12; }
+
+  .case-study-page .content__hero-image { aspect-ratio: 1.9; border-radius: 12px; }
+
+  .case-study-page .content__intro-section {
+    font-size: 28px;
+    max-width: 100%;
+    margin-top: 28px;
+  }
+
+  .case-study-page .content__main-text-block {
+    font-size: 18px;
+    margin-top: 32px;
+    line-height: 1.6;
+  }
+
+  .case-study-page .content__standard-image {
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* allow search to expand when JS adds .open */
+  #search-box.open {
+    display: flex;
+    flex: 1 1 auto;
+  }
+  #search-box.open #search-text { display: block; flex: 1 1 auto; min-width: 0; }
+
+  /* tighten footer spacing */
+  footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - VERY SMALL (max-width: 480px)
+============================================== */
+@media (max-width: 480px) {
+
+  .case-study-page {
+    padding-top: 50px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .Logo { max-width: 110px; }
+  #search-text { display: none; }
+  #search-btn { display: inline-flex; width: 40px; height: 40px; }
+
+  .case-study-page .header__main-title { font-size: 36px; line-height: 1.15; }
+  .case-study-page .header__logo { width: 140px; }
+
+  .case-study-page .content__hero-image { aspect-ratio: 1.6; border-radius: 10px; }
+
+  .case-study-page .content__intro-section { font-size: 20px; }
+  .case-study-page .content__main-text-block { font-size: 16px; margin-top: 20px; line-height: 1.6; }
+
+  .case-study-page .page-header { margin-top: 1.5rem; }
+  .case-study-page .content__standard-image { max-width: 100%; height: auto; }
+
+  /* reduce large fixed heights for images to let them scale */
+  .case-study-page .content__standard-image,
+  .case-study-page .content__hero-image {
+    height: auto !important;
+    max-height: none !important;
+    object-fit: cover;
+  }
+
+  footer { padding-left: 0.75rem; padding-right: 0.75rem; }
+}
+
+/* ========= optional device-specific safe adjustments (keeps images responsive) ======= */
+@media only screen and (max-width: 1280px) and (max-height: 800px) and (orientation: landscape) {
+  .case-study-page { padding-left: 12px; padding-right: 12px; }
+  .case-study-page .header__main-title { font-size: 56px; }
+  .case-study-page .content__hero-image { max-height: 60vh; object-fit: contain; }
+}
+
+
+/* ==============================
+Nhóm 9: RESPONSIVE - TABLET (max-width: 1024px)
+============================================== */
+@media (max-width: 1024px) {
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .case-study-page {
+    min-width: 0;
+    padding-top: 80px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-sizing: border-box;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .Logo {
+    flex: 0 0 auto;
+    max-width: 160px;
+    min-width: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  #search-box {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  #search-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+  }
+
+  #search-btn { display: inline-flex; }
+
+  .case-study-page .page-header {
+    margin-top: 3.5rem;
+    max-width: 100%;
+  }
+
+  .case-study-page .header__main-title {
+    font-size: 70px;
+    line-height: 1.15;
+  }
+
+  .case-study-page .header__logo {
+    width: 180px;
+    height: auto;
+    margin-top: 16px;
+  }
+
+  .case-study-page .content__hero-image {
+    aspect-ratio: 2.2;
+    border-radius: 16px;
+  }
+
+  .case-study-page .content__intro-section {
+    font-size: 40px;
+    max-width: 960px;
+  }
+
+  .case-study-page .content__standard-image {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .case-study-page .content__main-text-block {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-top: 48px;
+  }
+
+  .case-study-page .content__sub-paragraph {
+    font-size: 18px;
+  }
+
+  /* reduce heavy spacing on tablet */
+  .case-study-page .page-content { margin-top: 40px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-hidden { transition: none !important; animation: none !important; }
+  }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - MOBILE (max-width: 768px)
+============================================== */
+@media (max-width: 768px) {
+
+  .case-study-page {
+    padding-top: 60px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .Logo { max-width: 140px; min-width: 56px; }
+
+  /* hide long search input on small screens (JS can toggle .open) */
+  #search-text { display: none; }
+  #search-btn { display: inline-flex; }
+  #search-box { justify-content: flex-end; flex: 0 0 auto; min-width: 0; }
+
+  .case-study-page .page-header { margin-top: 2.5rem; }
+  .case-study-page .header__main-title { font-size: 48px; line-height: 1.12; }
+
+  .case-study-page .content__hero-image { aspect-ratio: 1.9; border-radius: 12px; }
+
+  .case-study-page .content__intro-section {
+    font-size: 28px;
+    max-width: 100%;
+    margin-top: 28px;
+  }
+
+  .case-study-page .content__main-text-block {
+    font-size: 18px;
+    margin-top: 32px;
+    line-height: 1.6;
+  }
+
+  .case-study-page .content__standard-image {
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* allow search to expand when JS adds .open */
+  #search-box.open {
+    display: flex;
+    flex: 1 1 auto;
+  }
+  #search-box.open #search-text { display: block; flex: 1 1 auto; min-width: 0; }
+
+  /* tighten footer spacing */
+  footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+
+/* ==============================================
+Nhóm 9: RESPONSIVE - VERY SMALL (max-width: 480px)
+============================================== */
+@media (max-width: 480px) {
+
+  .case-study-page {
+    padding-top: 50px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .Logo { max-width: 110px; }
+  #search-text { display: none; }
+  #search-btn { display: inline-flex; width: 40px; height: 40px; }
+
+  .case-study-page .header__main-title { font-size: 36px; line-height: 1.15; }
+  .case-study-page .header__logo { width: 140px; }
+
+  .case-study-page .content__hero-image { aspect-ratio: 1.6; border-radius: 10px; }
+
+  .case-study-page .content__intro-section { font-size: 20px; }
+  .case-study-page .content__main-text-block { font-size: 16px; margin-top: 20px; line-height: 1.6; }
+
+  .case-study-page .page-header { margin-top: 1.5rem; }
+  .case-study-page .content__standard-image { max-width: 100%; height: auto; }
+
+  /* reduce large fixed heights for images to let them scale */
+  .case-study-page .content__standard-image,
+  .case-study-page .content__hero-image {
+    height: auto !important;
+    max-height: none !important;
+    object-fit: cover;
+  }
+
+  footer { padding-left: 0.75rem; padding-right: 0.75rem; }
+}
+
+
+@media only screen and (max-width: 1280px) and (max-height: 800px) and (orientation: landscape) {
+  html, body { overflow-x: hidden; }
+
+  /* allow page to shrink on this device */
+  .case-study-page {
+    padding-left: 12px;
+    padding-right: 12px;
+    min-width: 0; /* override global min-width:1440px */
+    box-sizing: border-box;
+  }
+
+  .case-study-page .header__main-title {
+    font-size: 56px;
+    line-height: 1.1;
+  }
+
+  .case-study-page .content__hero-image {
+    max-height: 60vh;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+  }
+
+  /* cap image heights so they don't push footer off-screen */
+  .case-study-page .content__standard-image,
+  .case-study-page .content__hero-image {
+    max-height: 55vh;
+    height: auto;
+    object-fit: cover;
+  }
+  /* ensure return-to-top button doesn't overlap footer */
+  #btn-top { right: 16px; bottom: 20vh; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-hidden { transition: none !important; animation: none !important; }
+  }
+}
