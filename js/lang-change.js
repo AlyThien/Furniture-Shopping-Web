@@ -4,10 +4,10 @@ let translations = {};
 
 async function loadTranslation(page, lang) {
     try {
-        // Sử dụng đường dẫn tuyệt đối từ root
+        // Sử dụng đường dẫn tuyệt đối từ root của GitHub Pages
         const [commonRes, pageRes] = await Promise.all([
-            fetch('/json-lang/common.json'),
-            fetch(`/json-lang/${page}.json`)
+            fetch('/Furniture-Shopping-Web/json-lang/common.json'),
+            fetch(`/Furniture-Shopping-Web/json-lang/${page}.json`)
         ]);
 
         if (!commonRes.ok || !pageRes.ok) {

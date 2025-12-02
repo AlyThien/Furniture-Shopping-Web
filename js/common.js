@@ -35,7 +35,7 @@
         // Cập nhật logo link
         const logoLink = document.getElementById('logo-home-link');
         if (logoLink) {
-            logoLink.href = '/index.html';
+            logoLink.href = '/Furniture-Shopping-Web/index.html';
         }
         
         // Cập nhật tất cả navigation links
@@ -43,7 +43,7 @@
         navLinks.forEach(link => {
             const target = link.getAttribute('data-target');
             if (target) {
-                link.href = '/' + target;
+                link.href = '/Furniture-Shopping-Web/' + target;
             }
         });
         
@@ -54,9 +54,9 @@
             const userEmail = localStorage.getItem('userEmail');
             
             if (storedData && userEmail) {
-                userAvatarLink.href = '/user/personal-info.html';
+                userAvatarLink.href = '/Furniture-Shopping-Web/user/personal-info.html';
             } else {
-                userAvatarLink.href = '/user/login.html';
+                userAvatarLink.href = '/Furniture-Shopping-Web/user/login.html';
             }
         }
     }
@@ -232,7 +232,7 @@ function updateHeaderAvatar() {
             const userData = JSON.parse(storedData);
             
             // Đã đăng nhập - Link đến personal-info
-            userAvatarLink.href = '/user/personal-info.html';
+            userAvatarLink.href = '/Furniture-Shopping-Web/user/personal-info.html';
             
             if (userData.avatarUrl) {
                 headerAvatar.src = userData.avatarUrl;
@@ -248,14 +248,14 @@ function updateHeaderAvatar() {
             console.error('Error parsing user data:', error);
             headerAvatar.style.display = 'none';
             defaultIcon.style.display = 'inline-block';
-            userAvatarLink.href = '/user/login.html';
+            userAvatarLink.href = '/Furniture-Shopping-Web/user/login.html';
             userAvatarLink.title = 'Login';
         }
     } else {
         // chưa đăng nhập - Link đến login
         headerAvatar.style.display = 'none';
         defaultIcon.style.display = 'inline-block';
-        userAvatarLink.href = '/user/login.html';
+        userAvatarLink.href = '/Furniture-Shopping-Web/user/login.html';
         userAvatarLink.title = 'Login';
     }
 }
