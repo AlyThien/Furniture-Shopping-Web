@@ -149,6 +149,8 @@ body {
     -webkit-backdrop-filter: blur(12px);
     border-radius: 0.5rem;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    max-height: none;
+    overflow: visible;
 }
 
 .hero-info-box-italic {
@@ -162,7 +164,10 @@ body {
     margin-top: 1rem;
     line-height: 1.625;
     color: #374151;
-    font-size: 1rem;
+    font-size: 1.125rem;
+    font-style: italic;
+    max-height: none;
+    overflow: visible;
 }
 
 .hero-info-box-link,
@@ -240,7 +245,8 @@ body {
 }
 
 .accordion-content.active {
-    max-height: 500px;
+    max-height: 1000px;
+    overflow: visible;
     padding-top: 1rem;
     padding-bottom: 1.5rem;
 }
@@ -348,57 +354,18 @@ body {
 
 /* === 8. Responsive === */
 
-@media (min-width: 640px) {
-    .container {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-}
+/* ===========================================
+   RESPONSIVE - THIẾT BỊ LỚN / DESKTOP ≥ 1024px
+   =========================================== */
 @media (min-width: 1024px) {
     .container {
         padding-left: 2rem;
         padding-right: 2rem;
     }
 }
-
-@media (min-width: 768px) {
-    .section {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .section-title {
-        font-size: 2.25rem;
-        line-height: 2.5rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .section-subtitle {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .hero-section {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
-}
-
 @media (min-width: 1024px) {
     .hero-container {
         min-height: 700px;
-    }
-}
-
-@media (min-width: 768px) {
-    .hero-text-content {
-        width: 40%;
-        padding-right: 1rem;
     }
 }
 @media (min-width: 1024px) {
@@ -407,14 +374,69 @@ body {
         padding-right: 2rem;
     }
 }
+@media (min-width: 1024px) {
+    .hero-image-container {
+        width: 50%;
+    }
+}
+@media (min-width: 1024px) {
+    .hero-info-box {
+        top: 14rem;
+        right: 0;
+        width: 40%;
+    }
+}
+@media (min-width: 1024px) {
+    .philosophy-grid {
+        gap: 4rem;
+    }
+}
 
+/* ===========================================
+   RESPONSIVE - TABLET / MÁY TÍNH BẢNG ≥ 768px
+   =========================================== */
+@media (min-width: 768px) {
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+@media (min-width: 768px) {
+    .section {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+    }
+}
+@media (min-width: 768px) {
+    .section-subtitle {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+}
+@media (min-width: 768px) {
+    .hero-section {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
+@media (min-width: 768px) {
+    .hero-text-content {
+        width: 40%;
+        padding-right: 1rem;
+    }
+}
 @media (min-width: 768px) {
     .hero-title {
         font-size: 3rem;
         line-height: 1;
     }
 }
-
 @media (min-width: 768px) {
     .hero-image-container {
         position: absolute;
@@ -425,12 +447,6 @@ body {
         margin-top: 0;
     }
 }
-@media (min-width: 1024px) {
-    .hero-image-container {
-        width: 50%;
-    }
-}
-
 @media (min-width: 768px) {
     .hero-info-box {
         position: absolute;
@@ -441,62 +457,40 @@ body {
         padding: 2rem;
     }
 }
-@media (min-width: 1024px) {
-    .hero-info-box {
-        top: 14rem;
-        right: 0;
-        width: 40%;
-    }
-}
-@media (min-width: 1280px) {
-    .hero-info-box {
-        right: 0;
-    }
-}
-
 @media (min-width: 768px) {
     .hero-info-box-italic {
         font-size: 1.25rem;
     }
 }
-
 @media (min-width: 768px) {
     .hero-info-box-text {
         font-size: 1.125rem;
     }
 }
-
 @media (min-width: 768px) {
     .philosophy-grid {
         flex-direction: row;
     }
 }
-@media (min-width: 1024px) {
-    .philosophy-grid {
-        gap: 4rem;
-    }
-}
-
 @media (min-width: 768px) {
     .philosophy-text-column {
-        width: 50%;
+        margin-top: -1.25rem;
+        position: relative;
+        z-index: 5;
     }
 }
-
 @media (min-width: 768px) {
     .philosophy-image-column {
         width: 50%;
         height: 700px;
     }
 }
-
 @media (min-width: 768px) {
     .accordion-title {
         font-size: 1.5rem;
         line-height: 2rem;
     }
 }
-
 @media (min-width: 768px) {
     .accordion-text {
         font-size: 1.125rem;
@@ -504,8 +498,230 @@ body {
     }
 }
 
-@media (min-width: 640px) {
-    .team-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+/* ===========================================
+   RESPONSIVE - RẤT NHỎ / ĐIỆN THOẠI <= 480px
+   =========================================== */
+@media (max-width: 480px) {
+    /* Container co lại để vừa màn nhỏ */
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
+
+    /* Hero: stack nội dung, giới hạn chiều cao ảnh */
+    .hero-container {
+        position: static;
+        min-height: auto;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    .hero-text-content {
+        width: 100%;
+        padding-right: 0;
+    }
+    .hero-image-container {
+        position: static;
+        width: 100%;
+        height: 220px;
+        margin-top: 1rem;
+    }
+    .hero-image {
+        height: 100%;
+        object-position: center top;
+        border-radius: 0.5rem;
+    }
+
+    /* Đưa hero-info-box về luồng để tránh tràn */
+    .hero-info-box {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 1rem;
+        padding: 0.85rem;
+    }
+
+    /* Philosophy: ép căn giữa, text-align center */
+    .philosophy-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 1rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        box-sizing: border-box;
+    }
+    .philosophy-text-column,
+    .philosophy-image-column {
+        width: 100% !important;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        box-sizing: border-box;
+    }
+    .philosophy-image {
+        width: 100%;
+        height: auto;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    .philosophy-text-column .section-title,
+    .philosophy-text-column .section-subtitle,
+    .philosophy-text-column h3,
+    .philosophy-text-column p {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Accordion: tăng độ mượt, touch-friendly */
+    .accordion-trigger {
+        padding-top: 0.9rem;
+        padding-bottom: 0.9rem;
+    }
+    .accordion-content {
+        transition: max-height 0.45s ease-out, padding 0.25s ease;
+    }
+    .accordion-content.active {
+        max-height: 999px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .accordion-title { font-size: 1.05rem; }
+    .accordion-text { font-size: 0.95rem; }
+
+    /* Team: 1 cột, avatar nhỏ hơn, giảm padding */
+    .team-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+    .team-card {
+        padding: 0.85rem;
+        box-shadow: 0 6px 10px rgba(0,0,0,0.06);
+    }
+    .team-card-image-leader { width: 7rem; height: 7rem; }
+    .team-card-image-member { width: 6rem; height: 6rem; }
+    .team-title { font-size: 1.15rem; margin-bottom: 1.5rem; }
+
+    /* Tắt background-attachment cố định để tránh jitter trên mobile */
+    body { background-attachment: scroll; }
+}
+
+/*(iPad Pro): */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Đảm bảo 2 cột xếp top-aligned, kéo text lên và giữ image ở bên phải */
+    .philosophy-grid {
+        flex-direction: row;
+        align-items: flex-start; /* căn theo đầu để text không tràn xuống dưới ảnh */
+        gap: 2rem;
+    }
+
+    /* Hủy margin âm đã đẩy text xuống, đặt chiều rộng cố định tương ứng cột */
+    .philosophy-text-column {
+        margin-top: 0 !important;
+        align-self: flex-start;
+        width: 48% !important;
+        box-sizing: border-box;
+        padding-right: 1rem; /* đảm bảo khoảng cách so với ảnh */
+    }
+
+    /* Đảm bảo cột ảnh không chiếm quá nhiều chiều cao, cho phép co để không đẩy text */
+    .philosophy-image-column {
+        width: 52% !important;
+        height: auto !important;
+        box-sizing: border-box;
+    }
+
+    /* Ảnh scale an toàn, giới hạn chiều cao để tránh push layout */
+    .philosophy-image {
+        width: 100%;
+        height: auto;
+        max-height: 700px;
+        object-fit: cover;
+    }
+}
+
+
+/* Chỉnh sửa riêng cho iPad mini (768x1024) và iPad Air (khoảng 820px)
+   Giới hạn ở khoảng chiều rộng 768px → 832px để không ảnh hưởng iPad Pro */
+@media (min-width: 768px) and (max-width: 832px) {
+  /* Chỉ override .hero-info-box và .hero-info-box-text cho iPad mini / iPad Air */
+  .hero-info-box {
+    position: relative !important;
+    top: auto !important;
+    margin-left: auto !important;
+    margin-top: 0.5rem !important;
+    width: 100% !important;
+    max-width: 500px !important; /* giới hạn chiều rộng để không đẩy xuống phần dưới */
+    box-sizing: border-box;
+    z-index: 6;
+  }
+
+  .hero-info-box-text {
+    max-height: calc(100vh - 420px); /* giới hạn chiều cao so với viewport để không tràn */
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; /* cuộn mượt trên thiết bị cảm ứng */
+    padding-right: 0.25rem; /* tránh bị cắt chữ bởi scrollbar */
+  }
+}
+
+/* ===========================================
+   RESPONSIVE - MÁY TÍNH BẢNG NHỎ / ĐIỆN THOẠI LỚN ≤ 720px
+   =========================================== */
+@media (max-width: 720px) {
+  html, body { overflow-x: hidden; }
+
+  .container { padding-left: 1rem; padding-right: 1rem; max-width: 720px; margin: 0 auto; }
+
+  .hero-container { position: static !important; min-height: auto; padding: 1rem 0; }
+
+  .hero-text-content,
+  .hero-image-container,
+  .hero-info-box { position: static !important; width: 100% !important; margin: 0 auto; padding: 0.75rem; box-sizing: border-box; }
+
+  .hero-image { height: auto; max-height: 520px; object-position: center top; border-radius: 0.5rem; }
+
+  .hero-info-box { margin-top: 1rem; padding: 1rem; overflow: visible; }
+
+  .philosophy-grid { gap: 1rem; }
+  .philosophy-text-column,
+  .philosophy-image-column { width: 100% !important; max-width: 720px; margin: 0 auto; padding: 0; }
+
+  footer { padding: 16px 12px; box-sizing: border-box; }
+  .footer-content { display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center; }
+  .footer-section { width: 100%; max-width: 680px; padding: 0 8px; }
+  .footer-bottom { display: flex; flex-direction: column; gap: 8px; align-items: center; margin-top: 12px; }
+
+  #btn-top { position: fixed; right: 12px; bottom: 18vh; }
+
+
+@media (max-width: 720px) {
+  html, body { overflow-x: hidden; }
+
+  .container { padding-left: 1rem; padding-right: 1rem; max-width: 720px; margin: 0 auto; }
+
+  .hero-container { position: static !important; min-height: auto; padding: 1rem 0; }
+
+  .hero-text-content,
+  .hero-image-container,
+  .hero-info-box { position: static !important; width: 100% !important; margin: 0 auto; padding: 0.75rem; box-sizing: border-box; }
+
+  .hero-image { height: auto; max-height: 520px; object-position: center top; border-radius: 0.5rem; }
+
+  .hero-info-box { margin-top: 1rem; padding: 1rem; overflow: visible; }
+
+  .philosophy-grid { gap: 1rem; }
+  .philosophy-text-column,
+  .philosophy-image-column { width: 100% !important; max-width: 720px; margin: 0 auto; padding: 0; }
+
+  footer { padding: 16px 12px; box-sizing: border-box; }
+  .footer-content { display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center; }
+  .footer-section { width: 100%; max-width: 680px; padding: 0 8px; }
+  .footer-bottom { display: flex; flex-direction: column; gap: 8px; align-items: center; margin-top: 12px; }
+
+  #btn-top { position: fixed; right: 12px; bottom: 18vh; }
+}
 }

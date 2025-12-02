@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -54,37 +54,13 @@
     />
     <!--Nhóm 9: Phần footer-->
     <div data-include="partials/footer.html"></div>
-    <script type="module">
-      import {
-        showLoading,
-        hideLoading,
-        updateProgress,
-      } from "./js/loadingComponent.js";
 
-      // Hiển thị loading ngay
-      showLoading();
-
-      // Tăng progress bar
-      let progress = 0;
-      const progressInterval = setInterval(() => {
-        progress += Math.random() * 30;
-        if (progress > 100) progress = 100;
-        updateProgress(progress);
-      }, 300);
-
-      // Ẩn khi trang load xong
-      window.addEventListener("load", () => {
-        clearInterval(progressInterval);
-        updateProgress(100);
-        hideLoading(500);
-      });
-    </script>
-    <script src="js/lang-change.js"></script>
+    pt>
     <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
     <script src="js/common.js"></script>
     <!--Nhóm 9:  Liên kết file JS chung -->
     <script src="js/animations.js"></script>
     <!--Nhóm 9: Liên kết file JS riêng cho partials-->
-    <script src="partials/js/partials.js"></script>
+    <script src="js/partials.js"></script>
   </body>
 </html>

@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Bed Collection Gallery</title>
+    <meta
+      name="description"
+      content="Browse our collection of modern and traditional beds"
+    />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/couch.css" />
+  </head>
+  <body data-page="bed">
+    <!--Nhóm 9: Phần Header-->
+    <div data-include="../partials/header.html"></div>
+
+    <!--Nhóm 9: Thanh điều hướng các sản phẩm khác-->
+    <nav class="product-category-nav">
+        <ul>
+            <li><a href="couch.html" data-i18n="category-sofa">Couch</a></li>
+            <li><a href="bed.html" data-i18n="category-bed">Bed</a></li>
+            <li><a href="armchair.html" data-i18n="category-armchair">Armchair</a></li>
+            <li><a href="wardrobe.html" data-i18n="category-wardrobe">Wardrobe</a></li>
+            <li><a href="chair.html" data-i18n="category-chair">Chair</a></li>
+            <li><a href="shelving.html" data-i18n="category-storage">Storage & Shelving</a></li>
+            <li><a href="dining-table.html" data-i18n="category-dining">Dining table</a></li>
+            <li><a href="side-table.html" class="active" data-i18n="category-sidetable">Side - coffee table</a></li>
+        </ul>
+    </nav>
+
+    <!--Nhóm 9: Phần lọc sản phẩm-->
+    <div class="filter-bar">
+        
+        <div class="filter-item">
+            <div class="filter-title">Material <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="material" value="oak"> Oak</label>
+                <label><input type="checkbox" name="material" value="walnut"> Walnut</label>
+            </div>
+        </div>
+
+        <div class="filter-item">
+            <div class="filter-title">Price <span class="arrow">▼</span></div>
+            <div class="filter-dropdown">
+                <label><input type="checkbox" name="price" value="low"> Under 3.000.000 đ</label>
+            <label><input type="checkbox" name="price" value="mid"> 3.000.000 đ - 5.000.000 đ</label>
+            <label><input type="checkbox" name="price" value="high"> Over 5.000.000 đ</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="sofa-container">
+        </div>
+</div>
+
+    <!--Nhóm 9: Phần trưng bày sản phẩm-->
+    <main data-scroll="fade-up" class="sofa-gallery">
+      <div data-scroll="fade-up" class="background" role="presentation"></div>
+      <section data-scroll="fade-up" class="sofa-container">
+        <div data-scroll="fade-up" class="sofa-grid">
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-1"
+            data-material="oak" 
+            data-price="low">
+            <img 
+            data-scroll="fade-up" 
+            class="sofa-card__image" 
+            src="../images/side table/1.png"
+              alt="Sansei Side Table" 
+              loading="lazy"/>
+            <figure data-scroll="fade-up" class="sofa-card__caption-box">
+              <div data-scroll="fade-up" class="sofa-card__price">
+                2.200.000 đ
+              </div>
+              <figcaption
+                data-scroll="fade-up"
+                class="sofa-card__name"
+                data-i18n="product-sansei"
+              >
+                Sansei Side Table
+              </figcaption>
+              <span
+                data-scroll="fade-up"
+                class="sofa-card__underline"
+                role="presentation"
+              ></span>
+            </figure>
+          </a>
+
+          <a data-scroll="fade-up" href="#" class="sofa-card sofa-2"
+            data-material="walnut" 
+            data-price="high">
+            <img
+              data-scroll="fade-up"
+              class="sofa-card__image"
+              src="../images/side table/2.png"
+              alt="Kuso Side Table"
+              loading="lazy"
+            />
+            <figure data-scroll="fade-up" class="sofa-card__caption-box">
+              <div data-scroll="fade-up" class="sofa-card__price">
+                5.400.000 đ
+              </div>
+              <figcaption
+                data-scroll="fade-up"
+                class="sofa-card__name"
+                data-i18n="product-kuso"
+              >
+                Kuso Side Table
+              </figcaption>
+              <span
+                data-scroll="fade-up"
+                class="sofa-card__underline"
+                role="presentation"
+              ></span>
+            </figure>
+          </a>
+    
+        </div>
+      </section>
+
+      <!--Nhóm 9: Phần phân trang-->
+      <div data-scroll="fade-up" class="pagination">
+        <a href="#" class="arrow">←</a>
+
+        <span class="dot active"></span>
+        
+
+        <a href="#" class="arrow">→</a>
+      </div>
+
+      <!--Nhóm 9: Phần quay lại đầu trang-->
+      <img
+        data-scroll="fade-up"
+        id="btn-top"
+        src="../images/return_to_top.png"
+        alt="Return to top"
+      />
+    </main>
+
+    <!--Nhóm 9: Phần footer-->
+    <footer data-scroll="fade-up">
+      <div class="footer-logo">
+        <div><em>Haguchi</em></div>
+        <div>葉具家</div>
+      </div>
+      <div class="footer-content">
+        <!--Nhóm 9: Các thanh điều hướng sang các trang khác-->
+        <div class="footer-section">
+          <h3 data-i18n="nav-about">About Us</h3>
+          <ul>
+            <li data-i18n="footer-aboutus">
+              Bringing elegance and comfort to your home with high-quality
+              furniture designed for modern living
+            </li>
+            <li data-i18n="footer-aboutus-add">
+              📍 123 Harmony Street, District 1, Ho Chi Minh City
+            </li>
+            <li>📞 (+84) 123 456 789</li>
+            <li>📧 support@haguchi.com</li>
+            <li>🕒 8:00 AM – 9:00 PM (Mon – Sun)</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-categories">Shop by Category</h3>
+          <ul>
+            <li>
+              <a href="couch.html" data-i18n="footer-categories-sofa"
+                >Sofas & Armchairs</a
+              >
+            </li>
+            <li><a href="../404.html" data-i18n="footer-categories-dining">Dining Tables</a></li>
+            <li>
+              <a href="bed.html" data-i18n="footer-categories-bed">Beds</a>
+            </li>
+            <li>
+              <a href="../404.html" data-i18n="footer-categories-cabinet">Cabinets & Shelves</a>
+            </li>
+            <li><a href="../404.html" data-i18n="footer-categories-decor">Lighting & Decor</a></li>
+            <li>
+              <a href="../404.html" data-i18n="footer-categories-new">New Arrivals / Promotions</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3 data-i18n="footer-policies">Policies & Support</h3>
+          <ul>
+            <li>
+              <a href="../policies.html" data-i18n="footer-policies-warranty"
+                >Warranty Policy</a
+              >
+            </li>
+            <li>
+              <a href="../policies.html" data-i18n="footer-policies-return"
+                >Return & Exchange</a
+              >
+            </li>
+            <li>
+              <a href="../policies.html" data-i18n="footer-policies-shipping"
+                >Shipping Policy</a
+              >
+            </li>
+            <li>
+              <a href="../policies.html" data-i18n="footer-policies-order"
+                >How to Order</a
+              >
+            </li>
+            <li>
+              <a href="../policies.html" data-i18n="footer-policies-privacy"
+                >Privacy Policy</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 HAGUCHI – All rights reserved.</span>
+        <div class="social-icons">
+          <div class="social-icon">f</div>
+          <div class="social-icon">in</div>
+          <div class="social-icon">t</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/lang-change.js"></script> <!--Nhóm 9: Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="../js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="../js/couch.js"></script> <!--Nhóm 9: Liên kết file JS riêng cho couch-->
+
+  </body>
+</html>
+

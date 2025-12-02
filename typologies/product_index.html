@@ -1,13 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Nhóm 9: Meta tags và thiết lập cơ bản -->
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L-shaped Sofa - Haguchi Furniture</title>
+<<<<<<< HEAD:product_index.html
     <link rel="stylesheet" href="css/Product.css"/>
     <link rel="stylesheet" href="css/common.css"/>
     <link rel="stylesheet" href="css/loading.css" />
+=======
+    <link rel="stylesheet" href="../css/Product.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+>>>>>>> origin/main:typologies/product_index.html
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
       rel="stylesheet"
@@ -15,97 +20,8 @@
   </head>
 
   <body data-page="product">
-<!--Nhóm 9: Phần Header-->
-    <header>
-      <div class="Logo">
-        <p>
-          <a href="index.html"
-            ><em>Haguchi</em><br />
-            葉具家</a
-          >
-        </p>
-      </div>
-      <nav class="Main-Menu">
-        <!--Nhóm 9: Thanh điều hướng chính-->
-        <ul>
-          <li>
-            <a href="typologies.html" class="active" data-i18n="nav-products">Products</a>
-          </li>
-          <li><a href="about-us.html" data-i18n="nav-about">About us</a></li>
-          <li><a href="blog.html" data-i18n="nav-blog">Blog</a></li>
-          <li><a href="policies.html" data-i18n="nav-policies">Policies</a></li>
-        </ul>
-      </nav>
-
-      <nav class="Sub-Menu">
-        <!--Nhóm 9: Thanh điều hướng phụ-->
-        <ul>
-          <li>
-            <form id="search-box">
-              <!--Nhóm 9: Nút tìm kiếm-->
-              <input
-                type="text"
-                id="search-text"
-                placeholder="Search..."
-                data-i18n="search-placeholder"
-              />
-              <button id="search-btn">
-                <span class="fluent--search-12-filled"></span>
-              </button>
-            </form>
-          </li>
-          <li id="Wishlist">
-            <!--Nhóm 9: Giỏ yêu thích-->
-            <a href="wishlist_index.html">
-              <span class="solar--heart-bold"></span>
-              <span class="wishlist-count">0</span>
-            </a>
-          </li>
-          <li id="User">
-            <!--Nhóm 9: Tài khoản người dùng-->
-            <!-- Hiển thị avatar nếu đã đăng nhập, icon mặc định nếu chưa -->
-            <a href="personal-info.html" id="user-avatar-link">
-              <img
-                id="header-user-avatar"
-                class="header-avatar"
-                src=""
-                alt="User Avatar"
-                style="display: none"
-              />
-              <span id="header-default-icon" class="solar--user-bold"></span>
-            </a>
-          </li>
-          <li class="lang-switcher">
-            <!--Nhóm 9: Chuyển đổi ngôn ngữ-->
-            <div class="lang-toggle">
-              <input
-                type="radio"
-                id="lang-en"
-                name="site-lang"
-                checked
-                onchange="changeLanguage('en')"
-              />
-              <!--Nhóm 9: Sử dụng input type="radio" vì đây là tính năng tạo nút chọn hình tròn và chỉ có thể duy nhất chọn 1 ngôn ngữ-->
-              <input
-                type="radio"
-                id="lang-vi"
-                name="site-lang"
-                onchange="changeLanguage('vi')"
-              />
-              <div class="lang-track">
-                <!--Nhóm 9: Thanh trượt ngôn ngữ-->
-                <label for="lang-en" class="lang-opt lang-en">EN</label>
-                <label for="lang-vi" class="lang-opt lang-vi">VI</label>
-                <div class="lang-knob" aria-hidden="true"></div>
-                <!--Nhóm 9: Nút trượt ngôn ngữ-->
-              </div>
-            </div>
-          </li>
-          <li><span class="icomoon-free--leaf"></span></li>
-          <!--Nhóm 9: Biểu tượng mở thanh menu khi qua màn hình bé hơn-->
-        </ul>
-      </nav>
-    </header>
+    <!--Nhóm 9: Phần Header-->
+    <div data-include="../partials/header.html"></div>
 
     <!-- Nhóm 9: Product Images Section - Phần hiển thị sản phẩm với hình ảnh và chi tiết -->
     <section class="product-display-modern" data-scroll="fade-up">
@@ -115,7 +31,7 @@
    <div class="main-image-container">
             <button class="image-nav-btn prev-img-btn">❮</button>
             <img
-              src="images/product-detail/11.png"
+              src="../images/product-detail/11.png"
               id="mainProductImage"
               alt="L-shaped Sofa"
               class="main-product-image"
@@ -138,31 +54,31 @@
           <div class="thumbnail-gallery-grid">
             <div
               class="thumbnail-item active"
-              data-image="images/product-detail/11.png"
+              data-image="../images/product-detail/11.png"
               data-color="Desaturated Teal"
             >
-              <img src="images/product-detail/11.png" alt="Desaturated Teal" />
+              <img src="../images/product-detail/11.png" alt="Desaturated Teal" />
             </div>
             <div
               class="thumbnail-item"
-              data-image="images/product-detail/9.png"
+              data-image="../images/product-detail/9.png"
               data-color="Dusty Plum"
             >
-              <img src="images/product-detail/9.png" alt="Dusty Plum" />
+              <img src="../images/product-detail/9.png" alt="Dusty Plum" />
             </div>
             <div
               class="thumbnail-item"
-              data-image="images/product-detail/10.png"
+              data-image="../images/product-detail/10.png"
               data-color="Muted Rosewood"
             >
-              <img src="images/product-detail/10.png" alt="Muted Rosewood" />
+              <img src="../images/product-detail/10.png" alt="Muted Rosewood" />
             </div>
             <div
               class="thumbnail-item"
-              data-image="images/product-detail/12.png"
+              data-image="../images/product-detail/12.png"
               data-color="Deep Steel Blue"
             >
-              <img src="images/product-detail/12.png" alt="Deep Steel Blue" />
+              <img src="../images/product-detail/12.png" alt="Deep Steel Blue" />
             </div>
           </div>
         </div>
@@ -403,7 +319,7 @@
               <h2 data-i18n="popup-title">✓ Added to Wishlist!</h2>
               <p data-i18n="popup-message">Your item has been saved to your wishlist.</p>
 
-              <button class="view-btn" data-i18n="popup-view">View Wishlist</button>
+              <button class="view-btn" onclick="window.location.href='../wishlist-and-payment/wishlist_index.html'" data-i18n="popup-view">View Wishlist</button>
               <button class="keep-btn" data-i18n="popup-keep">Keep Shopping</button>
             </div>
           </div>
@@ -598,7 +514,7 @@
         <!-- Slide 1 -->
         <div
           class="gallery-slide active"
-          style="background-image: url('images/product-detail/1.png')"
+          style="background-image: url('../images/product-detail/1.png')"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
@@ -612,7 +528,7 @@
         <!-- Slide 2 -->
         <div
           class="gallery-slide" 
-          style="background-image: url('images/product-detail/2.png')"
+          style="background-image: url('../images/product-detail/2.png')"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
@@ -626,7 +542,7 @@
         <!-- Slide 3 -->
         <div
           class="gallery-slide"
-          style="background-image: url('images/product-detail/3.png')"
+          style="background-image: url('../images/product-detail/3.png')"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
@@ -640,7 +556,7 @@
         <!-- Slide 4 -->
         <div
           class="gallery-slide"
-          style="background-image: url('images/product-detail/4.png')"
+          style="background-image: url('../images/product-detail/4.png')"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
@@ -654,7 +570,7 @@
         <!-- Slide 5 -->
         <div
           class="gallery-slide"
-          style="background-image: url('images/product-detail/5.png')"
+          style="background-image: url('../images/product-detail/5.png')"
         >
           <div class="slide-overlay"></div>
           <div class="slide-content">
@@ -683,23 +599,23 @@
       <!-- Thumbnail Navigation -->
       <div class="gallery-thumbnails" data-scroll="fade-up">
         <div class="thumbnail-item active" onclick="galleryGoToSlide(0)">
-          <img src="images/product-detail/1.png" alt="Tropical Calm" />
+          <img src="../images/product-detail/1.png" alt="Tropical Calm" />
           <span class="thumbnail-label" data-i18n="gallery-thumb-1">Tropical</span>
         </div>
         <div class="thumbnail-item" onclick="galleryGoToSlide(1)">
-          <img src="images/product-detail/2.png" alt="Scandinavian Bright" />
+          <img src="../images/product-detail/2.png" alt="Scandinavian Bright" />
           <span class="thumbnail-label" data-i18n="gallery-thumb-2">Scandinavian</span>
         </div>
         <div class="thumbnail-item" onclick="galleryGoToSlide(2)">
-          <img src="images/product-detail/3.png" alt="Modern Zen" />
+          <img src="../images/product-detail/3.png" alt="Modern Zen" />
           <span class="thumbnail-label" data-i18n="gallery-thumb-3">Modern Zen</span>
         </div>
         <div class="thumbnail-item" onclick="galleryGoToSlide(3)">
-          <img src="images/product-detail/4.png" alt="Urban Neutral" />
+          <img src="../images/product-detail/4.png" alt="Urban Neutral" />
           <span class="thumbnail-label" data-i18n="gallery-thumb-4">Urban</span>
         </div>
         <div class="thumbnail-item" onclick="galleryGoToSlide(4)">
-          <img src="images/product-detail/5.png" alt="Symmetry Luxe" />
+          <img src="../images/product-detail/5.png" alt="Symmetry Luxe" />
           <span class="thumbnail-label" data-i18n="gallery-thumb-5">Luxury</span>
         </div>
       </div>
@@ -832,12 +748,12 @@
 
             <div class="review-images">
               <img
-                src="images/product-detail/10.png"
+                src="../images/product-detail/10.png"
                 alt="Customer photo"
                 class="review-img"
               />
               <img
-                src="images/product-detail/11.png"
+                src="../images/product-detail/11.png"
                 alt="Customer photo"
                 class="review-img"
               />
@@ -966,7 +882,7 @@
 
             <div class="review-images" data-scroll="fade-up">
               <img
-                src="images/product-detail/9.png"
+                src="../images/product-detail/9.png"
                 alt="Customer photo"
                 class="review-img"
               />
@@ -1057,12 +973,12 @@
 
             <div class="review-images" data-scroll="fade-up">
               <img
-                src="images/product-detail/12.png"
+                src="../images/product-detail/12.png"
                 alt="Customer photo"
                 class="review-img"
               />
               <img
-                src="images/product-detail/13.png"
+                src="../images/product-detail/13.png"
                 alt="Customer photo"
                 class="review-img"
               />
@@ -1399,11 +1315,12 @@
     <img
       data-scroll="blur"
       id="btn-top"
-      src="images/return_to_top.png"
+      src="../images/return_to_top.png"
       alt="Return to top"
     />
 
     <!--Nhóm 9: Phần footer-->
+<<<<<<< HEAD:product_index.html
     <footer data-scroll="blur">
       <div class="footer-logo">
         <div><em>Haguchi</em></div>
@@ -1513,5 +1430,16 @@
     <br /><br /><br /><br />
     <script src="js/animations.js"></script>
     <script src="js/product.js"></script>
+=======
+    <div data-include="../partials/footer.html"></div>
+
+    <script src="../js/partials.js"></script> <!--Nhóm 9: Liên kết file JS partials để load header/footer -->
+    <script src="../js/lang-change.js"></script> <!--Nhóm 9:  Liên kết file JS chuyển đổi ngôn ngữ -->
+    <script src="../js/common.js"></script> <!--Nhóm 9:  Liên kết file JS chung -->
+    <script src="../js/animations.js"></script>
+    <script src="../js/product.js"></script>
+>>>>>>> origin/main:typologies/product_index.html
   </body>
 </html>
+
+

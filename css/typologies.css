@@ -220,3 +220,188 @@ Nhóm 9: RESPONSIVE - MOBILE (max-width: 480px)
         transform: none; /* Nhóm 9: Reset về kích thước gốc */
     }
 }
+
+
+/* iPad Pro / large tablets (landscape) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .typologies-page { padding-left: 2rem; padding-right: 2rem; }
+  .typology-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 80px;
+    row-gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+  }
+  .page-title h1 { font-size: 56px; }
+}
+
+/* iPad Air / typical tablets (portrait) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .typologies-page { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .typology-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 48px;
+    row-gap: 48px;
+    max-width: 920px;
+    margin: 0 auto 70px;
+  }
+  .page-title h1 { font-size: 48px; }
+  .typology-item .item-label { white-space: normal; font-size: 22px; }
+}
+
+/* Surface Duo / narrow foldables */
+@media (max-width: 720px) {
+  .typologies-page {
+    padding-top: 110px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .typology-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 28px;
+    row-gap: 36px;
+    max-width: 720px;
+    margin: 0 auto 60px;
+  }
+  .page-title h1 { font-size: 36px; }
+  .typology-item .item-label { font-size: 18px; white-space: normal; }
+}
+
+/* Nest Hub Max (1280×800 landscape) */
+@media only screen and (max-width: 1280px) and (max-height: 800px) and (orientation: landscape) {
+  html, body { overflow-x: hidden; }
+  .typologies-page { padding-top: 90px; padding-left: 12px; padding-right: 12px; }
+  .typology-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 48px;
+    row-gap: 40px;
+    max-width: 1160px;
+    margin: 0 auto 60px;
+  }
+  .page-title h1 { font-size: 44px; }
+}
+
+/* Asus Zenbook Fold / large foldables */
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .typology-grid {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 100px;
+    row-gap: 80px;
+    max-width: 1300px;
+    margin: 0 auto 100px;
+  }
+}
+
+
+/* iPad Pro / large tablets (landscape) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .typologies-page { padding-left: 2rem; padding-right: 2rem; }
+  .typology-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 80px;
+    row-gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto 80px;
+  }
+  .page-title h1 { font-size: 56px; }
+}
+
+/* iPad Air / typical tablets (portrait) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .typologies-page { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .typology-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 48px;
+    row-gap: 48px;
+    max-width: 920px;
+    margin: 0 auto 70px;
+  }
+  .page-title h1 { font-size: 48px; }
+  .typology-item .item-label { white-space: normal; font-size: 22px; }
+}
+
+/* Nest Hub Max (1280×800 landscape) */
+@media only screen and (max-width: 1280px) and (max-height: 800px) and (orientation: landscape) {
+  html, body { overflow-x: hidden; }
+  .typologies-page { padding-top: 90px; padding-left: 12px; padding-right: 12px; }
+  .typology-grid {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 48px;
+    row-gap: 40px;
+    max-width: 1160px;
+    margin: 0 auto 60px;
+  }
+  .page-title h1 { font-size: 44px; }
+}
+
+/* Asus Zenbook Fold / large foldables */
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .typology-grid {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 100px;
+    row-gap: 80px;
+    max-width: 1300px;
+    margin: 0 auto 100px;
+  }
+}
+
+
+
+/* Surface Duo / narrow foldables - consolidated fix */
+@media (max-width: 720px) {
+  html, body { overflow-x: hidden; }
+
+  .typologies-page {
+    padding-top: 100px !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    align-items: center !important;
+  }
+
+  .typology-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    column-gap: 28px !important;
+    row-gap: 36px !important;
+    max-width: 680px !important;
+    margin: 0 auto 60px !important;
+    justify-items: center !important;
+    padding: 0 !important;
+  }
+
+  .typology-item {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .typology-item img {
+    height: 88px !important;
+    width: 88px !important;
+    object-fit: contain !important;
+  }
+
+  .typology-item .item-label {
+    font-size: 18px !important;
+    white-space: normal !important;
+    line-height: 1.2 !important;
+  }
+
+  .page-title h1 {
+    font-size: 34px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* ensure return-to-top doesn't overlap content */
+  #btn-top { position: fixed !important; right: 12px !important; bottom: 18vh !important; }
+
+  /* small tweak to avoid unexpected large images pushing layout */
+  .typology-item img[alt] { max-height: 120px !important; }
+
+  /* prefers-reduced-motion safe */
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+}

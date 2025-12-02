@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
@@ -34,22 +34,7 @@
 
       // Hiển thị loading ngay
       showLoading();
-
-      // Tăng progress bar
-      let progress = 0;
-      const progressInterval = setInterval(() => {
-        progress += Math.random() * 30;
-        if (progress > 100) progress = 100;
-        updateProgress(progress);
-      }, 300);
-
-      // Ẩn khi trang load xong
-      window.addEventListener("load", () => {
-        clearInterval(progressInterval);
-        updateProgress(100);
-        hideLoading(500);
-      });
     </script>
-    <script src="/js/404.js"></script>
+    <script src="js/404.js"></script>
   </body>
 </html>

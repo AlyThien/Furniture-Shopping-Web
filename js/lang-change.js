@@ -1,24 +1,19 @@
-//Nhóm 9: Phần thay đổi ngôn ngữ
+﻿//Nhóm 9: Phần thay đổi ngôn ngữ
 let currentLang = 'en';
 let translations = {};
 
-// Tự động phát hiện đường dẫn gốc dựa trên vị trí file HTML
+// Hàm xác định đường dẫn tương đối đến thư mục gốc
 function getBasePath() {
-    // Đếm số thư mục từ file HTML hiện tại đến root
-    // Bằng cách đếm số lần "../" trong đường dẫn script
-    const scriptTags = document.querySelectorAll('script[src*="lang-change.js"]');
-    if (scriptTags.length > 0) {
-        const scriptSrc = scriptTags[0].getAttribute('src');
-        const depth = (scriptSrc.match(/\.\.\//g) || []).length;
-        return depth > 0 ? '../'.repeat(depth) : '';
-    }
-    return '';
+    const path = window.location.pathname;
+    const depth = path.split('/').filter(x => x && x.indexOf('.html') === -1).length - 1;
+    return depth > 0 ? '../'.repeat(depth) : './';
 }
 
 async function loadTranslation(page, lang) {
     try {
+        // Xác định đường dẫn tương đối dựa vào vị trí trang
         const basePath = getBasePath();
-        // Tải đồng thời file common,json và file json của trang hiện tại
+        // Tải đồng thời file common.json và file json của trang hiện tại
         const [commonRes, pageRes] = await Promise.all([
             fetch(`${basePath}json-lang/common.json`),
             fetch(`${basePath}json-lang/${page}.json`)
@@ -93,3 +88,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Tải ngôn ngữ đã lưu
     loadTranslation(page, savedLang);
 });
+
