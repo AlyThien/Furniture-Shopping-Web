@@ -136,7 +136,7 @@ h2 {
     right: 10px;
     width: 32px;
     height: 32px;
-    background: #ff4444;
+    background: #780606;
     color: white;
     border: none;
     border-radius: 50%;
@@ -150,7 +150,7 @@ h2 {
 }
 
 .remove-btn:hover {
-    background: #cc0000;
+    background: #ff0000;
     transform: scale(1.1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -160,7 +160,7 @@ h2 {
     display: block;
     margin: 40px auto 100px;
     padding: 14px 60px;
-    background-color: white;
+    background-color: #ffffff;
     color: #1a3a2e;
     border: 2px solid #1a3a2e;
     border-radius: 25px;
@@ -182,6 +182,31 @@ h2 {
 .continue-bu:active {
     transform: translateY(0);
 }
+
+.error-message {
+    background-color: #780606;
+    color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: slideDown 0.3s ease-in-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
 
 
 /* ==================== RESPONSIVE: TABLET (768px - 1024px) ==================== */
