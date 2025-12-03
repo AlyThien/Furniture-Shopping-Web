@@ -82,13 +82,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lấy ngôn ngữ đã lưu từ localStorage, mặc định là 'en'
     const savedLang = localStorage.getItem('selectedLanguage') || 'en';
     
-    // Cập nhật trạng thái radio button theo ngôn ngữ đã lưu
-    const langRadio = document.getElementById(`lang-${savedLang}`);
-    if (langRadio) {
-        langRadio.checked = true;
+    // Function để cập nhật radio button và load translation
+    function initLanguage() {
+        // Cập nhật trạng thái radio button theo ngôn ngữ đã lưu
+        const langRadio = document.getElementById(`lang-${savedLang}`);
+        if (langRadio) {
+            langRadio.checked = true;
+        }
+        
+        // Tải ngôn ngữ đã lưu
+        loadTranslation(page, savedLang);
     }
     
-    // Tải ngôn ngữ đã lưu
-    loadTranslation(page, savedLang);
+    // Chạy sau khi header load xong (vì radio button nằm trong header)
+    if (document.getElementById('lang-en')) {
+        // Header đã load rồi
+        initLanguage();
+    } else {
+        // Đợi header load xong
+        document.addEventListener('allPartialsLoaded', initLanguage);
+    }
 });
 
