@@ -6,7 +6,8 @@
     "bank-detail-title": "Payment detail:",
     "bank-detail-note": "Please send a picture of the bank transfer details.",
     "bank-import-image": "Import Image",
-    "bank-continue": "Continue"
+    "bank-continue": "Continue",
+    "upload-error": "Please select an image before continuing"
   },
   
   "vi": {
@@ -16,6 +17,7 @@
     "bank-detail-title": "Chi tiết thanh toán:",
     "bank-detail-note": "Vui lòng gửi hình ảnh chi tiết chuyển khoản ngân hàng.",
     "bank-import-image": "Tải ảnh lên",
-    "bank-continue": "Tiếp tục"
+    "bank-continue": "Tiếp tục",
+    "upload-error": "Vui lòng chọn hình ảnh trước khi tiếp tục"
   }
 }
