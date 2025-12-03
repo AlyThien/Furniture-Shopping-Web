@@ -102,19 +102,30 @@ class OrderDetailPage {
         }
     }
 
-    // updatePaymentMethod(customerData) - Cập nhật phương thức thanh toán
+     // updatePaymentMethod(customerData) - Cập nhật phương thức thanh toán
     updatePaymentMethod(customerData) {
-        const paymentMethodEl = document.querySelector('.payment-shipping-grid .info-card:first-child .info-value');
-
+        const paymentMethodEl = document.querySelector(
+            '.payment-shipping-grid .info-card:first-child .info-value'
+        );
+    
         if (paymentMethodEl) {
-            if (customerData.payment === 'cod') {
-                paymentMethodEl.textContent = '💵 Cash on Delivery (COD)';
+            paymentMethodEl.innerHTML = ""; // clear old content
+    
+            const icon = document.createElement("span");
+            const text = document.createElement("span");
+    
+            if (customerData.payment === "cod") {
+                icon.className = "cod-icon";
+                text.textContent = "Cash on Delivery (COD)";
             } else {
-                paymentMethodEl.textContent = '🏧 Bank Transfer (VietQR)';
+                icon.className = "atm-icon";
+                text.textContent = "Bank Transfer (VietQR)";
             }
+    
+            paymentMethodEl.appendChild(icon);
+            paymentMethodEl.appendChild(text);
         }
     }
-
     // updateOrderTime(customerData) - Cập nhật thời gian đặt hàng
     updateOrderTime(customerData) {
         const orderTimeElements = document.querySelectorAll('.info-card .info-value');
