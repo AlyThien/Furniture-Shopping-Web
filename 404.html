@@ -1,9 +1,30 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>404 — Trang không tìm thấy</title>
+<<<<<<< HEAD
+    <link rel="stylesheet" href="/css/404.css" />
+  </head>
+  <body>
+    <main class="nf-wrap" role="main" aria-labelledby="nf-title">
+      <div class="nf-card">
+        <div class="nf-graphic" aria-hidden="true">
+          <span class="dot a"></span>
+          <span class="dot b"></span>
+          <span class="dot c"></span>
+        </div>
+
+        <h1 id="nf-title">404</h1>
+        <p class="nf-message">Không tìm thấy trang bạn yêu cầu.</p>
+        <p class="nf-sub">Trang hiện chưa được công bố.</p>
+
+        <div class="nf-actions">
+          <a class="btn primary" href="/index.html">Về trang chủ</a>
+          <button id="nf-back" class="btn ghost" type="button">Quay lại</button>
+        </div>
+=======
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="css/404.css" />
 </head>
@@ -14,23 +35,19 @@
         <span class="dot a"></span>
         <span class="dot b"></span>
         <span class="dot c"></span>
+>>>>>>> f56a03e87cba5afc275540be1cdd024672ab1d8a
       </div>
+    </main>
+    <script type="module">
+      import {
+        showLoading,
+        hideLoading,
+        updateProgress,
+      } from "./js/loadingComponent.js";
 
-      <h1 id="nf-title">404</h1>
-      <p class="nf-message">Không tìm thấy trang bạn yêu cầu.</p>
-      <p class="nf-sub">Trang hiện chưa được công bố.</p>
-
-      <div class="nf-actions">
-        <a class="btn primary" href="index.html">Đến trang chủ</a>
-        <button id="nf-back" class="btn ghost" type="button">Quay lại</button>
-      </div>
-
-      
-
-      
-    </div>
-  </main>
-
-  <script src="js/404.js"></script>
-</body>
+      // Hiển thị loading ngay
+      showLoading();
+    </script>
+    <script src="js/404.js"></script>
+  </body>
 </html>

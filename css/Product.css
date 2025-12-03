@@ -67,12 +67,10 @@ MODERN PRODUCT DISPLAY
   /* Giới hạn kích thước tối đa */
   max-width: 100%;
   max-height: 100%;
-
   width: auto;
   height: auto;
   object-fit: contain;
   object-position: center;
-
   transition: transform 0.5s ease;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
 }
